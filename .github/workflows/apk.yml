@@ -40,14 +40,21 @@ jobs:
           cd build/android/app/src/main
           cp "$GITHUB_WORKSPACE"/android/*.java java/com/gastei/app/
           rm -rf res/mipmap-anydpi-v26
-          for f in res/mipmap-*/ic_launcher*.png; do
-            s=$(identify -format "%w" "$f")
-            convert "$GITHUB_WORKSPACE/icon-512.png" -resize ${s}x${s} "$f"
-          done
-          for f in $(find res -name 'splash.png'); do
-            g=$(identify -format "%wx%h" "$f"); m=$(identify -format "%[fx:min(w,h)/3]" "$f")
-            convert -size $g xc:'#0B6E7F' \( "$GITHUB_WORKSPACE/icon-512.png" -resize ${m}x${m} \) -gravity center -composite "$f"
-          done
+          pip install --quiet pillow
+          python3 - "$GITHUB_WORKSPACE/icon-512.png" <<'PY'
+          import sys, glob
+          from PIL import Image
+          icon = Image.open(sys.argv[1]).convert("RGBA")
+          for f in glob.glob("res/mipmap-*/ic_launcher*.png"):
+              w = Image.open(f).size[0]
+              icon.resize((w, w), Image.LANCZOS).save(f)
+          for f in glob.glob("res/drawable*/splash.png"):
+              W, H = Image.open(f).size
+              m = min(W, H) // 3
+              bg = Image.new("RGBA", (W, H), (11, 110, 127, 255))
+              bg.paste(icon.resize((m, m), Image.LANCZOS), ((W - m) // 2, (H - m) // 2), icon.resize((m, m), Image.LANCZOS))
+              bg.convert("RGB").save(f)
+          PY
           VC=$(( $(date +%s) / 60 - 29000000 ))
           sed -i "s/versionCode 1/versionCode $VC/; s/versionName \"1.0\"/versionName \"1.$GITHUB_RUN_NUMBER\"/" ../../build.gradle
       - name: Compilar e assinar
