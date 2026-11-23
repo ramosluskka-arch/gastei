@@ -337,6 +337,57 @@ footer{margin-top:28px;color:var(--muted);font-size:.78rem;display:flex;justify-
   svg.chart{height:210px}
 }
 .swipehint{display:none}
+/* ---- ajuste fino para celulares ---- */
+html,body{overflow-x:hidden}
+@media (max-width:760px){
+  .appbar .in{gap:8px}
+  .brand{min-width:0}
+  .kpi{padding:12px 13px}
+  .kpi .k{font-size:.74rem;flex-wrap:nowrap}
+  .kpi .k>span:first-child,.kpi .k{white-space:nowrap}
+  .trend{padding:1px 6px;font-size:.66rem}
+}
+@media (max-width:760px){
+  /* lista */
+  .item{grid-template-columns:auto minmax(0,1fr) auto;gap:12px;padding:12px 0;cursor:pointer}
+  .item .acts{display:none}
+  .item .t b{font-size:.95rem}
+  .item .t span{display:block;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;margin-top:1px}
+  .item .v{font-size:.95rem;font-weight:500}
+  .chead:has(#search){flex-wrap:wrap}
+  .chead:has(#search) .tools{flex-basis:100%}
+  #search{width:100%;box-sizing:border-box}
+  .filters{display:grid;grid-template-columns:minmax(0,2fr) minmax(0,3fr);gap:8px}
+  .filters select{min-width:0;width:100%;font-size:.86rem;padding:10px 8px}
+  #fPay{grid-column:1/-1}
+  /* cartões do topo */
+  .kpi .v{font-size:clamp(.92rem,4.45vw,1.25rem);letter-spacing:-.04em;text-overflow:clip}
+  .kpi{align-content:start}
+  .kpi .s{white-space:normal;line-height:1.3;font-size:.72rem}
+  /* balanço */
+  .bal{grid-template-columns:minmax(0,1fr);gap:8px}
+  .bal div{display:flex;justify-content:space-between;align-items:center;gap:10px;padding:12px 14px}
+  .bal span{font-size:.84rem}
+  .bal b{font-size:1.05rem;overflow:visible}
+  /* período */
+  .phead{row-gap:10px}
+  .phead .plabel{order:-1;flex-basis:100%;font-size:1.15rem!important}
+  .phead .link{font-size:.86rem}
+  .card h2{font-size:1.05rem}
+  .welcome .btn{white-space:nowrap;padding-inline:10px}
+}
+@media (max-width:350px){
+  .brand #appName{display:none}
+  .kpi .k .trend{display:none}
+  .filters select{font-size:.8rem;padding:10px 6px}
+  .appbar .in{gap:6px}
+}
+@media (max-width:440px){
+  .instbtn span{display:none}
+  .instbtn{width:36px;height:36px;padding:0;justify-content:center;border-radius:10px}
+  .instbtn svg{width:18px;height:18px}
+  .brand{font-size:1.05rem}
+}
 .instbtn{display:inline-flex;align-items:center;gap:6px;padding:8px 11px}.instbtn svg{width:16px;height:16px}
 .instsheet{max-width:440px;display:grid;gap:14px;padding:20px}
 .ihead{display:flex;align-items:center;justify-content:space-between}.ihead h2{margin:0;font-size:1.2rem}
@@ -442,7 +493,7 @@ footer{margin-top:28px;color:var(--muted);font-size:.78rem;display:flex;justify-
     <span class="sp"></span>
     <span class="chip lv" id="lvChip"><span class="dot" id="lv">1</span><span id="rank">Iniciante</span><span class="xpmini" aria-hidden="true"><div id="xpFill"></div></span></span>
     <span class="chip st" title="Dias seguidos anotando gastos"><span class="dot"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2c1 4 5 5.5 5 11a5 5 0 0 1-10 0c0-2.5 1-4 2-5 0 2 1 3 2 3 0-3-1-6 1-9z"/></svg></span><b id="streakN">0</b><span class="t">dias</span></span>
-    <button class="btn sm instbtn" id="installBtn" hidden><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 4v11M7 10l5 5 5-5M5 20h14"/></svg>Instalar</button>
+    <button class="btn sm instbtn" id="installBtn" hidden><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 4v11M7 10l5 5 5-5M5 20h14"/></svg><span>Instalar</span></button>
     <button class="iconbtn" id="openSettings" aria-label="Configurações"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="4" y1="6" x2="20" y2="6"/><line x1="4" y1="12" x2="20" y2="12"/><line x1="4" y1="18" x2="20" y2="18"/><circle cx="9" cy="6" r="2" fill="var(--surface)"/><circle cx="15" cy="12" r="2" fill="var(--surface)"/><circle cx="7" cy="18" r="2" fill="var(--surface)"/></svg></button>
   </div>
 </header>
@@ -557,11 +608,11 @@ footer{margin-top:28px;color:var(--muted);font-size:.78rem;display:flex;justify-
       <section class="card" data-v="list">
         <div class="chead"><h2>Lançamentos</h2><div class="tools"><input class="inp" id="search" placeholder="Buscar descrição" aria-label="Buscar lançamento"></div></div>
         <div class="filters">
-          <select class="inp" id="fType" aria-label="Filtrar por tipo"><option value="">Gastos e receitas</option><option value="out">Só gastos</option><option value="in">Só receitas</option></select>
+          <select class="inp" id="fType" aria-label="Filtrar por tipo"><option value="">Tudo</option><option value="out">Só gastos</option><option value="in">Só receitas</option></select>
           <select class="inp" id="fCat" aria-label="Filtrar por categoria"></select>
           <select class="inp" id="fPay" aria-label="Filtrar por forma de pagamento"></select>
         </div>
-        <p class="swipehint">Arraste um lançamento para a esquerda para excluir. Toque no lápis para editar.</p>
+        <p class="swipehint">Toque num lançamento para editar. Arraste para a esquerda para excluir.</p>
         <div id="list"></div>
       </section>
 
@@ -754,7 +805,7 @@ var MOL=["janeiro","fevereiro","março","abril","maio","junho","julho","agosto",
 
 var fmtBRL=new Intl.NumberFormat("pt-BR",{style:"currency",currency:"BRL"});
 var fmtNum=new Intl.NumberFormat("pt-BR",{minimumFractionDigits:2,maximumFractionDigits:2});
-function brl(c){return fmtBRL.format(c/100).replace(/\u00a0/g," ")}
+function brl(c){return fmtBRL.format(c/100).replace(/\s/g,"\u00a0")}
 function brlShort(c){var v=c/100;if(v>=1000)return(v/1000).toLocaleString("pt-BR",{maximumFractionDigits:1})+" mil";return String(Math.round(v))}
 function parseMoney(s){s=String(s).replace(/[R$\s]/g,"");if(s.indexOf(",")>-1)s=s.replace(/\./g,"").replace(",",".");var v=Math.round(parseFloat(s)*100);return v>0?v:0}
 
@@ -1033,7 +1084,7 @@ function drawChart(r){
   var ry=T+ph-ph*ref/max;h+='<line class="ml" x1="'+L+'" x2="'+W+'" y1="'+ry+'" y2="'+ry+'"/>';
   svg.setAttribute("viewBox","0 0 "+W+" "+H);svg.innerHTML=h;animBars=false;
   $("#legend").innerHTML='<span><i></i>'+(mode==="ano"?"Meta do mês: ":"Limite por dia pela meta: ")+brl(ref)+'</span>';
-  $("#cap").textContent=mode==="ano"?"Clique num mês para abrir.":"Clique num dia para abrir.";
+  $("#cap").textContent=(mobile()?"Toque":"Clique")+(mode==="ano"?" num mês para abrir.":" num dia para abrir.");
 }
 function capFor(i){var b=bars[i];if(b)$("#cap").innerHTML=esc(b.cap.charAt(0).toUpperCase()+b.cap.slice(1))+": <b>"+brl(b.v)+"</b>"}
 var chartEl=$("#chart");
@@ -1099,7 +1150,7 @@ function drawList(items){
   if(l.length>listLimit)h+='<button class="btn sm ghost" id="moreBtn" style="margin-top:10px">Mostrar mais ('+(l.length-listLimit)+')</button>';
   $("#list").innerHTML=h;newId=null;
 }
-$("#list").addEventListener("click",function(e){var b=e.target.closest("button");if(!b)return;if(b.id==="moreBtn"){listLimit+=40;drawPeriod();return}if(b.dataset.e)startEdit(b.dataset.e);if(b.dataset.d)del(b.dataset.d);if(b.dataset.r)dup(b.dataset.r)});
+$("#list").addEventListener("click",function(e){var b=e.target.closest("button");if(!b&&mobile()){var it=e.target.closest(".item");if(it&&!it.classList.contains("swiping")){var eb=it.querySelector("[data-e]");if(eb)startEdit(eb.dataset.e)}return}if(!b)return;if(b.id==="moreBtn"){listLimit+=40;drawPeriod();return}if(b.dataset.e)startEdit(b.dataset.e);if(b.dataset.d)del(b.dataset.d);if(b.dataset.r)dup(b.dataset.r)});
 $("#search").addEventListener("input",function(){query=this.value.trim();listLimit=20;var r=range(mode,anchor);drawList(inRange(r[0],r[1]))});
 
 /* ---------- configurações ---------- */
