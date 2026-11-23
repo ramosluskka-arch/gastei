@@ -61,7 +61,7 @@ jobs:
         run: |
           cd build/android
           chmod +x gradlew
-          ./gradlew assembleRelease --no-daemon -q
+          for t in 1 2 3 4; do ./gradlew assembleRelease --no-daemon -q && break; [ $t = 4 ] && exit 1; echo "Tentando de novo em $((t*45))s"; sleep $((t*45)); done
           BT=$(ls -d $ANDROID_HOME/build-tools/* | sort -V | tail -1)
           $BT/zipalign -f 4 app/build/outputs/apk/release/app-release-unsigned.apk aligned.apk
           if [ -n "$KS_B64" ]; then
