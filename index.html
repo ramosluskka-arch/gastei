@@ -337,6 +337,72 @@ footer{margin-top:28px;color:var(--muted);font-size:.78rem;display:flex;justify-
   svg.chart{height:210px}
 }
 .swipehint{display:none}
+.pdfbtn{margin-left:auto;display:inline-flex;align-items:center;gap:6px}
+.pdfbtn svg{width:16px;height:16px}
+#report{display:none}
+@page{size:A4;margin:12mm 12mm 14mm}
+@media print{
+  html,body{background:#fff!important;color:#14202B!important;padding:0!important;margin:0!important}
+  body::before,body>*:not(#report){display:none!important}
+  #report{display:block!important;-webkit-print-color-adjust:exact;print-color-adjust:exact}
+}
+#report{font-family:"Plus Jakarta Sans",system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;color:#14202B;font-size:10.5pt;line-height:1.45}
+#report .n{font-family:"DM Mono",ui-monospace,Menlo,Consolas,monospace;font-variant-numeric:tabular-nums;letter-spacing:-.02em;white-space:nowrap}
+.rp-page{break-after:page;page-break-after:always}
+.rp-page:last-child{break-after:auto;page-break-after:auto}
+.rp-cover{height:262mm;box-sizing:border-box;border-radius:6mm;padding:16mm 14mm;background:#0B6E7F;background-image:radial-gradient(120mm 120mm at 105% -5%,rgba(232,155,12,.55),transparent 60%),radial-gradient(140mm 110mm at -20% 110%,rgba(255,255,255,.12),transparent 60%);color:#fff;display:flex;flex-direction:column;position:relative;overflow:hidden}
+.rp-brand{display:flex;align-items:center;gap:10px;font-weight:800;font-size:13pt;letter-spacing:-.01em}
+.rp-brand i{width:30px;height:30px;border-radius:9px;background:#E89B0C;display:grid;place-items:center;font-style:normal;color:#0B3A43;font-weight:800}
+.rp-cover .kick{margin-top:auto;font-size:10pt;text-transform:uppercase;letter-spacing:.18em;opacity:.8;font-weight:700}
+.rp-cover h1{font-size:34pt;line-height:1.05;margin:4mm 0 3mm;letter-spacing:-.03em;font-weight:800}
+.rp-cover .per{font-size:15pt;font-weight:600;opacity:.95}
+.rp-cover .who{margin-top:2mm;opacity:.75;font-size:10pt}
+.rp-ck{display:grid;grid-template-columns:repeat(2,1fr);gap:4mm;margin-top:12mm}
+.rp-ck div{background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.22);border-radius:4mm;padding:4mm 5mm}
+.rp-ck span{display:block;font-size:8.5pt;text-transform:uppercase;letter-spacing:.12em;opacity:.8;font-weight:700}
+.rp-ck b{display:block;font-size:19pt;font-weight:500;margin-top:1mm}
+.rp-cover .foot{margin-top:10mm;font-size:8.5pt;opacity:.7;display:flex;justify-content:space-between}
+.rp-h{display:flex;justify-content:space-between;align-items:flex-end;border-bottom:2px solid #0B6E7F;padding-bottom:2.5mm;margin-bottom:5mm}
+.rp-h h2{margin:0;font-size:17pt;letter-spacing:-.02em;color:#0B3A43}
+.rp-h small{color:#5F6D7A;font-size:9pt;text-align:right}
+.rp-sec{margin:0 0 6mm;break-inside:avoid;page-break-inside:avoid}
+.rp-sec h3{margin:0 0 2.5mm;font-size:10pt;text-transform:uppercase;letter-spacing:.1em;color:#0B6E7F}
+.rp-grid{display:grid;grid-template-columns:1fr 1fr;gap:5mm}
+.rp-box{border:1px solid #DCE3E8;border-radius:3.5mm;padding:4mm 4.5mm;background:#fff}
+.rp-kpis{display:grid;grid-template-columns:repeat(4,1fr);gap:3mm;margin-bottom:6mm}
+.rp-kpis div{border-radius:3mm;padding:3mm 3.5mm;background:#F1F6F7;border-left:3px solid #0B6E7F}
+.rp-kpis div.am{border-left-color:#E89B0C}
+.rp-kpis span{display:block;font-size:7.5pt;text-transform:uppercase;letter-spacing:.1em;color:#5F6D7A;font-weight:700}
+.rp-kpis b{display:block;font-size:12.5pt;font-weight:500;margin-top:.5mm}
+.rp-ins{margin:0;padding:0;list-style:none;display:grid;gap:2mm}
+.rp-ins li{position:relative;padding-left:6mm}
+.rp-ins li::before{content:"";position:absolute;left:0;top:1.6mm;width:2.4mm;height:2.4mm;border-radius:50%;background:#E89B0C}
+.rp-row{display:grid;grid-template-columns:1fr auto auto;gap:1mm 3mm;align-items:baseline;padding:1.6mm 0;border-top:1px solid #EEF2F4}
+.rp-row:first-of-type{border-top:0}
+.rp-row .nm{display:flex;align-items:center;gap:2mm;font-weight:600;min-width:0}
+.rp-row .nm i{width:2.6mm;height:2.6mm;border-radius:1mm;flex:none}
+.rp-row .pc{color:#5F6D7A;font-size:8.5pt}
+.rp-row .tr{grid-column:1/-1;height:1.8mm;border-radius:1mm;background:#EEF2F4;overflow:hidden}
+.rp-row .tr div{height:100%;border-radius:1mm}
+.rp-pbar{height:4mm;border-radius:2mm;background:#EEF2F4;overflow:hidden;margin:2mm 0 1.5mm}
+.rp-pbar div{height:100%;border-radius:2mm}
+.rp-tbl{width:100%;border-collapse:collapse;font-size:9pt}
+.rp-tbl th{text-align:left;font-size:7.5pt;text-transform:uppercase;letter-spacing:.08em;color:#fff;background:#0B6E7F;padding:2mm 2.2mm;font-weight:700}
+.rp-tbl th:first-child{border-radius:1.5mm 0 0 1.5mm}.rp-tbl th:last-child{border-radius:0 1.5mm 1.5mm 0}
+.rp-tbl td{padding:1.7mm 2.2mm;border-bottom:1px solid #EEF2F4;vertical-align:top}
+.rp-tbl tbody tr:nth-child(even) td{background:#F7FAFB}
+.rp-tbl tr{break-inside:avoid;page-break-inside:avoid}
+.rp-tbl thead{display:table-header-group}
+.rp-tbl tfoot{display:table-row-group}
+.rp-tbl .r{text-align:right}
+.rp-tbl tfoot td{font-weight:800;border-top:2px solid #0B6E7F;border-bottom:0;background:#fff}
+.rp-tbl .dot{display:inline-block;width:2.2mm;height:2.2mm;border-radius:50%;margin-right:1.5mm;vertical-align:middle}
+.rp-tag{display:inline-block;font-size:7pt;font-weight:800;text-transform:uppercase;letter-spacing:.06em;padding:.4mm 1.6mm;border-radius:1mm}
+.rp-tag.o{background:#FCEBD0;color:#8A5600}.rp-tag.i{background:#D7F0E4;color:#126B43}
+.pos2{color:#127A4B}.neg2{color:#C2362B}
+.rp-chart{width:100%;height:auto;display:block}
+.rp-muted{color:#5F6D7A}
+.rp-end{margin-top:5mm;font-size:8pt;color:#8A96A3;text-align:center}
 @media (prefers-reduced-motion:reduce){*,*::before,*::after{animation:none!important;transition:none!important}}
 </style>
 
@@ -400,6 +466,7 @@ footer{margin-top:28px;color:var(--muted);font-size:.78rem;display:flex;justify-
           <button class="arrow" id="next" aria-label="Próximo período"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><path d="M9 18l6-6-6-6"/></svg></button>
           <h2 class="plabel" id="plabel">—</h2>
           <button class="link" id="backNow" hidden>Voltar para hoje</button>
+          <button class="btn sm ghost pdfbtn" id="pdfBtn" title="Gerar relatório em PDF deste período"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 3H7a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V8z"/><path d="M14 3v5h5M12 18v-6M9 15l3 3 3-3"/></svg>PDF</button>
         </div>
         <div class="total">
           <div><div class="sub" id="pkind">Total gasto</div><p class="big" id="ptotal">R$ 0,00</p></div>
@@ -476,6 +543,7 @@ footer{margin-top:28px;color:var(--muted);font-size:.78rem;display:flex;justify-
           <button data-open="perfil"><span>Perfil e meta do mês<small>Seu nome e quanto quer gastar</small></span></button>
           <button data-open="cats"><span>Categorias e orçamentos<small>Nomes, cores e limite por categoria</small></span></button>
           <button data-open="fixos"><span>Gastos e receitas fixos<small>O que entra sozinho todo mês</small></span></button>
+          <button data-pdf><span>Relatório em PDF<small>Apresentação completa do período que está aberto</small></span></button>
           <button data-open="dados"><span>Planilha e cópia de segurança<small>Exportar, guardar e recuperar dados</small></span></button>
           <button data-open="aparencia"><span>Aparência<small>Tema claro ou escuro e início da semana</small></span></button>
         </div>
@@ -520,6 +588,8 @@ footer{margin-top:28px;color:var(--muted);font-size:.78rem;display:flex;justify-
         <div class="reclist" id="recList"></div>
       </div>
       <div class="set" data-pane="dados" hidden>
+        <p><b>Relatório em PDF.</b> Gera uma apresentação com capa, resumo, gráfico, categorias, formas de pagamento, mês a mês e todos os lançamentos do período aberto. Na janela que abrir, escolha <b>Salvar como PDF</b>.</p>
+        <div class="tools"><button class="btn sm" data-pdf>Gerar relatório em PDF</button></div>
         <p><b>Planilha.</b> Baixe todos os gastos em CSV para abrir no Excel ou no Google Planilhas. Se o download não começar, use Copiar CSV e cole num arquivo .csv.</p>
         <div class="tools"><button class="btn sm" id="csvBtn">Baixar planilha (CSV)</button><button class="btn sm ghost" id="csvCopy">Copiar CSV</button></div>
         <p><b>Cópia de segurança.</b> Os dados ficam só neste navegador. Gere a cópia e guarde o texto. Para recuperar, cole o texto aqui e clique em Recuperar.</p>
@@ -557,6 +627,7 @@ footer{margin-top:28px;color:var(--muted);font-size:.78rem;display:flex;justify-
   </form>
 </div>
 
+<div id="report" aria-hidden="true"></div>
 <div class="sheetbg" id="sheetbg"></div>
 <nav class="tabbar" aria-label="Navegação do app">
   <button data-tab="home" aria-current="page"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 11l9-7 9 7"/><path d="M5 10v10h14V10"/></svg>Início</button>
@@ -1032,6 +1103,102 @@ $("#csvBtn").addEventListener("click",function(){
   try{var a=document.createElement("a");a.href=URL.createObjectURL(new Blob(["\ufeff"+c],{type:"text/csv;charset=utf-8"}));a.download="gastos-"+iso(today())+".csv";document.body.appendChild(a);a.click();setTimeout(function(){URL.revokeObjectURL(a.href);a.remove()},500);toast("Planilha gerada. Se não baixou, use Copiar CSV.")}catch(e){copyText(c,"CSV copiado")}
 });
 $("#csvCopy").addEventListener("click",function(){copyText(csv(),"CSV copiado. Cole num arquivo .csv")});
+/* ---------- relatório em PDF (impressão do navegador, funciona offline) ---------- */
+function rpM(v){return(v<0?"- ":"")+brl(Math.abs(v))}
+function rpD(d){var x=parse(d);return pad(x.getDate())+"/"+pad(x.getMonth()+1)+"/"+x.getFullYear()}
+function rpSum(a){var t=0;a.forEach(function(x){t+=x.v});return t}
+function rpRows(by,total,meta){
+  var ks=Object.keys(by).sort(function(a,b){return by[b]-by[a]});if(!ks.length)return'<p class="rp-muted">Nada neste período.</p>';
+  var top=by[ks[0]];
+  return ks.map(function(k){var m=meta(k),pc=total?Math.round(by[k]/total*1000)/10:0;
+    return'<div class="rp-row"><span class="nm"><i style="background:'+m.c+'"></i>'+esc(m.n)+'</span><span class="pc">'+String(pc).replace(".",",")+'%</span><span class="n">'+brl(by[k])+'</span><div class="tr"><div style="width:'+(by[k]/top*100)+'%;background:'+m.c+'"></div></div></div>'}).join("");
+}
+function rpChart(r){
+  var bs=buckets(r),W=680,H=200,L=52,B=24,T=8,pw=W-L-4,ph=H-B-T;
+  var ref=mode==="ano"?S.meta:mode==="mes"?Math.round(S.meta/r[1].getDate()):0;
+  var mx=Math.max.apply(null,bs.map(function(b){return b.v})),max=nice(Math.max(mx,ref*1.05)),bw=pw/bs.length,gap=Math.max(2,Math.min(bw*.28,14)),h="";
+  [0,.25,.5,.75,1].forEach(function(f){var y=T+ph-ph*f;h+='<line x1="'+L+'" x2="'+(W-4)+'" y1="'+y+'" y2="'+y+'" stroke="#E3E9ED" stroke-width="1"/>';if(f===0||f===.5||f===1)h+='<text x="'+(L-7)+'" y="'+(y+3.5)+'" text-anchor="end" font-size="9" fill="#5F6D7A">'+(f?brlShort(max*f):"0")+'</text>'});
+  bs.forEach(function(b,i){var x=L+i*bw,bh=b.v?Math.max(1.5,ph*b.v/max):0,w=Math.max(1,bw-gap);
+    if(bh)h+='<rect x="'+(x+gap/2)+'" y="'+(T+ph-bh)+'" width="'+w+'" height="'+bh+'" rx="'+Math.min(3,w/2)+'" fill="'+(b.v===mx?"#E89B0C":"#0B6E7F")+'"/>';
+    if(b.l)h+='<text x="'+(x+bw/2)+'" y="'+(H-8)+'" text-anchor="middle" font-size="9" fill="#5F6D7A">'+esc(b.l)+'</text>'});
+  if(ref&&ref<=max){var ry=T+ph-ph*ref/max;h+='<line x1="'+L+'" x2="'+(W-4)+'" y1="'+ry+'" y2="'+ry+'" stroke="#C2362B" stroke-width="1.2" stroke-dasharray="5 4"/><text x="'+(W-6)+'" y="'+(ry-4)+'" text-anchor="end" font-size="9" font-weight="700" fill="#C2362B">'+(mode==="ano"?"meta do mês":"limite por dia")+'</text>'}
+  return'<svg class="rp-chart" viewBox="0 0 '+W+' '+H+'" font-family="Plus Jakarta Sans,system-ui,sans-serif">'+h+'</svg>';
+}
+var CHARTNAME={dia:"Gastos de cada dia da semana",semana:"Gastos de cada dia da semana",mes:"Gastos de cada dia do mês",ano:"Gastos de cada mês do ano"};
+function buildReport(r,all){
+  var t=today(),now=new Date(),outs=all.filter(isOut),ins=all.filter(function(x){return !isOut(x)});
+  var tOut=rpSum(outs),tIn=rpSum(ins),net=tIn-tOut,rate=tIn?Math.round(net/tIn*100):null;
+  var pr=range(mode,shift(mode,anchor,-1)),prevOut=sumRange(pr[0],pr[1]).t;
+  var isNow=t>=r[0]&&t<=r[1],end=isNow?t:r[1],days=Math.max(1,Math.round((end-r[0])/864e5)+1);
+  var lbl=periodLabel(),gen=now.toLocaleDateString("pt-BR",{day:"2-digit",month:"long",year:"numeric"})+" às "+pad(now.getHours())+":"+pad(now.getMinutes());
+  var brand='<div class="rp-brand"><i>'+esc(APP_NAME.charAt(0))+'</i>'+esc(APP_NAME)+'</div>';
+  function head(title){return'<div class="rp-h"><h2>'+title+'</h2><small>'+esc(lbl)+'<br>'+esc(APP_NAME)+(S.name?" · "+esc(S.name):"")+'</small></div>'}
+  var byC={},byP={},byI={};
+  outs.forEach(function(x){byC[x.c]=(byC[x.c]||0)+x.v;var k=x.p&&PAY(x.p)?x.p:"_";byP[k]=(byP[k]||0)+x.v});
+  ins.forEach(function(x){byI[x.c]=(byI[x.c]||0)+x.v});
+  /* capa */
+  var h='<section class="rp-page"><div class="rp-cover">'+brand+
+    '<div class="kick">Relatório financeiro</div><h1>Resumo das<br>suas finanças</h1><div class="per">'+esc(lbl)+'</div>'+
+    (S.name?'<div class="who">Preparado para '+esc(S.name)+'</div>':'')+
+    '<div class="rp-ck"><div><span>Receitas</span><b class="n">'+brl(tIn)+'</b></div><div><span>Gastos</span><b class="n">'+brl(tOut)+'</b></div>'+
+    '<div><span>Saldo</span><b class="n">'+rpM(net)+'</b></div><div><span>'+(net<0?"Passou do que entrou":"Sobrou do que entrou")+'</span><b class="n">'+(rate===null?"—":Math.abs(rate)+"%")+'</b></div></div>'+
+    '<div class="foot"><span>'+all.length+' lançamentos no período</span><span>Gerado em '+esc(gen)+'</span></div></div></section>';
+  /* análises */
+  var ins2=[],ck=Object.keys(byC).sort(function(a,b){return byC[b]-byC[a]});
+  if(ck.length)ins2.push('A categoria que mais pesou foi <b>'+esc(CAT(ck[0]).n)+'</b>, com <b class="n">'+brl(byC[ck[0]])+'</b> ('+Math.round(byC[ck[0]]/tOut*100)+'% dos gastos).');
+  if(prevOut&&tOut){var pc=Math.round((tOut-prevOut)/prevOut*100);ins2.push(pc===0?'Você gastou o mesmo que no '+PREVNAME[mode]+' (<span class="n">'+brl(prevOut)+'</span>).':'Você gastou <b class="'+(pc>0?"neg2":"pos2")+'">'+Math.abs(pc)+'% '+(pc>0?"a mais":"a menos")+'</b> que no '+PREVNAME[mode]+' (<span class="n">'+brl(prevOut)+'</span>).')}
+  if(mode!=="dia"&&tOut)ins2.push('Média de <b class="n">'+brl(Math.round(tOut/days))+'</b> por dia'+(isNow?" até hoje":"")+', em '+days+' dias.');
+  if(outs.length){var big=outs.reduce(function(a,b){return b.v>a.v?b:a});ins2.push('Maior gasto: <b>'+esc(big.n||catOf(big).n)+'</b>, <b class="n">'+brl(big.v)+'</b> em '+rpD(big.d)+'.')}
+  if(tIn)ins2.push(net>=0?'Sobrou <b class="n pos2">'+brl(net)+'</b>, ou seja '+rate+'% de tudo que entrou.':'Os gastos passaram as receitas em <b class="n neg2">'+brl(-net)+'</b>.');
+  else ins2.push('Nenhuma receita anotada neste período, então o saldo considera só os gastos.');
+  var goal="";
+  if(mode==="mes"){var pc2=tOut/S.meta,col=pc2>1?"#C2362B":pc2>.85?"#E89B0C":"#127A4B";
+    goal='<div class="rp-sec rp-box"><h3>Meta do mês</h3><div style="display:flex;justify-content:space-between"><span>Usado <b class="n">'+brl(tOut)+'</b> de <b class="n">'+brl(S.meta)+'</b></span><b style="color:'+col+'">'+Math.round(pc2*100)+'%</b></div><div class="rp-pbar"><div style="width:'+Math.min(100,pc2*100)+'%;background:'+col+'"></div></div><span class="rp-muted">'+(pc2>1?'Passou da meta em <span class="n">'+brl(tOut-S.meta)+'</span>.':'Ainda cabem <span class="n">'+brl(S.meta-tOut)+'</span> na meta.')+'</span></div>'}
+  h+='<section class="rp-page">'+head("Visão geral")+
+    '<div class="rp-kpis"><div><span>Receitas</span><b class="n pos2">'+brl(tIn)+'</b></div><div class="am"><span>Gastos</span><b class="n">'+brl(tOut)+'</b></div><div><span>Saldo</span><b class="n '+(net<0?"neg2":"pos2")+'">'+rpM(net)+'</b></div><div class="am"><span>Lançamentos</span><b class="n">'+all.length+'</b></div></div>'+
+    '<div class="rp-sec"><h3>Destaques</h3><ul class="rp-ins">'+ins2.map(function(x){return"<li>"+x+"</li>"}).join("")+'</ul></div>'+goal+
+    '<div class="rp-sec rp-box"><h3>'+CHARTNAME[mode]+'</h3>'+rpChart(r)+'</div></section>'+
+    '<section class="rp-page">'+head("Para onde foi o dinheiro")+'<div class="rp-grid"><div class="rp-sec rp-box"><h3>Gastos por categoria</h3>'+rpRows(byC,tOut,CAT)+'</div>'+
+    '<div><div class="rp-sec rp-box"><h3>Formas de pagamento</h3>'+rpRows(byP,tOut,function(k){return PAY(k)||{n:"Não informado",c:"#94A3B0"}})+'</div>'+
+    (tIn?'<div class="rp-sec rp-box"><h3>Origem das receitas</h3>'+rpRows(byI,tIn,ICAT)+'</div>':'')+'</div></div>'+
+    '<div class="rp-sec"><h3>Os maiores gastos</h3><table class="rp-tbl"><thead><tr><th>#</th><th>Data</th><th>Descrição</th><th>Categoria</th><th class="r">Valor</th><th class="r">% do total</th></tr></thead><tbody>'+
+    outs.slice().sort(function(a,b){return b.v-a.v}).slice(0,8).map(function(x,i){var c=catOf(x);return'<tr><td><b>'+(i+1)+'</b></td><td class="n">'+rpD(x.d)+'</td><td>'+esc(x.n||c.n)+'</td><td><span class="dot" style="background:'+c.c+'"></span>'+esc(c.n)+'</td><td class="r n">'+brl(x.v)+'</td><td class="r rp-muted">'+(tOut?Math.round(x.v/tOut*100):0)+'%</td></tr>'}).join("")+
+    '</tbody></table></div></section>';
+  /* mês a mês */
+  var ms=[];
+  if(mode==="ano"){var y=r[0].getFullYear();for(var m=0;m<12;m++){var a=new Date(y,m,1);if(a>t)break;ms.push(a)}}
+  else{var base=new Date(r[1].getFullYear(),r[1].getMonth(),1);for(var k=5;k>=0;k--)ms.push(new Date(base.getFullYear(),base.getMonth()-k,1))}
+  var mt='',ti=0,to=0,mmax=1,rowsM=ms.map(function(a){var b=new Date(a.getFullYear(),a.getMonth()+1,0),i=sumRange(a,b,"in").t,o=sumRange(a,b).t;ti+=i;to+=o;mmax=Math.max(mmax,i,o);return[a,i,o]});
+  rowsM.forEach(function(q){var a=q[0],i=q[1],o=q[2],n=i-o,nm=MOL[a.getMonth()];
+    mt+='<tr><td><b>'+nm.charAt(0).toUpperCase()+nm.slice(1)+'</b> <span class="rp-muted">'+a.getFullYear()+'</span></td><td class="r n pos2">'+brl(i)+'</td><td class="r n">'+brl(o)+'</td><td class="r n '+(n<0?"neg2":"pos2")+'">'+rpM(n)+'</td><td class="r">'+(o?(o>S.meta?'<span class="rp-tag o">Passou</span>':'<span class="rp-tag i">Dentro</span>'):"—")+'</td>'+
+      '<td style="width:30%"><div style="height:2mm;border-radius:1mm;background:#127A4B;opacity:.75;width:'+(i/mmax*100)+'%"></div><div style="height:2mm;border-radius:1mm;background:#E89B0C;margin-top:.8mm;width:'+(o/mmax*100)+'%"></div></td></tr>'});
+  h+='<section class="rp-page">'+head(mode==="ano"?"Mês a mês no ano":"Últimos 6 meses")+
+    '<p class="rp-muted" style="margin:0 0 4mm">Compara o que entrou e o que saiu em cada mês. A coluna Meta mostra se os gastos ficaram dentro de '+brl(S.meta)+' por mês. Barras: <span style="color:#127A4B;font-weight:700">receitas</span> e <span style="color:#B07400;font-weight:700">gastos</span>.</p>'+
+    '<table class="rp-tbl"><thead><tr><th>Mês</th><th class="r">Receitas</th><th class="r">Gastos</th><th class="r">Saldo</th><th class="r">Meta</th><th>Comparativo</th></tr></thead><tbody>'+mt+'</tbody>'+
+    '<tfoot><tr><td>Total</td><td class="r n">'+brl(ti)+'</td><td class="r n">'+brl(to)+'</td><td class="r n '+(ti-to<0?"neg2":"pos2")+'">'+rpM(ti-to)+'</td><td></td><td class="rp-muted" style="font-weight:600">Média de gastos: <span class="n">'+brl(Math.round(to/Math.max(1,rowsM.filter(function(q){return q[2]>0}).length)))+'</span></td></tr></tfoot></table></section>';
+  /* lançamentos */
+  var list=all.slice().sort(function(a,b){return a.d<b.d?-1:a.d>b.d?1:0}),lt='';
+  list.forEach(function(x){var o=isOut(x),c=catOf(x),p=x.p&&PAY(x.p);
+    lt+='<tr><td class="n">'+rpD(x.d)+'</td><td><span class="rp-tag '+(o?"o":"i")+'">'+(o?"Gasto":"Receita")+'</span></td><td>'+esc(x.n||c.n)+'</td><td><span class="dot" style="background:'+c.c+'"></span>'+esc(c.n)+'</td><td>'+(p?esc(p.n):'<span class="rp-muted">—</span>')+'</td><td class="r n '+(o?"":"pos2")+'">'+(o?"- ":"+ ")+brl(x.v)+'</td></tr>'});
+  h+='<section class="rp-page">'+head("Todos os lançamentos")+
+    '<table class="rp-tbl"><thead><tr><th>Data</th><th>Tipo</th><th>Descrição</th><th>Categoria</th><th>Pagamento</th><th class="r">Valor</th></tr></thead><tbody>'+lt+'</tbody>'+
+    '<tfoot><tr><td colspan="3">'+list.length+' lançamentos</td><td colspan="2" class="r">Receitas <span class="n pos2">+ '+brl(tIn)+'</span> · Gastos <span class="n">- '+brl(tOut)+'</span></td><td class="r n '+(net<0?"neg2":"pos2")+'">'+rpM(net)+'</td></tr></tfoot></table>'+
+    '<p class="rp-end">Relatório gerado pelo '+esc(APP_NAME)+' em '+esc(gen)+'. Valores em reais (R$).</p></section>';
+  return h;
+}
+function exportPDF(){
+  var r=range(mode,anchor),all=inRange(r[0],r[1]);
+  if(!all.length){toast("Não há lançamentos neste período para o relatório");return}
+  $("#report").innerHTML=buildReport(r,all);
+  var old=document.title;document.title=APP_NAME+" - Relatório - "+periodLabel().replace(/[\/\\:·]/g,"-");
+  function back(){document.title=old;window.removeEventListener("afterprint",back)}
+  window.addEventListener("afterprint",back);
+  if(typeof buzz==="function")buzz(12);
+  setTimeout(function(){try{window.print()}catch(e){toast("Abra o menu do navegador, toque em Imprimir e escolha Salvar como PDF")}},80);
+}
+$("#pdfBtn").addEventListener("click",exportPDF);
+$$("[data-pdf]").forEach(function(b){b.addEventListener("click",exportPDF)});
+
 function backup(){return JSON.stringify({app:"gastei",v:4,meta:S.meta,name:S.name,cats:S.cats,icats:S.icats,recs:S.recs,recDone:S.recDone,wk:S.wk,items:S.items.filter(function(i){return !i.ex})})}
 $("#bkGen").addEventListener("click",function(){var b=backup();$("#bkTxt").value=b;copyText(b,"Cópia gerada e copiada")});
 function arm(btn,fn){
@@ -1122,7 +1289,6 @@ drawCats();resetForm();render();
 if(!S.onboarded){$("#welcome").hidden=false;setTimeout(function(){$("#wName").focus()},50)}
 })();
 </script>
-
 <script>
 /* app instalável: funciona sem internet, busca versões novas e avisa quando atualizou */
 if("serviceWorker" in navigator&&location.protocol!=="file:"){
