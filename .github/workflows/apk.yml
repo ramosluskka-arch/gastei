@@ -1,0 +1,76 @@
+name: Gerar APK Android
+
+on:
+  push:
+    branches: [main]
+    paths: ["index.html", "manifest.webmanifest", "*.png", "android/**", ".github/workflows/apk.yml"]
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: apk
+  cancel-in-progress: true
+
+jobs:
+  apk:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+      - uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: 17
+      - name: Montar projeto Capacitor
+        run: |
+          mkdir -p build/www
+          cp index.html manifest.webmanifest *.png build/www/
+          cd build
+          npm init -y >/dev/null
+          npm i @capacitor/core@6.2.0 @capacitor/cli@6.2.0 @capacitor/android@6.2.0
+          npx cap init Gastei com.gastei.app --web-dir www
+          npx cap add android
+          npx cap sync android
+      - name: Ícones, tela de abertura e impressão em PDF
+        run: |
+          cd build/android/app/src/main
+          cp "$GITHUB_WORKSPACE"/android/*.java java/com/gastei/app/
+          rm -rf res/mipmap-anydpi-v26
+          for f in res/mipmap-*/ic_launcher*.png; do
+            s=$(identify -format "%w" "$f")
+            convert "$GITHUB_WORKSPACE/icon-512.png" -resize ${s}x${s} "$f"
+          done
+          for f in $(find res -name 'splash.png'); do
+            g=$(identify -format "%wx%h" "$f"); m=$(identify -format "%[fx:min(w,h)/3]" "$f")
+            convert -size $g xc:'#0B6E7F' \( "$GITHUB_WORKSPACE/icon-512.png" -resize ${m}x${m} \) -gravity center -composite "$f"
+          done
+          VC=$(( $(date +%s) / 60 - 29000000 ))
+          sed -i "s/versionCode 1/versionCode $VC/; s/versionName \"1.0\"/versionName \"1.$GITHUB_RUN_NUMBER\"/" ../../build.gradle
+      - name: Compilar e assinar
+        run: |
+          cd build/android
+          chmod +x gradlew
+          ./gradlew assembleRelease --no-daemon -q
+          BT=$(ls -d $ANDROID_HOME/build-tools/* | sort -V | tail -1)
+          $BT/zipalign -f 4 app/build/outputs/apk/release/app-release-unsigned.apk aligned.apk
+          if [ -n "$KS_B64" ]; then
+            echo "$KS_B64" | base64 -d > ks.jks
+          else
+            echo "::warning::Sem o segredo GASTEI_KEYSTORE: usando uma chave temporaria. Atualizar o app vai exigir desinstalar antes."
+            keytool -genkeypair -keystore ks.jks -alias gastei -keyalg RSA -keysize 2048 -validity 10000 -storepass "$KS_PASS" -keypass "$KS_PASS" -dname "CN=Gastei, C=BR"
+          fi
+          $BT/apksigner sign --ks ks.jks --ks-pass env:KS_PASS --key-pass env:KS_PASS --ks-key-alias gastei --out "$GITHUB_WORKSPACE/Gastei.apk" aligned.apk
+          $BT/apksigner verify "$GITHUB_WORKSPACE/Gastei.apk"
+        env:
+          KS_B64: ${{ secrets.GASTEI_KEYSTORE }}
+          KS_PASS: ${{ secrets.GASTEI_KEYSTORE_PASS || 'gastei-temp' }}
+      - name: Publicar para download
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          gh release delete app --yes --cleanup-tag || true
+          gh release create app Gastei.apk --title "Gastei para Android" --notes "Baixe o arquivo Gastei.apk abaixo e abra no celular para instalar." --latest

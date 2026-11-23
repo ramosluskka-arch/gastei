@@ -337,6 +337,12 @@ footer{margin-top:28px;color:var(--muted);font-size:.78rem;display:flex;justify-
   svg.chart{height:210px}
 }
 .swipehint{display:none}
+.instbtn{display:inline-flex;align-items:center;gap:6px;padding:8px 11px}.instbtn svg{width:16px;height:16px}
+.instsheet{max-width:440px;display:grid;gap:14px;padding:20px}
+.ihead{display:flex;align-items:center;justify-content:space-between}.ihead h2{margin:0;font-size:1.2rem}
+.istep{display:grid;gap:8px;border:1px solid var(--line);border-radius:14px;padding:14px}.istep p{margin:0;color:var(--muted);font-size:.9rem}
+.ibtn{display:flex;align-items:center;justify-content:center;gap:8px;text-decoration:none}.ibtn svg{width:18px;height:18px}
+.inote{margin:0;font-size:.8rem;color:var(--muted)}
 .pdfbtn{margin-left:auto;display:inline-flex;align-items:center;gap:6px}
 .pdfbtn svg{width:16px;height:16px}
 #report{display:none}
@@ -436,6 +442,7 @@ footer{margin-top:28px;color:var(--muted);font-size:.78rem;display:flex;justify-
     <span class="sp"></span>
     <span class="chip lv" id="lvChip"><span class="dot" id="lv">1</span><span id="rank">Iniciante</span><span class="xpmini" aria-hidden="true"><div id="xpFill"></div></span></span>
     <span class="chip st" title="Dias seguidos anotando gastos"><span class="dot"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2c1 4 5 5.5 5 11a5 5 0 0 1-10 0c0-2.5 1-4 2-5 0 2 1 3 2 3 0-3-1-6 1-9z"/></svg></span><b id="streakN">0</b><span class="t">dias</span></span>
+    <button class="btn sm instbtn" id="installBtn" hidden><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 4v11M7 10l5 5 5-5M5 20h14"/></svg>Instalar</button>
     <button class="iconbtn" id="openSettings" aria-label="Configurações"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="4" y1="6" x2="20" y2="6"/><line x1="4" y1="12" x2="20" y2="12"/><line x1="4" y1="18" x2="20" y2="18"/><circle cx="9" cy="6" r="2" fill="var(--surface)"/><circle cx="15" cy="12" r="2" fill="var(--surface)"/><circle cx="7" cy="18" r="2" fill="var(--surface)"/></svg></button>
   </div>
 </header>
@@ -564,6 +571,7 @@ footer{margin-top:28px;color:var(--muted);font-size:.78rem;display:flex;justify-
           <button data-open="perfil"><span>Perfil e meta do mês<small>Seu nome e quanto quer gastar</small></span></button>
           <button data-open="cats"><span>Categorias e orçamentos<small>Nomes, cores e limite por categoria</small></span></button>
           <button data-open="fixos"><span>Gastos e receitas fixos<small>O que entra sozinho todo mês</small></span></button>
+          <button data-install hidden><span>Instalar o app no celular<small>Baixe o app para Android ou coloque na tela inicial</small></span></button>
           <button data-pdf><span>Relatório em PDF<small>Apresentação completa do período que está aberto</small></span></button>
           <button data-open="dados"><span>Planilha e cópia de segurança<small>Exportar, guardar e recuperar dados</small></span></button>
           <button data-open="aparencia"><span>Aparência<small>Tema claro ou escuro e início da semana</small></span></button>
@@ -625,6 +633,18 @@ footer{margin-top:28px;color:var(--muted);font-size:.78rem;display:flex;justify-
   </div>
 </div>
 
+<div class="overlay" id="installDlg" hidden>
+  <div class="sheet instsheet" role="dialog" aria-modal="true" aria-labelledby="iTitle">
+    <div class="ihead"><h2 id="iTitle">Instalar o Gastei</h2><button type="button" class="iconbtn" id="iClose" aria-label="Fechar"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><path d="M6 6l12 12M18 6L6 18"/></svg></button></div>
+    <div class="istep"><b>Android</b>
+      <a class="btn ibtn" id="apkLink" href="https://github.com/ramosluskka-arch/gastei/releases/latest/download/Gastei.apk" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 4v11M7 10l5 5 5-5M5 20h14"/></svg>Baixar o app (APK)</a>
+      <p>Abra o arquivo <b>Gastei.apk</b> que baixou. Se o celular pedir, toque em <b>Configurações</b> e ative <b>Permitir desta fonte</b>, depois volte e toque em <b>Instalar</b>.</p>
+      <button class="btn ghost ibtn" id="pwaInstall" hidden>Ou instalar direto pelo Chrome</button>
+    </div>
+    <div class="istep"><b>iPhone</b><p>Abra este site no <b>Safari</b>, toque em <b>Compartilhar</b> e depois em <b>Adicionar à Tela de Início</b>.</p></div>
+    <p class="inote">Seus dados ficam guardados só no aparelho. O app do Android e o site guardam dados separados: use Mais › Planilha e cópia de segurança para levar seus lançamentos de um para o outro.</p>
+  </div>
+</div>
 <div class="overlay" id="welcome" hidden>
   <form class="sheet welcome" id="welcomeForm" role="dialog" aria-modal="true" aria-labelledby="wTitle">
     <div class="hero">
@@ -1221,6 +1241,18 @@ function buildReport(r,all){
     '<p class="rp-end">Relatório gerado pelo '+esc(APP_NAME)+' em '+esc(gen)+'. Valores em reais (R$).</p></section>';
   return h;
 }
+var NATIVE=!!(window.Capacitor&&(typeof window.Capacitor.isNativePlatform==="function"?window.Capacitor.isNativePlatform():window.Capacitor.platform&&window.Capacitor.platform!=="web"));
+var STANDALONE=(window.matchMedia&&matchMedia("(display-mode: standalone)").matches)||navigator.standalone===true;
+var deferredInstall=null;
+function openInstall(){$("#pwaInstall").hidden=!deferredInstall;$("#installDlg").hidden=false}
+if(!NATIVE&&!STANDALONE){$("#installBtn").hidden=false;$$("[data-install]").forEach(function(b){b.hidden=false})}
+window.addEventListener("beforeinstallprompt",function(e){e.preventDefault();deferredInstall=e});
+window.addEventListener("appinstalled",function(){deferredInstall=null;$("#installDlg").hidden=true;$("#installBtn").hidden=true;toast("App instalado")});
+$("#installBtn").addEventListener("click",openInstall);
+$$("[data-install]").forEach(function(b){b.addEventListener("click",openInstall)});
+$("#iClose").addEventListener("click",function(){$("#installDlg").hidden=true});
+$("#installDlg").addEventListener("click",function(e){if(e.target.id==="installDlg")this.hidden=true});
+$("#pwaInstall").addEventListener("click",function(){if(!deferredInstall)return;deferredInstall.prompt();deferredInstall.userChoice.then(function(){deferredInstall=null;$("#pwaInstall").hidden=true})});
 function exportPDF(){
   var r=range(mode,anchor),all=inRange(r[0],r[1]);
   if(!all.length){toast("Não há lançamentos neste período para o relatório");return}
@@ -1229,7 +1261,9 @@ function exportPDF(){
   function back(){document.title=old;window.removeEventListener("afterprint",back)}
   window.addEventListener("afterprint",back);
   if(typeof buzz==="function")buzz(12);
-  setTimeout(function(){try{window.print()}catch(e){toast("Abra o menu do navegador, toque em Imprimir e escolha Salvar como PDF")}},80);
+  setTimeout(function(){
+    if(NATIVE){try{var C=window.Capacitor,pr=C.Plugins&&C.Plugins.GasteiPrint?C.Plugins.GasteiPrint.print({name:document.title}):C.nativePromise("GasteiPrint","print",{name:document.title});if(pr&&pr.catch)pr.catch(function(){toast("Não foi possível abrir a impressão")})}catch(e){toast("Não foi possível abrir a impressão")}setTimeout(back,3000);return}
+    try{window.print()}catch(e){toast("Abra o menu do navegador, toque em Imprimir e escolha Salvar como PDF")}},80);
 }
 $("#pdfBtn").addEventListener("click",exportPDF);
 $$("[data-pdf]").forEach(function(b){b.addEventListener("click",exportPDF)});
@@ -1326,7 +1360,7 @@ if(!S.onboarded){$("#welcome").hidden=false;setTimeout(function(){$("#wName").fo
 </script>
 <script>
 /* app instalável: funciona sem internet, busca versões novas e avisa quando atualizou */
-if("serviceWorker" in navigator&&location.protocol!=="file:"){
+if("serviceWorker" in navigator&&location.protocol!=="file:"&&!window.Capacitor){
   var hadCtrl=!!navigator.serviceWorker.controller,reloaded=false;
   navigator.serviceWorker.addEventListener("controllerchange",function(){
     if(!hadCtrl||reloaded)return;reloaded=true;
