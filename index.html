@@ -350,18 +350,39 @@ footer{margin-top:28px;color:var(--muted);font-size:.78rem;display:flex;justify-
 #report .n{font-family:"DM Mono",ui-monospace,Menlo,Consolas,monospace;font-variant-numeric:tabular-nums;letter-spacing:-.02em;white-space:nowrap}
 .rp-page{break-after:page;page-break-after:always}
 .rp-page:last-child{break-after:auto;page-break-after:auto}
-.rp-cover{height:262mm;box-sizing:border-box;border-radius:6mm;padding:16mm 14mm;background:#0B6E7F;background-image:radial-gradient(120mm 120mm at 105% -5%,rgba(232,155,12,.55),transparent 60%),radial-gradient(140mm 110mm at -20% 110%,rgba(255,255,255,.12),transparent 60%);color:#fff;display:flex;flex-direction:column;position:relative;overflow:hidden}
-.rp-brand{display:flex;align-items:center;gap:10px;font-weight:800;font-size:13pt;letter-spacing:-.01em}
-.rp-brand i{width:30px;height:30px;border-radius:9px;background:#E89B0C;display:grid;place-items:center;font-style:normal;color:#0B3A43;font-weight:800}
-.rp-cover .kick{margin-top:auto;font-size:10pt;text-transform:uppercase;letter-spacing:.18em;opacity:.8;font-weight:700}
-.rp-cover h1{font-size:34pt;line-height:1.05;margin:4mm 0 3mm;letter-spacing:-.03em;font-weight:800}
-.rp-cover .per{font-size:15pt;font-weight:600;opacity:.95}
-.rp-cover .who{margin-top:2mm;opacity:.75;font-size:10pt}
-.rp-ck{display:grid;grid-template-columns:repeat(2,1fr);gap:4mm;margin-top:12mm}
-.rp-ck div{background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.22);border-radius:4mm;padding:4mm 5mm}
-.rp-ck span{display:block;font-size:8.5pt;text-transform:uppercase;letter-spacing:.12em;opacity:.8;font-weight:700}
-.rp-ck b{display:block;font-size:19pt;font-weight:500;margin-top:1mm}
-.rp-cover .foot{margin-top:10mm;font-size:8.5pt;opacity:.7;display:flex;justify-content:space-between}
+.rp-cover{height:266mm;box-sizing:border-box;display:flex;flex-direction:column;background:#fff;color:#14202B;border:1px solid #DCE3E8;border-radius:5mm;overflow:hidden}
+.rc-top{position:relative;height:150mm;flex:none;background:linear-gradient(155deg,#06323B 0%,#0B5866 48%,#0B6E7F 100%);color:#fff;padding:13mm 14mm 0;box-sizing:border-box;overflow:hidden}
+.rc-art{position:absolute;inset:0;width:100%;height:100%}
+.rc-bar{position:relative;display:flex;justify-content:space-between;align-items:center}
+.rc-brand{display:flex;align-items:center;gap:3mm;font-weight:800;font-size:13pt;letter-spacing:-.01em}
+.rc-brand i{width:9mm;height:9mm;border-radius:2.6mm;background:#E89B0C;display:grid;place-items:center;font-style:normal;color:#06323B;font-weight:800;font-size:12pt}
+.rc-doc{text-align:right;font-size:7.5pt;letter-spacing:.16em;text-transform:uppercase;opacity:.75;line-height:1.6}
+.rc-doc b{display:block;font-family:"DM Mono",ui-monospace,monospace;letter-spacing:.04em;font-size:9pt;opacity:1;font-weight:500}
+.rc-title{position:relative;margin-top:30mm}
+.rc-kick{display:flex;align-items:center;gap:3mm;font-size:8.5pt;font-weight:700;letter-spacing:.24em;text-transform:uppercase;color:#F6C15A}
+.rc-kick::before{content:"";width:10mm;height:.6mm;background:#E89B0C;border-radius:1mm}
+.rc-title h1{margin:5mm 0 0;font-size:40pt;line-height:1;letter-spacing:-.035em;font-weight:800}
+.rc-title h1 span{display:block;color:rgba(255,255,255,.55);font-weight:700}
+.rc-per{margin-top:7mm;display:inline-flex;align-items:center;gap:3mm;padding:2.4mm 4.5mm;border:1px solid rgba(255,255,255,.3);border-radius:10mm;font-weight:700;font-size:11pt;background:rgba(255,255,255,.07)}
+.rc-per i{width:2.2mm;height:2.2mm;border-radius:50%;background:#E89B0C}
+.rc-body{flex:1;padding:10mm 14mm 0;display:flex;flex-direction:column}
+.rc-lbl{font-size:7.5pt;font-weight:800;letter-spacing:.18em;text-transform:uppercase;color:#0B6E7F;margin-bottom:4mm}
+.rc-kpis{display:grid;grid-template-columns:repeat(3,1fr);border-top:1px solid #DCE3E8;border-bottom:1px solid #DCE3E8}
+.rc-kpis div{padding:4.5mm 0 4.5mm 5mm;border-left:1px solid #DCE3E8}
+.rc-kpis div:first-child{border-left:0;padding-left:0}
+.rc-kpis span{display:block;font-size:7.5pt;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:#5F6D7A}
+.rc-kpis b{display:block;margin-top:1.5mm;font-size:17pt;font-weight:500;letter-spacing:-.03em}
+.rc-kpis small{display:block;margin-top:.5mm;font-size:8pt;color:#5F6D7A}
+.rc-mix{margin-top:8mm}
+.rc-stack{display:flex;height:4.5mm;border-radius:2.5mm;overflow:hidden;background:#EEF2F4;gap:.6mm}
+.rc-stack div{height:100%}
+.rc-leg{display:flex;flex-wrap:wrap;gap:2mm 6mm;margin-top:3mm;font-size:8.5pt}
+.rc-leg span{display:inline-flex;align-items:center;gap:1.6mm}
+.rc-leg i{width:2.4mm;height:2.4mm;border-radius:.8mm}
+.rc-leg em{font-style:normal;color:#5F6D7A}
+.rc-foot{margin-top:auto;display:grid;grid-template-columns:repeat(3,1fr);gap:4mm;padding:5mm 0 7mm;border-top:2px solid #0B6E7F;font-size:8.5pt}
+.rc-foot span{display:block;font-size:7pt;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:#8A96A3;margin-bottom:.8mm}
+.rc-foot div:last-child{text-align:right}
 .rp-h{display:flex;justify-content:space-between;align-items:flex-end;border-bottom:2px solid #0B6E7F;padding-bottom:2.5mm;margin-bottom:5mm}
 .rp-h h2{margin:0;font-size:17pt;letter-spacing:-.02em;color:#0B3A43}
 .rp-h small{color:#5F6D7A;font-size:9pt;text-align:right}
@@ -1137,12 +1158,26 @@ function buildReport(r,all){
   outs.forEach(function(x){byC[x.c]=(byC[x.c]||0)+x.v;var k=x.p&&PAY(x.p)?x.p:"_";byP[k]=(byP[k]||0)+x.v});
   ins.forEach(function(x){byI[x.c]=(byI[x.c]||0)+x.v});
   /* capa */
-  var h='<section class="rp-page"><div class="rp-cover">'+brand+
-    '<div class="kick">Relatório financeiro</div><h1>Resumo das<br>suas finanças</h1><div class="per">'+esc(lbl)+'</div>'+
-    (S.name?'<div class="who">Preparado para '+esc(S.name)+'</div>':'')+
-    '<div class="rp-ck"><div><span>Receitas</span><b class="n">'+brl(tIn)+'</b></div><div><span>Gastos</span><b class="n">'+brl(tOut)+'</b></div>'+
-    '<div><span>Saldo</span><b class="n">'+rpM(net)+'</b></div><div><span>'+(net<0?"Passou do que entrou":"Sobrou do que entrou")+'</span><b class="n">'+(rate===null?"—":Math.abs(rate)+"%")+'</b></div></div>'+
-    '<div class="foot"><span>'+all.length+' lançamentos no período</span><span>Gerado em '+esc(gen)+'</span></div></div></section>';
+  var ckc=Object.keys(byC).sort(function(a,b){return byC[b]-byC[a]}),mix=ckc.slice(0,5).map(function(k){return[CAT(k).n,CAT(k).c,byC[k]]}),rest=tOut-mix.reduce(function(a,q){return a+q[2]},0);
+  if(rest>0)mix.push(["Demais","#B8C3CC",rest]);
+  var docId=MO[r[0].getMonth()].toUpperCase()+"-"+r[0].getFullYear()+"-"+pad(all.length%100),art='';
+  for(var gi=0;gi<9;gi++)art+='<circle cx="640" cy="-40" r="'+(120+gi*48)+'" fill="none" stroke="rgba(255,255,255,'+(0.10-gi*0.008).toFixed(3)+')" stroke-width="1"/>';
+  var pts=[[0,520],[70,500],[140,508],[210,470],[280,478],[350,430],[420,445],[490,390],[560,400],[630,340],[700,350],[760,300]];
+  art+='<path d="M'+pts.map(function(q){return q.join(" ")}).join(" L")+' L760 570 L0 570Z" fill="rgba(255,255,255,.06)"/><path d="M'+pts.map(function(q){return q.join(" ")}).join(" L")+'" fill="none" stroke="#E89B0C" stroke-width="2.2" stroke-linejoin="round" opacity=".85"/>';
+  pts.forEach(function(q,i){if(i%3===2)art+='<circle cx="'+q[0]+'" cy="'+q[1]+'" r="4" fill="#06323B" stroke="#E89B0C" stroke-width="2"/>'});
+  var h='<section class="rp-page"><div class="rp-cover"><div class="rc-top">'+
+    '<svg class="rc-art" viewBox="0 0 760 570" preserveAspectRatio="xMidYMid slice" aria-hidden="true">'+art+'</svg>'+
+    '<div class="rc-bar"><div class="rc-brand"><i>'+esc(APP_NAME.charAt(0))+'</i>'+esc(APP_NAME)+'</div><div class="rc-doc">Documento<b>'+esc(docId)+'</b></div></div>'+
+    '<div class="rc-title"><div class="rc-kick">Relatório financeiro</div><h1>Resumo<span>das suas finanças</span></h1>'+
+    '<div class="rc-per"><i></i>'+esc(lbl)+'</div></div></div>'+
+    '<div class="rc-body"><div class="rc-lbl">Números do período</div>'+
+    '<div class="rc-kpis"><div><span>Receitas</span><b class="n pos2">'+brl(tIn)+'</b><small>'+ins.length+' entradas</small></div>'+
+    '<div><span>Gastos</span><b class="n">'+brl(tOut)+'</b><small>'+outs.length+' saídas</small></div>'+
+    '<div><span>Saldo</span><b class="n '+(net<0?"neg2":"pos2")+'">'+rpM(net)+'</b><small>'+(rate===null?"sem receitas no período":(net<0?"gastou "+Math.abs(rate)+"% além do que entrou":"guardou "+rate+"% do que entrou"))+'</small></div></div>'+
+    (tOut?'<div class="rc-mix"><div class="rc-lbl">Para onde foi o dinheiro</div><div class="rc-stack">'+mix.map(function(q){return'<div style="width:'+(q[2]/tOut*100)+'%;background:'+q[1]+'"></div>'}).join("")+'</div>'+
+      '<div class="rc-leg">'+mix.map(function(q){return'<span><i style="background:'+q[1]+'"></i>'+esc(q[0])+' <em>'+Math.round(q[2]/tOut*100)+'%</em></span>'}).join("")+'</div></div>':'')+
+    '<div class="rc-foot"><div><span>Preparado para</span><b>'+(S.name?esc(S.name):"Uso pessoal")+'</b></div><div><span>Período</span><b>'+rpD(iso(r[0]))+' a '+rpD(iso(r[1]))+'</b></div><div><span>Emitido em</span><b>'+esc(gen)+'</b></div></div>'+
+    '</div></div></section>';
   /* análises */
   var ins2=[],ck=Object.keys(byC).sort(function(a,b){return byC[b]-byC[a]});
   if(ck.length)ins2.push('A categoria que mais pesou foi <b>'+esc(CAT(ck[0]).n)+'</b>, com <b class="n">'+brl(byC[ck[0]])+'</b> ('+Math.round(byC[ck[0]]/tOut*100)+'% dos gastos).');
