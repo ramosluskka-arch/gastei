@@ -598,11 +598,14 @@ body:not(.prem) #palSeg .pal:not([data-pal="teal"])::after{content:"Premium";fon
 html{scrollbar-width:none;background:var(--bg)}
 html::-webkit-scrollbar{display:none}
 *{-webkit-tap-highlight-color:transparent}
-body{overscroll-behavior-y:none;-webkit-user-select:none;user-select:none;-webkit-touch-callout:none;touch-action:manipulation}
+html{overscroll-behavior-y:none}body{-webkit-user-select:none;user-select:none;-webkit-touch-callout:none;touch-action:manipulation}
 input,textarea,select,[contenteditable]{-webkit-user-select:text;user-select:text}
 .wrap{padding-top:0}
-.appbar{background:color-mix(in srgb,var(--bg) 80%,transparent);-webkit-backdrop-filter:saturate(1.8) blur(18px);backdrop-filter:saturate(1.8) blur(18px);border-bottom:1px solid transparent;margin-bottom:0;transition:border-color .2s}
+.appbar{background:color-mix(in srgb,var(--bg) 94%,transparent);-webkit-backdrop-filter:saturate(1.8) blur(18px);backdrop-filter:saturate(1.8) blur(18px);border-bottom:1px solid transparent;margin-bottom:0;transition:border-color .2s}
 body.scrolled .appbar{border-bottom-color:var(--line)}
+/* barra de cima abaixo da barra de status do celular (não cobre nada) */
+.appbar{top:0;padding-top:env(safe-area-inset-top,0px)}
+body::before{display:none}
 .appbar .brand{font-size:1.05rem;opacity:0;transform:translateY(4px);transition:opacity .2s,transform .2s}
 body.scrolled .appbar .brand,body[data-tab="home"] .appbar .brand{opacity:1;transform:none}
 .appbar .brand .mark{width:30px;height:30px;border-radius:10px}
@@ -688,6 +691,15 @@ body.pgin .ptitle{animation:pgIn .26s cubic-bezier(.2,.8,.3,1)}
 .sgoal .gb{height:10px;border-radius:5px;background:var(--sunken);overflow:hidden}
 .sgoal .gb i{display:block;height:100%;border-radius:5px;background:linear-gradient(90deg,var(--good),color-mix(in srgb,var(--good) 60%,#7FE0B5))}
 .sgoal small{color:var(--muted);font-size:.8rem}
+.sgoal .gm{display:flex;align-items:center;justify-content:space-between;gap:8px;background:var(--sunken);border-radius:12px;padding:8px 10px;font-size:.84rem}
+.sgoal .gm .ok{color:var(--good);font-weight:700}
+.gauto{display:flex;align-items:center;gap:8px;font-size:.84rem;color:var(--muted);font-weight:600}
+.gauto input{width:18px;height:18px;accent-color:var(--primary)}
+.dform label.gauto{display:flex;font-size:.84rem;color:var(--muted)}
+.prow .pv{font-size:.86rem}
+.sgoal .gx summary{cursor:pointer;font-size:.82rem;font-weight:700;color:var(--primary)}
+.sgoal .gx .dlines{margin-top:6px}
+.sgoal .gx b.pos{color:var(--good)}.sgoal .gx b.neg{color:var(--bad)}
 .sgoal .ga{display:grid;grid-template-columns:minmax(0,1fr) auto auto auto;gap:6px}
 .sgoal .ga .inp{min-width:0}
 .ocrbar{position:fixed;left:50%;top:calc(env(safe-area-inset-top,0px) + 12px);transform:translateX(-50%);z-index:60;background:var(--ink);color:var(--surface);border-radius:999px;padding:8px 16px;font-size:.84rem;font-weight:700;box-shadow:0 8px 24px rgba(0,0,0,.25)}
@@ -696,7 +708,7 @@ body.priv .pv,body.priv .dbig b,body.priv .dlines b,body.priv .ccard .cv,body.pr
 .chip.lv,.chip.st,.xptag,#achCard,#nudge{display:none!important}
 .swipehint{display:none}
 /* ---- ajuste fino para celulares ---- */
-html,body{overflow-x:hidden}
+html,body{overflow-x:clip}
 @media all{
   .appbar .in{gap:8px}
   .brand{min-width:0}
@@ -886,9 +898,9 @@ html,body{overflow-x:hidden}
   </div>
   <section class="card plan" data-v="home" id="planCard">
     <div class="chead"><h2>Planejar</h2></div>
-    <button type="button" class="prow" data-sheet="prev"><span class="pi" style="--c:#2F7FE0"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 17l6-6 4 4 8-8"/><path d="M15 7h6v6"/></svg></span><span class="pt"><b>Previsão do fim do mês <span class="pro">PRO</span></b><small id="pvS">Pelo seu ritmo de gastos</small></span><span class="pv" id="pvV"></span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 6l6 6-6 6"/></svg></button>
+    <button type="button" class="prow" data-sheet="prev"><span class="pi" style="--c:#2F7FE0"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 17l6-6 4 4 8-8"/><path d="M15 7h6v6"/></svg></span><span class="pt"><b>Previsão do mês <span class="pro">PRO</span></b><small id="pvS">Pelo seu ritmo de gastos</small></span><span class="pv" id="pvV"></span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 6l6 6-6 6"/></svg></button>
     <button type="button" class="prow" data-sheet="card"><span class="pi" style="--c:#8B5CF6"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="14" rx="2.5"/><path d="M3 10h18M7 15h4"/></svg></span><span class="pt"><b>Cartão de crédito <span class="pro">PRO</span></b><small id="pcS">Fatura, fechamento e parcelas</small></span><span class="pv" id="pcV"></span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 6l6 6-6 6"/></svg></button>
-    <button type="button" class="prow" data-sheet="goals"><span class="pi" style="--c:#12925E"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="8"/><circle cx="12" cy="12" r="4"/><circle cx="12" cy="12" r="1" fill="currentColor"/></svg></span><span class="pt"><b>Metas de economia <span class="pro">PRO</span></b><small id="pgS">Junte dinheiro para seus planos</small></span><span class="pv" id="pgV"></span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 6l6 6-6 6"/></svg></button>
+    <button type="button" class="prow" data-sheet="goals"><span class="pi" style="--c:#12925E"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="8"/><circle cx="12" cy="12" r="4"/><circle cx="12" cy="12" r="1" fill="currentColor"/></svg></span><span class="pt"><b>Caixinhas <span class="pro">PRO</span></b><small id="pgS">Junte dinheiro para seus planos</small></span><span class="pv" id="pgV"></span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 6l6 6-6 6"/></svg></button>
   </section>
   <section class="card" data-v="home" id="monthList">
     <div class="chead"><h2>Últimos lançamentos</h2><button class="link" id="mAll">Ver todos</button></div>
@@ -1143,7 +1155,7 @@ html,body{overflow-x:hidden}
     <button type="button" class="iconbtn plx" id="plClose" aria-label="Fechar"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><path d="M6 6l12 12M18 6L6 18"/></svg></button>
     <div class="plhero"><span class="plcrown"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 8l4.5 4L12 5l4.5 7L21 8l-2 11H5z"/></svg></span><h2 id="plTitle">Gastei Premium</h2><p id="plWhy">Tenha o controle completo do seu dinheiro.</p></div>
     <div class="plstatus" id="plStatus" hidden></div>
-    <ul class="plben"><li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12l5 5L20 7"/></svg><span><b>Histórico e comparar meses</b><small>Tudo o que entrou e saiu, mês a mês, e um mês contra o outro</small></span></li><li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12l5 5L20 7"/></svg><span><b>Relatório em PDF</b><small>Apresentação pronta para salvar, imprimir ou enviar</small></span></li><li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12l5 5L20 7"/></svg><span><b>4 estilos de cor</b><small>Rosa magenta, Dark, Pro Blue e Petróleo</small></span></li><li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12l5 5L20 7"/></svg><span><b>Gastos e receitas fixos</b><small>Aluguel, internet e salário lançados sozinhos todo mês</small></span></li><li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12l5 5L20 7"/></svg><span><b>Orçamento por categoria</b><small>Defina um limite para cada categoria e veja quando passar</small></span></li><li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12l5 5L20 7"/></svg><span><b>Cópia na nuvem</b><small>Em breve, sem custo extra para quem já é Premium</small></span></li></ul>
+    <ul class="plben"><li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12l5 5L20 7"/></svg><span><b>Histórico e comparar meses</b><small>Tudo o que entrou e saiu, mês a mês, e um mês contra o outro</small></span></li><li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12l5 5L20 7"/></svg><span><b>Relatório em PDF</b><small>Apresentação pronta para salvar, imprimir ou enviar</small></span></li><li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12l5 5L20 7"/></svg><span><b>4 estilos de cor</b><small>Rosa magenta, Dark, Pro Blue e Petróleo</small></span></li><li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12l5 5L20 7"/></svg><span><b>Gastos e receitas fixos</b><small>Aluguel, internet e salário lançados sozinhos todo mês</small></span></li><li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12l5 5L20 7"/></svg><span><b>Orçamento por categoria</b><small>Defina um limite para cada categoria e veja quando passar</small></span></li><li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12l5 5L20 7"/></svg><span><b>Caixinhas</b><small>Separe dinheiro para seus planos, com depósito todo mês</small></span></li><li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12l5 5L20 7"/></svg><span><b>Cartão, previsão e alertas</b><small>Fatura do cartão, previsão do fim do mês, alerta de % e comprovante por foto</small></span></li><li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12l5 5L20 7"/></svg><span><b>Cópia na nuvem</b><small>Em breve, sem custo extra para quem já é Premium</small></span></li></ul>
     <p class="plfree">Grátis para sempre: lançar receitas e gastos, ver quanto ainda sobra no mês, painel e lista de lançamentos.</p>
     <div class="plopts" id="plOpts" role="radiogroup" aria-label="Escolha o plano">
       <button type="button" role="radio" class="plopt" data-plan="anual" aria-checked="true"><span class="pltag">Mais escolhido</span><b>Anual</b><span class="plp" id="pAnual">R$ 59,90</span><small id="pAnualS">por ano · sai por R$ 4,99 por mês</small></button>
@@ -2231,7 +2243,7 @@ function scheduleReminder(ask){
 $("#remOn").addEventListener("change",function(){S.rem.on=this.checked;save();syncAvisos();scheduleReminder(true);toast(S.rem.on?"Lembrete ligado para as "+pad2(S.rem.h)+":"+pad2(S.rem.m):"Lembrete desligado");drawPeriod()});
 $("#remTime").addEventListener("change",function(){var v=this.value.split(":");S.rem.h=+v[0]||20;S.rem.m=+v[1]||0;save();scheduleReminder(false);toast("Lembrete às "+pad2(S.rem.h)+":"+pad2(S.rem.m))});
 $("#alertSel").addEventListener("change",function(){var v=+this.value;if(v&&needPrem("alerta")){this.value=String(S.alertPct||0);return}S.alertPct=v;S.alertDone={};save();render();toast(v?"Vamos avisar quando os gastos chegarem a "+v+"% da receita":"Alerta desligado");if(v&&NATIVE)nat("LocalNotifications","requestPermissions",{},15000).catch(function(){})});
-WHY.alerta="O alerta de gastos faz parte do Premium.";WHY.ocr="A leitura de comprovante por foto faz parte do Premium.";WHY.card="O controle de cartão de crédito faz parte do Premium.";WHY.goals="As metas de economia fazem parte do Premium.";WHY.prev="A previsão do fim do mês faz parte do Premium.";
+WHY.alerta="O alerta de gastos faz parte do Premium.";WHY.ocr="A leitura de comprovante por foto faz parte do Premium.";WHY.card="O controle de cartão de crédito faz parte do Premium.";WHY.goals="As caixinhas fazem parte do Premium.";WHY.prev="A previsão do fim do mês faz parte do Premium.";
 
 /* ---------- alerta de % da receita (Premium) ---------- */
 function checkAlert(){
@@ -2377,13 +2389,30 @@ function drawCardSheet(){
 }
 /* ---------- metas de economia (Premium) ---------- */
 function goalSaved(g){var t=0;(g.h||[]).forEach(function(x){t+=x.v});return t}
-function drawGoalSheet(){
-  var h=S.goals.map(function(g,i){var sv=goalSaved(g),pc=g.target?Math.min(100,sv/g.target*100):0,tip="";
-    if(g.due&&sv<g.target){var t=today(),dd=parse(g.due+"-01"),months=Math.max(1,(dd.getFullYear()-t.getFullYear())*12+dd.getMonth()-t.getMonth());tip=" · guarde "+brl(Math.ceil((g.target-sv)/months))+" por mês até "+MOL[dd.getMonth()]+"/"+dd.getFullYear()}
-    return'<div class="sgoal"><div class="gh"><b>'+esc(g.n)+'</b><span>'+brl(sv)+' de '+brl(g.target)+'</span></div><div class="gb"><i style="width:'+pc+'%"></i></div><small>'+(sv>=g.target?"Meta alcançada! 🎉":Math.round(pc)+"% · faltam "+brl(g.target-sv)+tip)+'</small>'+
-      '<div class="ga"><input class="inp mono" inputmode="decimal" placeholder="Valor" data-gv="'+i+'"><button class="btn sm" data-gadd="'+i+'">Guardar</button><button class="btn sm ghost" data-gout="'+i+'">Retirar</button><button class="iconbtn" data-gdel="'+i+'" aria-label="Apagar meta"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 6l12 12M18 6L6 18"/></svg></button></div></div>'}).join("");
-  if(!S.goals.length)h+='<div class="dtip">Crie metas para juntar dinheiro: viagem, reserva de emergência, um celular novo. Vá guardando aos poucos e acompanhe o progresso.</div>';
-  h+='<form class="dform" id="goalForm"><b>Nova meta</b><input class="inp" id="gfN" maxlength="30" placeholder="Para quê? (ex.: Viagem)" required><div class="row3" style="grid-template-columns:1fr 1fr"><label>Quanto (R$)<input class="inp" id="gfT" inputmode="decimal" placeholder="5.000,00" required></label><label>Até quando<input class="inp" id="gfD" type="month"></label></div><button class="btn sm">Criar meta</button></form>';
+function ymOf(d){return String(d||"").slice(0,7)}
+function goalMonth(g,ym){var t=0;(g.h||[]).forEach(function(x){if(ymOf(x.d)===ym&&x.v>0)t+=x.v});return t}
+function goalNeed(g){var sv=goalSaved(g);if(!g.due||sv>=g.target)return 0;var t=today(),dd=parse(g.due+"-01"),months=Math.max(1,(dd.getFullYear()-t.getFullYear())*12+dd.getMonth()-t.getMonth()+1);return Math.ceil((g.target-sv)/months)}
+/* depósito automático: uma vez por mês, no dia 1, para caixinhas marcadas */
+function applyAutoBoxes(){if(!isPrem()||!S.goals)return;var t=today(),cur=t.getFullYear()*12+t.getMonth(),ch=false;
+  S.goals.forEach(function(g){if(!g.auto||!(g.mon>0))return;var from=g.lastAuto?(function(a){return +a.slice(0,4)*12+(+a.slice(5,7)-1)+1})(g.lastAuto):cur;
+    for(var k=Math.max(from,cur-11);k<=cur;k++){if(goalSaved(g)>=g.target)break;var y=Math.floor(k/12),m=k%12,ym=y+"-"+pad2(m+1);
+      (g.h=g.h||[]).push({d:ym+"-01",v:Math.min(g.mon,g.target-goalSaved(g)),a:1});g.lastAuto=ym;ch=true}
+    if(!g.lastAuto)g.lastAuto=t.getFullYear()+"-"+pad2(t.getMonth()+1)});
+  if(ch)save();return ch}
+function drawGoalSheet(){var ymNow=iso(today()).slice(0,7);
+  var h=S.goals.map(function(g,i){var sv=goalSaved(g),pc=g.target?Math.min(100,sv/g.target*100):0,done=sv>=g.target,need=goalNeed(g),mo=goalMonth(g,ymNow),plan=g.mon||need;
+    var tip=done?"Meta alcançada! 🎉":Math.round(pc)+"% · faltam "+brl(g.target-sv)+(g.due?" até "+MOL[+g.due.slice(5,7)-1]+"/"+g.due.slice(0,4):"");
+    var monTxt=plan?(mo>=plan?'<span class="ok">✓ Depósito do mês feito</span>':'Este mês: '+brl(mo)+' de '+brl(plan)):(mo?'Este mês: '+brl(mo):'Sem depósito mensal definido');
+    var hist=(g.h||[]).slice(-6).reverse().map(function(x){return'<div><span>'+dm(parse(x.d))+(x.a?" · automático":"")+'</span><b class="'+(x.v<0?"neg":"pos")+'">'+(x.v<0?"− ":"+ ")+brl(Math.abs(x.v))+'</b></div>'}).join("");
+    return'<div class="sgoal"><div class="gh"><b>'+esc(g.n)+'</b><span>'+brl(sv)+' de '+brl(g.target)+'</span></div><div class="gb"><i style="width:'+pc+'%"></i></div><small>'+tip+'</small>'+
+      (done?'':'<div class="gm"><span>'+monTxt+'</span>'+(plan&&mo<plan?'<button class="btn sm" data-gmon="'+i+'">Depositar '+brl(plan-mo)+'</button>':'')+'</div>')+
+      '<label class="gauto"><input type="checkbox" data-gauto="'+i+'"'+(g.auto?" checked":"")+'> Depositar '+(g.mon?brl(g.mon)+" ":"")+'sozinho todo mês</label>'+
+      '<div class="ga"><input class="inp mono" inputmode="decimal" placeholder="Valor" data-gv="'+i+'"><button class="btn sm" data-gadd="'+i+'">Guardar</button><button class="btn sm ghost" data-gout="'+i+'">Retirar</button><button class="iconbtn" data-gdel="'+i+'" aria-label="Apagar caixinha"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 6l12 12M18 6L6 18"/></svg></button></div>'+
+      (hist?'<details class="gx"><summary>Últimos lançamentos</summary><div class="dlines">'+hist+'</div></details>':'')+'</div>'}).join("");
+  if(S.goals.length){var tot=0;S.goals.forEach(function(g){tot+=goalSaved(g)});h='<div class="dbig"><span>Total guardado nas caixinhas</span><b style="color:var(--good)">'+brl(tot)+'</b><small>'+S.goals.length+(S.goals.length>1?" caixinhas":" caixinha")+'</small></div>'+h}
+  else h+='<div class="dtip">Crie caixinhas para separar dinheiro: viagem, reserva de emergência, um celular novo. Defina a meta e quanto vai guardar por mês. O app lembra de você ou deposita sozinho todo mês.</div>';
+  h+='<form class="dform" id="goalForm"><b>Nova caixinha</b><input class="inp" id="gfN" maxlength="30" placeholder="Nome (ex.: Viagem)" required><div class="row3" style="grid-template-columns:1fr 1fr"><label>Meta (R$)<input class="inp" id="gfT" inputmode="decimal" placeholder="5.000,00" required></label><label>Até quando<input class="inp" id="gfD" type="month"></label></div>'+
+    '<label>Depósito por mês (R$)<input class="inp" id="gfM" inputmode="decimal" placeholder="Opcional, ex.: 300,00"></label><label class="gauto"><input type="checkbox" id="gfA"> Depositar sozinho todo mês</label><button class="btn sm">Criar caixinha</button></form>';
   $("#dBody").innerHTML=h;
 }
 /* ---------- previsão do fim do mês (Premium) ---------- */
@@ -2406,34 +2435,40 @@ function drawPlan(){
   var f=forecast(),pv=$("#pvV");pv.textContent=on&&f.inc?sgn(f.net):"";pv.className="pv "+(f.net<0?"neg":"pos");
   $("#pvS").textContent=on?(f.inc?(f.net<0?"Pelo ritmo, o mês fecha no vermelho":"Pelo ritmo, sobra no fim do mês"):"Lance sua receita para prever"):"Pelo seu ritmo de gastos";
   var c=S.cards[0],pc=$("#pcV");if(on&&c){var k=cardInfo(c);pc.textContent=brl(k.curT);$("#pcS").textContent=c.n+" · vence "+dm(k.cur.due)+(S.cards.length>1?" · +"+(S.cards.length-1):"")}else{pc.textContent="";$("#pcS").textContent=on?"Cadastre seu cartão":"Fatura, fechamento e parcelas"}
-  var g=S.goals[0],pg=$("#pgV");if(on&&g){var pct=g.target?Math.round(goalSaved(g)/g.target*100):0;pg.textContent=Math.min(100,pct)+"%";$("#pgS").textContent=g.n+(S.goals.length>1?" e mais "+(S.goals.length-1):"")}else{pg.textContent="";$("#pgS").textContent=on?"Crie sua primeira meta":"Junte dinheiro para seus planos"}
+  var g=S.goals[0],pg=$("#pgV");if(on&&g){var pct=g.target?Math.round(goalSaved(g)/g.target*100):0;pg.textContent=Math.min(100,pct)+"%";$("#pgS").textContent=g.n+(S.goals.length>1?" e mais "+(S.goals.length-1):"")+(goalNeed(g)||g.mon?(goalMonth(g,iso(today()).slice(0,7))>=(g.mon||goalNeed(g))?" · mês ok":" · depósito pendente"):"")}else{pg.textContent="";$("#pgS").textContent=on?"Crie sua primeira caixinha":"Guarde dinheiro todo mês para seus planos"}
 }
 if(window.GASTEI_TEST)window.__gt={parseVoice:parseVoice,parseReceipt:parseReceipt};
 var curSheet="";
-function openSheetD(k){if(needPrem(k))return;curSheet=k;$("#dTitle").textContent={prev:"Previsão do fim do mês",card:"Cartão de crédito",goals:"Metas de economia"}[k];redrawSheet();$("#dSheet").hidden=false;buzz(6)}
+function openSheetD(k){if(needPrem(k))return;curSheet=k;$("#dTitle").textContent={prev:"Previsão do fim do mês",card:"Cartão de crédito",goals:"Caixinhas"}[k];redrawSheet();$("#dSheet").hidden=false;buzz(6)}
 function redrawSheet(){if(curSheet==="prev")drawPrevSheet();else if(curSheet==="card")drawCardSheet();else if(curSheet==="goals")drawGoalSheet()}
 document.addEventListener("click",function(e){var b=e.target.closest("[data-sheet]");if(b)openSheetD(b.dataset.sheet)});
 $("#dClose").addEventListener("click",function(){$("#dSheet").hidden=true});
 $("#dSheet").addEventListener("click",function(e){if(e.target.id==="dSheet"){this.hidden=true;return}
   var t=e.target.closest("button");if(!t)return;
   if(t.dataset.delcard){if(t.dataset.armed!=="1"){t.dataset.armed="1";toast("Toque de novo para remover o cartão");return}S.cards=S.cards.filter(function(c){return c.id!==t.dataset.delcard});save();redrawSheet();render();return}
+  if(t.dataset.gmon!=null){var gm=S.goals[+t.dataset.gmon];if(!gm)return;var pl=gm.mon||goalNeed(gm),vv=Math.min(pl-goalMonth(gm,iso(today()).slice(0,7)),gm.target-goalSaved(gm));if(vv>0){(gm.h=gm.h||[]).push({d:iso(today()),v:vv});save();redrawSheet();render();buzz(10);toast("Guardado "+brl(vv)+" em "+gm.n)}return}
   var gi=t.dataset.gadd||t.dataset.gout||t.dataset.gdel;if(gi==null)return;var g=S.goals[+gi];if(!g)return;
-  if(t.dataset.gdel!=null){if(t.dataset.armed!=="1"){t.dataset.armed="1";toast("Toque de novo para apagar a meta");return}S.goals.splice(+gi,1);save();redrawSheet();render();return}
+  if(t.dataset.gdel!=null){if(t.dataset.armed!=="1"){t.dataset.armed="1";toast("Toque de novo para apagar a caixinha");return}S.goals.splice(+gi,1);save();redrawSheet();render();return}
   var inp=$('[data-gv="'+gi+'"]'),v=parseMoney(inp.value);if(!v){inp.focus();toast("Digite o valor");return}
   if(t.dataset.gout!=null)v=-Math.min(v,goalSaved(g));
   (g.h=g.h||[]).push({d:iso(today()),v:v});save();redrawSheet();render();buzz(10);
   toast(v>0?"Guardado "+brl(v)+" em "+g.n:"Retirado "+brl(-v)+" de "+g.n);
 });
+$("#dSheet").addEventListener("change",function(e){var c=e.target;if(c.dataset.gauto==null)return;var g=S.goals[+c.dataset.gauto];if(!g)return;
+  if(c.checked&&!(g.mon>0)){g.mon=goalNeed(g);if(!g.mon){var v=parseMoney(($('[data-gv="'+c.dataset.gauto+'"]')||{}).value||"");if(v)g.mon=v}}
+  if(c.checked&&!(g.mon>0)){c.checked=false;toast("Digite o valor do mês no campo Valor e marque de novo");return}
+  g.auto=c.checked;if(g.auto)g.lastAuto=goalMonth(g,iso(today()).slice(0,7))?iso(today()).slice(0,7):"";applyAutoBoxes();save();redrawSheet();render();toast(g.auto?"Todo dia 1 a caixinha recebe "+brl(g.mon):"Depósito automático desligado")});
 $("#dSheet").addEventListener("submit",function(e){e.preventDefault();var f=e.target;
   if(f.id==="cardForm"){var n=$("#cfN").value.trim(),c=Math.max(1,Math.min(28,+$("#cfC").value||1)),d=Math.max(1,Math.min(31,+$("#cfD").value||10));if(!n)return;
     S.cards.push({id:"c"+uid(),n:n,close:c,due:d,lim:parseMoney($("#cfL").value)||0});save();redrawSheet();render();toast("Cartão "+n+" salvo")}
   if(f.id==="goalForm"){var gn=$("#gfN").value.trim(),gt=parseMoney($("#gfT").value);if(!gn||!gt){toast("Preencha o nome e o valor da meta");return}
-    S.goals.push({id:"g"+uid(),n:gn,target:gt,due:$("#gfD").value||"",h:[]});save();redrawSheet();render();toast("Meta criada")}
+    var ng={id:"g"+uid(),n:gn,target:gt,due:$("#gfD").value||"",h:[],mon:parseMoney($("#gfM").value)||0,auto:$("#gfA").checked};if(!ng.mon)ng.mon=goalNeed(ng);if(ng.auto&&!ng.mon){toast("Digite o depósito por mês para depositar sozinho");return}
+    if(ng.auto)ng.lastAuto="";S.goals.push(ng);applyAutoBoxes();save();redrawSheet();render();toast("Caixinha criada")}
 });
 
 function render(){drawTitle();drawTop();drawKpis();drawGoal();drawFilters();drawPeriod();drawMonth();drawHist();drawBkNote();applyPriv();applyPrem();drawPlan();checkAlert();pushWidget()}
 document.body.dataset.tab="home";
-var had=load();if(!S.rem)S.rem={on:false,h:20,m:0};if(!S.alertDone)S.alertDone={};if(!S.cards)S.cards=[];if(!S.goals)S.goals=[];if(S.alertPct==null)S.alertPct=0;if(!S.trial){S.trial=Date.now();save()}applyRecurring();applyTheme();billingInit(false);setTimeout(function(){scheduleReminder(false);checkLaunch()},600);
+var had=load();if(!S.rem)S.rem={on:false,h:20,m:0};if(!S.alertDone)S.alertDone={};if(!S.cards)S.cards=[];if(!S.goals)S.goals=[];if(S.alertPct==null)S.alertPct=0;if(!S.trial){S.trial=Date.now();save()}applyAutoBoxes();applyRecurring();applyTheme();billingInit(false);setTimeout(function(){scheduleReminder(false);checkLaunch()},600);
 if(!had&&!S.items.length)S.items=demo();
 drawCats();resetForm();render();
 if(S.trial&&!isPrem()&&!S.trialEndSeen&&S.onboarded){S.trialEndSeen=1;save();setTimeout(function(){openPlans("fim")},900)}
