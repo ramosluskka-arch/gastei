@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
-<meta name="theme-color" content="#0B6E7F">
+<meta name="theme-color" content="#0A0A0C">
 <meta name="mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-status-bar-style" content="default">
@@ -593,7 +593,7 @@ body.priv .lsum .mono{filter:blur(7px)}
 body.prem .pro,body.prem [data-plnote]{display:none!important}
 body:not(.prem) .tabbar [data-tab="hist"]{position:relative}
 body:not(.prem) .tabbar [data-tab="hist"]::after{content:"";position:absolute;top:8px;right:calc(50% - 18px);width:8px;height:8px;border-radius:50%;background:var(--amber);box-shadow:0 0 0 2px var(--surface)}
-body:not(.prem) #palSeg .pal:not([data-pal="teal"])::after{content:"Premium";font-size:.62rem;font-weight:800;background:var(--amber);color:#2B1B00;border-radius:999px;padding:1px 7px;justify-self:start}
+body:not(.prem) #palSeg .pal:not([data-pal="teal"]):not([data-pal="neon"])::after{content:"Premium";font-size:.62rem;font-weight:800;background:var(--amber);color:#2B1B00;border-radius:999px;padding:1px 7px;justify-self:start}
 /* ---- app nativo: mesmo visual em celular, site e PC ---- */
 html{scrollbar-width:none;background:var(--bg)}
 html::-webkit-scrollbar{display:none}
@@ -813,6 +813,80 @@ body.priv .bsum b,body.priv .bvals b,body.priv .bmon b,body.priv .binfo b{filter
 .bmon{flex-wrap:wrap}.bmon>div{flex:1 1 150px}.bmon .btn{flex:1 1 auto}
 .bpanel label.gauto{display:flex;font-size:.86rem}
 .bname b{white-space:normal;line-height:1.2}
+/* ===== estilo Noite: preto, roxo e laranja (padrão) ===== */
+:root[data-pal="neon"]{--bg:#0A0A0C;--surface:#141418;--sunken:#1C1C22;--line:#24242C;--ink:#F9F9FB;--muted:#9494A3;
+  --primary:#A73BEB;--primary-ink:#FFFFFF;--primary-soft:#2A1438;--amber:#FF7A00;--amber-soft:#2E1A08;--good:#00C875;--bad:#FF5A5F;
+  --hero1:#1B0B2A;--hero2:#2A0E45;--hero3:#141418;--hero-k:#C77DFF;--cta:#FF7A00;--cta-ink:#FFFFFF;
+  --org:#FF7A00;--org2:#FF500F;--pur:#820AD1;--pur2:#C77DFF;
+  --shadow:0 12px 32px -8px rgba(0,0,0,.65);--f-num:"Plus Jakarta Sans",system-ui,sans-serif;color-scheme:dark}
+:root[data-pal="neon"] body{background-color:#050507;background-image:radial-gradient(circle at 18% 12%,rgba(130,10,209,.20) 0%,transparent 42%),radial-gradient(circle at 85% 88%,rgba(255,122,0,.14) 0%,transparent 42%);background-attachment:fixed}
+:root[data-pal="neon"] html,:root[data-pal="neon"]{background:#050507}
+:root[data-pal="neon"] .mono{letter-spacing:-.01em;font-weight:700}
+:root[data-pal="neon"] .card,:root[data-pal="neon"] .dt,:root[data-pal="neon"] .kpi,:root[data-pal="neon"] .box{background:var(--surface);border:1px solid var(--line);border-radius:24px;box-shadow:0 12px 32px -8px rgba(0,0,0,.65)}
+:root[data-pal="neon"] .card .chead h2{font-weight:800}
+:root[data-pal="neon"] .appbar{background:color-mix(in srgb,#0A0A0C 82%,transparent)}
+:root[data-pal="neon"] .appbar .brand .mark{background:linear-gradient(135deg,var(--pur),#E0457B);box-shadow:0 6px 16px -4px rgba(130,10,209,.6)}
+:root[data-pal="neon"] .iconbtn{background:var(--surface);border-color:var(--line);color:var(--ink);border-radius:999px}
+:root[data-pal="neon"] .ptitle h1{font-weight:800}
+/* cartão do mês */
+:root[data-pal="neon"] .mcard{background:linear-gradient(160deg,#2A0E45 0%,#1A0B28 45%,#141418 100%);border:1px solid rgba(199,125,255,.25);border-radius:28px;box-shadow:0 18px 40px -12px rgba(130,10,209,.45)}
+:root[data-pal="neon"] .mcard::before{left:auto;right:-90px;bottom:-120px;background:radial-gradient(circle,rgba(255,122,0,.22),transparent 65%)}
+:root[data-pal="neon"] .mcard::after{border-color:rgba(199,125,255,.07)}
+:root[data-pal="neon"] .mhead h2{text-transform:uppercase;letter-spacing:.08em;font-size:.9rem;font-weight:800}
+:root[data-pal="neon"] .marrow{background:rgba(255,255,255,.08);border:0;border-radius:999px;color:#fff}
+:root[data-pal="neon"] .msaldo span{color:#C77DFF}
+:root[data-pal="neon"] .msaldo b{font-weight:800;letter-spacing:-.03em}
+:root[data-pal="neon"] .mgauge{background:rgba(255,255,255,.08);box-shadow:none;height:10px}
+:root[data-pal="neon"] .mgauge div{background:linear-gradient(90deg,#00C875,#C77DFF,#FF7A00);border-right:0;border-radius:9px}
+:root[data-pal="neon"] .mgauge div.over{background:linear-gradient(90deg,#FF7A00,#FF5A5F)}
+:root[data-pal="neon"] .mlegend i.g{background:#FF7A00}:root[data-pal="neon"] .mlegend i.r{background:#00C875}
+:root[data-pal="neon"] #mIn{color:#00C875}
+:root[data-pal="neon"] .mgo{background:linear-gradient(90deg,#FF7A00,#FF500F);color:#fff;border-radius:18px;box-shadow:0 10px 28px -6px rgba(255,122,0,.55);font-weight:800}
+:root[data-pal="neon"] .mlink[data-add="in"]{background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.14);border-radius:16px;margin-top:0;opacity:1}
+:root[data-pal="neon"] .malert{background:rgba(255,122,0,.14);border:1px solid rgba(255,122,0,.4);color:#FFB27A}
+/* blocos */
+:root[data-pal="neon"] .dt.hl{background:linear-gradient(150deg,#2A0E45,#141418);border-color:rgba(199,125,255,.3)}
+:root[data-pal="neon"] .dt.hl b{color:#C77DFF}
+:root[data-pal="neon"] .kpi[aria-pressed="true"]{background:linear-gradient(135deg,#820AD1,#FF7A00);border-color:transparent;color:#fff;box-shadow:0 10px 28px -6px rgba(255,122,0,.45)}
+:root[data-pal="neon"] .btn{background:linear-gradient(90deg,#FF7A00,#FF500F);color:#fff;box-shadow:0 8px 22px -8px rgba(255,122,0,.6);border-radius:14px}
+:root[data-pal="neon"] .btn.ghost{background:var(--sunken);border:1px solid var(--line);color:var(--ink);box-shadow:none}
+:root[data-pal="neon"] .btn.sm{border-radius:12px}
+:root[data-pal="neon"] .link{color:#FF9A3D}
+:root[data-pal="neon"] .inp{background:#0F0F13;border-color:var(--line);border-radius:14px;color:var(--ink)}
+:root[data-pal="neon"] .inp:focus{border-color:#A73BEB;box-shadow:0 0 0 3px rgba(167,59,235,.25)}
+:root[data-pal="neon"] .item .ic{border-radius:14px}
+:root[data-pal="neon"] .seg,:root[data-pal="neon"] .cats button{border-radius:999px}
+:root[data-pal="neon"] .seg[aria-pressed="true"],:root[data-pal="neon"] .cats button[aria-pressed="true"]{background:linear-gradient(90deg,#FF7A00,#FF500F);color:#fff;border-color:transparent}
+:root[data-pal="neon"] .pro{background:linear-gradient(90deg,#FF7A00,#FF500F);color:#fff}
+/* barras de baixo */
+:root[data-pal="neon"] .tabbar{background:color-mix(in srgb,#0A0A0C 90%,transparent);border-top-color:#1C1C22}
+:root[data-pal="neon"] .tabbar button[aria-current="page"]{color:#FF7A00}
+:root[data-pal="neon"] .tabbar button[aria-current="page"] svg{background:rgba(255,122,0,.16)}
+:root[data-pal="neon"] .tabbar .fab{background:linear-gradient(135deg,#FF7A00,#FF500F);border-radius:999px;color:#fff;box-shadow:0 10px 28px -6px rgba(255,122,0,.6),0 0 0 4px #0A0A0C}
+/* planejar e caixinhas */
+:root[data-pal="neon"] .phero{background:linear-gradient(150deg,rgba(130,10,209,.18),#1C1C22);border:1px solid rgba(199,125,255,.18)}
+:root[data-pal="neon"] .pbar .nw{background:linear-gradient(90deg,#820AD1,#C77DFF)}
+:root[data-pal="neon"] .ptiles div.hl{background:linear-gradient(150deg,#2A0E45,#1C1C22)}
+:root[data-pal="neon"] .ptiles div.hl b{color:#C77DFF}
+:root[data-pal="neon"] .bsum{background:linear-gradient(140deg,#820AD1,#3A0A5E 60%,#1B0B2A);box-shadow:0 14px 34px -10px rgba(130,10,209,.6)}
+:root[data-pal="neon"] .bsbar i{background:linear-gradient(90deg,#C77DFF,#FF7A00)}
+:root[data-pal="neon"] .bbar i{background:linear-gradient(90deg,var(--bc),#FF7A00)}
+:root[data-pal="neon"] .plock{background:linear-gradient(135deg,#820AD1,#FF500F)}
+:root[data-pal="neon"] .achips button{background:var(--sunken)}
+:root[data-pal="neon"] .achips button[aria-pressed="true"]{background:linear-gradient(90deg,#FF7A00,#FF500F);border-color:transparent;color:#fff}
+:root[data-pal="neon"] .overlay .sheet,:root[data-pal="neon"] .sticky #form{background:#141418;border:1px solid var(--line)}
+:root[data-pal="neon"] .notice{background:#1C1C22;border-color:var(--line)}
+/* atalhos */
+.quick{display:grid;gap:10px;order:1}
+#monthCard{order:0!important}
+.qhead{display:flex;justify-content:space-between;align-items:baseline;padding:0 4px}
+.qhead b{font-size:.95rem;font-weight:800}.qhead span{font-size:.72rem;color:var(--muted);font-weight:600}
+.qrow{display:flex;gap:10px;overflow-x:auto;scrollbar-width:none;margin:0 -16px;padding:2px 16px 6px;scroll-snap-type:x mandatory;touch-action:pan-x pan-y}
+.qrow::-webkit-scrollbar{display:none}
+.qrow button{flex:0 0 88px;scroll-snap-align:start;display:grid;justify-items:center;gap:8px;padding:14px 6px 12px;border-radius:20px;background:var(--surface);border:1px solid var(--line);color:var(--ink);font-size:.74rem;font-weight:700;line-height:1.2;text-align:center;box-shadow:var(--shadow)}
+.qrow button span{width:40px;height:40px;border-radius:13px;display:grid;place-items:center;background:color-mix(in srgb,var(--qc) 18%,transparent);color:var(--qc)}
+.qrow button svg{width:20px;height:20px}
+.qrow button:active{transform:scale(.95)}
 /* sem elementos de jogo */
 .chip.lv,.chip.st,.xptag,#achCard,#nudge{display:none!important}
 .swipehint{display:none}
@@ -995,6 +1069,15 @@ html,body{overflow-x:clip}
     <button class="mlink" data-add="in"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></svg>Adicionar receita</button>
     <button class="mlink mvoice" data-voice><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="3" width="6" height="11" rx="3"/><path d="M5 11a7 7 0 0 0 14 0M12 18v3"/></svg>Falar um gasto</button>
   </section>
+  <section class="quick" data-v="home" id="quickRow"><div class="qhead"><b>Atalhos</b><span>Arraste para o lado →</span></div><div class="qrow">
+    <button type="button" data-add="out" style="--qc:#FF7A00"><span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><path d="M5 12h14"/></svg></span>Novo gasto</button>
+    <button type="button" data-add="in" style="--qc:#00C875"><span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></svg></span>Nova receita</button>
+    <button type="button" data-voice style="--qc:#C77DFF"><span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="3" width="6" height="11" rx="3"/><path d="M5 11a7 7 0 0 0 14 0M12 18v3"/></svg></span>Falar um gasto</button>
+    <button type="button" id="qOcr" style="--qc:#2F9BFF"><span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 8V6a2 2 0 0 1 2-2h2M16 4h2a2 2 0 0 1 2 2v2M20 16v2a2 2 0 0 1-2 2h-2M8 20H6a2 2 0 0 1-2-2v-2"/><circle cx="12" cy="12" r="3"/></svg></span>Ler comprovante</button>
+    <button type="button" id="qBox" style="--qc:#00C875"><span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 8h16v11a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1z"/><path d="M3 4h18v4H3zM10 12h4"/></svg></span>Nova caixinha</button>
+    <button type="button" id="qPrev" style="--qc:#FF9A3D"><span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 17l6-6 4 4 8-8"/><path d="M15 7h6v6"/></svg></span>Previsão do mês</button>
+    <button type="button" data-pdf style="--qc:#E0457B"><span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 3H7a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V8z"/><path d="M14 3v5h5M9 13h6M9 17h4"/></svg></span>Relatório PDF</button>
+  </div></section>
   <div class="dash" data-v="home">
     <div class="dtiles">
       <div class="dt hl"><span>Pode gastar por dia</span><b class="mono" id="dDay">—</b><small id="dDayS"></small></div>
@@ -1244,7 +1327,7 @@ html,body{overflow-x:clip}
         </div>
       </div>
       <div class="set" data-pane="aparencia" hidden>
-        <div class="field"><span class="lbl">Cores do app</span><div class="palrow" id="palSeg"><button class="pal" data-pal="teal"><i style="background:linear-gradient(135deg,#063A44,#0B6E7F 55%,#E89B0C)"></i>Petróleo</button><button class="pal" data-pal="magenta"><i style="background:linear-gradient(135deg,#C2185B,#F0509F 60%,#FFFFFF)"></i>Rosa magenta</button><button class="pal" data-pal="dark"><i style="background:linear-gradient(135deg,#0A0A10,#3F0F48 55%,#FF3D9A)"></i>Dark</button><button class="pal" data-pal="blue"><i style="background:linear-gradient(135deg,#08163D,#1E3FA8 55%,#3478FF)"></i>Pro Blue</button></div></div>
+        <div class="field"><span class="lbl">Cores do app</span><div class="palrow" id="palSeg"><button class="pal" data-pal="neon"><i style="background:linear-gradient(135deg,#0A0A0C,#820AD1 55%,#FF7A00)"></i>Noite</button><button class="pal" data-pal="teal"><i style="background:linear-gradient(135deg,#063A44,#0B6E7F 55%,#E89B0C)"></i>Petróleo</button><button class="pal" data-pal="magenta"><i style="background:linear-gradient(135deg,#C2185B,#F0509F 60%,#FFFFFF)"></i>Rosa magenta</button><button class="pal" data-pal="dark"><i style="background:linear-gradient(135deg,#0A0A10,#3F0F48 55%,#FF3D9A)"></i>Dark</button><button class="pal" data-pal="blue"><i style="background:linear-gradient(135deg,#08163D,#1E3FA8 55%,#3478FF)"></i>Pro Blue</button></div></div>
         <div class="field"><span class="lbl">Tema</span><div class="tools" id="themeSeg"><button class="seg" data-th="auto">Automático</button><button class="seg" data-th="light">Claro</button><button class="seg" data-th="dark">Escuro</button></div></div>
         <div class="field"><span class="lbl">A semana começa na</span><div class="tools" id="weekSeg"><button class="seg" data-w="1">Segunda</button><button class="seg" data-w="0">Domingo</button></div></div>
       </div>
@@ -1789,14 +1872,14 @@ $("#addCat").addEventListener("click",function(){var n=$("#newCat").value.trim()
   var pal=["#E8792B","#1F9D62","#2F7FE0","#8B5CF6","#C99A06","#E0457B","#0EA5B7","#C04FC9","#5B8C2A","#B4532A"];
   var oi=S.cats.findIndex(function(c){return c.k==="outros"});S.cats.splice(oi<0?S.cats.length:oi,0,{k:"c"+uid(),n:n,c:pal[S.cats.length%pal.length]});$("#newCat").value="";save();drawCatEdit();drawCats();toast("Categoria criada")});
 function syncSegs(){applyTheme();$$("#themeSeg [data-th]").forEach(function(b){b.setAttribute("aria-pressed",b.dataset.th===S.theme)});$$("#weekSeg [data-w]").forEach(function(b){b.setAttribute("aria-pressed",+b.dataset.w===S.wk)})}
-var PALC={teal:"#0B6E7F",magenta:"#C2185B",dark:"#0A0A10",blue:"#1E3FA8"};
-function applyTheme(){var r=document.documentElement,pal=PALC[S.pal]&&isPrem()?S.pal:"teal";
+var PALC={neon:"#0A0A0C",teal:"#0B6E7F",magenta:"#C2185B",dark:"#0A0A10",blue:"#1E3FA8"};
+function applyTheme(){var r=document.documentElement,pal=PALC[S.pal]&&(isPrem()||S.pal==="teal"||S.pal==="neon")?S.pal:"neon";
   if(pal==="teal")r.removeAttribute("data-pal");else r.setAttribute("data-pal",pal);
-  if(pal==="dark")r.setAttribute("data-theme","dark");else if(S.theme==="auto")r.removeAttribute("data-theme");else r.setAttribute("data-theme",S.theme);
+  if(pal==="dark"||pal==="neon")r.setAttribute("data-theme","dark");else if(S.theme==="auto")r.removeAttribute("data-theme");else r.setAttribute("data-theme",S.theme);
   var m=document.querySelector('meta[name="theme-color"]');if(m)m.setAttribute("content",PALC[pal]);
   $$("#palSeg [data-pal]").forEach(function(b){b.setAttribute("aria-pressed",b.dataset.pal===pal)});
-  $("#themeSeg").style.opacity=pal==="dark"?.45:1}
-$("#palSeg").addEventListener("click",function(e){var b=e.target.closest("[data-pal]");if(!b)return;if(b.dataset.pal!=="teal"&&needPrem("cores"))return;S.pal=b.dataset.pal;applyTheme();save();buzz(6)});
+  $("#themeSeg").style.opacity=pal==="dark"||pal==="neon"?.45:1}
+$("#palSeg").addEventListener("click",function(e){var b=e.target.closest("[data-pal]");if(!b)return;if(b.dataset.pal!=="teal"&&b.dataset.pal!=="neon"&&needPrem("cores"))return;S.pal=b.dataset.pal;applyTheme();save();buzz(6)});
 $("#themeSeg").addEventListener("click",function(e){var b=e.target.closest("[data-th]");if(!b)return;S.theme=b.dataset.th;applyTheme();save();syncSegs()});
 $("#weekSeg").addEventListener("click",function(e){var b=e.target.closest("[data-w]");if(!b)return;S.wk=+b.dataset.w;save();syncSegs();render()});
 function csv(){
@@ -2595,9 +2678,14 @@ $("#planTab").addEventListener("submit",function(e){e.preventDefault();var f=e.t
   var ng={id:"g"+uid(),n:gn,target:gt,due:$("#gfD").value||"",h:[],mon:parseMoney($("#gfM").value)||0,auto:$("#gfA").checked};if(!ng.mon)ng.mon=goalNeed(ng);if(ng.auto&&!ng.mon){toast("Digite o depósito por mês para depositar sozinho");return}
   if(ng.auto)ng.lastAuto="";S.goals.push(ng);boxFormOpen=false;applyAutoBoxes();save();render();toast("Caixinha criada")});
 
+
+/* ---------- atalhos do Início ---------- */
+$("#qOcr").addEventListener("click",function(){if(needPrem("ocr"))return;var b=$('[data-add="out"]');b&&b.click();setTimeout(function(){var c=$("#camBtn");c&&c.click()},350)});
+$("#qBox").addEventListener("click",function(){if(needPrem("goals"))return;setTab("plan");boxFormOpen=true;drawPlanBoxes();setTimeout(function(){var f=$("#goalForm");if(f){f.scrollIntoView({behavior:"smooth",block:"center"});var n=$("#gfN");n&&n.focus({preventScroll:true})}},250)});
+$("#qPrev").addEventListener("click",function(){setTab("plan")});
 function render(){drawTitle();drawTop();drawKpis();drawGoal();drawFilters();drawPeriod();drawMonth();drawHist();drawBkNote();applyPriv();applyPrem();drawPlan();checkAlert();pushWidget()}
 document.body.dataset.tab="home";
-var had=load();if(!S.rem)S.rem={on:false,h:20,m:0};if(!S.alertDone)S.alertDone={};if(!S.cards)S.cards=[];if(!S.goals)S.goals=[];if(S.alertPct==null)S.alertPct=0;if(!S.trial){S.trial=Date.now();save()}applyAutoBoxes();applyRecurring();applyTheme();billingInit(false);setTimeout(function(){scheduleReminder(false);checkLaunch()},600);
+var had=load();if(!S.rem)S.rem={on:false,h:20,m:0};if(!S.alertDone)S.alertDone={};if(!S.cards)S.cards=[];if(!S.goals)S.goals=[];if(S.alertPct==null)S.alertPct=0;if(!S.lookV2){S.lookV2=1;S.pal="neon";save()}if(!S.trial){S.trial=Date.now();save()}applyAutoBoxes();applyRecurring();applyTheme();billingInit(false);setTimeout(function(){scheduleReminder(false);checkLaunch()},600);
 if(!had&&!S.items.length)S.items=demo();
 drawCats();resetForm();render();
 if(S.trial&&!isPrem()&&!S.trialEndSeen&&S.onboarded){S.trialEndSeen=1;save();setTimeout(function(){openPlans("fim")},900)}
