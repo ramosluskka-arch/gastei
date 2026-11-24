@@ -313,7 +313,7 @@ footer{margin-top:28px;color:var(--muted);font-size:.78rem;display:flex;justify-
 .mlist small{display:block;font-weight:500;font-size:.78rem;color:var(--muted)}
 @media all{
   body{padding-bottom:calc(88px + env(safe-area-inset-bottom,0px));-webkit-tap-highlight-color:transparent}
-  body:not([data-tab="home"]) [data-v="home"],body:not([data-tab="report"]) [data-v="report"],body:not([data-tab="list"]) [data-v="list"],body:not([data-tab="more"]) [data-v="more"],body:not([data-tab="hist"]) [data-v="hist"]{display:none!important}
+  body:not([data-tab="plan"]) [data-v="plan"],body:not([data-tab="home"]) [data-v="home"],body:not([data-tab="report"]) [data-v="report"],body:not([data-tab="list"]) [data-v="list"],body:not([data-tab="more"]) [data-v="more"],body:not([data-tab="hist"]) [data-v="hist"]{display:none!important}
   .mmore{display:block}
   .appbar{margin-bottom:12px}
   .appbar .in{padding-block:10px}
@@ -704,6 +704,62 @@ body.pgin .ptitle{animation:pgIn .26s cubic-bezier(.2,.8,.3,1)}
 .sgoal .ga .inp{min-width:0}
 .ocrbar{position:fixed;left:50%;top:calc(env(safe-area-inset-top,0px) + 12px);transform:translateX(-50%);z-index:60;background:var(--ink);color:var(--surface);border-radius:999px;padding:8px 16px;font-size:.84rem;font-weight:700;box-shadow:0 8px 24px rgba(0,0,0,.25)}
 body.priv .pv,body.priv .dbig b,body.priv .dlines b,body.priv .ccard .cv,body.priv .sgoal .gh span{filter:blur(7px)}
+/* ---- aba Planejar ---- */
+.tabbar{grid-template-columns:repeat(5,1fr)}
+.tabbar button{font-size:.64rem;min-width:0}
+.tabbar button svg{padding:4px 14px}
+.tabbar .fab{position:absolute;right:max(16px,env(safe-area-inset-right,0px));bottom:calc(100% + 14px);margin:0;width:58px;height:58px;border-radius:19px;z-index:2}
+.wrap{padding-bottom:150px}
+.plantab{display:grid;gap:14px}
+.pcard .chead h2{display:flex;align-items:center;gap:10px}
+.pcard .chead .pi{width:32px;height:32px;border-radius:10px;display:grid;place-items:center;background:color-mix(in srgb,var(--c) 14%,transparent);color:var(--c)}
+.pcard .chead .pi svg{width:18px;height:18px}
+.plock{display:flex;gap:12px;align-items:center;justify-content:space-between;background:linear-gradient(135deg,var(--primary),color-mix(in srgb,var(--primary) 60%,#000));color:#fff;border-radius:20px;padding:14px 16px}
+.plock b{display:block;font-size:.98rem}.plock span{font-size:.82rem;opacity:.85}
+.plock .btn{background:#fff;color:var(--primary);flex:none}
+body.prem .plock{display:none}
+body:not(.prem) .pcard>:not(.chead){filter:blur(5px);pointer-events:none;user-select:none}
+.phero{border-radius:18px;padding:16px;background:var(--sunken);display:grid;gap:4px}
+.phero span{font-size:.82rem;color:var(--muted);font-weight:600}
+.phero b{font-family:var(--f-num);font-weight:500;font-size:1.9rem;letter-spacing:-.02em}
+.phero b.pos{color:var(--good)}.phero b.neg{color:var(--bad)}
+.phero small{font-size:.82rem;color:var(--muted)}
+.pbar{position:relative;height:14px;border-radius:7px;background:color-mix(in srgb,var(--ink) 8%,transparent);overflow:visible;margin:14px 0 6px}
+.pbar i{position:absolute;left:0;top:0;bottom:0;border-radius:7px}
+.pbar .pj{background:repeating-linear-gradient(45deg,color-mix(in srgb,var(--amber) 55%,transparent) 0 6px,color-mix(in srgb,var(--amber) 30%,transparent) 6px 12px)}
+.pbar .nw{background:var(--primary)}
+.pbar .mk{position:absolute;top:-5px;bottom:-5px;width:3px;border-radius:2px;background:var(--ink)}
+.plegend{display:flex;flex-wrap:wrap;gap:6px 14px;font-size:.76rem;color:var(--muted);font-weight:600}
+.plegend em{font-style:normal;display:inline-flex;align-items:center;gap:6px}
+.plegend em::before{content:"";width:10px;height:10px;border-radius:3px;background:var(--c)}
+.ptiles{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:8px;margin-top:12px}
+.ptiles div{border:1px solid var(--line);border-radius:14px;padding:10px;display:grid;gap:2px}
+.ptiles span{font-size:.72rem;color:var(--muted);font-weight:600}
+.ptiles b{font-family:var(--f-num);font-weight:500;font-size:.98rem;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.ptiles div.hl{background:var(--primary-soft);border-color:transparent}
+.ptiles div.hl b{color:var(--primary)}
+.pcard .dtip{margin-top:12px}
+.pcard details.pmore{margin-top:10px}
+.pcard details.pmore summary{cursor:pointer;font-size:.84rem;font-weight:700;color:var(--primary)}
+.boxes{display:grid;gap:10px}
+.btot{display:flex;justify-content:space-between;align-items:baseline;gap:10px;margin-bottom:10px}
+.btot span{font-size:.82rem;color:var(--muted);font-weight:600}
+.btot b{font-family:var(--f-num);font-weight:500;font-size:1.5rem;color:var(--good)}
+#pbBody .dform{margin-top:10px}
+#pbBody .dform[hidden]{display:none}
+.achips{display:flex;flex-wrap:wrap;gap:6px;margin-top:12px}
+.achips button{border:1px solid var(--line);background:var(--surface);color:var(--ink);border-radius:999px;padding:7px 12px;font-size:.82rem;font-weight:700}
+.achips button[aria-pressed="true"]{background:var(--primary);border-color:var(--primary);color:var(--primary-ink)}
+body.priv .phero b,body.priv .ptiles b,body.priv .btot b{filter:blur(7px)}
+.phero b{font-size:1.6rem;white-space:nowrap}
+.phero b small{font-family:var(--f-ui);font-weight:600;color:var(--muted);letter-spacing:0}
+.ptiles{grid-template-columns:1fr 1fr}
+.ptiles div.hl{grid-column:1/-1;display:flex;justify-content:space-between;align-items:center}
+.ptiles div.hl b{font-size:1.2rem}
+.plock{text-align:left}
+body[data-tab="plan"] .tabbar .fab{display:none}
+.sgoal .ga{grid-template-columns:minmax(0,1fr) minmax(0,1fr) auto}.sgoal .ga .inp{grid-column:1/-1}
+.boxes{grid-template-columns:minmax(0,1fr)}.sgoal{min-width:0}.sgoal .gh{flex-wrap:wrap}.plantab>*{min-width:0}.plantab{grid-template-columns:minmax(0,1fr)}
 /* sem elementos de jogo */
 .chip.lv,.chip.st,.xptag,#achCard,#nudge{display:none!important}
 .swipehint{display:none}
@@ -896,12 +952,12 @@ html,body{overflow-x:clip}
     <section class="card dcard" id="d7Card"><div class="chead"><h2>Últimos 7 dias</h2><span class="sub" id="d7s"></span></div><div class="d7" id="d7"></div></section>
     <section class="card dcard" id="dCatCard"><div class="chead"><h2>Para onde está indo</h2><span class="sub" id="dCatSub"></span></div><div id="dCats"></div></section>
   </div>
-  <section class="card plan" data-v="home" id="planCard">
-    <div class="chead"><h2>Planejar</h2></div>
-    <button type="button" class="prow" data-sheet="prev"><span class="pi" style="--c:#2F7FE0"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 17l6-6 4 4 8-8"/><path d="M15 7h6v6"/></svg></span><span class="pt"><b>Previsão do mês <span class="pro">PRO</span></b><small id="pvS">Pelo seu ritmo de gastos</small></span><span class="pv" id="pvV"></span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 6l6 6-6 6"/></svg></button>
-    <button type="button" class="prow" data-sheet="card"><span class="pi" style="--c:#8B5CF6"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="14" rx="2.5"/><path d="M3 10h18M7 15h4"/></svg></span><span class="pt"><b>Cartão de crédito <span class="pro">PRO</span></b><small id="pcS">Fatura, fechamento e parcelas</small></span><span class="pv" id="pcV"></span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 6l6 6-6 6"/></svg></button>
-    <button type="button" class="prow" data-sheet="goals"><span class="pi" style="--c:#12925E"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="8"/><circle cx="12" cy="12" r="4"/><circle cx="12" cy="12" r="1" fill="currentColor"/></svg></span><span class="pt"><b>Caixinhas <span class="pro">PRO</span></b><small id="pgS">Junte dinheiro para seus planos</small></span><span class="pv" id="pgV"></span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 6l6 6-6 6"/></svg></button>
-  </section>
+  <div class="plantab" data-v="plan" id="planTab">
+    <div class="plock" id="pLock"><div><b>Planejar faz parte do Premium</b><span>Previsão do mês, caixinhas com depósito mensal e alerta de gastos.</span></div><button class="btn sm" data-plans="mais">Ver Premium</button></div>
+    <section class="card pcard" id="pPrev"><div class="chead"><h2><span class="pi" style="--c:#2F7FE0"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 17l6-6 4 4 8-8"/><path d="M15 7h6v6"/></svg></span>Previsão do mês</h2><span class="sub" id="ppMon"></span></div><div id="ppBody"></div></section>
+    <section class="card pcard" id="pBox"><div class="chead"><h2><span class="pi" style="--c:#12925E"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 8h16v11a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1z"/><path d="M3 4h18v4H3zM10 12h4"/></svg></span>Caixinhas</h2><button class="link" id="pbNew">+ Nova</button></div><div id="pbBody"></div></section>
+    <section class="card pcard" id="pAl"><div class="chead"><h2><span class="pi" style="--c:#E0901F"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 8a6 6 0 1 1 12 0c0 7 3 9 3 9H3s3-2 3-9"/><path d="M10.3 21a1.94 1.94 0 0 0 3.4 0"/></svg></span>Alerta de gastos</h2></div><div id="paBody"></div></section>
+  </div>
   <section class="card" data-v="home" id="monthList">
     <div class="chead"><h2>Últimos lançamentos</h2><button class="link" id="mAll">Ver todos</button></div>
     <div id="mRows"></div>
@@ -935,7 +991,7 @@ html,body{overflow-x:clip}
         <div class="field" id="recentField" hidden><span class="lbl">Lançar de novo</span><div class="recents" id="recents"></div></div>
         <div class="field"><span class="lbl" id="catLabel">Categoria</span><div class="cats" id="cats" role="radiogroup" aria-labelledby="catLabel"></div></div>
         <div class="field" id="payField"><span class="lbl" id="payLabel">Forma de pagamento</span><div class="cats" id="pays" role="radiogroup" aria-labelledby="payLabel"></div></div>
-        <div class="field" id="instField" hidden><label for="parc">Parcelas no crédito</label><div class="daterow"><select class="inp" id="cardSel" aria-label="Cartão" hidden></select><select class="inp" id="parc" style="max-width:110px"></select><span class="sub" id="parcInfo"></span></div></div>
+        <div class="field" id="instField" hidden><label for="parc">Parcelas no crédito</label><div class="daterow"><select class="inp" id="parc" style="max-width:110px"></select><span class="sub" id="parcInfo"></span></div></div>
         <div class="field"><label for="desc">Descrição</label><input class="inp" id="desc" maxlength="60" placeholder="Ex.: almoço, uber, farmácia"></div>
         <div class="field"><label for="data">Data</label>
           <div class="daterow"><input class="inp" type="date" id="data" required><button type="button" class="seg" id="qHoje" aria-pressed="true">Hoje</button><button type="button" class="seg" id="qOntem" aria-pressed="false">Ontem</button></div>
@@ -1155,7 +1211,7 @@ html,body{overflow-x:clip}
     <button type="button" class="iconbtn plx" id="plClose" aria-label="Fechar"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><path d="M6 6l12 12M18 6L6 18"/></svg></button>
     <div class="plhero"><span class="plcrown"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 8l4.5 4L12 5l4.5 7L21 8l-2 11H5z"/></svg></span><h2 id="plTitle">Gastei Premium</h2><p id="plWhy">Tenha o controle completo do seu dinheiro.</p></div>
     <div class="plstatus" id="plStatus" hidden></div>
-    <ul class="plben"><li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12l5 5L20 7"/></svg><span><b>Histórico e comparar meses</b><small>Tudo o que entrou e saiu, mês a mês, e um mês contra o outro</small></span></li><li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12l5 5L20 7"/></svg><span><b>Relatório em PDF</b><small>Apresentação pronta para salvar, imprimir ou enviar</small></span></li><li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12l5 5L20 7"/></svg><span><b>4 estilos de cor</b><small>Rosa magenta, Dark, Pro Blue e Petróleo</small></span></li><li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12l5 5L20 7"/></svg><span><b>Gastos e receitas fixos</b><small>Aluguel, internet e salário lançados sozinhos todo mês</small></span></li><li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12l5 5L20 7"/></svg><span><b>Orçamento por categoria</b><small>Defina um limite para cada categoria e veja quando passar</small></span></li><li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12l5 5L20 7"/></svg><span><b>Caixinhas</b><small>Separe dinheiro para seus planos, com depósito todo mês</small></span></li><li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12l5 5L20 7"/></svg><span><b>Cartão, previsão e alertas</b><small>Fatura do cartão, previsão do fim do mês, alerta de % e comprovante por foto</small></span></li><li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12l5 5L20 7"/></svg><span><b>Cópia na nuvem</b><small>Em breve, sem custo extra para quem já é Premium</small></span></li></ul>
+    <ul class="plben"><li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12l5 5L20 7"/></svg><span><b>Histórico e comparar meses</b><small>Tudo o que entrou e saiu, mês a mês, e um mês contra o outro</small></span></li><li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12l5 5L20 7"/></svg><span><b>Relatório em PDF</b><small>Apresentação pronta para salvar, imprimir ou enviar</small></span></li><li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12l5 5L20 7"/></svg><span><b>4 estilos de cor</b><small>Rosa magenta, Dark, Pro Blue e Petróleo</small></span></li><li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12l5 5L20 7"/></svg><span><b>Gastos e receitas fixos</b><small>Aluguel, internet e salário lançados sozinhos todo mês</small></span></li><li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12l5 5L20 7"/></svg><span><b>Orçamento por categoria</b><small>Defina um limite para cada categoria e veja quando passar</small></span></li><li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12l5 5L20 7"/></svg><span><b>Caixinhas</b><small>Separe dinheiro para seus planos, com depósito todo mês ou automático</small></span></li><li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12l5 5L20 7"/></svg><span><b>Aba Planejar</b><small>Previsão do fim do mês, caixinhas e alerta de gastos, mais leitura de comprovante por foto</small></span></li><li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12l5 5L20 7"/></svg><span><b>Cópia na nuvem</b><small>Em breve, sem custo extra para quem já é Premium</small></span></li></ul>
     <p class="plfree">Grátis para sempre: lançar receitas e gastos, ver quanto ainda sobra no mês, painel e lista de lançamentos.</p>
     <div class="plopts" id="plOpts" role="radiogroup" aria-label="Escolha o plano">
       <button type="button" role="radio" class="plopt" data-plan="anual" aria-checked="true"><span class="pltag">Mais escolhido</span><b>Anual</b><span class="plp" id="pAnual">R$ 59,90</span><small id="pAnualS">por ano · sai por R$ 4,99 por mês</small></button>
@@ -1214,6 +1270,7 @@ html,body{overflow-x:clip}
 <nav class="tabbar" aria-label="Navegação do app">
   <button data-tab="home" aria-current="page"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 11l9-7 9 7"/><path d="M5 10v10h14V10"/></svg>Início</button>
   <button data-tab="list"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M8 6h13M8 12h13M8 18h13M3 6h.01M3 12h.01M3 18h.01"/></svg>Lançamentos</button>
+  <button data-tab="plan"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="8"/><circle cx="12" cy="12" r="4"/><circle cx="12" cy="12" r="1" fill="currentColor"/></svg>Planejar</button>
   <button class="fab" id="fab" aria-label="Novo lançamento"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></svg></button>
   <button data-tab="report"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M4 20V10M10 20V4M16 20v-7M22 20H2"/></svg>Relatórios</button>
   <button data-tab="hist"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 12a9 9 0 1 0 3-6.7L3 8"/><path d="M3 3v5h5"/><path d="M12 7v5l3 2"/></svg>Histórico</button>
@@ -1421,7 +1478,7 @@ $("#form").addEventListener("submit",function(e){
     var before=streak(),d0=parse(dataI.value),n=(!inc&&p==="credito")?(+$("#parc").value||1):1,g=n>1?"g"+uid():null,base=Math.floor(v/n),firstId=null,lastIt=null;
     for(var i=0;i<n;i++){
       var ni={id:uid()+i,t:ftype,v:i===0?v-base*(n-1):base,c:c,n:n>1?note+" ("+(i+1)+"/"+n+")":note,d:iso(addMonths(d0,i,d0.getDate()))};
-      if(p)ni.p=p;if(g)ni.g=g;if(p==="credito"&&S.cards.length)ni.cd=$("#cardSel").value||S.cards[0].id;S.items.push(ni);if(!firstId)firstId=ni.id;lastIt=ni;
+      if(p)ni.p=p;if(g)ni.g=g;S.items.push(ni);if(!firstId)firstId=ni.id;lastIt=ni;
     }
     newId=firstId;
     var rec=$("#recur").checked&&n===1;
@@ -2206,7 +2263,7 @@ var trialWasOn=trialLeft()>0;
 setInterval(function(){var on=isPrem();if(on!==document.body.classList.contains("prem")){applyPrem();applyTheme();render()}},60000);
 
 /* ---------- título da tela e barra de cima ---------- */
-var PT={home:["",""],list:["Lançamentos","Tudo o que você anotou, mês a mês"],report:["Relatórios","Para onde foi o seu dinheiro"],hist:["Histórico","Todos os meses e comparações"],more:["Ajustes","Perfil, categorias, dados e Premium"]};
+var PT={home:["",""],list:["Lançamentos","Tudo o que você anotou, mês a mês"],report:["Relatórios","Para onde foi o seu dinheiro"],hist:["Histórico","Todos os meses e comparações"],plan:["Planejar","Previsão, caixinhas e alertas"],more:["Ajustes","Perfil, categorias, dados e Premium"]};
 function drawTitle(){var t=document.body.dataset.tab||"home",x=PT[t]||PT.home;
   if(t==="home"){var h=new Date().getHours(),sal=h<5?"Boa noite":h<12?"Bom dia":h<18?"Boa tarde":"Boa noite";
     $("#ptT").textContent=S.name?sal+", "+S.name.split(" ")[0]:sal;
@@ -2399,7 +2456,7 @@ function applyAutoBoxes(){if(!isPrem()||!S.goals)return;var t=today(),cur=t.getF
       (g.h=g.h||[]).push({d:ym+"-01",v:Math.min(g.mon,g.target-goalSaved(g)),a:1});g.lastAuto=ym;ch=true}
     if(!g.lastAuto)g.lastAuto=t.getFullYear()+"-"+pad2(t.getMonth()+1)});
   if(ch)save();return ch}
-function drawGoalSheet(){var ymNow=iso(today()).slice(0,7);
+function drawGoalSheet(box){var ymNow=iso(today()).slice(0,7);
   var h=S.goals.map(function(g,i){var sv=goalSaved(g),pc=g.target?Math.min(100,sv/g.target*100):0,done=sv>=g.target,need=goalNeed(g),mo=goalMonth(g,ymNow),plan=g.mon||need;
     var tip=done?"Meta alcançada! 🎉":Math.round(pc)+"% · faltam "+brl(g.target-sv)+(g.due?" até "+MOL[+g.due.slice(5,7)-1]+"/"+g.due.slice(0,4):"");
     var monTxt=plan?(mo>=plan?'<span class="ok">✓ Depósito do mês feito</span>':'Este mês: '+brl(mo)+' de '+brl(plan)):(mo?'Este mês: '+brl(mo):'Sem depósito mensal definido');
@@ -2409,11 +2466,11 @@ function drawGoalSheet(){var ymNow=iso(today()).slice(0,7);
       '<label class="gauto"><input type="checkbox" data-gauto="'+i+'"'+(g.auto?" checked":"")+'> Depositar '+(g.mon?brl(g.mon)+" ":"")+'sozinho todo mês</label>'+
       '<div class="ga"><input class="inp mono" inputmode="decimal" placeholder="Valor" data-gv="'+i+'"><button class="btn sm" data-gadd="'+i+'">Guardar</button><button class="btn sm ghost" data-gout="'+i+'">Retirar</button><button class="iconbtn" data-gdel="'+i+'" aria-label="Apagar caixinha"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 6l12 12M18 6L6 18"/></svg></button></div>'+
       (hist?'<details class="gx"><summary>Últimos lançamentos</summary><div class="dlines">'+hist+'</div></details>':'')+'</div>'}).join("");
-  if(S.goals.length){var tot=0;S.goals.forEach(function(g){tot+=goalSaved(g)});h='<div class="dbig"><span>Total guardado nas caixinhas</span><b style="color:var(--good)">'+brl(tot)+'</b><small>'+S.goals.length+(S.goals.length>1?" caixinhas":" caixinha")+'</small></div>'+h}
+  if(S.goals.length){var tot=0;S.goals.forEach(function(g){tot+=goalSaved(g)});h='<div class="btot"><span>Total guardado em '+S.goals.length+(S.goals.length>1?" caixinhas":" caixinha")+'</span><b>'+brl(tot)+'</b></div><div class="boxes">'+h+'</div>'}
   else h+='<div class="dtip">Crie caixinhas para separar dinheiro: viagem, reserva de emergência, um celular novo. Defina a meta e quanto vai guardar por mês. O app lembra de você ou deposita sozinho todo mês.</div>';
   h+='<form class="dform" id="goalForm"><b>Nova caixinha</b><input class="inp" id="gfN" maxlength="30" placeholder="Nome (ex.: Viagem)" required><div class="row3" style="grid-template-columns:1fr 1fr"><label>Meta (R$)<input class="inp" id="gfT" inputmode="decimal" placeholder="5.000,00" required></label><label>Até quando<input class="inp" id="gfD" type="month"></label></div>'+
     '<label>Depósito por mês (R$)<input class="inp" id="gfM" inputmode="decimal" placeholder="Opcional, ex.: 300,00"></label><label class="gauto"><input type="checkbox" id="gfA"> Depositar sozinho todo mês</label><button class="btn sm">Criar caixinha</button></form>';
-  $("#dBody").innerHTML=h;
+  box.innerHTML=h;
 }
 /* ---------- previsão do fim do mês (Premium) ---------- */
 function forecast(){
@@ -2429,42 +2486,50 @@ function drawPrevSheet(){var f=forecast();
     (f.pOut?'<div><span>Contas fixas ainda por vir</span><b>'+brl(f.pOut)+'</b></div>':'')+'<div><span>Gastos previstos no mês</span><b>'+brl(f.projOut)+'</b></div><div><span>Receita esperada</span><b>'+brl(f.projIn)+'</b></div></div>'+
     (f.left?'<div class="dtip">'+(f.room>0?'Para terminar o mês sem ficar no vermelho, gaste até <b>'+brl(f.room)+' por dia</b>.':'Os gastos já passaram da receita do mês. Segure o que puder até o mês virar.')+'</div>':'');
 }
-/* ---------- card Planejar e folha de detalhes ---------- */
-function drawPlan(){
-  if(!$("#planCard"))return;var on=isPrem();
-  var f=forecast(),pv=$("#pvV");pv.textContent=on&&f.inc?sgn(f.net):"";pv.className="pv "+(f.net<0?"neg":"pos");
-  $("#pvS").textContent=on?(f.inc?(f.net<0?"Pelo ritmo, o mês fecha no vermelho":"Pelo ritmo, sobra no fim do mês"):"Lance sua receita para prever"):"Pelo seu ritmo de gastos";
-  var c=S.cards[0],pc=$("#pcV");if(on&&c){var k=cardInfo(c);pc.textContent=brl(k.curT);$("#pcS").textContent=c.n+" · vence "+dm(k.cur.due)+(S.cards.length>1?" · +"+(S.cards.length-1):"")}else{pc.textContent="";$("#pcS").textContent=on?"Cadastre seu cartão":"Fatura, fechamento e parcelas"}
-  var g=S.goals[0],pg=$("#pgV");if(on&&g){var pct=g.target?Math.round(goalSaved(g)/g.target*100):0;pg.textContent=Math.min(100,pct)+"%";$("#pgS").textContent=g.n+(S.goals.length>1?" e mais "+(S.goals.length-1):"")+(goalNeed(g)||g.mon?(goalMonth(g,iso(today()).slice(0,7))>=(g.mon||goalNeed(g))?" · mês ok":" · depósito pendente"):"")}else{pg.textContent="";$("#pgS").textContent=on?"Crie sua primeira caixinha":"Guarde dinheiro todo mês para seus planos"}
-}
+/* ---------- aba Planejar ---------- */
+function drawPlanPrev(){var f=forecast(),t=today(),m=monthNow();
+  $("#ppMon").textContent=MO[t.getMonth()]+" · faltam "+f.left+(f.left===1?" dia":" dias");
+  if(!f.projIn&&!f.out){$("#ppBody").innerHTML='<div class="dtip">Lance sua receita e seus gastos do mês para ver a previsão.</div>';return}
+  var base=Math.max(f.projIn,f.projOut,1),wNow=Math.min(100,f.out/base*100),wProj=Math.min(100,f.projOut/base*100),wInc=Math.min(100,f.projIn/base*100);
+  var h='<div class="phero"><span>No ritmo atual, no fim de '+MOL[t.getMonth()]+'</span><b class="'+(f.net<0?"neg":"pos")+'">'+(f.net<0?"faltam ":"sobram ")+brl(Math.abs(f.net))+'</b>'+
+    '<div class="pbar"><i class="pj" style="width:'+wProj+'%"></i><i class="nw" style="width:'+wNow+'%"></i>'+(f.projIn?'<span class="mk" style="left:calc('+wInc+'% - 1.5px)"></span>':'')+'</div>'+
+    '<div class="plegend"><em style="--c:var(--primary)">Gasto até hoje '+brl(f.out)+'</em><em style="--c:var(--amber)">Previsto '+brl(f.projOut)+'</em>'+(f.projIn?'<em style="--c:var(--ink)">Receita '+brl(f.projIn)+'</em>':'')+'</div></div>';
+  h+='<div class="ptiles"><div class="hl"><span>Pode gastar por dia</span><b>'+brl(f.room)+'</b></div><div><span>Seu ritmo por dia</span><b>'+brl(Math.round(f.pace))+'</b></div><div><span>Dias que faltam</span><b>'+f.left+'</b></div></div>';
+  h+='<div class="dtip">'+(!f.projIn?'Lance sua receita do mês para saber quanto vai sobrar.':f.net<0?(f.room>0?'Para não fechar no vermelho, segure os gastos em até <b>'+brl(f.room)+' por dia</b> até o fim do mês.':'Os gastos já passaram da receita do mês. Segure o que puder até o mês virar.'):'Você está no caminho. Mantendo até <b>'+brl(f.room)+' por dia</b>, o mês fecha no azul.')+'</div>';
+  h+='<details class="pmore"><summary>Ver a conta completa</summary><div class="dlines"><div><span>Gasto até agora</span><b>'+brl(f.out)+'</b></div><div><span>Ritmo dos gastos do dia a dia</span><b>'+brl(Math.round(f.pace))+'/dia</b></div>'+(f.pOut?'<div><span>Contas fixas ainda por vir</span><b>'+brl(f.pOut)+'</b></div>':'')+'<div><span>Gastos previstos no mês</span><b>'+brl(f.projOut)+'</b></div><div><span>Receita esperada</span><b>'+brl(f.projIn)+'</b></div></div></details>';
+  $("#ppBody").innerHTML=h}
+var boxFormOpen=false;
+function drawPlanBoxes(){drawGoalSheet($("#pbBody"));var f=$("#goalForm",$("#pbBody"));if(f)f.hidden=!(boxFormOpen||!S.goals.length)}
+var ACH=[0,50,60,70,75,80,90,100];
+function drawPlanAlert(){var m=monthNow(),pc=m.inc?Math.round(m.out/m.inc*100):0,a=S.alertPct||0;
+  var h='<div class="phero"><span>'+(m.inc?'Você já gastou':'Lance sua receita para acompanhar')+'</span>'+(m.inc?'<b class="'+(a&&pc>=a?"neg":"pos")+'">'+pc+'% <small style="font-size:.9rem">do que entrou</small></b>':'')+
+    '<div class="pbar"><i class="nw" style="width:'+Math.min(100,pc)+'%;background:'+(a&&pc>=a?"var(--bad)":"var(--primary)")+'"></i>'+(a?'<span class="mk" style="left:calc('+a+'% - 1.5px)"></span>':'')+'</div>'+
+    '<small>'+(a?'Seu alerta está em '+a+'%. '+(m.inc?(pc>=a?'Você já passou desse ponto.':'Faltam '+brl(Math.max(0,Math.round(m.inc*a/100)-m.out))+' para chegar lá.'):''):'Escolha abaixo quando quer ser avisado.')+'</small></div>'+
+    '<div class="achips">'+ACH.map(function(v){return'<button type="button" data-ach="'+v+'" aria-pressed="'+(v===a)+'">'+(v?v+"%":"Desligado")+'</button>'}).join("")+'</div>';
+  $("#paBody").innerHTML=h}
+function drawPlan(){if(!$("#planTab"))return;drawPlanPrev();drawPlanBoxes();drawPlanAlert()}
 if(window.GASTEI_TEST)window.__gt={parseVoice:parseVoice,parseReceipt:parseReceipt};
-var curSheet="";
-function openSheetD(k){if(needPrem(k))return;curSheet=k;$("#dTitle").textContent={prev:"Previsão do fim do mês",card:"Cartão de crédito",goals:"Caixinhas"}[k];redrawSheet();$("#dSheet").hidden=false;buzz(6)}
-function redrawSheet(){if(curSheet==="prev")drawPrevSheet();else if(curSheet==="card")drawCardSheet();else if(curSheet==="goals")drawGoalSheet()}
-document.addEventListener("click",function(e){var b=e.target.closest("[data-sheet]");if(b)openSheetD(b.dataset.sheet)});
-$("#dClose").addEventListener("click",function(){$("#dSheet").hidden=true});
-$("#dSheet").addEventListener("click",function(e){if(e.target.id==="dSheet"){this.hidden=true;return}
-  var t=e.target.closest("button");if(!t)return;
-  if(t.dataset.delcard){if(t.dataset.armed!=="1"){t.dataset.armed="1";toast("Toque de novo para remover o cartão");return}S.cards=S.cards.filter(function(c){return c.id!==t.dataset.delcard});save();redrawSheet();render();return}
-  if(t.dataset.gmon!=null){var gm=S.goals[+t.dataset.gmon];if(!gm)return;var pl=gm.mon||goalNeed(gm),vv=Math.min(pl-goalMonth(gm,iso(today()).slice(0,7)),gm.target-goalSaved(gm));if(vv>0){(gm.h=gm.h||[]).push({d:iso(today()),v:vv});save();redrawSheet();render();buzz(10);toast("Guardado "+brl(vv)+" em "+gm.n)}return}
+function redrawSheet(){drawPlan()}
+function onBoxClick(e){var t=e.target.closest("button");if(!t)return;
+  if(t.dataset.gmon!=null){var gm=S.goals[+t.dataset.gmon];if(!gm)return;var pl=gm.mon||goalNeed(gm),vv=Math.min(pl-goalMonth(gm,iso(today()).slice(0,7)),gm.target-goalSaved(gm));if(vv>0){(gm.h=gm.h||[]).push({d:iso(today()),v:vv});save();render();buzz(10);toast("Guardado "+brl(vv)+" em "+gm.n)}return}
   var gi=t.dataset.gadd||t.dataset.gout||t.dataset.gdel;if(gi==null)return;var g=S.goals[+gi];if(!g)return;
-  if(t.dataset.gdel!=null){if(t.dataset.armed!=="1"){t.dataset.armed="1";toast("Toque de novo para apagar a caixinha");return}S.goals.splice(+gi,1);save();redrawSheet();render();return}
+  if(t.dataset.gdel!=null){if(t.dataset.armed!=="1"){t.dataset.armed="1";toast("Toque de novo para apagar a caixinha");return}S.goals.splice(+gi,1);save();render();return}
   var inp=$('[data-gv="'+gi+'"]'),v=parseMoney(inp.value);if(!v){inp.focus();toast("Digite o valor");return}
   if(t.dataset.gout!=null)v=-Math.min(v,goalSaved(g));
-  (g.h=g.h||[]).push({d:iso(today()),v:v});save();redrawSheet();render();buzz(10);
-  toast(v>0?"Guardado "+brl(v)+" em "+g.n:"Retirado "+brl(-v)+" de "+g.n);
-});
-$("#dSheet").addEventListener("change",function(e){var c=e.target;if(c.dataset.gauto==null)return;var g=S.goals[+c.dataset.gauto];if(!g)return;
+  (g.h=g.h||[]).push({d:iso(today()),v:v});save();render();buzz(10);
+  toast(v>0?"Guardado "+brl(v)+" em "+g.n:"Retirado "+brl(-v)+" de "+g.n)}
+$("#planTab").addEventListener("click",function(e){
+  var c=e.target.closest("[data-ach]");if(c){var v=+c.dataset.ach;if(v&&needPrem("alerta"))return;S.alertPct=v;S.alertDone={};save();render();buzz(5);toast(v?"Vamos avisar quando os gastos chegarem a "+v+"% da receita":"Alerta desligado");return}
+  if(e.target.closest("#pbNew")){if(needPrem("goals"))return;boxFormOpen=!boxFormOpen;drawPlanBoxes();if(boxFormOpen){var n=$("#gfN");n&&n.focus()}return}
+  onBoxClick(e)});
+$("#planTab").addEventListener("change",function(e){var c=e.target;if(c.dataset.gauto==null)return;var g=S.goals[+c.dataset.gauto];if(!g)return;
   if(c.checked&&!(g.mon>0)){g.mon=goalNeed(g);if(!g.mon){var v=parseMoney(($('[data-gv="'+c.dataset.gauto+'"]')||{}).value||"");if(v)g.mon=v}}
   if(c.checked&&!(g.mon>0)){c.checked=false;toast("Digite o valor do mês no campo Valor e marque de novo");return}
-  g.auto=c.checked;if(g.auto)g.lastAuto=goalMonth(g,iso(today()).slice(0,7))?iso(today()).slice(0,7):"";applyAutoBoxes();save();redrawSheet();render();toast(g.auto?"Todo dia 1 a caixinha recebe "+brl(g.mon):"Depósito automático desligado")});
-$("#dSheet").addEventListener("submit",function(e){e.preventDefault();var f=e.target;
-  if(f.id==="cardForm"){var n=$("#cfN").value.trim(),c=Math.max(1,Math.min(28,+$("#cfC").value||1)),d=Math.max(1,Math.min(31,+$("#cfD").value||10));if(!n)return;
-    S.cards.push({id:"c"+uid(),n:n,close:c,due:d,lim:parseMoney($("#cfL").value)||0});save();redrawSheet();render();toast("Cartão "+n+" salvo")}
-  if(f.id==="goalForm"){var gn=$("#gfN").value.trim(),gt=parseMoney($("#gfT").value);if(!gn||!gt){toast("Preencha o nome e o valor da meta");return}
-    var ng={id:"g"+uid(),n:gn,target:gt,due:$("#gfD").value||"",h:[],mon:parseMoney($("#gfM").value)||0,auto:$("#gfA").checked};if(!ng.mon)ng.mon=goalNeed(ng);if(ng.auto&&!ng.mon){toast("Digite o depósito por mês para depositar sozinho");return}
-    if(ng.auto)ng.lastAuto="";S.goals.push(ng);applyAutoBoxes();save();redrawSheet();render();toast("Caixinha criada")}
-});
+  g.auto=c.checked;if(g.auto)g.lastAuto=goalMonth(g,iso(today()).slice(0,7))?iso(today()).slice(0,7):"";applyAutoBoxes();save();render();toast(g.auto?"Todo dia 1 a caixinha recebe "+brl(g.mon):"Depósito automático desligado")});
+$("#planTab").addEventListener("submit",function(e){e.preventDefault();var f=e.target;if(f.id!=="goalForm")return;if(needPrem("goals"))return;
+  var gn=$("#gfN").value.trim(),gt=parseMoney($("#gfT").value);if(!gn||!gt){toast("Preencha o nome e a meta");return}
+  var ng={id:"g"+uid(),n:gn,target:gt,due:$("#gfD").value||"",h:[],mon:parseMoney($("#gfM").value)||0,auto:$("#gfA").checked};if(!ng.mon)ng.mon=goalNeed(ng);if(ng.auto&&!ng.mon){toast("Digite o depósito por mês para depositar sozinho");return}
+  if(ng.auto)ng.lastAuto="";S.goals.push(ng);boxFormOpen=false;applyAutoBoxes();save();render();toast("Caixinha criada")});
 
 function render(){drawTitle();drawTop();drawKpis();drawGoal();drawFilters();drawPeriod();drawMonth();drawHist();drawBkNote();applyPriv();applyPrem();drawPlan();checkAlert();pushWidget()}
 document.body.dataset.tab="home";
