@@ -31,7 +31,7 @@ jobs:
           cp index.html manifest.webmanifest *.png build/www/
           cd build
           npm init -y >/dev/null
-          npm i @capacitor/core@8.6.0 @capacitor/cli@8.6.0 @capacitor/android@8.6.0
+          npm i @capacitor/core@8.6.0 @capacitor/cli@8.6.0 @capacitor/android@8.6.0 @capacitor/local-notifications@8.3.1
           cat > capacitor.config.json <<'JSON'
           {
             "appId": "com.gastei.app",
@@ -48,6 +48,15 @@ jobs:
           cd build/android/app/src/main
           cp "$GITHUB_WORKSPACE"/android/*.java java/com/gastei/app/
           rm -rf res/mipmap-anydpi-v26
+          cp -r "$GITHUB_WORKSPACE"/android/res/* res/
+          python3 - <<'PY2'
+          p = "AndroidManifest.xml"; m = open(p).read()
+          rcv = '<receiver android:name=".GasteiWidgetProvider" android:exported="true" android:label="Gastei"><intent-filter><action android:name="android.appwidget.action.APPWIDGET_UPDATE"/></intent-filter><meta-data android:name="android.appwidget.provider" android:resource="@xml/gastei_widget_info"/></receiver>'
+          q = '<queries><intent><action android:name="android.speech.action.RECOGNIZE_SPEECH"/></intent></queries>'
+          m = m.replace("</application>", rcv + "\n</application>", 1).replace("</manifest>", q + "\n</manifest>", 1)
+          open(p, "w").write(m)
+          print(m)
+          PY2
           pip install --quiet pillow
           python3 - "$GITHUB_WORKSPACE/icon-512.png" <<'PY'
           import sys, glob
