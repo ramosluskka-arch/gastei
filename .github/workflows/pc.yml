@@ -28,7 +28,7 @@ jobs:
           mkdir -p app
           cp ../index.html ../manifest.webmanifest ../*.png app/
           npm i --no-audit --no-fund -D electron@33.2.0 electron-builder@25.1.8
-          npx electron-builder --win portable --publish never
+          npx electron-builder --win --publish never
           ls -la dist
       - name: Publicar para download
         shell: bash
