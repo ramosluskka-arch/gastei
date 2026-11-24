@@ -336,6 +336,49 @@ footer{margin-top:28px;color:var(--muted);font-size:.78rem;display:flex;justify-
   .plabel{font-size:1rem!important}
   svg.chart{height:210px}
 }
+/* ---- tela do mês: receitas, gastos e saldo ---- */
+.mwrap{display:grid;gap:14px;margin-bottom:14px}
+@media (min-width:1001px){.mwrap{grid-template-columns:minmax(0,5fr) minmax(0,6fr);align-items:start}}
+.mcard{background:linear-gradient(150deg,#08434F 0%,#0B6E7F 70%,#118596 100%);color:#fff;border:0;display:grid;gap:14px;position:relative;overflow:hidden}
+.mcard::after{content:"";position:absolute;right:-60px;top:-60px;width:220px;height:220px;border-radius:50%;border:30px solid rgba(255,255,255,.05);pointer-events:none}
+.mhead{display:flex;align-items:center;justify-content:space-between;gap:8px;position:relative;z-index:1}
+.mhead h2{margin:0;font-size:1.05rem;font-weight:700;text-align:center;flex:1}
+.marrow{width:38px;height:38px;border-radius:12px;border:1px solid rgba(255,255,255,.25);background:rgba(255,255,255,.08);color:#fff;display:grid;place-items:center;flex:none}
+.marrow svg{width:18px;height:18px}
+.msaldo{display:grid;justify-items:center;gap:2px;text-align:center}
+.msaldo span{font-size:.8rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;opacity:.8}
+.msaldo b{font-size:clamp(2rem,9vw,2.8rem);font-weight:500;letter-spacing:-.04em;line-height:1.1;white-space:nowrap}
+.msaldo b.neg{color:#FFB4AE}
+.msaldo small{font-size:.86rem;opacity:.85}
+.mtiles{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:10px}
+.mt{background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.16);border-radius:14px;padding:11px 13px;display:grid;gap:3px;min-width:0}
+.mt span{display:flex;align-items:center;gap:6px;font-size:.78rem;font-weight:700;opacity:.85}
+.mt i{width:8px;height:8px;border-radius:50%}.mt i.up{background:#5BE0A0}.mt i.down{background:#FF8F86}
+.mt b{font-size:clamp(1rem,4.6vw,1.25rem);font-weight:500;letter-spacing:-.03em;white-space:nowrap}
+.mbar{height:8px;border-radius:9px;background:rgba(255,255,255,.16);overflow:hidden}
+.mbar div{height:100%;border-radius:9px;background:#F6C15A;width:0;transition:width .6s ease}
+.mbar div.over{background:#FF8F86}
+.mbarl{margin:-6px 0 0;font-size:.8rem;opacity:.85;text-align:center}
+.madd{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.madd .btn{display:flex;align-items:center;justify-content:center;gap:8px;border-radius:14px;font-size:1rem}
+.madd .btn svg{width:18px;height:18px}
+.madd-in{background:#fff;color:#0B6E7F}
+.madd-out{background:#E89B0C;color:#2B1B00}
+#monthList .chead{flex-wrap:nowrap}#monthList .chead h2{white-space:nowrap}#monthList .link{white-space:nowrap}
+.mrow{display:grid;grid-template-columns:auto minmax(0,1fr) auto;gap:12px;align-items:center;padding:11px 0;border-top:1px solid var(--line);cursor:pointer}
+.mrow:first-child{border-top:0}
+.mrow .ic{width:36px;height:36px;border-radius:11px;display:grid;place-items:center;font-weight:800;font-size:1rem}
+.mrow .ic.in{background:color-mix(in srgb,var(--good) 15%,transparent);color:var(--good)}
+.mrow .ic.out{background:color-mix(in srgb,var(--bad) 13%,transparent);color:var(--bad)}
+.mrow b{display:block;font-weight:600;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.mrow small{display:block;font-size:.78rem;color:var(--muted);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.mrow .v{font-family:var(--f-num);white-space:nowrap;font-size:.98rem}
+.mrow .v.in{color:var(--good)}
+.mempty{padding:18px 0 6px;text-align:center;color:var(--muted);font-size:.9rem}
+.macc{margin:10px 0 0;padding-top:10px;border-top:1px dashed var(--line);font-size:.82rem;color:var(--muted);display:flex;justify-content:space-between;gap:10px}
+.macc b{font-family:var(--f-num);font-weight:500;color:var(--ink);white-space:nowrap}.macc b.pos{color:var(--good)}.macc b.neg{color:var(--bad)}
+/* sem elementos de jogo */
+.chip.lv,.chip.st,.xptag,#achCard,#nudge{display:none!important}
 .swipehint{display:none}
 /* ---- ajuste fino para celulares ---- */
 html,body{overflow-x:hidden}
@@ -499,17 +542,37 @@ html,body{overflow-x:hidden}
 </header>
 
 <div class="wrap">
-  <nav class="kpis" aria-label="Escolher período" data-v="home">
+  <div class="notice" id="banner" data-v="home" hidden>
+    <span><b>Dados de demonstração.</b> Estes gastos são exemplos e somem quando você anotar o seu primeiro gasto.</span>
+    <button class="link" id="clearEx">Começar do zero</button>
+  </div>
+  <div class="mwrap">
+  <section class="card mcard" data-v="home" id="monthCard" aria-labelledby="mLabel">
+    <div class="mhead"><button class="marrow" id="mPrev" aria-label="Mês anterior"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><path d="M15 18l-6-6 6-6"/></svg></button><h2 id="mLabel">—</h2><button class="marrow" id="mNext" aria-label="Próximo mês"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><path d="M9 18l6-6-6-6"/></svg></button></div>
+    <div class="msaldo"><span>Saldo do mês</span><b class="mono" id="mNet">R$ 0,00</b><small id="mNetSub"></small></div>
+    <div class="mtiles">
+      <div class="mt"><span><i class="up"></i>Receitas</span><b class="mono" id="mIn">R$ 0,00</b></div>
+      <div class="mt"><span><i class="down"></i>Gastos</span><b class="mono" id="mOut">R$ 0,00</b></div>
+    </div>
+    <div class="mbar" aria-hidden="true"><div id="mBarFill"></div></div>
+    <p class="mbarl" id="mBarL"></p>
+    <div class="madd"><button class="btn madd-in" data-add="in"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></svg>Receita</button><button class="btn madd-out" data-add="out"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round"><path d="M5 12h14"/></svg>Gasto</button></div>
+  </section>
+  <section class="card" data-v="home" id="monthList">
+    <div class="chead"><h2>Movimentações do mês</h2><button class="link" id="mAll">Ver todas</button></div>
+    <div id="mRows"></div>
+    <p class="macc" id="mAcc"></p>
+  </section>
+  </div>
+
+  <nav class="kpis" aria-label="Escolher período" data-v="report">
     <button class="kpi" id="t-dia" data-mode="dia" aria-pressed="false"><span class="k">Hoje <span class="trend" id="r-dia" hidden></span></span><span class="v" id="v-dia">R$ 0,00</span><span class="s" id="s-dia"></span></button>
     <button class="kpi" id="t-semana" data-mode="semana" aria-pressed="false"><span class="k">Esta semana <span class="trend" id="r-semana" hidden></span></span><span class="v" id="v-semana">R$ 0,00</span><span class="s" id="s-semana"></span></button>
     <button class="kpi" id="t-mes" data-mode="mes" aria-pressed="true"><span class="k">Este mês <span class="trend" id="r-mes" hidden></span></span><span class="v" id="v-mes">R$ 0,00</span><span class="s" id="s-mes"></span></button>
     <button class="kpi" id="t-ano" data-mode="ano" aria-pressed="false"><span class="k">Este ano <span class="trend" id="r-ano" hidden></span></span><span class="v" id="v-ano">R$ 0,00</span><span class="s" id="s-ano"></span></button>
   </nav>
 
-  <div class="notice" id="banner" data-v="home" hidden>
-    <span><b>Dados de demonstração.</b> Estes gastos são exemplos e somem quando você anotar o seu primeiro gasto.</span>
-    <button class="link" id="clearEx">Começar do zero</button>
-  </div>
+
   <div class="notice" id="nudge" data-v="home" hidden><span><b>Lembrete:</b> você ainda não anotou nada hoje. Leva poucos segundos e mantém sua sequência de dias.</span></div>
 
   <div class="grid">
@@ -561,7 +624,7 @@ html,body{overflow-x:hidden}
       </section>
 
       <div class="three">
-        <section class="card" data-v="home">
+        <section class="card" data-v="report">
           <div class="chead"><h2>Balanço do período</h2><span class="sub" id="balSub"></span></div>
           <div class="bal">
             <div><span>Receitas</span><b class="pos" id="balIn">R$ 0,00</b></div>
@@ -582,7 +645,7 @@ html,body{overflow-x:hidden}
       </section>
 
       <div class="three">
-        <section class="card" data-v="home">
+        <section class="card" data-v="report">
           <div class="chead"><h2>Meta do mês</h2><button class="link" id="editMeta">Alterar meta</button></div>
           <div class="goal">
             <svg class="ring" id="ring" viewBox="0 0 120 120" aria-hidden="true"><circle class="tr" cx="60" cy="60" r="50" fill="none" stroke-width="12"/><circle class="pg" id="ringPg" cx="60" cy="60" r="50" fill="none" stroke-width="12" stroke-linecap="round" stroke-dasharray="314.16" stroke-dashoffset="314.16" transform="rotate(-90 60 60)"/><text id="ringT" x="60" y="62" text-anchor="middle">0%</text><text class="rs" x="60" y="80" text-anchor="middle">DA META</text></svg>
@@ -629,7 +692,7 @@ html,body{overflow-x:hidden}
         </div>
       </section>
 
-      <section class="card" data-v="more">
+      <section class="card" data-v="more" id="achCard">
         <div class="chead"><h2>Conquistas</h2><span class="sub" id="achCount"></span></div>
         <div class="ach" id="ach"></div>
       </section>
@@ -701,12 +764,12 @@ html,body{overflow-x:hidden}
     <div class="hero">
       <span class="mark" aria-hidden="true" style="width:44px;height:44px;border-radius:12px"><svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" style="width:24px;height:24px"><path d="M4 17l5-5 4 4 7-8"/><path d="M15 8h5v5"/></svg></span>
       <h2 id="wTitle">Bem-vindo ao Gastei</h2>
-      <p>Anote cada gasto em segundos e veja para onde vai o seu dinheiro no dia, na semana, no mês e no ano.</p>
+      <p>Anote o dinheiro que entra e o que sai, e veja quanto sobra no fim de cada mês.</p>
     </div>
     <div class="feat">
       <div><b>Meta mensal</b><span>Limite diário calculado sozinho</span></div>
       <div><b>Relatórios</b><span>Gráficos e categorias por período</span></div>
-      <div><b>Conquistas</b><span>Nível, XP e sequência de dias</span></div>
+      <div><b>Saldo do mês</b><span>Receitas menos gastos, na hora</span></div>
       <div><b>Privado</b><span>Funciona sem internet e sem cadastro</span></div>
     </div>
     <div class="body">
@@ -936,11 +999,11 @@ $("#form").addEventListener("submit",function(e){
     var rec=$("#recur").checked&&n===1;
     if(rec){var rid="r"+uid();S.recs.push({id:rid,t:ftype,v:v,c:c,p:p,n:note,day:d0.getDate(),from:dataI.value.slice(0,7)});S.recDone[rid+":"+dataI.value.slice(0,7)]=1;lastIt.rid=rid}
     S.onboarded=true;save();
-    var after=streak(),msg=(inc?"Receita de ":"Gasto de ")+"<b>"+esc(brl(v))+"</b> salvo <span class='x'>+10 XP</span>";
-    if(n>1)msg=n+" parcelas de <b>"+esc(brl(base))+"</b> lançadas, uma por mês <span class='x'>+10 XP</span>";
+    var after=streak(),msg=(inc?"Receita de ":"Gasto de ")+"<b>"+esc(brl(v))+"</b> salvo";
+    if(n>1)msg=n+" parcelas de <b>"+esc(brl(base))+"</b> lançadas, uma por mês";
     if(rec)msg+=" · repete todo dia "+d0.getDate();
     if(after>before&&after>1)msg+=" · "+after+" dias seguidos";
-    if(had)msg="Exemplos removidos e seu primeiro lançamento salvo <span class='x'>+10 XP</span>";
+    if(had)msg="Exemplos removidos e seu primeiro lançamento salvo";
     toast(msg,null,true);
     var r=range(mode,anchor);if(d0<r[0]||d0>r[1])anchor=d0;
   }
@@ -973,7 +1036,7 @@ function drawTop(){
   $("#hello").textContent=S.name?sal+", "+S.name:sal;
   $("#lv").textContent=g.lv;$("#rank").textContent=rankOf(g.lv);$("#xpFill").style.width=(g.cur/g.need*100)+"%";
   $("#lvChip").title="Nível "+g.lv+" ("+rankOf(g.lv)+") · "+g.cur+" de "+g.need+" XP para o próximo. +10 XP por gasto, +15 por dia com registro, +50 por conquista.";
-  if(lastLevel!==null&&g.lv>lastLevel){var lv=g.lv;setTimeout(function(){toast("Você subiu para o nível <b>"+lv+"</b> · "+esc(rankOf(lv)),null,true)},2000)}
+  if(false){var lv=g.lv;setTimeout(function(){toast("Você subiu para o nível <b>"+lv+"</b> · "+esc(rankOf(lv)),null,true)},2000)}
   lastLevel=g.lv;
   $("#streakN").textContent=streak();
   $("#achCount").textContent=g.okN+" de "+g.ach.length+" desbloqueadas";
@@ -1401,7 +1464,37 @@ MQ.addEventListener&&MQ.addEventListener("change",function(){closeSheet();drawCh
     if(Math.abs(dx)>70&&Math.abs(dx)>Math.abs(dy)*1.6){anchor=shift(mode,anchor,dx<0?1:-1);listLimit=20;animBars=true;render();buzz(6)}});
 })();
 
-function render(){drawTop();drawKpis();drawGoal();drawFilters();drawPeriod()}
+/* ---------- tela do mês ---------- */
+var hm=new Date(today().getFullYear(),today().getMonth(),1);
+function drawMonth(){
+  var a=hm,b=new Date(a.getFullYear(),a.getMonth()+1,0),t=today();
+  var inc=sumRange(a,b,"in").t,out=sumRange(a,b).t,net=inc-out,nm=MOL[a.getMonth()];
+  $("#mLabel").textContent=nm.charAt(0).toUpperCase()+nm.slice(1)+" de "+a.getFullYear();
+  var nb=$("#mNet");nb.textContent=(net<0?"- ":"")+brl(Math.abs(net));nb.className="mono"+(net<0?" neg":"");
+  $("#mIn").textContent=brl(inc);$("#mOut").textContent=brl(out);
+  var isCur=t>=a&&t<=b,sub;
+  if(!inc&&!out)sub=a>t?"Mês que ainda não começou":"Nenhum lançamento neste mês";
+  else if(!inc)sub="Anote sua receita para ver quanto sobra";
+  else if(net>=0)sub=(isCur?"Sobrando até agora: ":"Sobrou ")+Math.round(net/inc*100)+"% do que você ganhou";
+  else sub="Você gastou "+brl(-net)+" a mais do que ganhou";
+  $("#mNetSub").textContent=sub;
+  var pc=inc?out/inc:out?1.01:0,f=$("#mBarFill");f.style.width=Math.min(100,pc*100)+"%";f.className=pc>1?"over":"";
+  $("#mBarL").textContent=inc?"Gastos usaram "+Math.round(pc*100)+"% das receitas":(out?"Sem receitas anotadas neste mês":"");
+  var its=inRange(a,b).sort(function(x,y){return x.d<y.d?1:x.d>y.d?-1:0}),h="";
+  its.slice(0,8).forEach(function(x){var o=isOut(x),c=catOf(x),d=parse(x.d),p=x.p&&PAY(x.p);
+    h+='<div class="mrow" data-id="'+esc(x.id)+'"><span class="ic '+(o?"out":"in")+'">'+(o?"−":"+")+'</span><div><b>'+esc(x.n||c.n)+'</b><small>'+pad(d.getDate())+'/'+pad(d.getMonth()+1)+' · '+esc(c.n)+(p?" · "+esc(p.n):"")+'</small></div><span class="v'+(o?"":" in")+'">'+(o?"- ":"+ ")+brl(x.v)+'</span></div>'});
+  $("#mRows").innerHTML=h||'<div class="mempty">Toque em <b>Receita</b> para anotar o que entrou e em <b>Gasto</b> para o que saiu.</div>';
+  $("#mAll").hidden=its.length<=8;
+  if(its.length>8)$("#mAll").textContent="Ver todas ("+its.length+")";
+  var acc=0,lim=iso(b);S.items.forEach(function(x){if(x.d<=lim)acc+=isOut(x)?-x.v:x.v});
+  $("#mAcc").innerHTML='<span>Saldo acumulado até o fim deste mês</span><b class="'+(acc<0?"neg":"pos")+'">'+(acc<0?"- ":"")+brl(Math.abs(acc))+'</b>';
+}
+$("#mPrev").addEventListener("click",function(){hm=new Date(hm.getFullYear(),hm.getMonth()-1,1);drawMonth();buzz(5)});
+$("#mNext").addEventListener("click",function(){hm=new Date(hm.getFullYear(),hm.getMonth()+1,1);drawMonth();buzz(5)});
+$("#mRows").addEventListener("click",function(e){var r=e.target.closest(".mrow");if(r)startEdit(r.dataset.id)});
+$("#mAll").addEventListener("click",function(){mode="mes";anchor=new Date(hm);listLimit=200;render();if(mobile())setTab("list");else $("#list").scrollIntoView({behavior:REDUCED?"auto":"smooth"})});
+$$("[data-add]").forEach(function(b){b.addEventListener("click",function(){resetForm();ftype=b.dataset.add;drawCats();showForm();buzz(8)})});
+function render(){drawTop();drawKpis();drawGoal();drawFilters();drawPeriod();drawMonth()}
 document.body.dataset.tab="home";
 var had=load();applyRecurring();applyTheme();
 if(!had&&!S.items.length)S.items=demo();
