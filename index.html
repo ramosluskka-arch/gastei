@@ -1012,6 +1012,32 @@ body.priv .bsum b,body.priv .bvals b,body.priv .bmon b,body.priv .binfo b{filter
 .hcol span{position:absolute;left:0;right:0;bottom:-20px;text-align:center;font-size:.68rem;color:var(--muted)}
 :root[data-pal="neon"] .hlegend i.ii{background:#00C875}:root[data-pal="neon"] .hlegend i.oo{background:#FF7A00}
 :root[data-pal="neon"] .hrow .bars i.ii{background:#00C875}:root[data-pal="neon"] .hrow .bars i.oo{background:#FF7A00}
+
+/* ícones em contêiner arredondado */
+.tic{--ic:#C77DFF;width:30px;height:30px;border-radius:10px;flex:none;display:inline-grid;place-items:center;background:color-mix(in srgb,var(--ic) 17%,var(--surface));color:var(--ic);font-style:normal}
+.tic svg{width:16px;height:16px}
+h2.hasic{display:flex;align-items:center;gap:10px}
+h2.hasic .tic{width:32px;height:32px}
+.dt>.tic{order:-1;margin-bottom:6px}
+.kpi .k.hasic{display:flex;align-items:center;gap:8px}
+.kpi .k .tic{width:26px;height:26px;border-radius:8px}.kpi .k .tic svg{width:14px;height:14px}
+span.hasic{display:flex!important;align-items:center;gap:10px}span.hasic>.tic{width:26px;height:26px;border-radius:8px}span.hasic>.tic svg{width:14px;height:14px}
+.bal span .tic{width:26px;height:26px;border-radius:8px}.bal span .tic svg{width:14px;height:14px}
+.dcat{grid-template-columns:auto minmax(0,1fr) auto}
+.dcat i.tic{width:32px;height:32px;border-radius:10px;grid-row:1/3;align-self:center}
+.dcat .tr{grid-column:2/4}
+.mrow .ic.cat svg,.item .avatar svg{width:19px;height:19px}
+.macc.hasic{display:flex;align-items:center;gap:10px}
+.macc .tic{width:32px;height:32px}
+.cxh .cxi svg{width:21px;height:21px}
+:root[data-pal="neon"] .cxh .cxi{color:#C77DFF;background:rgba(130,10,209,.18);border:1px solid rgba(199,125,255,.28)}
+.cxh .cxn small{white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.cxg{padding:8px 13px}
+.cxf{font-size:.72rem}
+.cxf>span:first-child{white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.pvbox span{font-size:.8rem}
+#pPrev .chead{flex-wrap:wrap;row-gap:8px}#pPrev .pt2{white-space:nowrap}#pPrev .chead h2{flex:0 0 auto;min-width:0}#ppChip{margin-left:auto}#ppChip{font-size:.68rem;padding:5px 9px}
+.bxh b{white-space:nowrap}@media(max-width:400px){.bxh b{font-size:.98rem}}
 /* sem elementos de jogo */
 .chip.lv,.chip.st,.xptag,#achCard,#nudge{display:none!important}
 .swipehint{display:none}
@@ -1216,7 +1242,7 @@ html,body{overflow-x:clip}
   <div class="plantab" data-v="plan" id="planTab">
     <div class="plock" id="pLock"><div><b>Planejar faz parte do Premium</b><span>Previsão do mês, caixinhas com depósito mensal e alerta de gastos.</span></div><button class="btn sm" data-plans="mais">Ver Premium</button></div>
     <section class="card pcard" id="pPrev"><div class="chead"><h2><span class="pi" style="--c:#A73BEB"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 17l6-6 4 4 8-8"/><path d="M15 7h6v6"/></svg></span><span class="pt2">Previsão do mês<small id="ppMon"></small></span></h2><span class="pvchip" id="ppChip" hidden></span></div><div id="ppBody"></div></section>
-    <section class="pcard pbox" id="pBox"><div class="bxh"><span class="bxi"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 8h16v11a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1z"/><path d="M3 4h18v4H3zM10 12h4"/></svg></span><div><b>Caixinhas</b><small id="pbTot"></small></div><button class="bxnew" id="pbNew">+ Nova</button></div><div id="pbBody"></div></section>
+    <section class="pcard pbox" id="pBox"><div class="bxh"><span class="bxi"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 5c-1.5 0-2.8 1.4-3 2-3.5-1.5-11-.3-11 5 0 1.8 0 3 2 4.5V20h4v-2h3v2h4v-4c1-.5 1.7-1 2-2h2v-4h-2c0-1-.5-1.5-1-2z"/><path d="M2 9v1a2 2 0 0 0 2 2h1M16 11h.01"/></svg></span><div><b>Caixinhas &amp; Porquinho</b><small id="pbTot"></small></div><button class="bxnew" id="pbNew">+ Nova</button></div><div id="pbBody"></div></section>
     <section class="card pcard" id="pAl"><div class="chead"><h2><span class="pi" style="--c:#E0901F"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 8a6 6 0 1 1 12 0c0 7 3 9 3 9H3s3-2 3-9"/><path d="M10.3 21a1.94 1.94 0 0 0 3.4 0"/></svg></span>Alerta de gastos</h2></div><div id="paBody"></div></section>
   </div>
   <section class="card" data-v="home" id="monthList">
@@ -1960,7 +1986,7 @@ function drawList(items){
   l.slice(0,listLimit).forEach(function(x){
     if(x.d!==last){last=x.d;var d=parse(x.d);h+='<div class="day"><span>'+WD[d.getDay()]+", "+pad(d.getDate())+"/"+pad(d.getMonth()+1)+'</span><span class="mono">'+(dayTot[x.d]?"gastos "+brl(dayTot[x.d]):"")+'</span></div>'}
     var c=catOf(x),pi=x.p?PAY(x.p):null,inc=!isOut(x);
-    h+='<div class="item'+(x.id===newId&&!REDUCED?" new":"")+'" style="--c:'+esc(c.c)+'"><span class="avatar">'+esc(c.n.slice(0,2))+'</span><div class="t"><b>'+esc(x.n)+'</b><span>'+esc(c.n)+(pi?" · "+pi.n:"")+(x.rid?" · fixo":"")+(x.ex?" · exemplo":"")+'</span></div><span class="v'+(inc?" in":"")+'">'+(inc?"+ ":"")+brl(x.v)+'</span><div class="acts"><button class="ib" data-r="'+x.id+'" aria-label="Repetir '+esc(x.n)+' hoje" title="Repetir hoje">'+ICON_C+'</button><button class="ib" data-e="'+x.id+'" aria-label="Editar '+esc(x.n)+'" title="Editar">'+ICON_E+'</button><button class="ib" data-d="'+x.id+'" aria-label="Excluir '+esc(x.n)+'" title="Excluir">'+ICON_D+'</button></div></div>';
+    h+='<div class="item'+(x.id===newId&&!REDUCED?" new":"")+'" style="--c:'+esc(c.c)+'"><span class="avatar">'+catIcon(c)+'</span><div class="t"><b>'+esc(x.n)+'</b><span>'+esc(c.n)+(pi?" · "+pi.n:"")+(x.rid?" · fixo":"")+(x.ex?" · exemplo":"")+'</span></div><span class="v'+(inc?" in":"")+'">'+(inc?"+ ":"")+brl(x.v)+'</span><div class="acts"><button class="ib" data-r="'+x.id+'" aria-label="Repetir '+esc(x.n)+' hoje" title="Repetir hoje">'+ICON_C+'</button><button class="ib" data-e="'+x.id+'" aria-label="Editar '+esc(x.n)+'" title="Editar">'+ICON_E+'</button><button class="ib" data-d="'+x.id+'" aria-label="Excluir '+esc(x.n)+'" title="Excluir">'+ICON_D+'</button></div></div>';
   });
   var tin=0,tout=0;l.forEach(function(x){if(isOut(x))tout+=x.v;else tin+=x.v});
   h='<div class="lsum"><span>'+(l.length>listLimit?"Mostrando "+listLimit+" de "+l.length:l.length+(l.length>1?" lançamentos":" lançamento"))+'</span><span class="mono"><b class="in">+ '+brl(tin)+'</b> <b>- '+brl(tout)+'</b></span></div>'+h;
@@ -2273,14 +2299,14 @@ function drawMonth(){
   /* categorias */
   var by={};inRange(a,b).filter(isOut).forEach(function(x){by[x.c]=(by[x.c]||0)+x.v});
   var ks=Object.keys(by).sort(function(x,y){return by[y]-by[x]}),top=ks.length?by[ks[0]]:1;
-  $("#dCats").innerHTML=ks.length?ks.slice(0,5).map(function(k){var c=CAT(k);return'<div class="dcat"><i style="background:'+c.c+'"></i><b>'+esc(c.n)+'</b><span class="v">'+brl(by[k])+'<small>'+Math.round(by[k]/out*100)+'%</small></span><div class="tr"><div style="width:'+(by[k]/top*100)+'%;background:'+c.c+'"></div></div></div>'}).join(""):'<div class="mempty">Nenhum gasto neste mês.</div>';
+  $("#dCats").innerHTML=ks.length?ks.slice(0,5).map(function(k){var c=CAT(k);return'<div class="dcat"><i class="tic" style="--ic:'+c.c+'">'+catIcon(c)+'</i><b>'+esc(c.n)+'</b><span class="v">'+brl(by[k])+'<small>'+Math.round(by[k]/out*100)+'%</small></span><div class="tr"><div style="width:'+(by[k]/top*100)+'%;background:'+c.c+'"></div></div></div>'}).join(""):'<div class="mempty">Nenhum gasto neste mês.</div>';
   $("#dCatSub").textContent=ks.length>5?"+"+(ks.length-5)+" categorias":"";
   /* lançamentos */
   var its=inRange(a,b).sort(function(x,y){return x.d<y.d?1:x.d>y.d?-1:0}),h="";
   its.slice(0,3).forEach(function(x){var o=isOut(x),c=catOf(x),d=parse(x.d),p=x.p&&PAY(x.p);
-    h+='<div class="mrow" data-id="'+esc(x.id)+'" style="--c:'+esc(c.c)+'"><span class="ic cat '+(o?"out":"in")+'">'+esc(c.n.slice(0,2))+'</span><div><b>'+esc(x.n||c.n)+'</b><small>'+pad(d.getDate())+'/'+pad(d.getMonth()+1)+' · '+esc(c.n)+(p?" · "+esc(p.n):"")+'</small></div><span class="v'+(o?"":" in")+'">'+(o?"- ":"+ ")+brl(x.v)+'</span></div>'});
+    h+='<div class="mrow" data-id="'+esc(x.id)+'" style="--c:'+esc(c.c)+'"><span class="ic cat '+(o?"out":"in")+'">'+catIcon(c)+'</span><div><b>'+esc(x.n||c.n)+'</b><small>'+pad(d.getDate())+'/'+pad(d.getMonth()+1)+' · '+esc(c.n)+(p?" · "+esc(p.n):"")+'</small></div><span class="v'+(o?"":" in")+'">'+(o?"- ":"+ ")+brl(x.v)+'</span></div>'});
   $("#mRows").innerHTML=h||'<div class="mempty">Toque em <b>Lançar gasto</b> sempre que gastar. Leva poucos segundos.</div>';
-  $("#mAll").hidden=!its.length;$("#mAll").textContent="Ver extrato completo";$("#mAll").title=its.length+" lançamentos no mês";
+  $("#mAll").hidden=!its.length;$("#mAll").textContent="Ver extrato";$("#mAll").title=its.length+" lançamentos no mês";
   var acc=0,lim=iso(b);S.items.forEach(function(x){if(x.d<=lim)acc+=isOut(x)?-x.v:x.v});
   $("#mAcc").innerHTML='<span>Saldo acumulado de todos os meses</span><b class="'+(acc<0?"neg":"pos")+'">'+sgn(acc)+'</b>';
 }
@@ -2726,10 +2752,10 @@ function drawGoalSheet(box){var t=today(),ymNow=iso(t).slice(0,7),mName=MOL[t.ge
   var tot=0;S.goals.forEach(function(g){tot+=goalSaved(g)});
   var pt=$("#pbTot");if(pt)pt.textContent=S.goals.length?"Total guardado: "+brl(tot):"Separe dinheiro para seus planos";
   var h=S.goals.map(function(g,i){var sv=goalSaved(g),pc=g.target?Math.min(100,sv/g.target*100):0,done=sv>=g.target,mo=goalMonth(g,ymNow),plan=g.mon||goalNeed(g),c=BOXC[i%BOXC.length],eta=goalEta(g),op=boxOpen[g.id]||"";
-    var sub=plan?'+'+brl(plan)+'/mês'+(g.auto&&g.mon?' (automático)':''):(g.due?'Meta até '+MO[+g.due.slice(5,7)-1]+'/'+g.due.slice(0,4):'Sem depósito mensal');
-    var x='<article class="cx" style="--bc:'+c+'"><div class="cxh"><span class="cxi">'+esc(g.n.charAt(0).toUpperCase())+'</span><div class="cxn"><b>'+esc(g.n)+'</b><small>'+sub+'</small></div>'+(done?'<span class="pvchip">Meta batida</span>':'<button class="cxg" data-gpan="'+i+':add">+ Guardar</button>')+'</div>';
+    var sub=plan?'+'+brl(plan)+'/mês'+'':(g.due?'Meta até '+MO[+g.due.slice(5,7)-1]+'/'+g.due.slice(0,4):'Sem depósito mensal');
+    var x='<article class="cx" style="--bc:'+c+'"><div class="cxh"><span class="cxi">'+boxIcon(g.n)+'</span><div class="cxn"><b>'+esc(g.n)+'</b><small>'+sub+'</small></div>'+(done?'<span class="pvchip">Meta batida</span>':'<button class="cxg" data-gpan="'+i+':add">+ Guardar</button>')+'</div>';
     x+='<div class="cxv"><b>'+brl(sv)+'</b><span>Meta: '+brl(g.target)+' ('+Math.floor(pc)+'%)</span></div><div class="gbar g3"><i style="width:'+pc+'%"></i></div>';
-    var left=done?'<span class="ok">Meta alcançada! 🎉</span>':(plan&&mo<plan?'<span>'+mName.charAt(0).toUpperCase()+mName.slice(1)+': <b>'+brl(mo)+'</b> de '+brl(plan)+'</span>':plan?'<span class="ok">✓ '+mName.charAt(0).toUpperCase()+mName.slice(1)+' guardado</span>':'<span>Faltam <b>'+brl(g.target-sv)+'</b></span>');
+    var left=done?'<span class="ok">Meta alcançada! 🎉</span>':(plan&&mo<plan?'<span>'+mName.charAt(0).toUpperCase()+mName.slice(1)+': <b>'+brl(mo)+'</b> de '+brl(plan)+'</span>':plan?'<span class="ok">✓ '+MO[t.getMonth()].charAt(0).toUpperCase()+MO[t.getMonth()].slice(1)+' guardado'+(g.auto&&g.mon?' · auto':'')+'</span>':'<span>Faltam <b>'+brl(g.target-sv)+'</b></span>');
     var right=!done&&eta?'Chega lá em <b>'+MO[eta.getMonth()]+'/'+eta.getFullYear()+'</b>':'';
     x+='<div class="cxf">'+left+'<span>'+right+'</span><button class="cxm" data-gpan="'+i+':more" aria-label="Mais opções">•••</button></div>';
     if(op==="add"||op==="out"){var sug=op==="add"&&plan&&mo<plan?Math.min(plan-mo,g.target-sv):0;x+='<div class="bpanel"><label>'+(op==="add"?"Quanto vai guardar?":"Quanto vai resgatar?")+'<input class="inp mono" inputmode="decimal" placeholder="'+(sug?fmtNum.format(sug/100):"0,00")+'" data-gv="'+i+'"'+(sug?' value="'+fmtNum.format(sug/100)+'"':'')+'></label><button class="btn sm" '+(op==="add"?'data-gadd':'data-gout')+'="'+i+'">'+(op==="add"?"Guardar":"Resgatar")+'</button></div>'}
@@ -2760,12 +2786,9 @@ function drawPlanPrev(){var f=forecast(),t=today(),dim=new Date(t.getFullYear(),
   $("#ppMon").textContent=MO[t.getMonth()]+" • faltam "+f.left+(f.left===1?" dia":" dias");
   var chip=$("#ppChip");
   if(!f.projIn&&!f.out){chip.hidden=true;$("#ppBody").innerHTML='<div class="dtip">Lance sua receita e seus gastos do mês para ver a previsão.</div>';return}
-  chip.hidden=!f.projIn;chip.textContent=f.net<0?"Fecha no vermelho":"Fecha no azul";chip.className="pvchip"+(f.net<0?" neg":"");
+  chip.hidden=!f.projIn;chip.textContent=f.net<0?"Fechamento no vermelho":"Fechamento no azul";chip.className="pvchip"+(f.net<0?" neg":"");
   var w=f.projIn?Math.min(100,f.projOut/f.projIn*100):100;
   var h='<div class="pvbox"><div><span>Gasto projetado (dia '+dim+'):</span><b>'+brl(f.projOut)+'</b></div><div><span>'+(f.net<0?"Previsão de falta no fim do mês:":"Previsão de sobra no fim do mês:")+'</span><b class="'+(f.net<0?"neg":"pos")+'">'+brl(Math.abs(f.net))+'</b></div><div class="gbar"><i style="width:'+w+'%"></i></div></div>';
-  h+='<details class="pmore"><summary>Ver detalhes da previsão</summary><div class="ptiles"><div class="hl"><span>Pode gastar por dia</span><b>'+brl(f.room)+'</b></div><div><span>Seu ritmo por dia</span><b>'+brl(Math.round(f.pace))+'</b></div><div><span>Dias que faltam</span><b>'+f.left+'</b></div></div>'+
-    '<div class="dlines"><div><span>Gasto até agora</span><b>'+brl(f.out)+'</b></div>'+(f.pOut?'<div><span>Contas fixas ainda por vir</span><b>'+brl(f.pOut)+'</b></div>':'')+'<div><span>Receita esperada</span><b>'+brl(f.projIn)+'</b></div></div>'+
-    '<div class="dtip">'+(!f.projIn?'Lance sua receita do mês para saber quanto vai sobrar.':f.net<0?(f.room>0?'Para não fechar no vermelho, segure os gastos em até <b>'+brl(f.room)+' por dia</b>.':'Os gastos já passaram da receita do mês.'):'Mantendo até <b>'+brl(f.room)+' por dia</b>, o mês fecha no azul.')+'</div></details>';
   $("#ppBody").innerHTML=h}
 var boxFormOpen=false;
 function drawPlanBoxes(){drawGoalSheet($("#pbBody"));var f=$("#goalForm",$("#pbBody"));if(f)f.hidden=!(boxFormOpen||!S.goals.length)}
@@ -2837,8 +2860,59 @@ function postLook(){
     hc.innerHTML=st.map(function(r){return'<div class="hcol" title="'+mName(r[0])+'"><i class="a" style="height:'+(r[1].inc/mx*100)+'%"></i><i class="b" style="height:'+(r[1].out/mx*100)+'%"></i><span>'+MO[r[0].getMonth()].charAt(0).toUpperCase()+MO[r[0].getMonth()].slice(1)+'/'+String(r[0].getFullYear()).slice(2)+'</span></div>'}).join("");hc.hidden=!st.length}
 }
 $("#tChips").addEventListener("click",function(e){var b=e.target.closest("[data-ft]");if(!b)return;var f=$("#fType");f.value=b.dataset.ft;f.dispatchEvent(new Event("change",{bubbles:true}));buzz(4);postLook()});
-var _dmL=drawMonth;drawMonth=function(){_dmL();if(typeof postLook==="function")postLook()};
-function render(){drawTitle();drawTop();drawKpis();drawGoal();drawFilters();drawPeriod();drawMonth();drawHist();drawBkNote();applyPriv();applyPrem();drawPlan();checkAlert();pushWidget();postLook()}
+var _dmL=drawMonth;drawMonth=function(){_dmL();if(typeof postLook==="function"){postLook();drawIcons()}};
+/* ---------- ícones ---------- */
+var IC={cart:'<circle cx="9" cy="20" r="1.4"/><circle cx="18" cy="20" r="1.4"/><path d="M2 3h3l2.5 12h11.5l2-8H6"/>',
+car:'<path d="M3 16v-4l2-5h14l2 5v4z"/><path d="M6 16v3M18 16v3M3 12h18"/>',
+film:'<rect x="3" y="4" width="18" height="16" rx="2"/><path d="M7 4v16M17 4v16M3 9h4M17 9h4M3 15h4M17 15h4"/>',
+heart:'<path d="M12 20s-7-4.5-9-9a4.5 4.5 0 0 1 9-3 4.5 4.5 0 0 1 9 3c-2 4.5-9 9-9 9z"/>',
+home:'<path d="M3 11l9-7 9 7"/><path d="M5 10v10h14V10"/><path d="M10 20v-6h4v6"/>',
+bolt:'<path d="M13 2L4 14h7l-1 8 9-12h-7z"/>',
+bag:'<path d="M5 8h14l-1 13H6z"/><path d="M9 8V6a3 3 0 0 1 6 0v2"/>',
+food:'<path d="M4 3v8a3 3 0 0 0 6 0V3M7 3v18M17 3c-2 0-3 3-3 7h3v11"/>',
+brief:'<rect x="3" y="7" width="18" height="13" rx="2"/><path d="M9 7V5h6v2M3 13h18"/>',
+laptop:'<rect x="5" y="4" width="14" height="11" rx="1"/><path d="M2 19h20"/>',
+trend:'<path d="M3 17l6-6 4 4 8-8"/><path d="M15 7h6v6"/>',
+tag:'<path d="M3 12V3h9l9 9-9 9z"/><circle cx="7.5" cy="7.5" r="1.5"/>',
+coin:'<circle cx="12" cy="12" r="9"/><path d="M12 6.5v11M15 9.5c0-1.2-1.3-2-3-2s-3 .8-3 2 1.3 1.8 3 2.2 3 1 3 2.3-1.3 2-3 2-3-.8-3-2"/>',
+dots:'<circle cx="6" cy="12" r="1"/><circle cx="12" cy="12" r="1"/><circle cx="18" cy="12" r="1"/>',
+pie:'<path d="M21 12A9 9 0 1 1 12 3v9z"/><path d="M15 3.5A9 9 0 0 1 20.5 9H15z"/>',
+list:'<path d="M8 6h13M8 12h13M8 18h13M3.5 6h.01M3.5 12h.01M3.5 18h.01"/>',
+bars:'<path d="M5 20V11M11 20V5M17 20v-7M3 20h18"/>',
+cal:'<rect x="3" y="5" width="18" height="16" rx="2"/><path d="M3 10h18M8 3v4M16 3v4"/>',
+week:'<rect x="3" y="5" width="18" height="16" rx="2"/><path d="M3 10h18M8 3v4M16 3v4M7 14h10"/>',
+today:'<circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/>',
+down:'<path d="M12 5v14M5 12l7 7 7-7"/>',
+up:'<path d="M12 19V5M5 12l7-7 7 7"/>',
+wallet:'<path d="M3 7a2 2 0 0 1 2-2h13v4"/><path d="M3 7v11a2 2 0 0 0 2 2h15V9H5a2 2 0 0 1-2-2z"/><path d="M16 14h.01"/>',
+pig:'<path d="M19 5c-1.5 0-2.8 1.4-3 2-3.5-1.5-11-.3-11 5 0 1.8 0 3 2 4.5V20h4v-2h3v2h4v-4c1-.5 1.7-1 2-2h2v-4h-2c0-1-.5-1.5-1-2z"/><path d="M2 9v1a2 2 0 0 0 2 2h1M16 11h.01"/>',
+avg:'<path d="M12 14l4-4"/><path d="M3.5 18a9 9 0 1 1 17 0"/>',
+cmp:'<path d="M7 4L3 8l4 4M3 8h14M17 20l4-4-4-4M21 16H7"/>',
+target:'<circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="5"/><circle cx="12" cy="12" r="1"/>',
+history:'<path d="M3 12a9 9 0 1 0 3-6.7L3 8"/><path d="M3 3v5h5M12 7v5l4 2"/>',
+card:'<rect x="2" y="5" width="20" height="14" rx="2"/><path d="M2 10h20"/>',
+trophy:'<path d="M8 21h8M12 17v4M7 4h10v5a5 5 0 0 1-10 0z"/><path d="M17 5h3v2a3 3 0 0 1-3 3M7 5H4v2a3 3 0 0 0 3 3"/>',
+shield:'<path d="M12 3l8 3v6c0 5-3.5 8-8 9-4.5-1-8-4-8-9V6z"/><path d="M9 12l2 2 4-4"/>',
+plane:'<path d="M2 13l20-8-5 15-5-6z"/><path d="M12 14l10-9"/>',
+gift:'<rect x="3" y="8" width="18" height="4" rx="1"/><path d="M12 8v13M5 12v9h14v-9M12 8c-1.5-3-5.5-5-6-2s4 2 6 2zm0 0c1.5-3 5.5-5 6-2s-4 2-6 2z"/>',
+phone:'<rect x="7" y="2" width="10" height="20" rx="2"/><path d="M11 18h2"/>',
+study:'<path d="M2 9l10-5 10 5-10 5z"/><path d="M6 11v5c3 2 9 2 12 0v-5"/>',
+gear:'<circle cx="12" cy="12" r="3"/><path d="M12 2v3M12 19v3M2 12h3M19 12h3M4.9 4.9l2.1 2.1M17 17l2.1 2.1M4.9 19.1L7 17M17 7l2.1-2.1"/>'};
+function svgI(k){return'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">'+(IC[k]||IC.tag)+'</svg>'}
+var CATI={mercado:"cart",transporte:"car",lazer:"film",saude:"heart",casa:"home",contas:"bolt",compras:"bag",alimentacao:"food",salario:"brief",freela:"laptop",invest:"trend",vendas:"tag",outras:"coin",outros:"dots",outros_in:"coin"};
+function catIcon(c){return CATI[c.k]?svgI(CATI[c.k]):esc(String(c.n||"?").slice(0,2))}
+function boxIcon(n){n=String(n||"").toLowerCase();var k=/reserva|emerg|segur/.test(n)?"shield":/viag|f[eé]rias|passag/.test(n)?"plane":/casa|apart|im[oó]vel|reforma/.test(n)?"home":/carro|moto|ve[ií]culo/.test(n)?"car":/celular|phone|iphone|notebook|computador|pc\b/.test(n)?"phone":/estud|curso|faculdade|escola/.test(n)?"study":/presente|natal|anivers/.test(n)?"gift":"pig";return svgI(k)}
+function ticH(k,c){return'<i class="tic" style="--ic:'+c+'">'+svgI(k)+'</i>'}
+function addTic(el,k,c,where){if(!el||el.querySelector(":scope>.tic"))return;el.classList.add("hasic");el.insertAdjacentHTML(where||"afterbegin",ticH(k,c))}
+var H2I={"Últimos 7 dias":["bars","#C77DFF"],"Para onde está indo":["pie","#FF7A00"],"Últimos lançamentos":["list","#C77DFF"],"Histórico e comparação de meses":["history","#C77DFF"],"Histórico de todos os meses":["cal","#4DA3FF"],"Comparar meses":["cmp","#FF7A00"],"Balanço do período":["wallet","#00C875"],"Formas de pagamento":["card","#4DA3FF"],"Resumo mês a mês":["cal","#C77DFF"],"Meta do mês":["target","#FF7A00"],"Por categoria":["pie","#FF7A00"],"Lançamentos":["list","#C77DFF"],"Conquistas":["trophy","#F5B400"],"Ajustes":["gear","#9A9AA8"]};
+function drawIcons(){
+  $$("h2").forEach(function(h){if(h.querySelector("svg"))return;var q=H2I[h.textContent.trim()];if(q)addTic(h,q[0],q[1])});
+  [["#dDay","avg","#C77DFF"],["#dToday","today","#FF7A00"],["#dWeek","week","#00C875"],["#dCmp","cmp","#4DA3FF"]].forEach(function(q){var b=$(q[0]);if(b)addTic(b.parentNode,q[1],q[2],"beforeend")});
+  [["#t-dia","today","#FF7A00"],["#t-semana","week","#00C875"],["#t-mes","cal","#C77DFF"],["#t-ano","bars","#4DA3FF"]].forEach(function(q){var b=$(q[0]);if(b)addTic(b.querySelector(".k"),q[1],q[2])});
+  [["#balIn","down","#00C875"],["#balOut","up","#FF500F"],["#balNet","wallet","#C77DFF"],["#balRate","pig","#FF7A00"],["#hIn","down","#00C875"],["#hOut","up","#FF500F"],["#hNet","wallet","#C77DFF"],["#hAvg","avg","#4DA3FF"]].forEach(function(q){var b=$(q[0]);if(b&&b.previousElementSibling&&b.previousElementSibling.tagName==="SPAN")addTic(b.previousElementSibling,q[1],q[2])});
+  var ma=$("#mAcc");if(ma&&ma.textContent.trim())addTic(ma,"wallet","#00C875");
+}
+function render(){drawTitle();drawTop();drawKpis();drawGoal();drawFilters();drawPeriod();drawMonth();drawHist();drawBkNote();applyPriv();applyPrem();drawPlan();checkAlert();pushWidget();postLook();drawIcons()}
 document.body.dataset.tab="home";
 var had=load();if(!S.rem)S.rem={on:false,h:20,m:0};if(!S.alertDone)S.alertDone={};if(!S.cards)S.cards=[];if(!S.goals)S.goals=[];if(S.alertPct==null)S.alertPct=0;if(!S.lookV2){S.lookV2=1;S.pal="neon";save()}if(!S.trial){S.trial=Date.now();save()}applyAutoBoxes();applyRecurring();applyTheme();billingInit(false);setTimeout(function(){scheduleReminder(false);checkLaunch()},600);
 if(!had&&!S.items.length)S.items=demo();
