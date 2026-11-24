@@ -24,6 +24,7 @@
   --bg:#F4F6F8; --surface:#FFFFFF; --sunken:#EEF1F4; --ink:#0F1B2A; --muted:#5E6B7C; --line:#E1E6EC;
   --primary:#0B6E7F; --primary-ink:#FFFFFF; --primary-soft:#E3F2F4; --amber:#E89B0C; --amber-soft:#FFF4DD;
   --good:#12925E; --bad:#D6453D; --shadow:0 1px 2px rgba(15,27,42,.05),0 4px 16px rgba(15,27,42,.05);
+  --hero1:#063A44; --hero2:#0B6E7F; --hero3:#13889A; --hero-k:#F6C15A; --cta:#E89B0C; --cta-ink:#2B1B00;
   --f-ui:"Plus Jakarta Sans",system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;
   --f-num:"DM Mono",ui-monospace,"SFMono-Regular",Menlo,Consolas,monospace;
 }
@@ -35,6 +36,22 @@
   --bg:#0B1219; --surface:#121C26; --sunken:#0E161F; --ink:#E9EEF3; --muted:#93A1B2; --line:#223040;
   --primary:#3FB8C9; --primary-ink:#06141A; --primary-soft:#123039; --amber:#F2B23A; --amber-soft:#2E2412;
   --good:#3CC48B; --bad:#F0706A; --shadow:0 1px 2px rgba(0,0,0,.3),0 6px 20px rgba(0,0,0,.25); color-scheme:dark}
+
+/* ---------- paletas de cor ---------- */
+:root[data-pal="magenta"]{--bg:#FFF6FA;--sunken:#FCEEF4;--line:#F3DDE7;--ink:#2A0F1E;--muted:#7A5A6B;--primary:#D1176F;--primary-ink:#FFFFFF;--primary-soft:#FDE6F0;--amber:#F59E0B;--amber-soft:#FFF1DC;
+  --hero1:#5E0A35;--hero2:#C2185B;--hero3:#F0509F;--hero-k:#FFD1E6;--cta:#FFFFFF;--cta-ink:#C2185B;--shadow:0 1px 2px rgba(120,10,60,.06),0 4px 16px rgba(120,10,60,.07)}
+:root[data-pal="magenta"][data-theme="dark"]{--bg:#140A10;--surface:#1E1018;--sunken:#180C13;--ink:#F7EAF1;--muted:#B897A9;--line:#3A2030;--primary:#FF5CA8;--primary-ink:#2A0016;--primary-soft:#3A1328;--hero1:#3A0722;--hero2:#9C1350;--hero3:#E0408E}
+@media (prefers-color-scheme: dark){:root[data-pal="magenta"]:not([data-theme="light"]){--bg:#140A10;--surface:#1E1018;--sunken:#180C13;--ink:#F7EAF1;--muted:#B897A9;--line:#3A2030;--primary:#FF5CA8;--primary-ink:#2A0016;--primary-soft:#3A1328;--hero1:#3A0722;--hero2:#9C1350;--hero3:#E0408E}}
+:root[data-pal="blue"]{--bg:#F3F6FC;--sunken:#EAF0FA;--line:#DDE5F2;--ink:#0B1630;--muted:#5A6785;--primary:#1F4FD8;--primary-ink:#FFFFFF;--primary-soft:#E4ECFF;
+  --hero1:#08163D;--hero2:#1E3FA8;--hero3:#3478FF;--hero-k:#9EC1FF;--cta:#FFFFFF;--cta-ink:#1F4FD8;--shadow:0 1px 2px rgba(10,30,80,.06),0 4px 16px rgba(10,30,80,.07)}
+:root[data-pal="blue"][data-theme="dark"]{--bg:#070D1C;--surface:#0F1830;--sunken:#0B1326;--ink:#E8EEFB;--muted:#93A2C4;--line:#1F2C4D;--primary:#6C9BFF;--primary-ink:#071233;--primary-soft:#13224A;--hero1:#060F2C;--hero2:#16307E;--hero3:#2D63E8}
+@media (prefers-color-scheme: dark){:root[data-pal="blue"]:not([data-theme="light"]){--bg:#070D1C;--surface:#0F1830;--sunken:#0B1326;--ink:#E8EEFB;--muted:#93A2C4;--line:#1F2C4D;--primary:#6C9BFF;--primary-ink:#071233;--primary-soft:#13224A;--hero1:#060F2C;--hero2:#16307E;--hero3:#2D63E8}}
+:root[data-pal="dark"]{--bg:#0A0A10;--surface:#14141D;--sunken:#0F0F16;--ink:#F1F1F7;--muted:#9C9CB3;--line:#25253A;--primary:#FF3D9A;--primary-ink:#FFFFFF;--primary-soft:#33122A;--amber:#FFB020;--amber-soft:#2E2210;
+  --good:#3CC48B;--bad:#FF6B6B;--hero1:#16091F;--hero2:#3F0F48;--hero3:#A3166A;--hero-k:#FF9BCB;--cta:#FF3D9A;--cta-ink:#FFFFFF;--shadow:0 1px 2px rgba(0,0,0,.4),0 6px 20px rgba(0,0,0,.35);color-scheme:dark}
+.palrow{display:grid;grid-template-columns:repeat(auto-fill,minmax(130px,1fr));gap:10px}
+.pal{display:grid;gap:8px;justify-items:start;border:2px solid var(--line);background:var(--surface);border-radius:14px;padding:10px;font-weight:700;font-size:.86rem;color:var(--ink);text-align:left}
+.pal i{display:block;width:100%;height:46px;border-radius:9px}
+.pal[aria-pressed="true"]{border-color:var(--primary);box-shadow:0 0 0 3px var(--primary-soft)}
 
 *{box-sizing:border-box}
 [hidden]{display:none!important}
@@ -339,7 +356,7 @@ footer{margin-top:28px;color:var(--muted);font-size:.78rem;display:flex;justify-
 /* ---- dashboard: quanto ainda tenho ---- */
 .mwrap{display:grid;gap:14px;margin-bottom:14px}
 @media (min-width:1001px){.mwrap{grid-template-columns:minmax(0,5fr) minmax(0,6fr);grid-template-areas:"hero dash" "list dash";align-items:start}#monthCard{grid-area:hero}.dash{grid-area:dash}#monthList{grid-area:list}}
-.mcard{background:linear-gradient(155deg,#063A44 0%,#0B6E7F 62%,#13889A 100%);color:#fff;border:0;display:grid;gap:14px;position:relative;overflow:hidden}
+.mcard{background:linear-gradient(155deg,var(--hero1) 0%,var(--hero2) 62%,var(--hero3) 100%);color:#fff;border:0;display:grid;gap:14px;position:relative;overflow:hidden}
 .mcard::before{content:"";position:absolute;left:-80px;bottom:-110px;width:260px;height:260px;border-radius:50%;background:radial-gradient(circle,rgba(246,193,90,.22),transparent 65%);pointer-events:none}
 .mcard::after{content:"";position:absolute;right:-70px;top:-70px;width:230px;height:230px;border-radius:50%;border:32px solid rgba(255,255,255,.05);pointer-events:none}
 .mcard>*{position:relative;z-index:1}
@@ -348,7 +365,7 @@ footer{margin-top:28px;color:var(--muted);font-size:.78rem;display:flex;justify-
 .marrow{width:36px;height:36px;border-radius:12px;border:1px solid rgba(255,255,255,.22);background:rgba(255,255,255,.08);color:#fff;display:grid;place-items:center;flex:none}
 .marrow svg{width:17px;height:17px}
 .msaldo{display:grid;justify-items:center;gap:4px;text-align:center;padding:6px 0 2px}
-.msaldo span{font-size:.78rem;font-weight:800;letter-spacing:.14em;text-transform:uppercase;color:#F6C15A}
+.msaldo span{font-size:.78rem;font-weight:800;letter-spacing:.14em;text-transform:uppercase;color:var(--hero-k)}
 .msaldo b{font-size:clamp(2.3rem,11vw,3.2rem);font-weight:500;letter-spacing:-.045em;line-height:1.05;white-space:nowrap}
 .msaldo b.neg{color:#FFB4AE}
 .msaldo small{font-size:.88rem;opacity:.85}
@@ -359,7 +376,7 @@ footer{margin-top:28px;color:var(--muted);font-size:.78rem;display:flex;justify-
 .mlegend span{display:flex;align-items:center;gap:6px;opacity:.9}
 .mlegend i{width:9px;height:9px;border-radius:3px}.mlegend i.g{background:rgba(255,255,255,.55)}.mlegend i.r{background:#5BE0A0}
 .mlegend b{font-weight:500}
-.mgo{display:flex;align-items:center;justify-content:center;gap:10px;background:#E89B0C;color:#2B1B00;border-radius:16px;font-size:1.08rem;padding:16px;box-shadow:0 8px 20px rgba(0,0,0,.18)}
+.mgo{display:flex;align-items:center;justify-content:center;gap:10px;background:var(--cta);color:var(--cta-ink);border-radius:16px;font-size:1.08rem;padding:16px;box-shadow:0 8px 20px rgba(0,0,0,.18)}
 .mgo svg{width:20px;height:20px}
 .mgo:active{transform:scale(.98)}
 .mlink{display:flex;align-items:center;justify-content:center;gap:6px;background:none;border:0;color:#fff;font-weight:700;font-size:.9rem;padding:2px;opacity:.9;margin-top:-4px}
@@ -739,7 +756,7 @@ html,body{overflow-x:hidden}
           <button data-install hidden><span>Instalar o app no celular<small>Baixe o app para Android ou coloque na tela inicial</small></span></button>
           <button data-pdf><span>Relatório em PDF<small>Apresentação completa do período que está aberto</small></span></button>
           <button data-open="dados"><span>Planilha e cópia de segurança<small>Exportar, guardar e recuperar dados</small></span></button>
-          <button data-open="aparencia"><span>Aparência<small>Tema claro ou escuro e início da semana</small></span></button>
+          <button data-open="aparencia"><span>Cores e aparência<small>Rosa magenta, Dark, Pro Blue ou Petróleo</small></span></button>
         </div>
       </section>
 
@@ -791,6 +808,7 @@ html,body{overflow-x:hidden}
         <div class="tools"><button class="btn sm" id="bkGen">Gerar e copiar</button><button class="btn sm danger" id="bkRestore" data-armed="false">Recuperar cópia</button><button class="btn sm danger" id="wipeBtn" data-armed="false">Apagar todos os gastos</button></div>
       </div>
       <div class="set" data-pane="aparencia" hidden>
+        <div class="field"><span class="lbl">Cores do app</span><div class="palrow" id="palSeg"><button class="pal" data-pal="teal"><i style="background:linear-gradient(135deg,#063A44,#0B6E7F 55%,#E89B0C)"></i>Petróleo</button><button class="pal" data-pal="magenta"><i style="background:linear-gradient(135deg,#C2185B,#F0509F 60%,#FFFFFF)"></i>Rosa magenta</button><button class="pal" data-pal="dark"><i style="background:linear-gradient(135deg,#0A0A10,#3F0F48 55%,#FF3D9A)"></i>Dark</button><button class="pal" data-pal="blue"><i style="background:linear-gradient(135deg,#08163D,#1E3FA8 55%,#3478FF)"></i>Pro Blue</button></div></div>
         <div class="field"><span class="lbl">Tema</span><div class="tools" id="themeSeg"><button class="seg" data-th="auto">Automático</button><button class="seg" data-th="light">Claro</button><button class="seg" data-th="dark">Escuro</button></div></div>
         <div class="field"><span class="lbl">A semana começa na</span><div class="tools" id="weekSeg"><button class="seg" data-w="1">Segunda</button><button class="seg" data-w="0">Domingo</button></div></div>
       </div>
@@ -869,7 +887,7 @@ function load(){
   try{var r=localStorage.getItem(KEY);if(r){var o=JSON.parse(r);if(o&&Array.isArray(o.items)){had=true;
     S.items=o.items;S.seeded=!!o.seeded;S.meta=o.meta>0?o.meta:300000;S.name=o.name||"";S.cats=Array.isArray(o.cats)&&o.cats.length?o.cats:null;S.theme=o.theme||"auto";S.wk=o.wk===0?0:1;
     S.icats=Array.isArray(o.icats)&&o.icats.length?o.icats:null;S.recs=Array.isArray(o.recs)?o.recs:[];S.recDone=o.recDone&&typeof o.recDone==="object"?o.recDone:{};
-    S.onboarded=o.onboarded!=null?!!o.onboarded:o.items.some(function(i){return !i.ex});S.priv=!!o.priv;S.lastBk=o.lastBk||0;S.bkSnooze=o.bkSnooze||0}}}catch(e){}
+    S.onboarded=o.onboarded!=null?!!o.onboarded:o.items.some(function(i){return !i.ex});S.priv=!!o.priv;S.pal=o.pal||"teal";S.lastBk=o.lastBk||0;S.bkSnooze=o.bkSnooze||0}}}catch(e){}
   if(!S.cats)S.cats=DEFAULT_CATS.map(function(c){return{k:c.k,n:c.n,c:c.c}});
   if(!S.icats)S.icats=DEFAULT_ICATS.map(function(c){return{k:c.k,n:c.n,c:c.c}});
   return had;
@@ -1296,8 +1314,15 @@ $("#catEdit").addEventListener("click",function(e){var b=e.target.closest("[data
 $("#addCat").addEventListener("click",function(){var n=$("#newCat").value.trim();if(!n)return;if(S.cats.some(function(c){return c.n.toLowerCase()===n.toLowerCase()})){toast("Essa categoria já existe");return}
   var pal=["#E8792B","#1F9D62","#2F7FE0","#8B5CF6","#C99A06","#E0457B","#0EA5B7","#C04FC9","#5B8C2A","#B4532A"];
   var oi=S.cats.findIndex(function(c){return c.k==="outros"});S.cats.splice(oi<0?S.cats.length:oi,0,{k:"c"+uid(),n:n,c:pal[S.cats.length%pal.length]});$("#newCat").value="";save();drawCatEdit();drawCats();toast("Categoria criada")});
-function syncSegs(){$$("#themeSeg [data-th]").forEach(function(b){b.setAttribute("aria-pressed",b.dataset.th===S.theme)});$$("#weekSeg [data-w]").forEach(function(b){b.setAttribute("aria-pressed",+b.dataset.w===S.wk)})}
-function applyTheme(){if(S.theme==="auto")document.documentElement.removeAttribute("data-theme");else document.documentElement.setAttribute("data-theme",S.theme)}
+function syncSegs(){applyTheme();$$("#themeSeg [data-th]").forEach(function(b){b.setAttribute("aria-pressed",b.dataset.th===S.theme)});$$("#weekSeg [data-w]").forEach(function(b){b.setAttribute("aria-pressed",+b.dataset.w===S.wk)})}
+var PALC={teal:"#0B6E7F",magenta:"#C2185B",dark:"#0A0A10",blue:"#1E3FA8"};
+function applyTheme(){var r=document.documentElement,pal=PALC[S.pal]?S.pal:"teal";
+  if(pal==="teal")r.removeAttribute("data-pal");else r.setAttribute("data-pal",pal);
+  if(pal==="dark")r.setAttribute("data-theme","dark");else if(S.theme==="auto")r.removeAttribute("data-theme");else r.setAttribute("data-theme",S.theme);
+  var m=document.querySelector('meta[name="theme-color"]');if(m)m.setAttribute("content",PALC[pal]);
+  $$("#palSeg [data-pal]").forEach(function(b){b.setAttribute("aria-pressed",b.dataset.pal===pal)});
+  $("#themeSeg").style.opacity=pal==="dark"?.45:1}
+$("#palSeg").addEventListener("click",function(e){var b=e.target.closest("[data-pal]");if(!b)return;S.pal=b.dataset.pal;applyTheme();save();buzz(6)});
 $("#themeSeg").addEventListener("click",function(e){var b=e.target.closest("[data-th]");if(!b)return;S.theme=b.dataset.th;applyTheme();save();syncSegs()});
 $("#weekSeg").addEventListener("click",function(e){var b=e.target.closest("[data-w]");if(!b)return;S.wk=+b.dataset.w;save();syncSegs();render()});
 function csv(){
