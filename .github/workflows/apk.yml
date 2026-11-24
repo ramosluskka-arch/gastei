@@ -63,6 +63,8 @@ jobs:
               bg.paste(icon.resize((m, m), Image.LANCZOS), ((W - m) // 2, (H - m) // 2), icon.resize((m, m), Image.LANCZOS))
               bg.convert("RGB").save(f)
           PY
+          sed -i '0,/^dependencies {/s//dependencies {\n    implementation "com.android.billingclient:billing:8.0.0"/' ../../build.gradle
+          grep -n "billingclient" ../../build.gradle
           VC=$(( $(date +%s) / 60 - 29000000 ))
           sed -i "s/versionCode 1/versionCode $VC/; s/versionName \"1.0\"/versionName \"1.$GITHUB_RUN_NUMBER\"/" ../../build.gradle
       - name: Compilar e assinar
