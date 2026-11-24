@@ -5,6 +5,10 @@ const { pathToFileURL } = require("url");
 // "app://gastei/" serve os arquivos do app: assim os dados (localStorage) ficam salvos no PC.
 protocol.registerSchemesAsPrivileged([{ scheme: "app", privileges: { standard: true, secure: true, supportFetchAPI: true } }]);
 app.setName("Gastei");
+if (process.platform === "win32") app.setAppUserModelId("com.gastei.pc");
+// só uma janela do Gastei aberta por vez
+if (!app.requestSingleInstanceLock()) app.quit();
+else app.on("second-instance", () => { const w = BrowserWindow.getAllWindows()[0]; if (w) { if (w.isMinimized()) w.restore(); w.focus(); } });
 
 function createWindow() {
   const win = new BrowserWindow({

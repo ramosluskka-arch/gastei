@@ -1,7 +1,7 @@
 {
   "name": "gastei-pc",
   "productName": "Gastei",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "description": "Gastei no PC, em formato de celular",
   "main": "main.js",
   "author": "Gastei",
@@ -9,8 +9,46 @@
   "build": {
     "appId": "com.gastei.pc",
     "productName": "Gastei",
-    "files": ["main.js", "phone.html", "app/**/*"],
-    "win": { "target": [{ "target": "portable", "arch": ["x64"] }], "icon": "icon.png" },
-    "portable": { "artifactName": "Gastei-PC.exe" }
+    "files": [
+      "main.js",
+      "phone.html",
+      "app/**/*"
+    ],
+    "win": {
+      "target": [
+        {
+          "target": "nsis",
+          "arch": [
+            "x64"
+          ]
+        },
+        {
+          "target": "portable",
+          "arch": [
+            "x64"
+          ]
+        }
+      ],
+      "icon": "icon.png"
+    },
+    "portable": {
+      "artifactName": "Gastei-PC.exe"
+    },
+    "nsis": {
+      "artifactName": "Gastei-Setup.exe",
+      "oneClick": false,
+      "perMachine": false,
+      "allowToChangeInstallationDirectory": true,
+      "createDesktopShortcut": "always",
+      "createStartMenuShortcut": true,
+      "shortcutName": "Gastei",
+      "uninstallDisplayName": "Gastei",
+      "runAfterFinish": true,
+      "deleteAppDataOnUninstall": false,
+      "language": "1046",
+      "installerLanguages": [
+        "pt_BR"
+      ]
+    }
   }
 }
