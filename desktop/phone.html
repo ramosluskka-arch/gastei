@@ -1,0 +1,51 @@
+<!doctype html>
+<html lang="pt-BR"><head><meta charset="utf-8"><title>Gastei</title>
+<style>
+html,body{margin:0;height:100%;background:transparent;overflow:hidden;font-family:"Segoe UI",system-ui,sans-serif;user-select:none}
+.phone{position:absolute;inset:8px;border-radius:54px;background:linear-gradient(145deg,#2a2f36,#0d1014 60%);padding:14px;box-sizing:border-box;box-shadow:0 0 0 2px #3a414b inset,0 14px 34px rgba(0,0,0,.45);-webkit-app-region:drag}
+.phone::before{content:"";position:absolute;left:-3px;top:150px;width:3px;height:60px;border-radius:2px;background:#2a2f36}
+.phone::after{content:"";position:absolute;right:-3px;top:190px;width:3px;height:90px;border-radius:2px;background:#2a2f36}
+.screen{position:relative;width:100%;height:100%;border-radius:42px;overflow:hidden;background:#F4F6F8;-webkit-app-region:no-drag}
+.status{position:absolute;inset:0 0 auto;height:34px;display:flex;align-items:center;justify-content:space-between;padding:0 26px;font-size:13px;font-weight:700;color:#0F1B2A;z-index:3;background:var(--sb,#F4F6F8);-webkit-app-region:drag;cursor:grab}
+.status i{display:inline-block;width:22px;height:11px;border:1.6px solid currentColor;border-radius:3px;position:relative;vertical-align:-1px}
+.status i::after{content:"";position:absolute;inset:1.5px 4px 1.5px 1.5px;background:currentColor;border-radius:1px}
+.island{position:absolute;top:9px;left:50%;transform:translateX(-50%);width:104px;height:26px;border-radius:20px;background:#05070a;z-index:4}
+iframe{position:absolute;top:34px;left:0;width:100%;height:calc(100% - 34px);border:0;background:#F4F6F8}
+.homebar{position:absolute;bottom:7px;left:50%;transform:translateX(-50%);width:120px;height:4px;border-radius:4px;background:rgba(15,27,42,.35);z-index:5;pointer-events:none}
+.ctl{position:absolute;top:20px;right:30px;display:flex;gap:6px;z-index:10;-webkit-app-region:no-drag;opacity:0;transition:opacity .2s}
+.phone:hover .ctl{opacity:1}
+.phone:hover .status span:last-child{opacity:0}
+.ctl button{width:22px;height:22px;border-radius:50%;border:0;color:#fff;font:700 12px/1 sans-serif;cursor:pointer}
+.ctl .min{background:#E89B0C}.ctl .x{background:#D6453D}
+.hint{position:absolute;top:17px;left:30px;font-size:10px;color:#8a96a3;opacity:0;transition:opacity .2s;z-index:10}
+.phone:hover .hint{opacity:1}
+body.dark .status{color:#E9EEF3}body.dark .homebar{background:rgba(233,238,243,.4)}
+</style></head>
+<body>
+<div class="phone">
+  <div class="ctl"><button class="min" title="Minimizar" data-c="min">–</button><button class="x" title="Fechar" data-c="close">×</button></div>
+  <div class="screen">
+    <div class="status"><span id="clock">9:41</span><span>5G &nbsp;<i></i></span></div>
+    <div class="island"></div>
+    <iframe id="app" src="app://gastei/app/index.html"></iframe>
+  </div>
+</div>
+<script>
+const { ipcRenderer } = require("electron");
+document.querySelectorAll(".ctl button").forEach(b => b.onclick = () => ipcRenderer.send("win", b.dataset.c));
+function tick(){const d=new Date();document.getElementById("clock").textContent=d.getHours()+":"+String(d.getMinutes()).padStart(2,"0")}
+tick();setInterval(tick,15000);
+const fr=document.getElementById("app");
+fr.addEventListener("load",()=>{
+  try{
+    const d=fr.contentDocument,st=d.createElement("style");
+    st.textContent="#installBtn,[data-install]{display:none!important}";
+    d.head.appendChild(st);
+    const sync=()=>{const bg=getComputedStyle(d.body).backgroundColor;document.querySelector(".status").style.setProperty("--sb",bg);fr.style.background=bg;
+      const m=bg.match(/\d+/g);document.body.classList.toggle("dark",m&&(+m[0]+ +m[1]+ +m[2])<300)};
+    sync();new MutationObserver(sync).observe(d.documentElement,{attributes:true,attributeFilter:["data-theme"]});
+    matchMedia("(prefers-color-scheme: dark)").addEventListener("change",sync);
+  }catch(e){}
+});
+</script>
+</body></html>

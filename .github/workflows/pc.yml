@@ -1,0 +1,39 @@
+name: Gerar programa para PC
+
+on:
+  push:
+    branches: [main]
+    paths: ["index.html", "*.png", "desktop/**", ".github/workflows/pc.yml"]
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: pc
+  cancel-in-progress: true
+
+jobs:
+  windows:
+    runs-on: windows-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+      - name: Montar e gerar o .exe
+        shell: bash
+        run: |
+          cd desktop
+          mkdir -p app
+          cp ../index.html ../manifest.webmanifest ../*.png app/
+          npm i --no-audit --no-fund -D electron@33.2.0 electron-builder@25.1.8
+          npx electron-builder --win portable --publish never
+          ls -la dist
+      - name: Publicar para download
+        shell: bash
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          gh release delete pc --yes --cleanup-tag || true
+          gh release create pc desktop/dist/Gastei-PC.exe --title "Gastei para PC (Windows)" --notes "Baixe o Gastei-PC.exe e abra. Ele mostra o Gastei numa janela em formato de celular e guarda seus dados no computador." --latest=false

@@ -1,0 +1,16 @@
+{
+  "name": "gastei-pc",
+  "productName": "Gastei",
+  "version": "1.0.0",
+  "description": "Gastei no PC, em formato de celular",
+  "main": "main.js",
+  "author": "Gastei",
+  "license": "UNLICENSED",
+  "build": {
+    "appId": "com.gastei.pc",
+    "productName": "Gastei",
+    "files": ["main.js", "phone.html", "app/**/*"],
+    "win": { "target": [{ "target": "portable", "arch": ["x64"] }], "icon": "icon.png" },
+    "portable": { "artifactName": "Gastei-PC.exe" }
+  }
+}
