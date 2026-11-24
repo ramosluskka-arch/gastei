@@ -20,19 +20,27 @@ jobs:
       - uses: actions/checkout@v4
       - uses: actions/setup-node@v4
         with:
-          node-version: 20
+          node-version: 22
       - uses: actions/setup-java@v4
         with:
           distribution: temurin
-          java-version: 17
+          java-version: 21
       - name: Montar projeto Capacitor
         run: |
           mkdir -p build/www
           cp index.html manifest.webmanifest *.png build/www/
           cd build
           npm init -y >/dev/null
-          npm i @capacitor/core@6.2.0 @capacitor/cli@6.2.0 @capacitor/android@6.2.0
-          npx cap init Gastei com.gastei.app --web-dir www
+          npm i @capacitor/core@8.6.0 @capacitor/cli@8.6.0 @capacitor/android@8.6.0
+          cat > capacitor.config.json <<'JSON'
+          {
+            "appId": "com.gastei.app",
+            "appName": "Gastei",
+            "webDir": "www",
+            "android": { "allowMixedContent": false, "webContentsDebuggingEnabled": false },
+            "plugins": { "SystemBars": { "insetsHandling": "native" } }
+          }
+          JSON
           npx cap add android
           npx cap sync android
       - name: Ícones, tela de abertura e impressão em PDF
@@ -61,7 +69,8 @@ jobs:
         run: |
           cd build/android
           chmod +x gradlew
-          for t in 1 2 3 4; do ./gradlew assembleRelease --no-daemon -q && break; [ $t = 4 ] && exit 1; echo "Tentando de novo em $((t*45))s"; sleep $((t*45)); done
+          grep -E "compileSdk|targetSdk|minSdk" variables.gradle || true
+          for t in 1 2 3 4; do ./gradlew assembleRelease bundleRelease --no-daemon -q && break; [ $t = 4 ] && exit 1; echo "Tentando de novo em $((t*45))s"; sleep $((t*45)); done
           BT=$(ls -d $ANDROID_HOME/build-tools/* | sort -V | tail -1)
           $BT/zipalign -f 4 app/build/outputs/apk/release/app-release-unsigned.apk aligned.apk
           if [ -n "$KS_B64" ]; then
@@ -72,6 +81,13 @@ jobs:
           fi
           $BT/apksigner sign --ks ks.jks --ks-pass env:KS_PASS --key-pass env:KS_PASS --ks-key-alias gastei --out "$GITHUB_WORKSPACE/Gastei.apk" aligned.apk
           $BT/apksigner verify "$GITHUB_WORKSPACE/Gastei.apk"
+          if [ -n "$KS_B64" ]; then
+            cp app/build/outputs/bundle/release/app-release.aab "$GITHUB_WORKSPACE/Gastei.aab"
+            jarsigner -keystore ks.jks -storepass "$KS_PASS" -keypass "$KS_PASS" -sigalg SHA256withRSA -digestalg SHA-256 "$GITHUB_WORKSPACE/Gastei.aab" gastei
+            jarsigner -verify "$GITHUB_WORKSPACE/Gastei.aab" | tail -1
+          else
+            echo "::warning::O pacote para a Play Store (Gastei.aab) so e gerado com a chave fixa nos segredos."
+          fi
         env:
           KS_B64: ${{ secrets.GASTEI_KEYSTORE }}
           KS_PASS: ${{ secrets.GASTEI_KEYSTORE_PASS || 'gastei-temp' }}
@@ -80,4 +96,5 @@ jobs:
           GH_TOKEN: ${{ github.token }}
         run: |
           gh release delete app --yes --cleanup-tag || true
-          gh release create app Gastei.apk --title "Gastei para Android" --notes "Baixe o arquivo Gastei.apk abaixo e abra no celular para instalar." --latest
+          FILES="Gastei.apk"; [ -f Gastei.aab ] && FILES="$FILES Gastei.aab"
+          gh release create app $FILES --title "Gastei para Android" --notes "Gastei.apk: baixe e abra no celular para instalar. Gastei.aab (quando existir): pacote para enviar na Play Store." --latest
