@@ -290,8 +290,8 @@ footer{margin-top:28px;color:var(--muted);font-size:.78rem;display:flex;justify-
 .reclist b{display:block}
 .reclist span{font-size:.78rem;color:var(--muted)}
 .catedit .r{grid-template-columns:auto minmax(0,1fr) 130px auto}
-@media (max-width:1000px){.grid{grid-template-columns:minmax(0,1fr)}.sticky{position:static}}
-@media (max-width:760px){
+@media all{.grid{grid-template-columns:minmax(0,1fr)}.sticky{position:static}}
+@media all{
   .kpis{grid-template-columns:1fr 1fr}
   .three,.two-f,.feat{grid-template-columns:1fr}
   .hello,.xpmini{display:none}
@@ -311,7 +311,7 @@ footer{margin-top:28px;color:var(--muted);font-size:.78rem;display:flex;justify-
 .mlist button:first-child{border-top:0}
 .mlist button::after{content:"›";color:var(--muted);font-size:1.4rem;line-height:1}
 .mlist small{display:block;font-weight:500;font-size:.78rem;color:var(--muted)}
-@media (max-width:760px){
+@media all{
   body{padding-bottom:calc(88px + env(safe-area-inset-bottom,0px));-webkit-tap-highlight-color:transparent}
   body:not([data-tab="home"]) [data-v="home"],body:not([data-tab="report"]) [data-v="report"],body:not([data-tab="list"]) [data-v="list"],body:not([data-tab="more"]) [data-v="more"],body:not([data-tab="hist"]) [data-v="hist"]{display:none!important}
   .mmore{display:block}
@@ -357,7 +357,7 @@ footer{margin-top:28px;color:var(--muted);font-size:.78rem;display:flex;justify-
 }
 /* ---- dashboard: quanto ainda tenho ---- */
 .mwrap{display:grid;gap:14px;margin-bottom:14px}
-@media (min-width:1001px){.mwrap{grid-template-columns:minmax(0,5fr) minmax(0,6fr);grid-template-areas:"hero dash" "list dash";align-items:start}#monthCard{grid-area:hero}.dash{grid-area:dash}#monthList{grid-area:list}}
+@media not all{.mwrap{grid-template-columns:minmax(0,5fr) minmax(0,6fr);grid-template-areas:"hero dash" "list dash";align-items:start}#monthCard{grid-area:hero}.dash{grid-area:dash}#monthList{grid-area:list}}
 .mcard{background:linear-gradient(155deg,var(--hero1) 0%,var(--hero2) 62%,var(--hero3) 100%);color:#fff;border:0;display:grid;gap:14px;position:relative;overflow:hidden}
 .mcard::before{content:"";position:absolute;left:-80px;bottom:-110px;width:260px;height:260px;border-radius:50%;background:radial-gradient(circle,rgba(246,193,90,.22),transparent 65%);pointer-events:none}
 .mcard::after{content:"";position:absolute;right:-70px;top:-70px;width:230px;height:230px;border-radius:50%;border:32px solid rgba(255,255,255,.05);pointer-events:none}
@@ -438,7 +438,7 @@ body.priv :is(#mNet,#mIn,#mOut,#mProj b,.dt b,.dcat .v,.mrow .v,.macc b,.kpi .v,
 .dt.warn b{color:var(--bad)}
 .dt.ok b{color:var(--good)}
 /* ---- ajustes para loja / celular ---- */
-@media (max-width:760px){
+@media all{
   .link{min-height:40px;padding:8px 4px;display:inline-flex;align-items:center}
   .mlink{min-height:44px}
   .arrow{width:42px;height:42px;border-radius:12px}
@@ -512,7 +512,7 @@ body.native .web-only{display:none!important}
 .ccat .bars i{display:block;height:7px;border-radius:4px;background:var(--c);min-width:2px}
 .ccat .bars div+div i{opacity:.38}
 .cempty{color:var(--muted);font-size:.88rem;padding:6px 0}
-@media (max-width:760px){
+@media all{
   .htot{grid-template-columns:1fr;gap:6px}
   .htot div{display:flex;justify-content:space-between;align-items:baseline;gap:10px;padding:9px 12px}
   .htot span{font-size:.84rem}
@@ -532,7 +532,7 @@ body.native .web-only{display:none!important}
 }
 body.priv .hv,body.priv .hrow .vals,body.priv .crow .a,body.priv .crow .b,body.priv .ccat .bars span,body.priv .dif{filter:blur(7px);user-select:none}
 /* ---- ordem das informações no celular: o mais importante em cima ---- */
-@media (max-width:760px){
+@media all{
   .mwrap .dash,main.col .three{display:contents}
   #monthCard{order:1}.dtiles{order:2}#dCatCard{order:3}#monthList{order:4}#d7Card{order:5}
   #balCard{order:1}#periodCard{order:2}#catCard{order:3}#goalCard{order:4}#payCard{order:5}#repCard{order:6}
@@ -545,7 +545,7 @@ body.priv .hv,body.priv .hrow .vals,body.priv .crow .a,body.priv .crow .b,body.p
 .lmore{width:100%;margin-top:12px;min-height:44px}
 #fMon{font-weight:700}
 body.priv .lsum .mono{filter:blur(7px)}
-@media (max-width:760px){#fMon{grid-column:1/-1}}
+@media all{#fMon{grid-column:1/-1}}
 /* ---- premium ---- */
 .plsheet{max-width:460px;display:grid;gap:14px;padding:22px 20px 20px;position:relative;overflow:auto}
 .plx{position:absolute;top:12px;right:12px}
@@ -577,7 +577,7 @@ body.priv .lsum .mono{filter:blur(7px)}
 .plcode textarea{font-size:.8rem;word-break:break-all;resize:vertical}
 .plfine{margin:0;font-size:.74rem;color:var(--muted);text-align:center}
 .plfine:empty{display:none}
-@media (max-width:760px){.plben small{display:none}.plben{gap:8px}.plsheet{gap:12px}}
+@media all{.plben small{display:none}.plben{gap:8px}.plsheet{gap:12px}}
 .plock{display:grid;justify-items:center;text-align:center;gap:12px;padding:28px 20px}
 .plock h2{margin:0;font-size:1.15rem}
 .plock p{margin:0;color:var(--muted);font-size:.9rem;max-width:40ch}
@@ -594,12 +594,57 @@ body.prem .pro,body.prem [data-plnote]{display:none!important}
 body:not(.prem) .tabbar [data-tab="hist"]{position:relative}
 body:not(.prem) .tabbar [data-tab="hist"]::after{content:"";position:absolute;top:8px;right:calc(50% - 18px);width:8px;height:8px;border-radius:50%;background:var(--amber);box-shadow:0 0 0 2px var(--surface)}
 body:not(.prem) #palSeg .pal:not([data-pal="teal"])::after{content:"Premium";font-size:.62rem;font-weight:800;background:var(--amber);color:#2B1B00;border-radius:999px;padding:1px 7px;justify-self:start}
+/* ---- app nativo: mesmo visual em celular, site e PC ---- */
+html{scrollbar-width:none;background:var(--bg)}
+html::-webkit-scrollbar{display:none}
+*{-webkit-tap-highlight-color:transparent}
+body{overscroll-behavior-y:none;-webkit-user-select:none;user-select:none;-webkit-touch-callout:none;touch-action:manipulation}
+input,textarea,select,[contenteditable]{-webkit-user-select:text;user-select:text}
+.wrap{padding-top:0}
+.appbar{background:color-mix(in srgb,var(--bg) 80%,transparent);-webkit-backdrop-filter:saturate(1.8) blur(18px);backdrop-filter:saturate(1.8) blur(18px);border-bottom:1px solid transparent;margin-bottom:0;transition:border-color .2s}
+body.scrolled .appbar{border-bottom-color:var(--line)}
+.appbar .brand{font-size:1.05rem;opacity:0;transform:translateY(4px);transition:opacity .2s,transform .2s}
+body.scrolled .appbar .brand,body[data-tab="home"] .appbar .brand{opacity:1;transform:none}
+.appbar .brand .mark{width:30px;height:30px;border-radius:10px}
+.ptitle{padding:4px 4px 14px}
+.ptitle h1{margin:0;font-size:1.85rem;line-height:1.1;font-weight:800;letter-spacing:-.03em}
+.ptitle p{margin:4px 0 0;color:var(--muted);font-size:.9rem;font-weight:500}
+.ptitle p:empty{display:none}
+.card{border-radius:22px;box-shadow:0 1px 2px rgba(15,27,42,.04)}
+.card .chead h2{font-size:1.02rem;letter-spacing:-.01em}
+.btn,.iconbtn,.tabbar button,.mlist button,.hrow,.plopt,.dt,.kpi,.recents button,.hyears button,.seg,.cats button{transition:transform .12s ease,background-color .15s,color .15s}
+.btn:active,.iconbtn:active,.mlist button:active,.hrow:active,.plopt:active,.kpi:active,.hyears button:active,.seg:active,.cats button:active{transform:scale(.96)}
+.tabbar{background:color-mix(in srgb,var(--surface) 86%,transparent);-webkit-backdrop-filter:saturate(1.8) blur(20px);backdrop-filter:saturate(1.8) blur(20px);box-shadow:none;border-top:1px solid var(--line)}
+.tabbar button svg{box-sizing:content-box;padding:4px 16px;border-radius:999px;transition:background-color .2s,transform .2s}
+.tabbar button[aria-current="page"] svg{background:var(--primary-soft);transform:none}
+.tabbar button[aria-current="page"]{font-weight:800}
+.tabbar .fab svg{padding:0;background:none!important}
+.mlist button{border-radius:16px}
+.overlay{-webkit-backdrop-filter:blur(2px);backdrop-filter:blur(2px)}
+.overlay .sheet,.sticky #form{box-shadow:0 -12px 40px rgba(0,0,0,.22)}
+.overlay .sheet::before,.plsheet::before{content:"";display:block;width:40px;height:5px;border-radius:3px;background:var(--line);margin:-10px auto 6px}
+.instsheet::before{margin:-8px auto 0}
+section[data-v="list"]>.chead>h2,.mmore>.chead{display:none}
+section[data-v="list"]>.chead{margin-bottom:10px}
+footer{display:none}
+@keyframes pgIn{from{opacity:0;transform:translateX(14px)}to{opacity:1;transform:none}}
+body.pgin .ptitle{animation:pgIn .26s cubic-bezier(.2,.8,.3,1)}
+@media (prefers-reduced-motion:reduce){body.pgin .ptitle{animation:none}}
+/* no computador: o app aparece com largura de celular, centralizado */
+@media (min-width:521px){
+  html{background:color-mix(in srgb,var(--ink) 7%,var(--bg))}
+  body{max-width:460px;margin:0 auto;min-height:100vh;background:var(--bg);box-shadow:0 0 0 1px var(--line),0 30px 80px rgba(0,0,0,.14)}
+  body::before{left:calc(50vw - 230px);right:calc(50vw - 230px)}
+  .tabbar,.sticky{left:calc(50vw - 230px)!important;right:calc(50vw - 230px)!important}
+  .overlay .sheet{max-width:460px}
+  .overlay{place-items:end center}
+}
 /* sem elementos de jogo */
 .chip.lv,.chip.st,.xptag,#achCard,#nudge{display:none!important}
 .swipehint{display:none}
 /* ---- ajuste fino para celulares ---- */
 html,body{overflow-x:hidden}
-@media (max-width:760px){
+@media all{
   .appbar .in{gap:8px}
   .brand{min-width:0}
   .kpi{padding:12px 13px}
@@ -607,7 +652,7 @@ html,body{overflow-x:hidden}
   .kpi .k>span:first-child,.kpi .k{white-space:nowrap}
   .trend{padding:1px 6px;font-size:.66rem}
 }
-@media (max-width:760px){
+@media all{
   /* lista */
   .item{grid-template-columns:auto minmax(0,1fr) auto;gap:12px;padding:12px 0;cursor:pointer}
   .item .acts{display:none}
@@ -758,6 +803,7 @@ html,body{overflow-x:hidden}
 </header>
 
 <div class="wrap">
+  <div class="ptitle" id="ptitle"><h1 id="ptT">Início</h1><p id="ptS"></p></div>
   <div class="notice" id="banner" data-v="home" hidden>
     <span><b>Dados de demonstração.</b> Estes gastos são exemplos e somem quando você anotar o seu primeiro gasto.</span>
     <button class="link" id="clearEx">Começar do zero</button>
@@ -1721,7 +1767,7 @@ $("#welcomeForm").addEventListener("submit",function(e){e.preventDefault();finis
 $("#wDemo").addEventListener("click",function(){finishWelcome(true)});
 
 /* ---------- app de celular: abas, painel, gestos ---------- */
-var MQ=window.matchMedia?matchMedia("(max-width:760px)"):{matches:false};
+var MQ={matches:true};
 function mobile(){return MQ.matches}
 function buzz(ms){try{if(navigator.vibrate)navigator.vibrate(ms)}catch(e){}}
 function setTab(t){
@@ -2065,7 +2111,17 @@ $("#recur").addEventListener("change",function(){if(this.checked&&needPrem("fixo
 $("#catEdit").addEventListener("focusin",function(e){if(e.target.dataset&&e.target.dataset.bi!=null&&!isPrem()){e.target.blur();openPlans("orc")}});
 var trialWasOn=trialLeft()>0;
 setInterval(function(){var on=isPrem();if(on!==document.body.classList.contains("prem")){applyPrem();applyTheme();render()}},60000);
-function render(){drawTop();drawKpis();drawGoal();drawFilters();drawPeriod();drawMonth();drawHist();drawBkNote();applyPriv();applyPrem()}
+
+/* ---------- título da tela e barra de cima ---------- */
+var PT={home:["",""],list:["Lançamentos","Tudo o que você anotou, mês a mês"],report:["Relatórios","Para onde foi o seu dinheiro"],hist:["Histórico","Todos os meses e comparações"],more:["Ajustes","Perfil, categorias, dados e Premium"]};
+function drawTitle(){var t=document.body.dataset.tab||"home",x=PT[t]||PT.home;
+  if(t==="home"){var h=new Date().getHours(),sal=h<5?"Boa noite":h<12?"Bom dia":h<18?"Boa tarde":"Boa noite";
+    $("#ptT").textContent=S.name?sal+", "+S.name.split(" ")[0]:sal;
+    var d=new Date().toLocaleDateString("pt-BR",{weekday:"long",day:"numeric",month:"long"});$("#ptS").textContent=d.charAt(0).toUpperCase()+d.slice(1)}
+  else{$("#ptT").textContent=x[0];$("#ptS").textContent=x[1]}}
+new MutationObserver(function(){drawTitle();document.body.classList.remove("pgin");void document.body.offsetWidth;document.body.classList.add("pgin")}).observe(document.body,{attributes:true,attributeFilter:["data-tab"]});
+window.addEventListener("scroll",function(){document.body.classList.toggle("scrolled",window.scrollY>24)},{passive:true});
+function render(){drawTitle();drawTop();drawKpis();drawGoal();drawFilters();drawPeriod();drawMonth();drawHist();drawBkNote();applyPriv();applyPrem()}
 document.body.dataset.tab="home";
 var had=load();if(!S.trial){S.trial=Date.now();save()}applyRecurring();applyTheme();billingInit(false);
 if(!had&&!S.items.length)S.items=demo();
