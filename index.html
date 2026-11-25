@@ -954,6 +954,7 @@ body.priv .bsum b,body.priv .bvals b,body.priv .bmon b,body.priv .binfo b{filter
 /* planejar */
 .pvchip{font-size:.72rem;font-weight:800;border-radius:999px;padding:5px 10px;white-space:nowrap;background:color-mix(in srgb,var(--grn) 14%,transparent);color:var(--grn);border:1px solid color-mix(in srgb,var(--grn) 25%,transparent)}
 .pvchip.neg{background:rgba(255,90,95,.14);color:#FF7A7E;border-color:rgba(255,90,95,.3)}
+#ppBody{cursor:pointer}.pvmore{margin-top:10px;background:none;border:0;padding:4px 0;color:var(--pur2,var(--primary));font:inherit;font-size:.84rem;font-weight:700;cursor:pointer}
 .pvbox{border-radius:18px;background:#0F0F13;border:1px solid var(--line);padding:14px;display:grid;gap:8px}
 .pvbox div{display:flex;justify-content:space-between;gap:10px;font-size:.84rem;color:var(--muted)}
 .pvbox b{color:var(--ink);font-weight:800;white-space:nowrap}
@@ -2148,7 +2149,7 @@ function applyTheme(){var r=document.documentElement,pal=PALC[S.pal]&&(isPrem()|
   $$("#palSeg [data-pal]").forEach(function(b){b.setAttribute("aria-pressed",b.dataset.pal===pal)});
   $("#themeSeg").style.opacity=pal==="dark"||pal==="neon"||pal==="custom"?.45:1;var cb=$("#custBox");if(cb){cb.hidden=pal!=="custom";if(pal==="custom")drawWheelUI()}}
 /* ---------- cores do seu jeito (roda de cores) ---------- */
-var CDEF={c1:"#820AD1",c2:"#FF7A00",c3:"#00C875"},cKey="c1",wheelDrawn=false;
+var CDEF={c1:"#820AD1",c2:"#FF7A00",c3:"#00C875"},cKey="c1";
 function hx2rgb(h){h=h.replace("#","");return[parseInt(h.slice(0,2),16),parseInt(h.slice(2,4),16),parseInt(h.slice(4,6),16)]}
 function rgb2hx(r){return"#"+r.map(function(v){v=Math.max(0,Math.min(255,Math.round(v)));return(v<16?"0":"")+v.toString(16)}).join("").toUpperCase()}
 function mixc(a,b,t){var x=hx2rgb(a),y=hx2rgb(b);return rgb2hx([x[0]+(y[0]-x[0])*t,x[1]+(y[1]-x[1])*t,x[2]+(y[2]-x[2])*t])}
@@ -2782,7 +2783,7 @@ $("#plRestore").addEventListener("click",function(){var btn=this;btn.disabled=tr
 /* ---- outros bloqueios ---- */
 $("#recur").addEventListener("change",function(){if(this.checked&&needPrem("fixos"))this.checked=false});
 $("#catEdit").addEventListener("focusin",function(e){if(e.target.dataset&&e.target.dataset.bi!=null&&!isPrem()){e.target.blur();openPlans("orc")}});
-var trialWasOn=trialLeft()>0;
+
 setInterval(function(){var on=isPrem();if(on!==document.body.classList.contains("prem")){applyPrem();applyTheme();render()}},60000);
 
 /* ---------- título da tela e barra de cima ---------- */
@@ -2989,18 +2990,6 @@ function cardInfo(c){var t=today(),cur=cycleOf(c,t),prev=cycleOf(c,addDays(cur.s
   var used=sumItems(cardItems(c,cur.start,new Date(2100,0,1)))+(prev.due>=t?prevT:0);
   return{cur:cur,curT:curT,prev:prev,prevT:prevT,next:next,used:used}}
 function dm(d){return pad2(d.getDate())+"/"+pad2(d.getMonth()+1)}
-function drawCardSheet(){
-  var h=S.cards.map(function(c){var k=cardInfo(c),lim=c.lim?Math.min(100,k.used/c.lim*100):0;
-    return'<div class="ccard"><button class="del" data-delcard="'+esc(c.id)+'" aria-label="Remover cartão"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 6l12 12M18 6L6 18"/></svg></button><div class="cn">'+esc(c.n)+'</div><small>Fatura aberta · fecha '+dm(k.cur.close)+' · vence '+dm(k.cur.due)+'</small><div class="cv">'+brl(k.curT)+'</div>'+
-      (c.lim?'<div class="lim"><i style="width:'+lim+'%"></i></div><small>Limite usado '+brl(k.used)+' de '+brl(c.lim)+' · disponível '+brl(Math.max(0,c.lim-k.used))+'</small>':'')+'</div>'+
-      '<div class="dlines">'+(k.prev.due>=today()&&k.prevT?'<div><span>Fatura fechada · vence '+dm(k.prev.due)+'</span><b>'+brl(k.prevT)+'</b></div>':'')+
-      k.next.map(function(n){return'<div><span>Próxima fatura · vence '+dm(n.cy.due)+'</span><b>'+brl(n.t)+'</b></div>'}).join("")+'</div>'}).join("");
-  h+='<div class="dtip">Os gastos lançados com a forma de pagamento <b>Crédito</b> entram na fatura do cartão. Compras parceladas aparecem nas próximas faturas.</div>';
-  h+='<form class="dform" id="cardForm"><b>'+(S.cards.length?"Adicionar outro cartão":"Cadastrar cartão")+'</b><input class="inp" id="cfN" maxlength="24" placeholder="Nome (ex.: Nubank)" required>'+
-     '<div class="row3"><label>Fecha dia<input class="inp" id="cfC" type="number" min="1" max="28" value="3" required></label><label>Vence dia<input class="inp" id="cfD" type="number" min="1" max="31" value="10" required></label><label>Limite (R$)<input class="inp" id="cfL" inputmode="decimal" placeholder="opcional"></label></div>'+
-     '<button class="btn sm">Salvar cartão</button></form>';
-  $("#dBody").innerHTML=h;
-}
 /* ---------- metas de economia (Premium) ---------- */
 function goalSaved(g){var t=0;(g.h||[]).forEach(function(x){t+=x.v});return t}
 function ymOf(d){return String(d||"").slice(0,7)}
@@ -3016,7 +3005,6 @@ function applyAutoBoxes(){if(!isPrem()||!S.goals)return;var t=today(),cur=t.getF
 var BOXC=["#12925E","#2F7FE0","#8B5CF6","#E0901F","#E0457B","#0B8FA3"],boxOpen={};
 function goalRate(g){if(g.mon>0)return g.mon;var t=today(),tot=0;for(var k=1;k<=3;k++){var d=new Date(t.getFullYear(),t.getMonth()-k,1);tot+=goalMonth(g,d.getFullYear()+"-"+pad2(d.getMonth()+1))}return Math.round(tot/3)}
 function goalEta(g){var left=g.target-goalSaved(g);if(left<=0)return null;var r=goalRate(g);if(!(r>0))return null;var n=Math.ceil(left/r),t=today();return new Date(t.getFullYear(),t.getMonth()+n,1)}
-function ringSvg(pc,c){var r=22,L=2*Math.PI*r,o=L*(1-Math.min(100,pc)/100);return'<svg viewBox="0 0 52 52" class="bring"><circle cx="26" cy="26" r="'+r+'" fill="none" stroke="color-mix(in srgb,'+c+' 16%,transparent)" stroke-width="6"/><circle cx="26" cy="26" r="'+r+'" fill="none" stroke="'+c+'" stroke-width="6" stroke-linecap="round" stroke-dasharray="'+L.toFixed(1)+'" stroke-dashoffset="'+o.toFixed(1)+'" transform="rotate(-90 26 26)"/><text x="26" y="30" text-anchor="middle">'+Math.floor(pc)+'%</text></svg>'}
 function drawGoalSheet(box){var t=today(),ymNow=iso(t).slice(0,7),mName=MOL[t.getMonth()];
   var tot=0;S.goals.forEach(function(g){tot+=goalSaved(g)});
   var pt=$("#pbTot");if(pt)pt.textContent=S.goals.length?"Total guardado: "+brl(tot):"Separe dinheiro para seus planos";
@@ -3058,6 +3046,7 @@ function drawPlanPrev(){var f=forecast(),t=today(),dim=new Date(t.getFullYear(),
   chip.hidden=!f.projIn;chip.textContent=f.net<0?"Fechamento no vermelho":"Fechamento no azul";chip.className="pvchip"+(f.net<0?" neg":"");
   var w=f.projIn?Math.min(100,f.projOut/f.projIn*100):100;
   var h='<div class="pvbox"><div><span>Gasto projetado (dia '+dim+'):</span><b>'+brl(f.projOut)+'</b></div><div><span>'+(f.net<0?"Previsão de falta no fim do mês:":"Previsão de sobra no fim do mês:")+'</span><b class="'+(f.net<0?"neg":"pos")+'">'+brl(Math.abs(f.net))+'</b></div><div class="gbar"><i style="width:'+w+'%"></i></div></div>';
+  h+='<button type="button" class="pvmore">Ver detalhes da previsão ›</button>';
   $("#ppBody").innerHTML=h}
 var boxFormOpen=false;
 function drawPlanBoxes(){drawGoalSheet($("#pbBody"));var f=$("#goalForm",$("#pbBody"));if(f)f.hidden=!(boxFormOpen||!S.goals.length)}
@@ -3070,7 +3059,6 @@ function drawPlanAlert(){var m=monthNow(),pc=m.inc?Math.round(m.out/m.inc*100):0
   $("#paBody").innerHTML=h}
 function drawPlan(){if(!$("#planTab"))return;drawPlanPrev();drawPlanBoxes();drawPlanAlert()}
 if(window.GASTEI_TEST)window.__gt={parseVoice:parseVoice,parseReceipt:parseReceipt};
-function redrawSheet(){drawPlan()}
 function onBoxClick(e){var t=e.target.closest("button");if(!t)return;
   if(t.dataset.gpan){var q=t.dataset.gpan.split(":"),gg=S.goals[+q[0]];if(!gg)return;boxOpen={};if(t.getAttribute("aria-pressed")!=="true"&&!(q[1]==="more"&&t.dataset.on))boxOpen[gg.id]=q[1];drawPlanBoxes();if(q[1]!=="more"){var ii=$('[data-gv="'+q[0]+'"]');ii&&ii.focus()}else if(boxOpen[gg.id]){var mb=$('[data-gpan="'+q[0]+':more"]');mb&&(mb.dataset.on="1")}return}
   if(t.dataset.gmon!=null){var gm=S.goals[+t.dataset.gmon];if(!gm)return;var pl=gm.mon||goalNeed(gm),vv=Math.min(pl-goalMonth(gm,iso(today()).slice(0,7)),gm.target-goalSaved(gm));if(vv>0){(gm.h=gm.h||[]).push({d:iso(today()),v:vv});save();render();buzz(10);toast("Guardado "+brl(vv)+" em "+gm.n)}return}
@@ -3098,6 +3086,10 @@ $("#planTab").addEventListener("submit",function(e){e.preventDefault();var f=e.t
 $("#qOcr").addEventListener("click",function(){if(needPrem("ocr"))return;var b=$('[data-add="out"]');b&&b.click();setTimeout(function(){var c=$("#camBtn");c&&c.click()},350)});
 $("#qBox").addEventListener("click",function(){if(needPrem("goals"))return;setTab("plan");boxFormOpen=true;drawPlanBoxes();setTimeout(function(){var f=$("#goalForm");if(f){f.scrollIntoView({behavior:"smooth",block:"center"});var n=$("#gfN");n&&n.focus({preventScroll:true})}},250)});
 $("#qPrev").addEventListener("click",function(){setTab("plan")});
+function openPrev(){if(!isPrem())return;$("#dTitle").textContent="Previsão do mês";drawPrevSheet();$("#dSheet").hidden=false;buzz(6)}
+$("#ppBody").addEventListener("click",function(e){var bt=e.target.closest("button,a,input");if(bt&&!bt.classList.contains("pvmore"))return;openPrev()});
+$("#dClose").addEventListener("click",function(){$("#dSheet").hidden=true});
+$("#dSheet").addEventListener("click",function(e){if(e.target===this)this.hidden=true});
 
 /* ---------- layout dos prints: cabeçalho, mini gráficos, histórico ---------- */
 function spark(vals,c){var mx=Math.max.apply(null,vals.concat([1])),mn=Math.min.apply(null,vals),w=46,h=18,n=vals.length-1||1;

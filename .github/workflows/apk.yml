@@ -56,6 +56,8 @@ jobs:
           m = m.replace("</application>", rcv + "\n</application>", 1).replace("</manifest>", q + "\n</manifest>", 1)
           perm = '<uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" android:maxSdkVersion="29"/><uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" android:maxSdkVersion="32"/>'
           m = m.replace("</manifest>", perm + "\n</manifest>", 1).replace("<application", '<application android:requestLegacyExternalStorage="true"', 1)
+          if "xmlns:tools" not in m: m = m.replace("<manifest ", '<manifest xmlns:tools="http://schemas.android.com/tools" ', 1)
+          m = m.replace("</manifest>", '<uses-permission android:name="android.permission.SCHEDULE_EXACT_ALARM" tools:node="remove"/><uses-permission android:name="android.permission.USE_EXACT_ALARM" tools:node="remove"/>\n</manifest>', 1)
           open(p, "w").write(m)
           print(m)
           PY2
