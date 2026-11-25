@@ -11,6 +11,7 @@ import com.android.billingclient.api.Purchase;
 import com.android.billingclient.api.PurchasesUpdatedListener;
 import com.android.billingclient.api.QueryProductDetailsParams;
 import com.android.billingclient.api.QueryPurchasesParams;
+import android.os.Build;
 import com.getcapacitor.JSArray;
 import com.getcapacitor.JSObject;
 import com.getcapacitor.Plugin;
@@ -169,6 +170,21 @@ public class GasteiBillingPlugin extends Plugin implements PurchasesUpdatedListe
       }
     }
     return a;
+  }
+
+  @PluginMethod
+  public void source(final PluginCall call) {
+    String s = null;
+    try {
+      String pkg = getContext().getPackageName();
+      if (Build.VERSION.SDK_INT >= 30) s = getContext().getPackageManager().getInstallSourceInfo(pkg).getInstallingPackageName();
+      else s = getContext().getPackageManager().getInstallerPackageName(pkg);
+    } catch (Exception e) {
+      s = null;
+    }
+    JSObject o = new JSObject();
+    o.put("installer", s == null ? "" : s);
+    call.resolve(o);
   }
 
   @PluginMethod

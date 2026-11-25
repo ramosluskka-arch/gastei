@@ -955,6 +955,7 @@ body.priv .bsum b,body.priv .bvals b,body.priv .bmon b,body.priv .binfo b{filter
 .pvchip{font-size:.72rem;font-weight:800;border-radius:999px;padding:5px 10px;white-space:nowrap;background:color-mix(in srgb,var(--grn) 14%,transparent);color:var(--grn);border:1px solid color-mix(in srgb,var(--grn) 25%,transparent)}
 .pvchip.neg{background:rgba(255,90,95,.14);color:#FF7A7E;border-color:rgba(255,90,95,.3)}
 #ppBody{cursor:pointer}.pvmore{margin-top:10px;background:none;border:0;padding:4px 0;color:var(--pur2,var(--primary));font:inherit;font-size:.84rem;font-weight:700;cursor:pointer}
+.pllegal{justify-content:center;flex-wrap:wrap;gap:4px 14px;margin-top:6px}.pllegal .link{font-size:.8rem;opacity:.8;text-decoration:none}
 .pvbox{border-radius:18px;background:#0F0F13;border:1px solid var(--line);padding:14px;display:grid;gap:8px}
 .pvbox div{display:flex;justify-content:space-between;gap:10px;font-size:.84rem;color:var(--muted)}
 .pvbox b{color:var(--ink);font-weight:800;white-space:nowrap}
@@ -1509,7 +1510,10 @@ html,body{overflow-x:clip}
           <button data-pdf><span>Relatório em PDF <span class="pro">PRO</span><small>Apresentação completa do período que está aberto</small></span></button>
           <button data-open="backup"><span>Backup<small>Criar, enviar e restaurar seus dados</small></span></button><button data-open="dados"><span>Planilha e cópia em texto<small>Exportar dados em CSV ou texto</small></span></button>
           <button data-open="avisos"><span>Notificações e alertas<small>Lembrete diário, meta, contas do dia e resumo da semana</small></span></button>
-          <button data-open="aparencia"><span>Cores e aparência<small>Rosa magenta, Dark, Pro Blue ou Petróleo</small></span></button>
+          <button data-open="aparencia"><span>Cores e aparência<small>Estilos prontos ou cores do seu jeito</small></span></button>
+          <button data-help hidden><span>Ajuda e suporte<small id="mHelpS">Fale com a gente por e-mail</small></span></button>
+          <button data-link="termos.html"><span>Termos de uso<small>Regras do app e da assinatura Premium</small></span></button>
+          <button data-link="privacidade.html"><span>Política de privacidade<small>Seus dados ficam só no seu aparelho</small></span></button>
         </div>
       </section>
 
@@ -1606,10 +1610,10 @@ html,body{overflow-x:clip}
     <button type="button" class="iconbtn plx" id="plClose" aria-label="Fechar"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><path d="M6 6l12 12M18 6L6 18"/></svg></button>
     <div class="plhero"><span class="plcrown"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 8l4.5 4L12 5l4.5 7L21 8l-2 11H5z"/></svg></span><h2 id="plTitle">Gastei Premium</h2><p id="plWhy">Tenha o controle completo do seu dinheiro.</p></div>
     <div class="plstatus" id="plStatus" hidden></div>
-    <ul class="plben"><li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12l5 5L20 7"/></svg><span><b>Histórico e comparar meses</b><small>Tudo o que entrou e saiu, mês a mês, e um mês contra o outro</small></span></li><li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12l5 5L20 7"/></svg><span><b>Relatório em PDF</b><small>Apresentação pronta para salvar, imprimir ou enviar</small></span></li><li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12l5 5L20 7"/></svg><span><b>4 estilos de cor</b><small>Rosa magenta, Dark, Pro Blue e Petróleo</small></span></li><li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12l5 5L20 7"/></svg><span><b>Gastos e receitas fixos</b><small>Aluguel, internet e salário lançados sozinhos todo mês</small></span></li><li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12l5 5L20 7"/></svg><span><b>Orçamento por categoria</b><small>Defina um limite para cada categoria e veja quando passar</small></span></li><li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12l5 5L20 7"/></svg><span><b>Caixinhas</b><small>Separe dinheiro para seus planos, com depósito todo mês ou automático</small></span></li><li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12l5 5L20 7"/></svg><span><b>Aba Planejar</b><small>Previsão do fim do mês, caixinhas e alerta de gastos, mais leitura de comprovante por foto</small></span></li><li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12l5 5L20 7"/></svg><span><b>Cópia na nuvem</b><small>Em breve, sem custo extra para quem já é Premium</small></span></li></ul>
+    <ul class="plben"><li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12l5 5L20 7"/></svg><span><b>Histórico e comparar meses</b><small>Tudo o que entrou e saiu, mês a mês, e um mês contra o outro</small></span></li><li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12l5 5L20 7"/></svg><span><b>Relatório em PDF</b><small>Apresentação pronta para salvar, imprimir ou enviar</small></span></li><li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12l5 5L20 7"/></svg><span><b>Cores do seu jeito</b><small>Estilos prontos ou a roda de cores para escolher as suas</small></span></li><li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12l5 5L20 7"/></svg><span><b>Gastos e receitas fixos</b><small>Aluguel, internet e salário lançados sozinhos todo mês</small></span></li><li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12l5 5L20 7"/></svg><span><b>Orçamento por categoria</b><small>Defina um limite para cada categoria e veja quando passar</small></span></li><li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12l5 5L20 7"/></svg><span><b>Caixinhas</b><small>Separe dinheiro para seus planos, com depósito todo mês ou automático</small></span></li><li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12l5 5L20 7"/></svg><span><b>Aba Planejar</b><small>Previsão do fim do mês, caixinhas e alerta de gastos, mais leitura de comprovante por foto</small></span></li></ul>
     <p class="plfree">Grátis para sempre: lançar receitas e gastos, ver quanto ainda sobra no mês, painel e lista de lançamentos.</p>
     <div class="plopts" id="plOpts" role="radiogroup" aria-label="Escolha o plano">
-      <button type="button" role="radio" class="plopt" data-plan="anual" aria-checked="true"><span class="pltag">Mais escolhido</span><b>Anual</b><span class="plp" id="pAnual">R$ 59,90</span><small id="pAnualS">por ano · sai por R$ 4,99 por mês</small></button>
+      <button type="button" role="radio" class="plopt" data-plan="anual" aria-checked="true"><span class="pltag">Melhor preço</span><b>Anual</b><span class="plp" id="pAnual">R$ 59,90</span><small id="pAnualS">por ano · sai por R$ 4,99 por mês</small></button>
       <button type="button" role="radio" class="plopt" data-plan="mensal" aria-checked="false"><b>Mensal</b><span class="plp" id="pMensal">R$ 9,90</span><small>por mês · cancele quando quiser</small></button>
       <button type="button" role="radio" class="plopt" data-plan="vitalicio" aria-checked="false"><b>Vitalício</b><span class="plp" id="pVida">R$ 99,00</span><small>pague uma vez, use para sempre</small></button>
     </div>
@@ -1622,6 +1626,7 @@ html,body{overflow-x:clip}
       <button type="button" class="btn sm" id="plCodeGo">Ativar</button>
     </div>
     <p class="plfine" id="plFine"></p>
+    <div class="pllinks pllegal"><button type="button" class="link" id="plRetry" hidden>Tentar de novo</button><button type="button" class="link" id="plManage" hidden>Gerenciar assinatura</button><a class="link" href="https://ramosluskka-arch.github.io/gastei/termos.html" target="_blank" rel="noopener">Termos de uso</a><a class="link" href="https://ramosluskka-arch.github.io/gastei/privacidade.html" target="_blank" rel="noopener">Privacidade</a></div>
   </div>
 </div>
 
@@ -2385,6 +2390,7 @@ $("#sheetbg").addEventListener("click",closeSheet);
 $("#closeSheet").addEventListener("click",function(){closeSheet();if(editing)resetForm()});
 document.addEventListener("keydown",function(e){if(e.key==="Escape"&&document.body.classList.contains("sheet-open"))closeSheet()});
 $$(".mlist [data-open]").forEach(function(b){b.addEventListener("click",function(){openSettings(b.dataset.open)})});
+$$(".mlist [data-link]").forEach(function(b){b.addEventListener("click",function(){window.open(SITE_URL+b.dataset.link,"_blank","noopener")})});
 MQ.addEventListener&&MQ.addEventListener("change",function(){closeSheet();drawChart(range(mode,anchor))});
 /* puxar o painel para baixo fecha */
 (function(){
@@ -2684,7 +2690,7 @@ $("#cSwap").addEventListener("click",function(){var x=cA;cA=cB;cB=x;drawCmp();bu
 /* Preços mostrados no site/PC. No Android os preços vêm do Google Play. */
 var PRICES={mensal:"R$ 9,90",anual:"R$ 59,90",vitalicio:"R$ 99,00"};
 /* Link de compra para o site e o PC (Hotmart, Kiwify, Mercado Pago...). Vazio = só ativação por código. */
-var BUY_URL="";
+var BUY_URL="",SUPPORT_EMAIL="",SITE_URL="https://ramosluskka-arch.github.io/gastei/",fromPlay=false;
 var TRIAL_DAYS=7,PROD_SUB="gastei_premium",PROD_LIFE="gastei_vitalicio";
 var CODE_KEY={"kty": "EC", "x": "Ed-2MqbOXHstcVH2yGtv1yRe0tK8MSmSRGmlX8F1bBw", "y": "98gRGX1X_ePErNQvCEjp7g0CDQ0tiRmkw15C8HniqdE", "crv": "P-256"};
 var billing={ok:false,checked:false,plans:{}},plPlan="anual",plWhy="";
@@ -2715,10 +2721,13 @@ function drawPlans(){
   var nat=NATIVE&&billing.ok,buy=$("#plBuy");
   $("#plOpts").hidden=paidPrem();
   buy.hidden=paidPrem()||(!nat&&!BUY_URL);
-  buy.textContent=plPlan==="vitalicio"?"Comprar o vitalício":"Assinar o "+(plPlan==="anual"?"plano anual":"plano mensal");
+  var bp=billing.plans[plPlan],tr=nat&&bp&&bp.trial;
+  buy.textContent=plPlan==="vitalicio"?"Comprar o vitalício":tr?"Começar 7 dias grátis":"Assinar o "+(plPlan==="anual"?"plano anual":"plano mensal");
   $("#plRestore").hidden=!nat;
-  $("#plCodeBtn").hidden=nat||!!S.premPlay;
-  $("#plFine").textContent=nat?"A assinatura renova sozinha pelo Google Play. Cancele quando quiser em Play Store › Pagamentos e assinaturas.":(!BUY_URL&&!paidPrem()?"Para comprar o Premium no site ou no PC, fale com quem te passou o app e receba seu código de ativação.":"");
+  $("#plCodeBtn").hidden=nat||fromPlay||!!S.premPlay;
+  $("#plManage").hidden=!(NATIVE&&S.premPlay&&S.premPlay.sub);
+  $("#plRetry").hidden=!(NATIVE&&billing.checked&&!billing.ok&&!paidPrem());
+  $("#plFine").textContent=nat?(plPlan==="vitalicio"?"Pagamento único pelo Google Play. O Premium fica liberado para sempre nesta conta do Google.":(tr?"Nada é cobrado nos 7 primeiros dias. Depois, "+priceFor(plPlan)+(plPlan==="anual"?" por ano":" por mês")+". ":"")+"A assinatura renova sozinha pelo Google Play até você cancelar. Cancele quando quiser em Play Store › Pagamentos e assinaturas."):(NATIVE&&billing.checked&&!billing.ok&&!paidPrem())?"Não foi possível carregar os planos do Google Play. Confira a internet e tente de novo.":(NATIVE&&!billing.checked)?"Carregando os planos do Google Play…":(!BUY_URL&&!paidPrem()?"Para comprar o Premium no site ou no PC, fale com quem te passou o app e receba seu código de ativação.":"");
   $("#plErr").textContent="";
 }
 function openPlans(why){plWhy=why||"mais";drawPlans();$("#plansDlg").hidden=false;buzz(8);if(NATIVE&&!billing.checked)billingInit(true)}
@@ -2766,8 +2775,9 @@ function takePurchases(list,authoritative){
 }
 function billingInit(redraw){
   if(!NATIVE)return;
+  bcall("source",{},4000).then(function(r){fromPlay=/com\.android\.vending|com\.google\.android\.feedback/.test(r&&r.installer||"");if(redraw&&!$("#plansDlg").hidden)drawPlans()}).catch(function(){});
   bcall("restore",{},9000).then(function(r){takePurchases(r.purchases,r.ok);return bcall("products",{},9000)}).then(function(r){
-    (r.plans||[]).forEach(function(p){var k=p.id===PROD_LIFE?"vitalicio":/anual|year|ano/i.test(p.plan||"")?"anual":"mensal";if(!p.trial||!billing.plans[k])billing.plans[k]=p});
+    (r.plans||[]).forEach(function(p){var k=p.id===PROD_LIFE?"vitalicio":/anual|year|ano/i.test(p.plan||"")?"anual":"mensal";if(p.trial||!billing.plans[k])billing.plans[k]=p});
     billing.ok=Object.keys(billing.plans).length>0;
   }).catch(function(){}).then(function(){billing.checked=true;if(redraw&&!$("#plansDlg").hidden)drawPlans()});
 }
@@ -2778,12 +2788,17 @@ $("#plBuy").addEventListener("click",function(){
   bcall("buy",{id:p.id,token:p.token||""}).then(function(r){takePurchases(r.purchases,false);render();drawPlans();if(paidPrem()){toast("Premium ativado. Obrigado!");buzz([10,40,10])}})
   .catch(function(e){var m=e&&e.message||String(e);if(!/cancel/i.test(m))$("#plErr").textContent="A compra não foi concluída. Tente de novo."}).then(function(){btn.disabled=false});
 });
+$("#plRetry").addEventListener("click",function(){billing.checked=false;drawPlans();billingInit(true)});
+$("#plManage").addEventListener("click",function(){window.open("https://play.google.com/store/account/subscriptions?sku="+PROD_SUB+"&package=com.gastei.app","_blank","noopener")});
 $("#plRestore").addEventListener("click",function(){var btn=this;btn.disabled=true;
   bcall("restore",{},12000).then(function(r){takePurchases(r.purchases,r.ok);render();drawPlans();toast(paidPrem()?"Compra restaurada":"Nenhuma compra encontrada nesta conta do Google")}).catch(function(){toast("Não foi possível falar com o Google Play")}).then(function(){btn.disabled=false})});
 /* ---- outros bloqueios ---- */
 $("#recur").addEventListener("change",function(){if(this.checked&&needPrem("fixos"))this.checked=false});
 $("#catEdit").addEventListener("focusin",function(e){if(e.target.dataset&&e.target.dataset.bi!=null&&!isPrem()){e.target.blur();openPlans("orc")}});
 
+if(NATIVE)setTimeout(function(){billingInit(false);setTimeout(function(){render()},6000)},2500);
+(function(){var h=$(".mlist [data-help]");if(!h||!SUPPORT_EMAIL)return;h.hidden=false;$("#mHelpS").textContent=SUPPORT_EMAIL;
+  h.addEventListener("click",function(){location.href="mailto:"+SUPPORT_EMAIL+"?subject="+encodeURIComponent("Gastei: ajuda")})})();
 setInterval(function(){var on=isPrem();if(on!==document.body.classList.contains("prem")){applyPrem();applyTheme();render()}},60000);
 
 /* ---------- título da tela e barra de cima ---------- */
