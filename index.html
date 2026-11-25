@@ -1310,6 +1310,8 @@ html,body{overflow-x:clip}
 .ftip b{display:block;margin-bottom:2px}
 .ftip button{margin-top:8px;border:0;background:none;color:var(--pur2,var(--primary));font:inherit;font-weight:800;padding:8px 0;min-height:40px;cursor:pointer}
 @media (prefers-reduced-motion:no-preference){.ftip{animation:ftipIn .35s cubic-bezier(.2,.8,.3,1)}@keyframes ftipIn{from{opacity:0;transform:translateY(-6px)}}}
+.ntfblock{display:grid;gap:6px;margin-top:12px;padding:14px;border-radius:16px;background:color-mix(in srgb,var(--bad,#E5484D) 12%,transparent);border:1px solid color-mix(in srgb,var(--bad,#E5484D) 40%,transparent);font-size:.86rem;line-height:1.45}
+.ntfblock[hidden]{display:none}.ntfblock b{color:var(--ink)}.ntfblock span{color:var(--muted)}.ntfblock .btn{justify-self:start;margin-top:4px;width:auto;padding:10px 16px}
 </style>
 
 <header class="appbar">
@@ -1611,6 +1613,7 @@ html,body{overflow-x:clip}
             <label class="check"><input type="checkbox" data-ntf="bk"> <span>Lembrete de backup<small>Quando passar o prazo escolhido na aba Backup</small></span></label>
           </div>
           <p class="sub" id="ntfNote"></p>
+          <div class="ntfblock" id="ntfBlock" hidden role="alert"><b>As notificações estão bloqueadas no celular</b><span>Para receber os avisos, permita as notificações do Gastei nas configurações do Android.</span><button type="button" class="btn sm" data-ntfset>Abrir configurações</button></div>
         </div>
         <div class="field"><span class="lbl">Alerta de gastos <span class="pro">PRO</span></span>
           <label for="alertSel" class="sub">Avisar quando os gastos do mês chegarem a esta parte da receita</label>
@@ -1740,7 +1743,7 @@ function load(){
   try{var r=localStorage.getItem(KEY);if(r){var o=JSON.parse(r);if(o&&Array.isArray(o.items)){had=true;
     S.items=o.items;S.seeded=!!o.seeded;S.meta=o.meta>0?o.meta:300000;S.name=o.name||"";S.cats=Array.isArray(o.cats)&&o.cats.length?o.cats:null;S.theme=o.theme||"auto";S.wk=o.wk===0?0:1;
     S.icats=Array.isArray(o.icats)&&o.icats.length?o.icats:null;S.recs=Array.isArray(o.recs)?o.recs:[];S.recDone=o.recDone&&typeof o.recDone==="object"?o.recDone:{};
-    S.onboarded=o.onboarded!=null?!!o.onboarded:o.items.some(function(i){return !i.ex});S.priv=!!o.priv;S.pal=o.pal||"teal";S.lastBk=o.lastBk||0;S.bkSnooze=o.bkSnooze||0;S.tips=o.tips||{};S.cust=o.cust||null;S.lookV2=o.lookV2||0;S.ntf=o.ntf||{meta:1,fix:1,week:1,box:1,bk:1};S.metaDone=o.metaDone||{};S.bkEvery=o.bkEvery!=null?o.bkEvery:14;S.bkAuto=!!o.bkAuto;S.autoBk=o.autoBk||0;S.trial=o.trial||0;S.premPlay=o.premPlay||null;S.premCode=o.premCode||null;S.usedCodes=o.usedCodes||[];S.trialEndSeen=o.trialEndSeen||0;S.rem=o.rem||{on:false,h:20,m:0};S.alertPct=o.alertPct||0;S.alertDone=o.alertDone||{};S.cards=Array.isArray(o.cards)?o.cards:[];S.goals=Array.isArray(o.goals)?o.goals:[]}}}catch(e){}
+    S.onboarded=o.onboarded!=null?!!o.onboarded:o.items.some(function(i){return !i.ex});S.priv=!!o.priv;S.pal=o.pal||"teal";S.lastBk=o.lastBk||0;S.bkSnooze=o.bkSnooze||0;S.ntfOk=o.ntfOk||0;S.tips=o.tips||{};S.cust=o.cust||null;S.lookV2=o.lookV2||0;S.ntf=o.ntf||{meta:1,fix:1,week:1,box:1,bk:1};S.metaDone=o.metaDone||{};S.bkEvery=o.bkEvery!=null?o.bkEvery:14;S.bkAuto=!!o.bkAuto;S.autoBk=o.autoBk||0;S.trial=o.trial||0;S.premPlay=o.premPlay||null;S.premCode=o.premCode||null;S.usedCodes=o.usedCodes||[];S.trialEndSeen=o.trialEndSeen||0;S.rem=o.rem||{on:false,h:20,m:0};S.alertPct=o.alertPct||0;S.alertDone=o.alertDone||{};S.cards=Array.isArray(o.cards)?o.cards:[];S.goals=Array.isArray(o.goals)?o.goals:[]}}}catch(e){}
   if(!S.cats)S.cats=DEFAULT_CATS.map(function(c){return{k:c.k,n:c.n,c:c.c}});
   if(!S.icats)S.icats=DEFAULT_ICATS.map(function(c){return{k:c.k,n:c.n,c:c.c}});
   return had;
@@ -2391,7 +2394,7 @@ function wGo(n){wStep=n;$$("#welcomeForm .wstep").forEach(function(x){x.hidden=+
   $("#wBack").style.visibility=n===0?"hidden":"visible";$("#wDemo").style.visibility=n!==0?"hidden":"visible";$("#wStart").textContent=["Começar","Continuar","Começar a usar"][n];$("#wNotRow").hidden=!NATIVE;
   setTimeout(function(){if(n===1)$("#wName").focus();if(n===2)$("#wMeta").focus()},60)}
 $("#welcomeForm").addEventListener("submit",function(e){e.preventDefault();if(wStep<2){wGo(wStep+1);return}
-  if(NATIVE&&$("#wNotif").checked){S.rem.on=true;S.ntf=S.ntf||{};save();scheduleReminder(true).then(function(){scheduleNotifs(true)})}finishWelcome(false)});
+  if(NATIVE&&$("#wNotif").checked){S.rem.on=true;S.ntf=S.ntf||{};save();scheduleReminder(true).then(function(){ntfSig="";scheduleNotifs(false)})}finishWelcome(false)});
 $("#wBack").addEventListener("click",function(){if(wStep>0)wGo(wStep-1)});
 $("#wName").addEventListener("input",function(){var v=this.value.trim();$("#wAvt").textContent=v?v.split(/\s+/).map(function(w){return w.charAt(0)}).slice(0,2).join("").toUpperCase():"?"});
 $("#wChips").addEventListener("click",function(e){var b=e.target.closest("[data-wm]");if(!b)return;$("#wMeta").value=fmtNum.format(+b.dataset.wm/100);$$("#wChips [data-wm]").forEach(function(x){x.setAttribute("aria-pressed",String(x===b))});buzz(4)});
@@ -2863,9 +2866,25 @@ window.addEventListener("scroll",function(){document.body.classList.toggle("scro
 /* ---------- recursos nativos (app Android) ---------- */
 var IS_ELECTRON=/Electron/i.test(navigator.userAgent);
 function nat(pl,m,o,ms){var C=window.Capacitor,pr;
+  if(pl==="LocalNotifications"&&m==="schedule"&&o&&o.notifications)o.notifications.forEach(function(n){n.isExactNotification=false});
   try{pr=C.Plugins&&C.Plugins[pl]&&C.Plugins[pl][m]?C.Plugins[pl][m](o||{}):C.nativePromise(pl,m,o||{})}catch(e){return Promise.reject(e)}
   if(!ms)return pr;return Promise.race([pr,new Promise(function(_,rj){setTimeout(function(){rj("tempo")},ms)})])}
 function monthNow(){var t=today(),a=new Date(t.getFullYear(),t.getMonth(),1),b=new Date(t.getFullYear(),t.getMonth()+1,0);return{t:t,a:a,b:b,inc:sumRange(a,b,"in").t,out:sumRange(a,b).t,left:b.getDate()-t.getDate()+1,ym:mKey(a)}}
+
+/* ---------- permissão de notificações ---------- */
+var ntfState="";
+function ntfPerm(ask){if(!NATIVE)return Promise.resolve("granted");var L="LocalNotifications";
+  var p=ask?nat(L,"checkPermissions",{},4000).then(function(r){return r&&r.display==="granted"?r:nat(L,"requestPermissions",{},90000)}):nat(L,"checkPermissions",{},4000);
+  return p.then(function(r){ntfState=r&&r.display==="granted"?"granted":"denied";drawNtfBlock();
+    if(ntfState==="granted"&&ask&&!S.ntfOk){S.ntfOk=1;save();setTimeout(function(){notifyNow(1009,"Notificações ligadas","Pronto! O Gastei vai te avisar por aqui.")},600)}
+    if(ntfState!=="granted"&&ask)toast("As notificações estão bloqueadas. Toque em Abrir configurações e ative.");
+    return ntfState}).catch(function(){return ntfState||"unknown"})}
+function wantsNtf(){var n=S.ntf||{};return !!(S.rem&&S.rem.on)||!!(n.meta||n.fix||n.week||n.box||n.bk)}
+function drawNtfBlock(){var b=$("#ntfBlock");if(!b)return;b.hidden=!(NATIVE&&ntfState==="denied"&&wantsNtf())}
+document.addEventListener("click",function(e){if(!e.target.closest("[data-ntfset]"))return;
+  nat("GasteiNative","notifSettings",{},4000).catch(function(){toast("Abra Configurações › Apps › Gastei › Notificações")})});
+document.addEventListener("visibilitychange",function(){if(document.hidden||!NATIVE)return;var was=ntfState;
+  ntfPerm(false).then(function(st){if(st==="granted"&&was!=="granted"&&wantsNtf()){ntfSig="";scheduleReminder(false);scheduleNotifs(false);if(was==="denied")toast("Notificações ligadas")}})});
 
 /* ---------- lembrete diário ---------- */
 function pad2(n){return(n<10?"0":"")+n}
@@ -2873,6 +2892,7 @@ function syncAvisos(){
   $("#remOn").checked=!!S.rem.on;$("#remTime").value=pad2(S.rem.h)+":"+pad2(S.rem.m);$("#remTime").disabled=!S.rem.on;
   $("#alertSel").value=String(S.alertPct||0);
   $$("[data-ntf]").forEach(function(c){c.checked=!!(S.ntf||{})[c.dataset.ntf]});
+  if(NATIVE)ntfPerm(false);
   $("#ntfNote").textContent=NATIVE?"As notificações chegam mesmo com o app fechado.":"As notificações funcionam no app Android. No PC e no site, os avisos aparecem quando você abre o app.";
   $("#remNote").textContent=NATIVE?"Chega como notificação no horário escolhido, todos os dias.":"No app Android chega como notificação no horário escolhido. No site e no PC, o lembrete aparece quando você abre o app depois desse horário.";
 }
@@ -2881,15 +2901,17 @@ function scheduleReminder(ask){
   var L="LocalNotifications";
   return nat(L,"cancel",{notifications:[{id:1001}]},4000).catch(function(){}).then(function(){
     if(!S.rem.on)return;
-    return (ask?nat(L,"requestPermissions",{},15000):nat(L,"checkPermissions",{},4000)).then(function(r){
-      if(r&&r.display&&r.display!=="granted"){if(ask)toast("Permita as notificações do Gastei nas configurações do Android");return}
+    return ntfPerm(ask).then(function(st){
+      if(st==="denied")return;
       return nat(L,"schedule",{notifications:[{id:1001,title:"Já anotou seus gastos de hoje?",body:"Leva 5 segundos e mantém o seu saldo certinho.",schedule:{on:{hour:S.rem.h,minute:S.rem.m},allowWhileIdle:true}}]},6000);
     });
   }).catch(function(){});
 }
-$("#remOn").addEventListener("change",function(){S.rem.on=this.checked;save();syncAvisos();scheduleReminder(true);toast(S.rem.on?"Lembrete ligado para as "+pad2(S.rem.h)+":"+pad2(S.rem.m):"Lembrete desligado");drawPeriod()});
+$("#remOn").addEventListener("change",function(){S.rem.on=this.checked;save();syncAvisos();drawPeriod();
+  if(!S.rem.on){scheduleReminder(false);drawNtfBlock();toast("Lembrete desligado");return}
+  scheduleReminder(true).then(function(){if(!NATIVE||ntfState==="granted")toast("Lembrete ligado para as "+pad2(S.rem.h)+":"+pad2(S.rem.m))})});
 $("#remTime").addEventListener("change",function(){var v=this.value.split(":");S.rem.h=+v[0]||20;S.rem.m=+v[1]||0;save();scheduleReminder(false);toast("Lembrete às "+pad2(S.rem.h)+":"+pad2(S.rem.m))});
-$("#alertSel").addEventListener("change",function(){var v=+this.value;if(v&&needPrem("alerta")){this.value=String(S.alertPct||0);return}S.alertPct=v;S.alertDone={};save();render();toast(v?"Vamos avisar quando os gastos chegarem a "+v+"% da receita":"Alerta desligado");if(v&&NATIVE)nat("LocalNotifications","requestPermissions",{},15000).catch(function(){})});
+$("#alertSel").addEventListener("change",function(){var v=+this.value;if(v&&needPrem("alerta")){this.value=String(S.alertPct||0);return}S.alertPct=v;S.alertDone={};save();render();toast(v?"Vamos avisar quando os gastos chegarem a "+v+"% da receita":"Alerta desligado");if(v&&NATIVE)ntfPerm(true)});
 WHY.alerta="O alerta de gastos faz parte do Premium.";WHY.ocr="A leitura de comprovante por foto faz parte do Premium.";WHY.card="O controle de cartão de crédito faz parte do Premium.";WHY.goals="As caixinhas fazem parte do Premium.";WHY.prev="A previsão do fim do mês faz parte do Premium.";
 
 /* ---------- notificações no celular ---------- */
@@ -2913,8 +2935,8 @@ function buildNotifs(){var L=[],n=S.ntf||{},t=new Date(),td=today();
 function scheduleNotifs(ask){if(!NATIVE)return Promise.resolve();var Lc="LocalNotifications",list=buildNotifs(),sig=JSON.stringify(list);
   if(!ask&&sig===ntfSig)return Promise.resolve();
   var ids=[{id:1003},{id:1004}];for(var k=0;k<30;k++)ids.push({id:1100+k});for(k=0;k<20;k++)ids.push({id:1200+k});
-  return (ask?nat(Lc,"requestPermissions",{},15000):nat(Lc,"checkPermissions",{},4000)).then(function(r){
-    if(r&&r.display&&r.display!=="granted"){if(ask)toast("Permita as notificações do Gastei nas configurações do Android");return}
+  return ntfPerm(ask).then(function(st){
+    if(st==="denied")return;
     ntfSig=sig;return nat(Lc,"cancel",{notifications:ids},4000).catch(function(){}).then(function(){if(list.length)return nat(Lc,"schedule",{notifications:list},6000)})}).catch(function(){})}
 function checkMetaNotif(){var n=S.ntf||{};if(!n.meta||!S.meta||hasEx())return;var m=monthNow(),pc=m.out/S.meta*100,lv=pc>=100?100:pc>=80?80:0;
   S.metaDone=S.metaDone||{};if(!lv||(S.metaDone[m.ym]||0)>=lv)return;S.metaDone[m.ym]=lv;save();
@@ -2922,7 +2944,8 @@ function checkMetaNotif(){var n=S.ntf||{};if(!n.meta||!S.meta||hasEx())return;va
 function afterRenderNtf(){clearTimeout(ntfT);ntfT=setTimeout(function(){checkMetaNotif();scheduleNotifs(false)},800)}
 $$("[data-ntf]").forEach(function(c){c.addEventListener("change",function(){S.ntf=S.ntf||{};S.ntf[c.dataset.ntf]=c.checked?1:0;save();
   if(c.checked&&!NATIVE&&window.Notification&&Notification.permission==="default"){try{Notification.requestPermission()}catch(e){}}
-  scheduleNotifs(c.checked);toast(c.checked?"Notificação ligada":"Notificação desligada")})});
+  drawNtfBlock();if(!c.checked){scheduleNotifs(false);toast("Notificação desligada");return}
+  ntfSig="";scheduleNotifs(true).then(function(){if(!NATIVE||ntfState==="granted")toast("Notificação ligada")})})});
 
 /* ---------- alerta de % da receita (Premium) ---------- */
 function checkAlert(){

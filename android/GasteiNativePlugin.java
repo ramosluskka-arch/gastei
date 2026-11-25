@@ -4,6 +4,9 @@ import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.net.Uri;
+import android.os.Build;
+import android.provider.Settings;
 import android.speech.RecognizerIntent;
 import androidx.activity.result.ActivityResult;
 import com.getcapacitor.JSObject;
@@ -17,6 +20,33 @@ import java.util.ArrayList;
 /* Widget da tela inicial, atalho "+ Gasto" do widget e reconhecimento de voz do Android. */
 @CapacitorPlugin(name = "GasteiNative")
 public class GasteiNativePlugin extends Plugin {
+
+  @PluginMethod
+  public void notifSettings(PluginCall call) {
+    Activity a = getActivity();
+    String pkg = a.getPackageName();
+    Intent i;
+    if (Build.VERSION.SDK_INT >= 26) {
+      i = new Intent(Settings.ACTION_APP_NOTIFICATION_SETTINGS);
+      i.putExtra(Settings.EXTRA_APP_PACKAGE, pkg);
+    } else {
+      i = new Intent(Settings.ACTION_APPLICATION_DETAILS_SETTINGS, Uri.parse("package:" + pkg));
+    }
+    i.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+    try {
+      a.startActivity(i);
+    } catch (Exception e) {
+      try {
+        Intent j = new Intent(Settings.ACTION_APPLICATION_DETAILS_SETTINGS, Uri.parse("package:" + pkg));
+        j.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+        a.startActivity(j);
+      } catch (Exception ignored) {
+        call.reject("indisponivel");
+        return;
+      }
+    }
+    call.resolve();
+  }
 
   @PluginMethod
   public void widget(PluginCall call) {
