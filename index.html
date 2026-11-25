@@ -1038,6 +1038,38 @@ span.hasic{display:flex!important;align-items:center;gap:10px}span.hasic>.tic{wi
 .pvbox span{font-size:.8rem}
 #pPrev .chead{flex-wrap:wrap;row-gap:8px}#pPrev .pt2{white-space:nowrap}#pPrev .chead h2{flex:0 0 auto;min-width:0}#ppChip{margin-left:auto}#ppChip{font-size:.68rem;padding:5px 9px}
 .bxh b{white-space:nowrap}@media(max-width:400px){.bxh b{font-size:.98rem}}
+
+/* tela de backup */
+.bkhero{display:grid;grid-template-columns:auto minmax(0,1fr);gap:4px 14px;align-items:center;padding:18px;border-radius:20px;background:linear-gradient(150deg,color-mix(in srgb,#820AD1 30%,var(--surface)),var(--surface));border:1px solid color-mix(in srgb,#C77DFF 30%,var(--line))}
+.bkhero .bki{grid-row:1/4;width:52px;height:52px;border-radius:16px;display:grid;place-items:center;background:rgba(199,125,255,.18);color:#C77DFF}
+.bkhero .bki svg{width:26px;height:26px}
+.bkhero small{font-size:.76rem;color:var(--muted);font-weight:600}
+.bkhero b{font-size:1.15rem;font-weight:800;line-height:1.2}
+.bkhero .bkst{justify-self:start;font-size:.72rem;font-weight:800;padding:4px 10px;border-radius:999px;background:rgba(0,200,117,.14);color:#00C875;margin-top:4px}
+.bkhero .bkst.late{background:rgba(255,122,0,.15);color:#FF7A00}
+.bkbig{display:grid;grid-template-columns:auto minmax(0,1fr);gap:2px 14px;align-items:center;width:100%;text-align:left;border:0;border-radius:18px;padding:15px 16px;margin-top:12px;color:#fff;background:linear-gradient(90deg,#FF7A00,#FF500F);box-shadow:0 10px 24px -10px rgba(255,122,0,.75);font:inherit;cursor:pointer}
+.bkbig .bi{grid-row:1/3;width:42px;height:42px;border-radius:13px;display:grid;place-items:center;background:rgba(255,255,255,.18)}
+.bkbig .bi svg{width:21px;height:21px}
+.bkbig b{font-weight:800;font-size:1rem}
+.bkbig small{font-size:.76rem;opacity:.9;line-height:1.3}
+.bkbig.alt{background:var(--surface);color:var(--ink);border:1px solid var(--line);box-shadow:none}
+.bkbig.alt .bi{background:rgba(0,200,117,.14);color:#00C875}
+.bkbig.alt small{color:var(--muted);opacity:1}
+.bkconf{margin-top:10px;padding:14px;border-radius:16px;border:1px solid rgba(255,122,0,.4);background:rgba(255,122,0,.08);display:grid;gap:10px;font-size:.86rem}
+.bkconf .tools{display:flex;gap:8px;flex-wrap:wrap}
+.bkbox{margin-top:12px;padding:14px 16px;border-radius:18px;background:var(--surface);border:1px solid var(--line);display:grid;gap:10px}
+.bkbox .bh{display:flex;align-items:center;gap:12px}
+.bkbox .bh .tic{width:34px;height:34px;border-radius:11px}
+.bkbox .bh .tic svg{width:17px;height:17px}
+.bkbox .bh b{font-weight:800;font-size:.95rem;display:block}
+.bkbox .bh small{display:block;font-size:.76rem;color:var(--muted);line-height:1.35}
+.bkchips{display:flex;flex-wrap:wrap;gap:8px}
+.bkchips button{border:1px solid var(--line);background:var(--sunken);color:var(--ink);border-radius:999px;padding:8px 13px;font:inherit;font-weight:700;font-size:.8rem;cursor:pointer}
+.bkchips button[aria-pressed="true"]{background:linear-gradient(90deg,#FF7A00,#FF500F);border-color:transparent;color:#fff}
+.bkbox .check{font-size:.86rem}
+.bkwhere{font-size:.76rem;color:var(--muted);line-height:1.4}
+.bkwhere b{color:var(--ink)}
+#bkOpenDir{display:inline-flex;align-items:center;gap:8px;justify-self:start}#bkOpenDir svg{width:16px;height:16px;flex:none}
 /* sem elementos de jogo */
 .chip.lv,.chip.st,.xptag,#achCard,#nudge{display:none!important}
 .swipehint{display:none}
@@ -1225,6 +1257,7 @@ html,body{overflow-x:clip}
     <button type="button" data-add="in" style="--qc:#00C875"><span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="6" width="20" height="12" rx="2"/><circle cx="12" cy="12" r="2.5"/><path d="M6 12h.01M18 12h.01"/></svg></span>Nova receita</button>
     <button type="button" data-voice style="--qc:#FF5C93"><span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="3" width="6" height="11" rx="3"/><path d="M5 11a7 7 0 0 0 14 0M12 18v3"/></svg></span>Falar um gasto</button>
     <button type="button" id="qOcr" style="--qc:#2F9BFF"><span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 8V6a2 2 0 0 1 2-2h2M16 4h2a2 2 0 0 1 2 2v2M20 16v2a2 2 0 0 1-2 2h-2M8 20H6a2 2 0 0 1-2-2v-2"/><circle cx="12" cy="12" r="3"/></svg></span>Ler comprovante</button>
+    <button type="button" data-open-bk style="--qc:#C77DFF"><span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l8 3v6c0 5-3.5 8-8 9-4.5-1-8-4-8-9V6z"/><path d="M9 12l2 2 4-4"/></svg></span>Backup</button>
     <button type="button" id="qBox" style="--qc:#00C875"><span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 8h16v11a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1z"/><path d="M3 4h18v4H3zM10 12h4"/></svg></span>Nova caixinha</button>
     <button type="button" id="qPrev" style="--qc:#FF9A3D"><span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 17l6-6 4 4 8-8"/><path d="M15 7h6v6"/></svg></span>Previsão do mês</button>
     <button type="button" data-pdf style="--qc:#E0457B"><span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 3H7a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V8z"/><path d="M14 3v5h5M9 13h6M9 17h4"/></svg></span>Relatório PDF</button>
@@ -1412,7 +1445,7 @@ html,body{overflow-x:clip}
           <button data-open="fixos"><span>Gastos e receitas fixos<small>O que entra sozinho todo mês</small></span></button>
           <button data-install hidden><span>Instalar o app no celular<small>Baixe o app para Android ou coloque na tela inicial</small></span></button>
           <button data-pdf><span>Relatório em PDF <span class="pro">PRO</span><small>Apresentação completa do período que está aberto</small></span></button>
-          <button data-open="dados"><span>Planilha e cópia de segurança<small>Exportar, guardar e recuperar dados</small></span></button>
+          <button data-open="backup"><span>Backup<small>Criar, enviar e restaurar seus dados</small></span></button><button data-open="dados"><span>Planilha e cópia em texto<small>Exportar dados em CSV ou texto</small></span></button>
           <button data-open="avisos"><span>Lembrete e alertas<small>Lembrete diário e aviso quando gastar demais</small></span></button>
           <button data-open="aparencia"><span>Cores e aparência<small>Rosa magenta, Dark, Pro Blue ou Petróleo</small></span></button>
         </div>
@@ -1436,7 +1469,7 @@ html,body{overflow-x:clip}
         <button role="tab" data-tab="perfil" aria-selected="true">Perfil e meta</button>
         <button role="tab" data-tab="cats" aria-selected="false">Categorias</button>
         <button role="tab" data-tab="fixos" aria-selected="false">Fixos</button>
-        <button role="tab" data-tab="dados" aria-selected="false">Dados</button>
+        <button role="tab" data-tab="backup" aria-selected="false">Backup</button><button role="tab" data-tab="dados" aria-selected="false">Dados</button>
         <button role="tab" data-tab="aparencia" aria-selected="false">Aparência</button>
         <button role="tab" data-tab="avisos" aria-selected="false">Avisos</button>
       </div>
@@ -1458,12 +1491,13 @@ html,body{overflow-x:clip}
         <div class="reclist" id="recList"></div>
         <p class="plnote" data-plnote><button type="button" class="link" data-plans="fixos"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="11" width="14" height="10" rx="2"/><path d="M8 11V7a4 4 0 0 1 8 0v4"/></svg> Criar novos fixos é do Premium</button> Os que você já tem continuam funcionando.</p>
       </div>
+      <div class="set" data-pane="backup" hidden><div class="bkhero"><span class="bki"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l8 3v6c0 5-3.5 8-8 9-4.5-1-8-4-8-9V6z"/><path d="M9 12l2 2 4-4"/></svg></span><small>Último backup</small><b id="bkLast">Nenhum ainda</b><span class="bkst" id="bkState">—</span></div><button type="button" class="bkbig" id="bkMake"><span class="bi"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 15v4a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-4"/><path d="M12 3v12M7 8l5-5 5 5"/></svg></span><b>Criar backup</b><small id="bkMakeS">Salva um arquivo com todos os seus dados. Dá para enviar por WhatsApp, Drive ou e-mail.</small></button><button type="button" class="bkbig alt" id="bkLoad"><span class="bi"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 15v4a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-4"/><path d="M12 15V3M7 10l5 5 5-5"/></svg></span><b>Restaurar backup</b><small>Escolha um arquivo de backup do Gastei para trazer seus dados de volta.</small></button><input type="file" id="bkFile" hidden><div class="bkconf" id="bkConf" hidden></div><div class="bkbox"><div class="bh"><i class="tic" style="--ic:#FF7A00"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 8a6 6 0 1 1 12 0c0 7 3 9 3 9H3s3-2 3-9"/><path d="M10.3 21a1.94 1.94 0 0 0 3.4 0"/></svg></i><span><b>Lembrete de backup</b><small>O app avisa no Início quando passar desse tempo sem backup.</small></span></div><div class="bkchips" id="bkEvery"><button type="button" data-bke="0">Desligado</button><button type="button" data-bke="7">Toda semana</button><button type="button" data-bke="14">A cada 2 semanas</button><button type="button" data-bke="30">Todo mês</button></div></div><div class="bkbox" id="bkAutoBox" hidden><div class="bh"><i class="tic" style="--ic:#00C875"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12a9 9 0 1 1-3-6.7L21 8"/><path d="M21 3v5h-5M12 8v4l3 2"/></svg></i><span><b>Backup automático</b><small id="bkAutoS">Uma vez por dia o app salva uma cópia numa pasta do aparelho.</small></span></div><label class="check"><input type="checkbox" id="bkAuto"> <span>Fazer backup automático todo dia</span></label><p class="bkwhere" id="bkWhere"></p><button type="button" class="btn sm ghost" id="bkOpenDir" hidden><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 7a2 2 0 0 1 2-2h4l2 2h8a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/></svg> Abrir pasta dos backups</button></div></div>
       <div class="set" data-pane="dados" hidden>
         <p><b>Relatório em PDF.</b> Gera uma apresentação com capa, resumo, gráfico, categorias, formas de pagamento, mês a mês e todos os lançamentos do período aberto. Na janela que abrir, escolha <b>Salvar como PDF</b>.</p>
         <div class="tools"><button class="btn sm" data-pdf>Gerar relatório em PDF</button></div>
         <p><b>Planilha.</b> Baixe todos os gastos em CSV para abrir no Excel ou no Google Planilhas. Se o download não começar, use Copiar CSV e cole num arquivo .csv.</p>
         <div class="tools"><button class="btn sm web-only" id="csvBtn">Baixar planilha (CSV)</button><button class="btn sm ghost" id="csvCopy">Copiar CSV</button></div>
-        <p><b>Cópia de segurança.</b> Os dados ficam só neste navegador. Gere a cópia e guarde o texto. Para recuperar, cole o texto aqui e clique em Recuperar.</p>
+        <p><b>Cópia em texto.</b> Para backup em arquivo, use a aba <b>Backup</b>. Aqui você pode copiar os dados como texto ou colar um texto de cópia e clicar em Recuperar.</p>
         <textarea class="inp" id="bkTxt" placeholder="A cópia aparece aqui. Para recuperar, cole aqui o texto de uma cópia."></textarea>
         <div class="tools"><button class="btn sm" id="bkGen">Gerar e copiar</button><button class="btn sm danger" id="bkRestore" data-armed="false">Recuperar cópia</button><button class="btn sm danger" id="wipeBtn" data-armed="false">Apagar todos os gastos</button></div>
       </div>
@@ -1590,7 +1624,7 @@ function load(){
   try{var r=localStorage.getItem(KEY);if(r){var o=JSON.parse(r);if(o&&Array.isArray(o.items)){had=true;
     S.items=o.items;S.seeded=!!o.seeded;S.meta=o.meta>0?o.meta:300000;S.name=o.name||"";S.cats=Array.isArray(o.cats)&&o.cats.length?o.cats:null;S.theme=o.theme||"auto";S.wk=o.wk===0?0:1;
     S.icats=Array.isArray(o.icats)&&o.icats.length?o.icats:null;S.recs=Array.isArray(o.recs)?o.recs:[];S.recDone=o.recDone&&typeof o.recDone==="object"?o.recDone:{};
-    S.onboarded=o.onboarded!=null?!!o.onboarded:o.items.some(function(i){return !i.ex});S.priv=!!o.priv;S.pal=o.pal||"teal";S.lastBk=o.lastBk||0;S.bkSnooze=o.bkSnooze||0;S.trial=o.trial||0;S.premPlay=o.premPlay||null;S.premCode=o.premCode||null;S.usedCodes=o.usedCodes||[];S.trialEndSeen=o.trialEndSeen||0;S.rem=o.rem||{on:false,h:20,m:0};S.alertPct=o.alertPct||0;S.alertDone=o.alertDone||{};S.cards=Array.isArray(o.cards)?o.cards:[];S.goals=Array.isArray(o.goals)?o.goals:[]}}}catch(e){}
+    S.onboarded=o.onboarded!=null?!!o.onboarded:o.items.some(function(i){return !i.ex});S.priv=!!o.priv;S.pal=o.pal||"teal";S.lastBk=o.lastBk||0;S.bkSnooze=o.bkSnooze||0;S.bkEvery=o.bkEvery!=null?o.bkEvery:14;S.bkAuto=!!o.bkAuto;S.autoBk=o.autoBk||0;S.trial=o.trial||0;S.premPlay=o.premPlay||null;S.premCode=o.premCode||null;S.usedCodes=o.usedCodes||[];S.trialEndSeen=o.trialEndSeen||0;S.rem=o.rem||{on:false,h:20,m:0};S.alertPct=o.alertPct||0;S.alertDone=o.alertDone||{};S.cards=Array.isArray(o.cards)?o.cards:[];S.goals=Array.isArray(o.goals)?o.goals:[]}}}catch(e){}
   if(!S.cats)S.cats=DEFAULT_CATS.map(function(c){return{k:c.k,n:c.n,c:c.c}});
   if(!S.icats)S.icats=DEFAULT_ICATS.map(function(c){return{k:c.k,n:c.n,c:c.c}});
   return had;
@@ -2171,7 +2205,7 @@ function exportPDF(){
 $("#pdfBtn").addEventListener("click",exportPDF);
 $$("[data-pdf]").forEach(function(b){b.addEventListener("click",exportPDF)});
 
-function backup(){return JSON.stringify({app:"gastei",v:4,meta:S.meta,name:S.name,cats:S.cats,icats:S.icats,recs:S.recs,recDone:S.recDone,wk:S.wk,items:S.items.filter(function(i){return !i.ex})})}
+function backup(){return JSON.stringify({app:"gastei",v:5,at:Date.now(),goals:S.goals||[],alertPct:S.alertPct||0,meta:S.meta,name:S.name,cats:S.cats,icats:S.icats,recs:S.recs,recDone:S.recDone,wk:S.wk,items:S.items.filter(function(i){return !i.ex})})}
 $("#bkGen").addEventListener("click",function(){var b=backup();$("#bkTxt").value=b;copyText(b,"Cópia gerada e copiada")});
 function arm(btn,fn){
   if(btn.dataset.armed==="true"){btn.dataset.armed="false";btn.textContent=btn.dataset.label;fn();return}
@@ -2181,7 +2215,9 @@ function arm(btn,fn){
 $("#bkRestore").addEventListener("click",function(){
   var o;try{o=JSON.parse($("#bkTxt").value)}catch(e){toast("Cole o texto de uma cópia válida");return}
   if(!o||!Array.isArray(o.items)){toast("Cole o texto de uma cópia válida");return}
-  arm(this,function(){
+  arm(this,function(){restoreData(o);$("#bkTxt").value=""});
+});
+function restoreData(o){
     if(Array.isArray(o.cats)&&o.cats.length)S.cats=o.cats.filter(function(c){return c&&c.k&&c.n}).map(function(c){return{k:String(c.k),n:String(c.n).slice(0,20),c:/^#[0-9a-f]{6}$/i.test(c.c)?c.c:"#7A8696",b:c.b>0?Math.round(c.b):0}});
     if(!S.cats.some(function(c){return c.k==="outros"}))S.cats.push({k:"outros",n:"Outros",c:"#7A8696"});
     if(Array.isArray(o.icats)&&o.icats.length)S.icats=o.icats.filter(function(c){return c&&c.k&&c.n}).map(function(c){return{k:String(c.k),n:String(c.n).slice(0,20),c:/^#[0-9a-f]{6}$/i.test(c.c)?c.c:"#7A8696"}});
@@ -2190,8 +2226,8 @@ $("#bkRestore").addEventListener("click",function(){
     var keys={},ikeys={};S.cats.forEach(function(c){keys[c.k]=1});S.icats.forEach(function(c){ikeys[c.k]=1});
     S.items=o.items.filter(function(x){return x&&typeof x.v==="number"&&/^\d{4}-\d\d-\d\d$/.test(x.d)}).map(function(x){var ty=x.t==="in"?"in":"out",it={id:String(x.id||uid()),t:ty,v:Math.round(x.v),c:ty==="in"?(ikeys[x.c]?x.c:"outras"):(keys[x.c]?x.c:"outros"),n:String(x.n||"Lançamento").slice(0,60),d:x.d};if(x.p&&PAY(x.p))it.p=x.p;if(x.g)it.g=String(x.g);if(x.rid)it.rid=String(x.rid);return it});
     if(o.meta>0)S.meta=o.meta;if(o.name)S.name=String(o.name).slice(0,30);if(o.wk===0||o.wk===1)S.wk=o.wk;S.onboarded=true;
-    save();lastLevel=null;drawCats();drawCatEdit();render();$("#bkTxt").value="";toast("Cópia recuperada: "+S.items.length+" gastos")});
-});
+    if(Array.isArray(o.goals))S.goals=o.goals.filter(function(g){return g&&g.id&&g.n&&g.target>0});if(o.alertPct>=0)S.alertPct=o.alertPct;
+    save();lastLevel=null;drawCats();drawCatEdit();render();toast("Backup restaurado: "+S.items.length+" lançamentos")}
 $("#wipeBtn").addEventListener("click",function(){arm(this,function(){var old=S.items;S.items=[];save();lastLevel=null;render();toast("Todos os gastos foram apagados",function(){S.items=old;save();lastLevel=null;render()})})});
 
 /* ---------- boas-vindas ---------- */
@@ -2332,14 +2368,67 @@ $("#recents").addEventListener("click",function(e){var b=e.target.closest("[data
   if(isOut(x)){cat=x.c;if(x.p)pay=x.p}else icat=x.c;$("#desc").value=x.n||"";setCents(String(x.v));setDate(today());drawCats();buzz(6);$("#submit").focus({preventScroll:true})});
 function drawBkNote(){
   var mine=S.items.filter(function(i){return !i.ex}).length,now=Date.now(),n=$("#bkNote");
-  var due=mine>=10&&now-(S.lastBk||0)>14*864e5&&now-(S.bkSnooze||0)>3*864e5;
+  var ev=S.bkEvery==null?14:S.bkEvery,due=ev>0&&mine>=10&&now-Math.max(S.lastBk||0,S.autoBk||0)>ev*864e5&&now-(S.bkSnooze||0)>3*864e5;
   n.hidden=!due;
-  if(due)$("#bkNoteT").textContent=S.lastBk?"Sua última cópia de segurança tem mais de 2 semanas.":"Você ainda não fez nenhuma cópia de segurança. Se o app for desinstalado, os dados se perdem.";
+  if(due)$("#bkNoteT").textContent=S.lastBk?"Seu último backup tem mais de "+(S.bkEvery||14)+" dias.":"Você ainda não fez nenhuma cópia de segurança. Se o app for desinstalado, os dados se perdem.";
 }
-$("#bkGo").addEventListener("click",function(){openSettings("dados")});
+$("#bkGo").addEventListener("click",function(){openSettings("backup")});
 $("#bkLater").addEventListener("click",function(){S.bkSnooze=Date.now();save();drawBkNote()});
 $("#bkGen").addEventListener("click",function(){S.lastBk=Date.now();save();drawBkNote()});
 $("#csvBtn").addEventListener("click",function(){S.lastBk=Date.now();save();drawBkNote()});
+
+/* ---------- backup em arquivo ---------- */
+var PCN=(function(){try{return window.parent!==window&&window.parent.require?window.parent.require:null}catch(e){return null}})();
+function bkName(auto){var t=new Date();return auto?"gastei-backup-automatico.json":"gastei-backup-"+t.getFullYear()+"-"+pad2(t.getMonth()+1)+"-"+pad2(t.getDate())+".json"}
+function pcDir(){var os=PCN("os"),path=PCN("path"),fs=PCN("fs"),d=path.join(os.homedir(),"Documents","Gastei");fs.mkdirSync(d,{recursive:true});return d}
+function pcWrite(name,txt){var path=PCN("path"),f=path.join(pcDir(),name);PCN("fs").writeFileSync(f,txt,"utf8");return f}
+function natWrite(name,txt){return nat("Filesystem","writeFile",{path:"Gastei/"+name,data:txt,directory:"DOCUMENTS",encoding:"utf8",recursive:true},8000)}
+function relTime(ts){if(!ts)return"";var d=new Date(ts),t=today(),dd=Math.round((new Date(t.getFullYear(),t.getMonth(),t.getDate())-new Date(d.getFullYear(),d.getMonth(),d.getDate()))/864e5),h=pad2(d.getHours())+":"+pad2(d.getMinutes());
+  return dd<=0?"Hoje às "+h:dd===1?"Ontem às "+h:"Há "+dd+" dias ("+pad2(d.getDate())+"/"+pad2(d.getMonth()+1)+")"}
+function markBk(){S.lastBk=Date.now();S.bkSnooze=0;save();drawBkNote();drawBackup()}
+function makeBackup(){var txt=backup(),name=bkName();buzz(8);
+  if(PCN){try{var f=pcWrite(name,txt);markBk();toast("Backup salvo em Documentos\\Gastei");try{PCN("electron").shell.showItemInFolder(f)}catch(e){}}catch(e){toast("Não foi possível salvar o backup")}return}
+  if(NATIVE){natWrite(name,txt).catch(function(){return nat("Filesystem","writeFile",{path:name,data:txt,directory:"CACHE",encoding:"utf8"},8000)}).then(function(r){markBk();
+      return nat("Share","share",{title:"Backup do Gastei",text:"Backup do Gastei",url:r.uri,dialogTitle:"Enviar backup"}).then(function(){},function(e){if(!/cancel/i.test(String(e&&e.message||e)))toast("Backup salvo em Documentos/Gastei")})})
+    .catch(function(){copyText(txt,"Não deu para salvar o arquivo. O backup foi copiado como texto")});return}
+  var file;try{file=new File([txt],name,{type:"application/json"})}catch(e){}
+  var touch=window.matchMedia&&matchMedia("(pointer:coarse)").matches;
+  if(file&&touch&&navigator.canShare&&navigator.canShare({files:[file]})){navigator.share({files:[file],title:"Backup do Gastei"}).then(markBk,function(e){if(e&&e.name!=="AbortError")dl()});return}
+  dl();
+  function dl(){try{var a=document.createElement("a");a.href=URL.createObjectURL(new Blob([txt],{type:"application/json"}));a.download=name;document.body.appendChild(a);a.click();setTimeout(function(){URL.revokeObjectURL(a.href);a.remove()},2000);markBk();toast("Backup baixado: "+name)}catch(e){copyText(txt,"Backup copiado como texto")}}
+}
+function autoBackup(){if(!S.bkAuto||!(PCN||NATIVE))return;var t=today(),k=t.getFullYear()*400+t.getMonth()*32+t.getDate(),l=S.autoBk?new Date(S.autoBk):null;
+  if(l&&l.getFullYear()*400+l.getMonth()*32+l.getDate()===k)return;
+  if(!S.items.some(function(i){return !i.ex}))return;
+  var txt=backup(),done=function(){S.autoBk=Date.now();save();drawBkNote();drawBackup()};
+  if(PCN){try{pcWrite(bkName(true),txt);done()}catch(e){}return}
+  natWrite(bkName(true),txt).then(done,function(){return natWrite(bkName().replace(".json","-auto.json"),txt).then(done)}).catch(function(){})}
+var bkPending=null;
+function drawBackup(){if(!$("#bkLast"))return;var last=Math.max(S.lastBk||0,S.autoBk||0),ev=S.bkEvery==null?14:S.bkEvery,late=!last||(ev>0&&Date.now()-last>ev*864e5);
+  $("#bkLast").textContent=last?relTime(last):"Nenhum backup ainda";
+  var st=$("#bkState");st.textContent=late?"Faça um backup":"Em dia";st.className="bkst"+(late?" late":"");
+  var mine=S.items.filter(function(i){return !i.ex}).length,g=(S.goals||[]).length;
+  $("#bkMakeS").textContent=(PCN?"Salva na pasta Documentos\\Gastei do PC.":NATIVE?"Salva em Documentos/Gastei e abre para enviar por WhatsApp, Drive ou e-mail.":"Baixa um arquivo com seus dados. No celular, dá para enviar por WhatsApp, Drive ou e-mail.")+" "+mine+(mine===1?" lançamento":" lançamentos")+(g?" e "+g+(g===1?" caixinha":" caixinhas"):"")+".";
+  $$("#bkEvery [data-bke]").forEach(function(b){b.setAttribute("aria-pressed",String(+b.dataset.bke===ev))});
+  var ab=$("#bkAutoBox");ab.hidden=!(PCN||NATIVE);$("#bkAuto").checked=!!S.bkAuto;
+  $("#bkWhere").innerHTML=S.bkAuto?(S.autoBk?"Último automático: <b>"+relTime(S.autoBk)+"</b>. ":"")+"Arquivo <b>gastei-backup-automatico.json</b> em <b>"+(PCN?"Documentos\\Gastei":"Documentos/Gastei")+"</b>"+(NATIVE?". Esse arquivo continua no celular mesmo se o app for desinstalado.":"."):"";
+  $("#bkOpenDir").hidden=!(PCN&&S.bkAuto)}
+$("#bkMake").addEventListener("click",makeBackup);
+$("#bkLoad").addEventListener("click",function(){var f=$("#bkFile");f.value="";f.click()});
+$("#bkFile").addEventListener("change",function(){var f=this.files&&this.files[0];if(!f)return;var rd=new FileReader();
+  rd.onload=function(){var o;try{o=JSON.parse(rd.result)}catch(e){}var c=$("#bkConf");
+    if(!o||o.app!=="gastei"&&!Array.isArray(o.items)||!Array.isArray(o.items)){c.hidden=false;c.innerHTML="<b>Esse arquivo não é um backup do Gastei.</b><span>Escolha um arquivo que comece com gastei-backup.</span>";bkPending=null;return}
+    bkPending=o;var n=o.items.length,g=Array.isArray(o.goals)?o.goals.length:0,d=o.at?new Date(o.at):null;
+    c.hidden=false;c.innerHTML="<b>Restaurar este backup?</b><span>"+(d?"Feito em "+pad2(d.getDate())+"/"+pad2(d.getMonth()+1)+"/"+d.getFullYear()+" às "+pad2(d.getHours())+":"+pad2(d.getMinutes())+". ":"")+n+(n===1?" lançamento":" lançamentos")+(g?" e "+g+(g===1?" caixinha":" caixinhas"):"")+". Os dados que estão no app agora serão substituídos.</span><div class=\"tools\"><button type=\"button\" class=\"btn sm\" id=\"bkYes\">Restaurar agora</button><button type=\"button\" class=\"btn sm ghost\" id=\"bkNo\">Cancelar</button></div>"};
+  rd.readAsText(f);setTimeout(function(){var c=$("#bkConf");if(!c.hidden)c.scrollIntoView({block:"center",behavior:"smooth"})},300)});
+$("#bkConf").addEventListener("click",function(e){if(e.target.id==="bkNo"){bkPending=null;this.hidden=true}
+  if(e.target.id==="bkYes"&&bkPending){restoreData(bkPending);bkPending=null;this.hidden=true;drawBackup()}});
+$("#bkEvery").addEventListener("click",function(e){var b=e.target.closest("[data-bke]");if(!b)return;S.bkEvery=+b.dataset.bke;save();drawBkNote();drawBackup();buzz(4)});
+$("#bkAuto").addEventListener("change",function(){S.bkAuto=this.checked;if(!S.bkAuto){save();drawBackup();return}S.autoBk=0;save();autoBackup();drawBackup()});
+$("#bkOpenDir").addEventListener("click",function(){try{PCN("electron").shell.openPath(pcDir())}catch(e){}});
+$$("[data-open-bk]").forEach(function(b){b.addEventListener("click",function(){openSettings("backup")})});
+var _stB=showTab;showTab=function(t){_stB(t);if(t==="backup"){$("#bkConf").hidden=true;drawBackup()}};
+setTimeout(autoBackup,3000);
 
 /* ---------- botão voltar do celular: fecha janelas e volta para o início ---------- */
 var ignorePop=0,wasModal=false,wasTab="home";
