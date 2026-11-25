@@ -1070,6 +1070,50 @@ span.hasic{display:flex!important;align-items:center;gap:10px}span.hasic>.tic{wi
 .bkwhere{font-size:.76rem;color:var(--muted);line-height:1.4}
 .bkwhere b{color:var(--ink)}
 #bkOpenDir{display:inline-flex;align-items:center;gap:8px;justify-self:start}#bkOpenDir svg{width:16px;height:16px;flex:none}
+
+/* boas-vindas */
+#welcome{background:radial-gradient(120% 60% at 0% 0%,rgba(130,10,209,.45),transparent 60%),radial-gradient(90% 50% at 100% 100%,rgba(255,122,0,.28),transparent 60%),#0A0A0C;padding:0;place-items:stretch;-webkit-backdrop-filter:none;backdrop-filter:none;color:#F5F5F7;z-index:60}
+.welx{display:flex;flex-direction:column;width:100%;max-width:480px;margin:0 auto;min-height:100%;padding:calc(env(safe-area-inset-top) + 14px) 22px calc(env(safe-area-inset-bottom) + 18px);overflow-y:auto}
+.wtop{display:grid;grid-template-columns:44px 1fr auto;align-items:center;gap:8px;min-height:44px}
+.wback{width:40px;height:40px;border-radius:13px;border:1px solid #24242C;background:#141418;color:#F5F5F7;display:grid;place-items:center}
+.wback svg{width:20px;height:20px}
+.wdots{display:flex;gap:6px;justify-content:center}
+.wdots i{width:8px;height:8px;border-radius:4px;background:#2C2C36;transition:width .25s,background .25s}
+.wdots i.on{width:26px;background:linear-gradient(90deg,#A73BEB,#FF7A00)}
+.wskip{border:0;background:none;color:#C77DFF;font:inherit;font-weight:700;font-size:.86rem;padding:8px 4px}
+.wstep{flex:1;display:flex;flex-direction:column;justify-content:center;gap:14px;padding:18px 0;animation:wIn .35s ease}
+@keyframes wIn{from{opacity:0;transform:translateY(12px)}to{opacity:1;transform:none}}
+.wstep h2{margin:0;font-size:clamp(1.7rem,7.5vw,2.2rem);line-height:1.1;letter-spacing:-.03em;font-weight:800}
+.wgrad{background:linear-gradient(90deg,#C77DFF,#FF7A00);-webkit-background-clip:text;background-clip:text;color:transparent}
+.wlead{margin:0;color:#A1A1AA;font-size:1rem;line-height:1.45}
+.wlogo{width:72px;height:72px;border-radius:22px;display:grid;place-items:center;color:#fff;background:linear-gradient(135deg,#820AD1,#FF7A00);box-shadow:0 18px 40px -10px rgba(167,59,235,.7)}
+.wlogo svg{width:36px;height:36px}
+.wlogo.sm{width:60px;height:60px;border-radius:19px}.wlogo.sm svg{width:30px;height:30px}
+.wfeat{display:grid;gap:10px;margin-top:6px}
+.wfeat>div{display:flex;gap:12px;align-items:center;padding:12px 14px;border-radius:18px;background:rgba(20,20,24,.85);border:1px solid #24242C}
+.wfeat .tic{width:40px;height:40px;border-radius:13px;background:color-mix(in srgb,var(--ic) 17%,#141418)}
+.wfeat .tic svg{width:20px;height:20px}
+.wfeat b{display:block;font-weight:800;font-size:.95rem}
+.wfeat small{display:block;color:#A1A1AA;font-size:.8rem;line-height:1.35}
+.wavt{width:84px;height:84px;border-radius:26px;display:grid;place-items:center;font-weight:800;font-size:2rem;color:#fff;background:linear-gradient(135deg,#820AD1,#E0457B 60%,#FF7A00);box-shadow:0 18px 40px -10px rgba(167,59,235,.7)}
+#welcome .inp.wbig{font-size:1.35rem;font-weight:700;padding:16px 18px;border-radius:18px;background:#141418;border:1px solid #2C2C36;color:#F5F5F7}
+#welcome .inp.wbig:focus{border-color:#A73BEB;box-shadow:0 0 0 4px rgba(167,59,235,.25)}
+.wmoney{position:relative}
+.wmoney span{position:absolute;left:18px;top:50%;transform:translateY(-50%);font-weight:800;color:#C77DFF;font-size:1.2rem;pointer-events:none}
+#welcome .wmoney .inp.wbig{padding-left:58px;font-size:1.7rem;width:100%}
+.wchips{display:flex;flex-wrap:wrap;gap:8px}
+.wchips button{border:1px solid #2C2C36;background:#141418;color:#F5F5F7;border-radius:999px;padding:9px 14px;font:inherit;font-weight:700;font-size:.86rem}
+.wchips button[aria-pressed="true"]{background:rgba(167,59,235,.2);border-color:#A73BEB;color:#E3C2FF}
+.wnot{display:flex;gap:12px;align-items:flex-start;padding:14px;border-radius:18px;background:rgba(0,200,117,.08);border:1px solid rgba(0,200,117,.3);cursor:pointer}
+.wnot input{width:20px;height:20px;margin-top:2px;accent-color:#00C875;flex:none}
+.wnot b{display:block;font-weight:800;font-size:.95rem}
+.wnot small{display:block;color:#A1A1AA;font-size:.8rem;line-height:1.35}
+.wfoot{padding-top:8px}
+.wgo{width:100%;min-height:56px;border-radius:18px;font-size:1.05rem;font-weight:800;border:0;color:#fff;background:linear-gradient(90deg,#FF7A00,#FF500F);box-shadow:0 14px 30px -12px rgba(255,122,0,.8)}
+/* notificações */
+.nlist{display:grid;gap:2px}
+.nlist .check{padding:8px 0}
+.nlist .check small{display:block;color:var(--muted);font-size:.78rem}
 /* sem elementos de jogo */
 .chip.lv,.chip.st,.xptag,#achCard,#nudge{display:none!important}
 .swipehint{display:none}
@@ -1446,7 +1490,7 @@ html,body{overflow-x:clip}
           <button data-install hidden><span>Instalar o app no celular<small>Baixe o app para Android ou coloque na tela inicial</small></span></button>
           <button data-pdf><span>Relatório em PDF <span class="pro">PRO</span><small>Apresentação completa do período que está aberto</small></span></button>
           <button data-open="backup"><span>Backup<small>Criar, enviar e restaurar seus dados</small></span></button><button data-open="dados"><span>Planilha e cópia em texto<small>Exportar dados em CSV ou texto</small></span></button>
-          <button data-open="avisos"><span>Lembrete e alertas<small>Lembrete diário e aviso quando gastar demais</small></span></button>
+          <button data-open="avisos"><span>Notificações e alertas<small>Lembrete diário, meta, contas do dia e resumo da semana</small></span></button>
           <button data-open="aparencia"><span>Cores e aparência<small>Rosa magenta, Dark, Pro Blue ou Petróleo</small></span></button>
         </div>
       </section>
@@ -1471,7 +1515,7 @@ html,body{overflow-x:clip}
         <button role="tab" data-tab="fixos" aria-selected="false">Fixos</button>
         <button role="tab" data-tab="backup" aria-selected="false">Backup</button><button role="tab" data-tab="dados" aria-selected="false">Dados</button>
         <button role="tab" data-tab="aparencia" aria-selected="false">Aparência</button>
-        <button role="tab" data-tab="avisos" aria-selected="false">Avisos</button>
+        <button role="tab" data-tab="avisos" aria-selected="false">Notificações</button>
       </div>
       <div class="set" data-pane="perfil">
         <div class="two-f">
@@ -1506,6 +1550,16 @@ html,body{overflow-x:clip}
           <label class="check"><input type="checkbox" id="remOn"> <span>Me lembrar de anotar os gastos todo dia</span></label>
           <div class="daterow"><input class="inp" type="time" id="remTime" value="20:00" aria-label="Horário do lembrete" style="max-width:140px"></div>
           <p class="sub" id="remNote">No app Android chega como notificação no horário escolhido. No site e no PC, o lembrete aparece quando você abre o app.</p>
+        </div>
+        <div class="field" id="ntfBox"><span class="lbl">Notificações no celular</span>
+          <div class="nlist">
+            <label class="check"><input type="checkbox" data-ntf="meta"> <span>Meta do mês<small>Avisa quando os gastos chegarem a 80% e 100% da meta</small></span></label>
+            <label class="check"><input type="checkbox" data-ntf="fix"> <span>Contas fixas do dia<small>No dia de cada gasto fixo, às 9h</small></span></label>
+            <label class="check"><input type="checkbox" data-ntf="week"> <span>Resumo da semana<small>Domingo às 19h, para conferir como foi a semana</small></span></label>
+            <label class="check"><input type="checkbox" data-ntf="box"> <span>Dia de guardar nas caixinhas<small>Todo dia 1, para as caixinhas com depósito mensal</small></span></label>
+            <label class="check"><input type="checkbox" data-ntf="bk"> <span>Lembrete de backup<small>Quando passar o prazo escolhido na aba Backup</small></span></label>
+          </div>
+          <p class="sub" id="ntfNote"></p>
         </div>
         <div class="field"><span class="lbl">Alerta de gastos <span class="pro">PRO</span></span>
           <label for="alertSel" class="sub">Avisar quando os gastos do mês chegarem a esta parte da receita</label>
@@ -1565,25 +1619,34 @@ html,body{overflow-x:clip}
   </div>
 </div>
 <div class="overlay" id="welcome" hidden>
-  <form class="sheet welcome" id="welcomeForm" role="dialog" aria-modal="true" aria-labelledby="wTitle">
-    <div class="hero">
-      <span class="mark" aria-hidden="true" style="width:44px;height:44px;border-radius:12px"><svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" style="width:24px;height:24px"><path d="M4 17l5-5 4 4 7-8"/><path d="M15 8h5v5"/></svg></span>
-      <h2 id="wTitle">Bem-vindo ao Gastei</h2>
-      <p>Anote o dinheiro que entra e o que sai, e veja quanto sobra no fim de cada mês.</p>
-    </div>
-    <div class="feat">
-      <div><b>Meta mensal</b><span>Limite diário calculado sozinho</span></div>
-      <div><b>Relatórios</b><span>Gráficos e categorias por período</span></div>
-      <div><b>Saldo do mês</b><span>Receitas menos gastos, na hora</span></div>
-      <div><b>Privado</b><span>Funciona sem internet e sem cadastro</span></div>
-    </div>
-    <div class="body">
-      <div class="two-f">
-        <div class="field"><label for="wName">Seu nome</label><input class="inp" id="wName" maxlength="30" placeholder="Ex.: Ana"></div>
-        <div class="field"><label for="wMeta">Quanto quer gastar por mês? (R$)</label><input class="inp mono" id="wMeta" inputmode="decimal" placeholder="3.000,00"></div>
+  <form class="welx" id="welcomeForm" role="dialog" aria-modal="true" aria-labelledby="wTitle" novalidate>
+    <div class="wtop"><button type="button" class="wback" id="wBack" aria-label="Voltar" style="visibility:hidden"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 18l-6-6 6-6"/></svg></button><div class="wdots" id="wDots"><i class="on"></i><i></i><i></i></div><button type="button" class="wskip" id="wDemo">Ver exemplo</button></div>
+    <section class="wstep" data-ws="0">
+      <div class="wlogo"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 17l6-6 4 4 8-8"/><path d="M15 7h6v6"/></svg></div>
+      <h2 id="wTitle">Seu dinheiro,<br><span class="wgrad">sob controle.</span></h2>
+      <p class="wlead">Anote o que entra e o que sai em segundos e saiba quanto ainda pode gastar no mês.</p>
+      <div class="wfeat">
+        <div><i class="tic" style="--ic:#C77DFF"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="5"/><circle cx="12" cy="12" r="1"/></svg></i><span><b>Meta do mês</b><small>O app calcula quanto você pode gastar por dia</small></span></div>
+        <div><i class="tic" style="--ic:#00C875"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 8a6 6 0 1 1 12 0c0 7 3 9 3 9H3s3-2 3-9"/><path d="M10.3 21a1.94 1.94 0 0 0 3.4 0"/></svg></i><span><b>Avisos no celular</b><small>Lembrete diário, contas do dia e alerta de gastos</small></span></div>
+        <div><i class="tic" style="--ic:#FF7A00"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12A9 9 0 1 1 12 3v9z"/><path d="M15 3.5A9 9 0 0 1 20.5 9H15z"/></svg></i><span><b>Relatórios e caixinhas</b><small>Veja para onde vai o dinheiro e guarde para seus planos</small></span></div>
+        <div><i class="tic" style="--ic:#4DA3FF"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l8 3v6c0 5-3.5 8-8 9-4.5-1-8-4-8-9V6z"/><path d="M9 12l2 2 4-4"/></svg></i><span><b>Privado</b><small>Sem cadastro. Seus dados ficam no seu aparelho</small></span></div>
       </div>
-      <div class="row2"><button type="button" class="btn ghost" id="wDemo">Ver com exemplos</button><button class="btn" id="wStart">Começar</button></div>
-    </div>
+    </section>
+    <section class="wstep" data-ws="1" hidden>
+      <div class="wavt" id="wAvt">?</div>
+      <h2>Como podemos te chamar?</h2>
+      <p class="wlead">Seu nome aparece na saudação do Início.</p>
+      <input class="inp wbig" id="wName" maxlength="30" placeholder="Seu nome" autocomplete="given-name" enterkeyhint="next">
+    </section>
+    <section class="wstep" data-ws="2" hidden>
+      <div class="wlogo sm"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="5"/><circle cx="12" cy="12" r="1"/></svg></div>
+      <h2>Quanto quer gastar por mês?</h2>
+      <p class="wlead">Essa é a sua meta. O Gastei avisa quando você estiver chegando perto. Dá para mudar depois.</p>
+      <div class="wmoney"><span>R$</span><input class="inp mono wbig" id="wMeta" inputmode="decimal" placeholder="3.000,00" enterkeyhint="done"></div>
+      <div class="wchips" id="wChips"><button type="button" data-wm="150000">R$ 1.500</button><button type="button" data-wm="200000">R$ 2.000</button><button type="button" data-wm="300000">R$ 3.000</button><button type="button" data-wm="500000">R$ 5.000</button></div>
+      <label class="wnot" id="wNotRow" hidden><input type="checkbox" id="wNotif" checked><span><b>Ligar notificações</b><small>Lembrete às 20h para anotar os gastos, contas do dia e alerta da meta</small></span></label>
+    </section>
+    <div class="wfoot"><button type="submit" class="btn wgo" id="wStart">Começar</button></div>
   </form>
 </div>
 
@@ -1624,7 +1687,7 @@ function load(){
   try{var r=localStorage.getItem(KEY);if(r){var o=JSON.parse(r);if(o&&Array.isArray(o.items)){had=true;
     S.items=o.items;S.seeded=!!o.seeded;S.meta=o.meta>0?o.meta:300000;S.name=o.name||"";S.cats=Array.isArray(o.cats)&&o.cats.length?o.cats:null;S.theme=o.theme||"auto";S.wk=o.wk===0?0:1;
     S.icats=Array.isArray(o.icats)&&o.icats.length?o.icats:null;S.recs=Array.isArray(o.recs)?o.recs:[];S.recDone=o.recDone&&typeof o.recDone==="object"?o.recDone:{};
-    S.onboarded=o.onboarded!=null?!!o.onboarded:o.items.some(function(i){return !i.ex});S.priv=!!o.priv;S.pal=o.pal||"teal";S.lastBk=o.lastBk||0;S.bkSnooze=o.bkSnooze||0;S.bkEvery=o.bkEvery!=null?o.bkEvery:14;S.bkAuto=!!o.bkAuto;S.autoBk=o.autoBk||0;S.trial=o.trial||0;S.premPlay=o.premPlay||null;S.premCode=o.premCode||null;S.usedCodes=o.usedCodes||[];S.trialEndSeen=o.trialEndSeen||0;S.rem=o.rem||{on:false,h:20,m:0};S.alertPct=o.alertPct||0;S.alertDone=o.alertDone||{};S.cards=Array.isArray(o.cards)?o.cards:[];S.goals=Array.isArray(o.goals)?o.goals:[]}}}catch(e){}
+    S.onboarded=o.onboarded!=null?!!o.onboarded:o.items.some(function(i){return !i.ex});S.priv=!!o.priv;S.pal=o.pal||"teal";S.lastBk=o.lastBk||0;S.bkSnooze=o.bkSnooze||0;S.ntf=o.ntf||{meta:1,fix:1,week:1,box:1,bk:1};S.metaDone=o.metaDone||{};S.bkEvery=o.bkEvery!=null?o.bkEvery:14;S.bkAuto=!!o.bkAuto;S.autoBk=o.autoBk||0;S.trial=o.trial||0;S.premPlay=o.premPlay||null;S.premCode=o.premCode||null;S.usedCodes=o.usedCodes||[];S.trialEndSeen=o.trialEndSeen||0;S.rem=o.rem||{on:false,h:20,m:0};S.alertPct=o.alertPct||0;S.alertDone=o.alertDone||{};S.cards=Array.isArray(o.cards)?o.cards:[];S.goals=Array.isArray(o.goals)?o.goals:[]}}}catch(e){}
   if(!S.cats)S.cats=DEFAULT_CATS.map(function(c){return{k:c.k,n:c.n,c:c.c}});
   if(!S.icats)S.icats=DEFAULT_ICATS.map(function(c){return{k:c.k,n:c.n,c:c.c}});
   return had;
@@ -1839,7 +1902,7 @@ function del(id){
 /* ---------- topo e resumo ---------- */
 function drawTop(){
   var g=xpState();
-  $("#appName").textContent=APP_NAME;$("#footName").textContent=APP_NAME+" · controle de gastos pessoal";$("#wTitle").textContent="Bem-vindo ao "+APP_NAME;
+  $("#appName").textContent=APP_NAME;$("#footName").textContent=APP_NAME+" · controle de gastos pessoal";
   var h=new Date().getHours(),sal=h<12?"Bom dia":h<18?"Boa tarde":"Boa noite";
   $("#hello").textContent=S.name?sal+", "+S.name:sal;
   $("#lv").textContent=g.lv;$("#rank").textContent=rankOf(g.lv);$("#xpFill").style.width=(g.cur/g.need*100)+"%";
@@ -2237,7 +2300,16 @@ function finishWelcome(withDemo){
   if(withDemo)S.items=S.items.concat(demo());
   save();$("#welcome").hidden=true;lastLevel=null;render();valor.focus();
 }
-$("#welcomeForm").addEventListener("submit",function(e){e.preventDefault();finishWelcome(false)});
+var wStep=0;
+function wGo(n){wStep=n;$$("#welcomeForm .wstep").forEach(function(x){x.hidden=+x.dataset.ws!==n});$$("#wDots i").forEach(function(d,k){d.className=k<=n?"on":""});
+  $("#wBack").style.visibility=n===0?"hidden":"visible";$("#wDemo").style.visibility=n!==0?"hidden":"visible";$("#wStart").textContent=["Começar","Continuar","Começar a usar"][n];$("#wNotRow").hidden=!NATIVE;
+  setTimeout(function(){if(n===1)$("#wName").focus();if(n===2)$("#wMeta").focus()},60)}
+$("#welcomeForm").addEventListener("submit",function(e){e.preventDefault();if(wStep<2){wGo(wStep+1);return}
+  if(NATIVE&&$("#wNotif").checked){S.rem.on=true;S.ntf=S.ntf||{};save();scheduleReminder(true).then(function(){scheduleNotifs(true)})}finishWelcome(false)});
+$("#wBack").addEventListener("click",function(){if(wStep>0)wGo(wStep-1)});
+$("#wName").addEventListener("input",function(){var v=this.value.trim();$("#wAvt").textContent=v?v.split(/\s+/).map(function(w){return w.charAt(0)}).slice(0,2).join("").toUpperCase():"?"});
+$("#wChips").addEventListener("click",function(e){var b=e.target.closest("[data-wm]");if(!b)return;$("#wMeta").value=fmtNum.format(+b.dataset.wm/100);$$("#wChips [data-wm]").forEach(function(x){x.setAttribute("aria-pressed",String(x===b))});buzz(4)});
+$("#wMeta").addEventListener("input",function(){$$("#wChips [data-wm]").forEach(function(x){x.setAttribute("aria-pressed","false")})});
 $("#wDemo").addEventListener("click",function(){finishWelcome(true)});
 
 /* ---------- app de celular: abas, painel, gestos ---------- */
@@ -2661,6 +2733,8 @@ function pad2(n){return(n<10?"0":"")+n}
 function syncAvisos(){
   $("#remOn").checked=!!S.rem.on;$("#remTime").value=pad2(S.rem.h)+":"+pad2(S.rem.m);$("#remTime").disabled=!S.rem.on;
   $("#alertSel").value=String(S.alertPct||0);
+  $$("[data-ntf]").forEach(function(c){c.checked=!!(S.ntf||{})[c.dataset.ntf]});
+  $("#ntfNote").textContent=NATIVE?"As notificações chegam mesmo com o app fechado.":"As notificações funcionam no app Android. No PC e no site, os avisos aparecem quando você abre o app.";
   $("#remNote").textContent=NATIVE?"Chega como notificação no horário escolhido, todos os dias.":"No app Android chega como notificação no horário escolhido. No site e no PC, o lembrete aparece quando você abre o app depois desse horário.";
 }
 function scheduleReminder(ask){
@@ -2678,6 +2752,38 @@ $("#remOn").addEventListener("change",function(){S.rem.on=this.checked;save();sy
 $("#remTime").addEventListener("change",function(){var v=this.value.split(":");S.rem.h=+v[0]||20;S.rem.m=+v[1]||0;save();scheduleReminder(false);toast("Lembrete às "+pad2(S.rem.h)+":"+pad2(S.rem.m))});
 $("#alertSel").addEventListener("change",function(){var v=+this.value;if(v&&needPrem("alerta")){this.value=String(S.alertPct||0);return}S.alertPct=v;S.alertDone={};save();render();toast(v?"Vamos avisar quando os gastos chegarem a "+v+"% da receita":"Alerta desligado");if(v&&NATIVE)nat("LocalNotifications","requestPermissions",{},15000).catch(function(){})});
 WHY.alerta="O alerta de gastos faz parte do Premium.";WHY.ocr="A leitura de comprovante por foto faz parte do Premium.";WHY.card="O controle de cartão de crédito faz parte do Premium.";WHY.goals="As caixinhas fazem parte do Premium.";WHY.prev="A previsão do fim do mês faz parte do Premium.";
+
+/* ---------- notificações no celular ---------- */
+var ntfSig="",ntfT=0;
+function notifyNow(id,title,body){
+  if(NATIVE){nat("LocalNotifications","schedule",{notifications:[{id:id,title:title,body:body}]},5000).catch(function(){});return}
+  try{if(window.Notification&&Notification.permission==="granted")new Notification(title,{body:body,icon:"icon-192.png"})}catch(e){}}
+function at(d,h,m){var x=new Date(d.getFullYear(),d.getMonth(),d.getDate(),h,m||0,0);return x}
+function buildNotifs(){var L=[],n=S.ntf||{},t=new Date(),td=today();
+  if(n.week)L.push({id:1003,title:"Resumo da semana",body:"Veja quanto você gastou nesta semana e como está o mês.",schedule:{on:{weekday:1,hour:19,minute:0},allowWhileIdle:true}});
+  if(n.bk){var ev=S.bkEvery==null?14:S.bkEvery,last=Math.max(S.lastBk||0,S.autoBk||0)||S.trial||Date.now();if(ev>0&&S.items.filter(function(i){return !i.ex}).length>=10){var due=new Date(last+ev*864e5),w=at(due,10);if(w<=t)w=at(addDays(td,1),10);
+    L.push({id:1004,title:"Hora de fazer backup",body:"Guarde uma cópia dos seus dados. Leva poucos segundos.",schedule:{at:w.toISOString(),allowWhileIdle:true}})}}
+  if(n.fix)(S.recs||[]).filter(function(r){return(r.t||"out")==="out"&&r.day}).slice(0,30).forEach(function(r,i){
+    var d=new Date(td.getFullYear(),td.getMonth(),Math.min(r.day,new Date(td.getFullYear(),td.getMonth()+1,0).getDate())),w=at(d,9);
+    if(w<=t){d=new Date(td.getFullYear(),td.getMonth()+1,Math.min(r.day,new Date(td.getFullYear(),td.getMonth()+2,0).getDate()));w=at(d,9)}
+    L.push({id:1100+i,title:"Conta de hoje: "+r.n,body:brl(r.v)+" lançado no Gastei.",schedule:{at:w.toISOString(),allowWhileIdle:true}})});
+  if(n.box&&isPrem()){var nx=new Date(td.getFullYear(),td.getMonth()+1,1),w1=at(nx,10);
+    (S.goals||[]).filter(function(g){return g.mon>0&&!g.auto&&goalSaved(g)<g.target}).slice(0,20).forEach(function(g,i){
+      L.push({id:1200+i,title:"Dia de guardar na caixinha",body:g.n+": "+brl(g.mon)+" este mês.",schedule:{at:w1.toISOString(),allowWhileIdle:true}})})}
+  return L}
+function scheduleNotifs(ask){if(!NATIVE)return Promise.resolve();var Lc="LocalNotifications",list=buildNotifs(),sig=JSON.stringify(list);
+  if(!ask&&sig===ntfSig)return Promise.resolve();
+  var ids=[{id:1003},{id:1004}];for(var k=0;k<30;k++)ids.push({id:1100+k});for(k=0;k<20;k++)ids.push({id:1200+k});
+  return (ask?nat(Lc,"requestPermissions",{},15000):nat(Lc,"checkPermissions",{},4000)).then(function(r){
+    if(r&&r.display&&r.display!=="granted"){if(ask)toast("Permita as notificações do Gastei nas configurações do Android");return}
+    ntfSig=sig;return nat(Lc,"cancel",{notifications:ids},4000).catch(function(){}).then(function(){if(list.length)return nat(Lc,"schedule",{notifications:list},6000)})}).catch(function(){})}
+function checkMetaNotif(){var n=S.ntf||{};if(!n.meta||!S.meta||hasEx())return;var m=monthNow(),pc=m.out/S.meta*100,lv=pc>=100?100:pc>=80?80:0;
+  S.metaDone=S.metaDone||{};if(!lv||(S.metaDone[m.ym]||0)>=lv)return;S.metaDone[m.ym]=lv;save();
+  notifyNow(1005,lv>=100?"Meta do mês atingida":"Você já usou 80% da meta",lv>=100?"Os gastos de "+MOL[m.a.getMonth()]+" chegaram a "+brl(m.out)+", acima da meta de "+brl(S.meta)+".":"Já foram "+brl(m.out)+" de "+brl(S.meta)+". Ainda dá para gastar "+brl(Math.max(0,S.meta-m.out))+" até o fim do mês.")}
+function afterRenderNtf(){clearTimeout(ntfT);ntfT=setTimeout(function(){checkMetaNotif();scheduleNotifs(false)},800)}
+$$("[data-ntf]").forEach(function(c){c.addEventListener("change",function(){S.ntf=S.ntf||{};S.ntf[c.dataset.ntf]=c.checked?1:0;save();
+  if(c.checked&&!NATIVE&&window.Notification&&Notification.permission==="default"){try{Notification.requestPermission()}catch(e){}}
+  scheduleNotifs(c.checked);toast(c.checked?"Notificação ligada":"Notificação desligada")})});
 
 /* ---------- alerta de % da receita (Premium) ---------- */
 function checkAlert(){
@@ -2698,10 +2804,10 @@ function checkAlert(){
 var lastWidget="";
 function pushWidget(){
   if(!NATIVE)return;var m=monthNow(),net=m.inc-m.out,day=m.inc?Math.max(0,Math.floor(net/m.left)):0;
-  var w={label:"Disponível em "+MOL[m.a.getMonth()],value:S.priv?"R$ ••••":(net<0?"- ":"")+brl(Math.abs(net)),sub:m.inc?(S.priv?"Toque para abrir":"Pode gastar "+brl(day)+" por dia"):"Lance sua receita para começar"};
+  var hide=S.priv,w={label:"Disponível em "+MOL[m.a.getMonth()],value:hide?"R$ ••••":(net<0?"- ":"")+brl(Math.abs(net)),sub:m.inc?(hide?"":brl(day)+"/dia"):"Lance sua receita",inc:hide?"R$ ••••":brl(m.inc),out:hide?"R$ ••••":brl(m.out),pct:m.inc?Math.min(100,Math.round(m.out/m.inc*100)):(m.out?100:0)};
   var k=JSON.stringify(w);if(k===lastWidget)return;lastWidget=k;nat("GasteiNative","widget",w,5000).catch(function(){});
 }
-function checkLaunch(){if(!NATIVE)return;nat("GasteiNative","action",{},4000).then(function(r){if(r&&r.action==="add"){resetForm();ftype="out";drawCats();showForm()}else if(r&&r.action==="voice")startVoice()}).catch(function(){})}
+function checkLaunch(){if(!NATIVE)return;nat("GasteiNative","action",{},4000).then(function(r){if(r&&(r.action==="add"||r.action==="add_in")){var ab=$('[data-add="'+(r.action==="add_in"?"in":"out")+'"]');if(ab)ab.click();else{resetForm();ftype="out";drawCats();showForm()}}else if(r&&r.action==="voice")startVoice()}).catch(function(){})}
 document.addEventListener("visibilitychange",function(){if(document.visibilityState==="visible")checkLaunch()});
 
 /* ---------- lançar por voz ---------- */
@@ -3001,13 +3107,13 @@ function drawIcons(){
   [["#balIn","down","#00C875"],["#balOut","up","#FF500F"],["#balNet","wallet","#C77DFF"],["#balRate","pig","#FF7A00"],["#hIn","down","#00C875"],["#hOut","up","#FF500F"],["#hNet","wallet","#C77DFF"],["#hAvg","avg","#4DA3FF"]].forEach(function(q){var b=$(q[0]);if(b&&b.previousElementSibling&&b.previousElementSibling.tagName==="SPAN")addTic(b.previousElementSibling,q[1],q[2])});
   var ma=$("#mAcc");if(ma&&ma.textContent.trim())addTic(ma,"wallet","#00C875");
 }
-function render(){drawTitle();drawTop();drawKpis();drawGoal();drawFilters();drawPeriod();drawMonth();drawHist();drawBkNote();applyPriv();applyPrem();drawPlan();checkAlert();pushWidget();postLook();drawIcons()}
+function render(){drawTitle();drawTop();drawKpis();drawGoal();drawFilters();drawPeriod();drawMonth();drawHist();drawBkNote();applyPriv();applyPrem();drawPlan();checkAlert();pushWidget();postLook();drawIcons();afterRenderNtf()}
 document.body.dataset.tab="home";
-var had=load();if(!S.rem)S.rem={on:false,h:20,m:0};if(!S.alertDone)S.alertDone={};if(!S.cards)S.cards=[];if(!S.goals)S.goals=[];if(S.alertPct==null)S.alertPct=0;if(!S.lookV2){S.lookV2=1;S.pal="neon";save()}if(!S.trial){S.trial=Date.now();save()}applyAutoBoxes();applyRecurring();applyTheme();billingInit(false);setTimeout(function(){scheduleReminder(false);checkLaunch()},600);
+var had=load();if(!S.rem)S.rem={on:false,h:20,m:0};if(!S.alertDone)S.alertDone={};if(!S.cards)S.cards=[];if(!S.goals)S.goals=[];if(!S.ntf)S.ntf={meta:1,fix:1,week:1,box:1,bk:1};if(!S.metaDone)S.metaDone={};if(S.alertPct==null)S.alertPct=0;if(!S.lookV2){S.lookV2=1;S.pal="neon";save()}if(!S.trial){S.trial=Date.now();save()}applyAutoBoxes();applyRecurring();applyTheme();billingInit(false);setTimeout(function(){scheduleReminder(false);checkLaunch()},600);
 if(!had&&!S.items.length)S.items=demo();
 drawCats();resetForm();render();
 if(S.trial&&!isPrem()&&!S.trialEndSeen&&S.onboarded){S.trialEndSeen=1;save();setTimeout(function(){openPlans("fim")},900)}
-if(!S.onboarded){$("#welcome").hidden=false;setTimeout(function(){$("#wName").focus()},50)}
+if(!S.onboarded){$("#welcome").hidden=false;wGo(0)}
 })();
 </script>
 

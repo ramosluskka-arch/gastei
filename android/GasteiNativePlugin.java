@@ -24,6 +24,9 @@ public class GasteiNativePlugin extends Plugin {
     e.putString("label", call.getString("label", "Disponível no mês"));
     e.putString("value", call.getString("value", ""));
     e.putString("sub", call.getString("sub", ""));
+    e.putString("inc", call.getString("inc", "R$ 0,00"));
+    e.putString("out", call.getString("out", "R$ 0,00"));
+    e.putInt("pct", call.getInt("pct", 0));
     e.apply();
     GasteiWidgetProvider.updateAll(getContext());
     call.resolve();
