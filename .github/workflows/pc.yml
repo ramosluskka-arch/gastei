@@ -36,4 +36,4 @@ jobs:
           GH_TOKEN: ${{ github.token }}
         run: |
           gh release delete pc --yes --cleanup-tag || true
-          gh release create pc desktop/dist/Gastei-Setup.exe desktop/dist/Gastei-PC.exe --title "Gastei para PC (Windows)" --notes "Gastei-Setup.exe: instala o Gastei no Windows, com ícone na área de trabalho e no menu Iniciar. Gastei-PC.exe: versão portátil, abre sem instalar. Os dois mostram o Gastei numa janela em formato de celular e guardam seus dados no computador." --latest=false
+          gh release create pc desktop/dist/Gastify-Setup.exe desktop/dist/Gastify-PC.exe --title "Gastify para PC (Windows)" --notes "Gastify-Setup.exe: instala o Gastify no Windows, com ícone na área de trabalho e no menu Iniciar. Gastify-PC.exe: versão portátil, abre sem instalar. Os dois mostram o Gastify numa janela em formato de celular e guardam seus dados no computador." --latest=false

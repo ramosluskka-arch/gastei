@@ -35,7 +35,7 @@ jobs:
           cat > capacitor.config.json <<'JSON'
           {
             "appId": "com.gastei.app",
-            "appName": "Gastei",
+            "appName": "Gastify",
             "webDir": "www",
             "android": { "allowMixedContent": false, "webContentsDebuggingEnabled": false },
             "plugins": { "SystemBars": { "insetsHandling": "native" } }
@@ -47,11 +47,10 @@ jobs:
         run: |
           cd build/android/app/src/main
           cp "$GITHUB_WORKSPACE"/android/*.java java/com/gastei/app/
-          rm -rf res/mipmap-anydpi-v26
           cp -r "$GITHUB_WORKSPACE"/android/res/* res/
           python3 - <<'PY2'
           p = "AndroidManifest.xml"; m = open(p).read()
-          rcv = '<receiver android:name=".GasteiWidgetProvider" android:exported="true" android:label="Gastei"><intent-filter><action android:name="android.appwidget.action.APPWIDGET_UPDATE"/></intent-filter><meta-data android:name="android.appwidget.provider" android:resource="@xml/gastei_widget_info"/></receiver>'
+          rcv = '<receiver android:name=".GasteiWidgetProvider" android:exported="true" android:label="Gastify"><intent-filter><action android:name="android.appwidget.action.APPWIDGET_UPDATE"/></intent-filter><meta-data android:name="android.appwidget.provider" android:resource="@xml/gastei_widget_info"/></receiver>'
           q = '<queries><intent><action android:name="android.speech.action.RECOGNIZE_SPEECH"/></intent></queries>'
           m = m.replace("</application>", rcv + "\n</application>", 1).replace("</manifest>", q + "\n</manifest>", 1)
           perm = '<uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" android:maxSdkVersion="29"/><uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" android:maxSdkVersion="32"/>'
@@ -62,19 +61,36 @@ jobs:
           print(m)
           PY2
           pip install --quiet pillow
-          python3 - "$GITHUB_WORKSPACE/icon-512.png" <<'PY'
-          import sys, glob
+          python3 - "$GITHUB_WORKSPACE/android/icon" <<'PY'
+          import sys, glob, os
           from PIL import Image
-          icon = Image.open(sys.argv[1]).convert("RGBA")
-          for f in glob.glob("res/mipmap-*/ic_launcher*.png"):
-              w = Image.open(f).size[0]
-              icon.resize((w, w), Image.LANCZOS).save(f)
+          D = sys.argv[1]
+          legacy = Image.open(D + "/legacy.png").convert("RGBA")
+          fg = Image.open(D + "/foreground.png").convert("RGBA")
+          bg = Image.open(D + "/background.png").convert("RGB")
+          dens = {"mdpi": 1, "hdpi": 1.5, "xhdpi": 2, "xxhdpi": 3, "xxxhdpi": 4}
+          for d, k in dens.items():
+              os.makedirs("res/mipmap-" + d, exist_ok=True)
+              w = round(48 * k); a = round(108 * k)
+              legacy.resize((w, w), Image.LANCZOS).save("res/mipmap-%s/ic_launcher.png" % d)
+              legacy.resize((w, w), Image.LANCZOS).save("res/mipmap-%s/ic_launcher_round.png" % d)
+              fg.resize((a, a), Image.LANCZOS).save("res/mipmap-%s/ic_launcher_foreground.png" % d)
+              bg.resize((a, a), Image.LANCZOS).save("res/mipmap-%s/ic_launcher_background.png" % d)
+          os.makedirs("res/mipmap-anydpi-v26", exist_ok=True)
+          xml = '<?xml version="1.0" encoding="utf-8"?>\n<adaptive-icon xmlns:android="http://schemas.android.com/apk/res/android"><background android:drawable="@mipmap/ic_launcher_background"/><foreground android:drawable="@mipmap/ic_launcher_foreground"/><monochrome android:drawable="@mipmap/ic_launcher_foreground"/></adaptive-icon>\n'
+          for n in ("ic_launcher", "ic_launcher_round"):
+              open("res/mipmap-anydpi-v26/%s.xml" % n, "w").write(xml)
           for f in glob.glob("res/drawable*/splash.png"):
               W, H = Image.open(f).size
               m = min(W, H) // 3
-              bg = Image.new("RGBA", (W, H), (11, 110, 127, 255))
-              bg.paste(icon.resize((m, m), Image.LANCZOS), ((W - m) // 2, (H - m) // 2), icon.resize((m, m), Image.LANCZOS))
-              bg.convert("RGB").save(f)
+              sp = Image.new("RGBA", (W, H), (91, 10, 160, 255))
+              ic = legacy.resize((m, m), Image.LANCZOS)
+              sp.paste(ic, ((W - m) // 2, (H - m) // 2), ic)
+              sp.convert("RGB").save(f)
+          for f in glob.glob("res/values*/*.xml"):
+              t = open(f).read()
+              if "ic_launcher_background" in t:
+                  open(f, "w").write(t.replace("#FFFFFF", "#5B0AA0").replace("#ffffff", "#5B0AA0"))
           PY
           sed -i '0,/^dependencies {/s//dependencies {\n    implementation "com.android.billingclient:billing:8.0.0"/' ../../build.gradle
           grep -n "billingclient" ../../build.gradle
@@ -92,16 +108,16 @@ jobs:
             echo "$KS_B64" | base64 -d > ks.jks
           else
             echo "::warning::Sem o segredo GASTEI_KEYSTORE: usando uma chave temporaria. Atualizar o app vai exigir desinstalar antes."
-            keytool -genkeypair -keystore ks.jks -alias gastei -keyalg RSA -keysize 2048 -validity 10000 -storepass "$KS_PASS" -keypass "$KS_PASS" -dname "CN=Gastei, C=BR"
+            keytool -genkeypair -keystore ks.jks -alias gastei -keyalg RSA -keysize 2048 -validity 10000 -storepass "$KS_PASS" -keypass "$KS_PASS" -dname "CN=Gastify, C=BR"
           fi
-          $BT/apksigner sign --ks ks.jks --ks-pass env:KS_PASS --key-pass env:KS_PASS --ks-key-alias gastei --out "$GITHUB_WORKSPACE/Gastei.apk" aligned.apk
-          $BT/apksigner verify "$GITHUB_WORKSPACE/Gastei.apk"
+          $BT/apksigner sign --ks ks.jks --ks-pass env:KS_PASS --key-pass env:KS_PASS --ks-key-alias gastei --out "$GITHUB_WORKSPACE/Gastify.apk" aligned.apk
+          $BT/apksigner verify "$GITHUB_WORKSPACE/Gastify.apk"
           if [ -n "$KS_B64" ]; then
-            cp app/build/outputs/bundle/release/app-release.aab "$GITHUB_WORKSPACE/Gastei.aab"
-            jarsigner -keystore ks.jks -storepass "$KS_PASS" -keypass "$KS_PASS" -sigalg SHA256withRSA -digestalg SHA-256 "$GITHUB_WORKSPACE/Gastei.aab" gastei
-            jarsigner -verify "$GITHUB_WORKSPACE/Gastei.aab" | tail -1
+            cp app/build/outputs/bundle/release/app-release.aab "$GITHUB_WORKSPACE/Gastify.aab"
+            jarsigner -keystore ks.jks -storepass "$KS_PASS" -keypass "$KS_PASS" -sigalg SHA256withRSA -digestalg SHA-256 "$GITHUB_WORKSPACE/Gastify.aab" gastei
+            jarsigner -verify "$GITHUB_WORKSPACE/Gastify.aab" | tail -1
           else
-            echo "::warning::O pacote para a Play Store (Gastei.aab) so e gerado com a chave fixa nos segredos."
+            echo "::warning::O pacote para a Play Store (Gastify.aab) so e gerado com a chave fixa nos segredos."
           fi
         env:
           KS_B64: ${{ secrets.GASTEI_KEYSTORE }}
@@ -111,5 +127,5 @@ jobs:
           GH_TOKEN: ${{ github.token }}
         run: |
           gh release delete app --yes --cleanup-tag || true
-          FILES="Gastei.apk"; [ -f Gastei.aab ] && FILES="$FILES Gastei.aab"
-          gh release create app $FILES --title "Gastei para Android" --notes "Gastei.apk: baixe e abra no celular para instalar. Gastei.aab (quando existir): pacote para enviar na Play Store." --latest
+          FILES="Gastify.apk"; [ -f Gastify.aab ] && FILES="$FILES Gastify.aab"
+          gh release create app $FILES --title "Gastify para Android" --notes "Gastify.apk: baixe e abra no celular para instalar. Gastify.aab (quando existir): pacote para enviar na Play Store." --latest

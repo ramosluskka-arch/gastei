@@ -14,7 +14,7 @@ import com.getcapacitor.annotation.CapacitorPlugin;
 public class GasteiPrintPlugin extends Plugin {
   @PluginMethod
   public void print(final PluginCall call) {
-    final String name = call.getString("name", "Gastei");
+    final String name = call.getString("name", "Gastify");
     getActivity().runOnUiThread(new Runnable() {
       public void run() {
         WebView wv = getBridge().getWebView();

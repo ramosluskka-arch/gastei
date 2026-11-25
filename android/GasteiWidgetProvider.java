@@ -20,7 +20,7 @@ public class GasteiWidgetProvider extends AppWidgetProvider {
     SharedPreferences p = c.getSharedPreferences("gastei_widget", Context.MODE_PRIVATE);
     RemoteViews v = new RemoteViews(c.getPackageName(), R.layout.gastei_widget);
     v.setTextViewText(R.id.w_label, p.getString("label", "Disponível no mês"));
-    v.setTextViewText(R.id.w_value, p.getString("value", "Abra o Gastei"));
+    v.setTextViewText(R.id.w_value, p.getString("value", "Abra o Gastify"));
     v.setTextViewText(R.id.w_pct, p.getString("sub", ""));
     v.setTextViewText(R.id.w_in, p.getString("inc", "R$ 0,00"));
     v.setTextViewText(R.id.w_out, p.getString("out", "R$ 0,00"));

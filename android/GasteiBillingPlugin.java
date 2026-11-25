@@ -25,7 +25,7 @@ import java.util.List;
 import java.util.Map;
 
 /*
- * Compras do Gastei Premium pelo Google Play.
+ * Compras do Gastify Premium pelo Google Play.
  * Produtos que precisam existir no Play Console:
  *   - assinatura "gastei_premium" com os planos básicos "mensal" e "anual"
  *   - produto único "gastei_vitalicio"
