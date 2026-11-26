@@ -1316,7 +1316,15 @@ html,body{overflow-x:clip}
 .ntfblock[hidden]{display:none}.ntfblock b{color:var(--ink)}.ntfblock span{color:var(--muted)}.ntfblock .btn{justify-self:start;margin-top:4px;width:auto;padding:10px 16px}
 /* ===== v37: app mais interativo e dinâmico ===== */
 /* nova ordem do Início: o que você usa mais fica em cima */
-#monthCard{order:1}#quickRow{order:2}.dtiles{order:3}#bkNote{order:4;margin:0}#d7Card{order:5}#dCatCard{order:6}#monthList{order:7}
+#monthCard{order:1}#quickRow{order:2}#mSay{order:3}.dtiles{order:4;display:none!important}#bkNote{order:5;margin:0}#d7Card{order:6}#dCatCard{order:7}#monthList{order:8}
+.msay{display:grid;padding:4px 18px!important;background:linear-gradient(160deg,color-mix(in srgb,var(--pur,var(--primary)) 22%,var(--surface)),var(--surface) 62%)!important;border-color:color-mix(in srgb,var(--pur2,var(--primary)) 28%,transparent)!important}
+.msay[hidden]{display:none}
+.msay p{margin:0;padding:13px 0;border-top:1px solid var(--line);font-size:.98rem;line-height:1.45;color:var(--ink);display:grid;grid-template-columns:42px minmax(0,1fr);gap:14px;align-items:center}
+.msay p:first-child{border-top:0}.msay p[data-go],.msay p[data-addx]{cursor:pointer;border-radius:12px;transition:transform .14s,background-color .15s}.msay p[data-go]:active,.msay p[data-addx]:active{transform:scale(.98);background:color-mix(in srgb,var(--ink) 5%,transparent)}.msay p span{color:color-mix(in srgb,var(--ink) 82%,transparent)}
+.msay p b{color:var(--ink);font-weight:800;white-space:nowrap}.msay p b.al{color:#FF6B6B}.msay p b.ok{color:var(--good,#3DDC97)}
+.msay p i{width:42px;height:42px;border-radius:14px;display:grid;place-items:center;background:color-mix(in srgb,var(--c) 20%,var(--surface));color:var(--c);box-shadow:0 6px 16px -6px color-mix(in srgb,var(--c) 70%,transparent)}
+.msay p i svg{width:21px;height:21px}
+body.priv .msay b{filter:blur(7px)}
 /* toque: onda de luz onde o dedo encostou */
 .ripw{position:absolute;inset:0;border-radius:inherit;overflow:hidden;pointer-events:none;z-index:0}
 .rip{position:absolute;border-radius:50%;background:currentColor;opacity:.16;transform:scale(0);pointer-events:none;animation:rip .55s cubic-bezier(.2,.8,.3,1) forwards}
@@ -1411,6 +1419,7 @@ body.fabx .tabbar .fab .fabl{max-width:90px;margin-left:8px}
   </div></section>
   <div class="notice" id="bkNote" data-v="home" hidden><span><b>Proteja seus dados.</b> <span id="bkNoteT">Faça uma cópia de segurança de vez em quando.</span></span><span style="display:flex;gap:12px"><button class="link" id="bkGo">Fazer cópia</button><button class="link" id="bkLater" style="color:var(--muted)">Depois</button></span></div>
   <div class="dash" data-v="home">
+    <section class="card msay" id="mSay" data-v="home" aria-label="Resumo em frases" hidden></section>
     <div class="dtiles">
       <div class="dt hl"><span>Pode gastar por dia</span><b class="mono" id="dDay">—</b><small id="dDayS"></small></div>
       <div class="dt"><span>Gasto hoje</span><b class="mono" id="dToday">—</b><small id="dTodayS"></small></div>
@@ -2609,6 +2618,23 @@ function drawMonth(){
   var pa=new Date(a.getFullYear(),a.getMonth()-1,1),pb=new Date(a.getFullYear(),a.getMonth(),0),cutoff=isCur?new Date(pa.getFullYear(),pa.getMonth(),Math.min(t.getDate(),pb.getDate())):pb,prev=sumRange(pa,cutoff).t,cmp=$("#dCmp");
   if(prev&&out){var p=Math.round((out-prev)/prev*100);cmp.textContent=(p>0?"+":"")+p+"%";cmp.className=p>0?"up":"down";$("#dCmpS").textContent=(p>0?"gastou mais":"gastou menos")+" que "+(isCur?"no mesmo ponto de ":"em ")+MOL[pa.getMonth()]}
   else{cmp.textContent="—";cmp.className="";$("#dCmpS").textContent="sem dados para comparar"}
+  /* frases simples: "Você gastou..." */
+  var sy=$("#mSay");if(sy){var mine=S.items.some(function(i){return !i.ex}),sh="";
+    function si(c,pth){return'<i style="--c:'+c+'"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">'+pth+'</svg></i>'}
+    if(isCur&&(out||inc)){
+      var dia=inc&&net>0?Math.floor(net/left):0,alw=inc?Math.max(0,Math.floor((net+ts.t)/left)):0,rst=alw-ts.t,cmpTxt="";
+      if(prev&&out){var df=out-prev;cmpTxt=Math.abs(df)>=100?(df>0?'<b class="al">'+brl(df)+' a mais</b>':'<b class="ok">'+brl(-df)+' a menos</b>')+' que no mesmo ponto de '+MOL[pa.getMonth()]:""}
+      /* 1ª frase: quanto dá para gastar por dia */
+      if(!inc)sh+='<p data-addx="in">'+si("#B26BFF",'<path d="M12 5v14M5 12h14"/>')+'<span>Adicione o que você recebe no mês para ver <b>quanto pode gastar por dia</b>.</span></p>';
+      else if(dia>0)sh+='<p data-go="plan">'+si("#B26BFF",'<path d="M12 20a8 8 0 1 1 8-8"/><path d="M12 12l4-4"/>')+'<span>Para fechar o mês no azul, gaste até <b class="ok">'+brl(dia)+' por dia</b>.</span></p>';
+      else sh+='<p data-go="plan">'+si("#FF5C93",'<path d="M12 9v4M12 17h.01"/><path d="M10.3 3.9 1.8 18a2 2 0 0 0 1.7 3h17a2 2 0 0 0 1.7-3L13.7 3.9a2 2 0 0 0-3.4 0z"/>')+'<span>Os gastos já passaram do que entrou. <b class="al">Segure até a próxima receita</b>.</span></p>';
+      /* 2ª frase: como está o dia de hoje (ou o mês, se ainda não gastou hoje) */
+      if(ts.t&&inc)sh+='<p data-go="list">'+si("#FF9A3D",'<circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/>')+'<span>Hoje você gastou <b>'+brl(ts.t)+'</b>'+(rst>=0?' e ainda tem <b class="ok">'+brl(rst)+'</b> livres no dia.':', <b class="al">'+brl(-rst)+' além</b> do ideal de hoje.')+'</span></p>';
+      else if(cmpTxt)sh+='<p data-go="mes">'+si("#2F9BFF",'<path d="M4 20V10M10 20V4M16 20v-7M22 20H2"/>')+'<span>Neste mês você gastou '+cmpTxt+'.</span></p>';
+      else if(ts.t)sh+='<p data-go="list">'+si("#FF9A3D",'<circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/>')+'<span>Hoje você gastou <b>'+brl(ts.t)+'</b>.</span></p>';
+      else sh+='<p data-addx="out">'+si("#FF9A3D",'<circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/>')+'<span>Nenhum gasto anotado hoje. Gastou algo? <b>Lance em segundos</b>.</span></p>';
+    }
+    sy.innerHTML=sh;sy.hidden=!sh}
   /* 7 dias */
   var end=isCur?t:past?b:a,h7="",vals=[],mx=1;
   for(var i=6;i>=0;i--){var d=addDays(end,-i),v=sumRange(d,d).t;vals.push([d,v]);mx=Math.max(mx,v)}
@@ -3400,7 +3426,7 @@ document.addEventListener("pointerdown",function(e){if(REDUCED)return;var el=e.t
 /* blocos do Início levam direto ao detalhe */
 [["#dDay","plan"],["#dToday","list"],["#dWeek","semana"],["#dCmp","mes"]].forEach(function(q){var el=$(q[0]);if(el){el.parentNode.dataset.go=q[1];el.parentNode.setAttribute("role","button");el.parentNode.tabIndex=0}});
 document.addEventListener("click",function(e){
-  var d=e.target.closest(".dt[data-go]");
+  var d=e.target.closest(".dt[data-go],.msay p[data-go]");
   if(d){var g=d.dataset.go;buzz(6);if(g==="semana"||g==="mes"){var k=$("#t-"+g);if(k)k.click();else setTab("report")}else{if(g==="list"){fMon=mKey(today());fCat="";fType="";fPay="";listLimit=30;render()}setTab(g)}return}
   var c=e.target.closest(".dcat[data-k]");
   if(c){fMon=mKey(hm);fCat=c.dataset.k;fType="out";fPay="";listLimit=30;render();setTab("list");buzz(6);toast("Mostrando só os gastos de "+CAT(c.dataset.k).n);return}
