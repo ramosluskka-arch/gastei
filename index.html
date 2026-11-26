@@ -1357,6 +1357,14 @@ body.fabx .tabbar .fab .fabl{max-width:90px;margin-left:8px}
 .mcard .shine{position:absolute;inset:0;pointer-events:none;background:linear-gradient(105deg,transparent 35%,rgba(255,255,255,.10) 50%,transparent 65%);transform:translateX(-120%);z-index:2;border-radius:inherit}
 .mcard.shining .shine{animation:shine 1.1s cubic-bezier(.4,.1,.3,1) .15s}
 @keyframes shine{to{transform:translateX(120%)}}
+/* atalhos: sem quadro colorido ao tocar */
+.qrow button,.qrow button:focus,.qrow button:focus-visible,.qrow button:active{outline:none!important;-webkit-tap-highlight-color:transparent}
+.qrow button .ripw{display:none}
+/* barra de abas: espaços iguais entre os nomes, sem um nome encostar no outro */
+.tabbar{grid-template-columns:repeat(5,auto)!important;justify-content:space-between;padding-left:max(10px,env(safe-area-inset-left,0px))!important;padding-right:max(10px,env(safe-area-inset-right,0px))!important}
+.tabbar button[data-tab]{min-width:56px;padding:6px 2px!important;gap:4px;font-size:.7rem!important;font-weight:700!important;letter-spacing:0!important;line-height:1.1;white-space:nowrap}
+.tabbar button[data-tab][aria-current="page"]{font-weight:700!important}
+@media (max-width:370px){.tabbar button[data-tab]{font-size:.66rem!important;min-width:50px}.tabbar button[data-tab] svg{padding:4px 12px!important}}
 @media (prefers-reduced-motion:reduce){.rip,.tabbar .tind,.mcard .shine{display:none}body.fabx .tabbar .fab .fabl{transition:none}}
 </style>
 
@@ -3383,7 +3391,7 @@ var _setTab=setTab;
 setTab=function(t){var was=document.body.dataset.tab;_setTab(t);fxInd();fxFab(true);
   if(was!==t){var b=$('.tabbar [data-tab="'+t+'"]');if(b&&!REDUCED){b.classList.remove("pop");void b.offsetWidth;b.classList.add("pop");setTimeout(function(){b.classList.remove("pop")},420)}fxEnter(t)}};
 /* onda de toque */
-var RIP=".btn,.dt,.mrow,.item,.qrow button,.dcat[data-k],.kpi,.mlist button,.marrow,.hrow,.cx,.tabbar button[data-tab],.seg,.cats button,.keys button,.mlink,.hyears button,.recents button,.tchips button";
+var RIP=".btn,.dt,.mrow,.item,.dcat[data-k],.kpi,.mlist button,.marrow,.hrow,.cx,.tabbar button[data-tab],.seg,.cats button,.keys button,.mlink,.hyears button,.recents button,.tchips button";
 document.addEventListener("pointerdown",function(e){if(REDUCED)return;var el=e.target.closest&&e.target.closest(RIP);if(!el||el.disabled)return;
   if(getComputedStyle(el).position==="static")el.style.position="relative";
   var w=el.querySelector(":scope>.ripw");if(!w){w=document.createElement("span");w.className="ripw";w.setAttribute("aria-hidden","true");el.appendChild(w)}
