@@ -49,6 +49,11 @@
       "installerLanguages": [
         "pt_BR"
       ]
-    }
+    },
+    "electronLanguages": [
+      "pt-BR",
+      "en-US"
+    ],
+    "compression": "maximum"
   }
 }
