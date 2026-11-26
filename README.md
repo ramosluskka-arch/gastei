@@ -1,4 +1,4 @@
-# Gastify
+# Gastei
 
 Controle de gastos pessoal: anote gastos e receitas e veja quanto gastou no dia, na semana, no mês e no ano.
 

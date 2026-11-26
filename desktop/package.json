@@ -1,14 +1,14 @@
 {
   "name": "gastei-pc",
-  "productName": "Gastify",
+  "productName": "Gastei",
   "version": "1.1.0",
-  "description": "Gastify no PC, em formato de celular",
+  "description": "Gastei no PC, em formato de celular",
   "main": "main.js",
-  "author": "Gastify",
+  "author": "Gastei",
   "license": "UNLICENSED",
   "build": {
     "appId": "com.gastei.pc",
-    "productName": "Gastify",
+    "productName": "Gastei",
     "files": [
       "main.js",
       "phone.html",
@@ -32,17 +32,17 @@
       "icon": "icon.png"
     },
     "portable": {
-      "artifactName": "Gastify-PC.exe"
+      "artifactName": "Gastei-PC.exe"
     },
     "nsis": {
-      "artifactName": "Gastify-Setup.exe",
+      "artifactName": "Gastei-Setup.exe",
       "oneClick": false,
       "perMachine": false,
       "allowToChangeInstallationDirectory": true,
       "createDesktopShortcut": "always",
       "createStartMenuShortcut": true,
-      "shortcutName": "Gastify",
-      "uninstallDisplayName": "Gastify",
+      "shortcutName": "Gastei",
+      "uninstallDisplayName": "Gastei",
       "runAfterFinish": true,
       "deleteAppDataOnUninstall": false,
       "language": "1046",

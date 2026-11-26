@@ -35,7 +35,7 @@ jobs:
           cat > capacitor.config.json <<'JSON'
           {
             "appId": "com.gastei.app",
-            "appName": "Gastify",
+            "appName": "Gastei",
             "webDir": "www",
             "android": { "allowMixedContent": false, "webContentsDebuggingEnabled": false },
             "plugins": { "SystemBars": { "insetsHandling": "native" } }
@@ -50,7 +50,7 @@ jobs:
           cp -r "$GITHUB_WORKSPACE"/android/res/* res/
           python3 - <<'PY2'
           p = "AndroidManifest.xml"; m = open(p).read()
-          rcv = '<receiver android:name=".GasteiWidgetProvider" android:exported="true" android:label="Gastify"><intent-filter><action android:name="android.appwidget.action.APPWIDGET_UPDATE"/></intent-filter><meta-data android:name="android.appwidget.provider" android:resource="@xml/gastei_widget_info"/></receiver>'
+          rcv = '<receiver android:name=".GasteiWidgetProvider" android:exported="true" android:label="Gastei"><intent-filter><action android:name="android.appwidget.action.APPWIDGET_UPDATE"/></intent-filter><meta-data android:name="android.appwidget.provider" android:resource="@xml/gastei_widget_info"/></receiver>'
           q = '<queries><intent><action android:name="android.speech.action.RECOGNIZE_SPEECH"/></intent></queries>'
           m = m.replace("</application>", rcv + "\n</application>", 1).replace("</manifest>", q + "\n</manifest>", 1)
           perm = '<uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" android:maxSdkVersion="29"/><uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" android:maxSdkVersion="32"/>'
@@ -108,16 +108,16 @@ jobs:
             echo "$KS_B64" | base64 -d > ks.jks
           else
             echo "::warning::Sem o segredo GASTEI_KEYSTORE: usando uma chave temporaria. Atualizar o app vai exigir desinstalar antes."
-            keytool -genkeypair -keystore ks.jks -alias gastei -keyalg RSA -keysize 2048 -validity 10000 -storepass "$KS_PASS" -keypass "$KS_PASS" -dname "CN=Gastify, C=BR"
+            keytool -genkeypair -keystore ks.jks -alias gastei -keyalg RSA -keysize 2048 -validity 10000 -storepass "$KS_PASS" -keypass "$KS_PASS" -dname "CN=Gastei, C=BR"
           fi
-          $BT/apksigner sign --ks ks.jks --ks-pass env:KS_PASS --key-pass env:KS_PASS --ks-key-alias gastei --out "$GITHUB_WORKSPACE/Gastify.apk" aligned.apk
-          $BT/apksigner verify "$GITHUB_WORKSPACE/Gastify.apk"
+          $BT/apksigner sign --ks ks.jks --ks-pass env:KS_PASS --key-pass env:KS_PASS --ks-key-alias gastei --out "$GITHUB_WORKSPACE/Gastei.apk" aligned.apk
+          $BT/apksigner verify "$GITHUB_WORKSPACE/Gastei.apk"
           if [ -n "$KS_B64" ]; then
-            cp app/build/outputs/bundle/release/app-release.aab "$GITHUB_WORKSPACE/Gastify.aab"
-            jarsigner -keystore ks.jks -storepass "$KS_PASS" -keypass "$KS_PASS" -sigalg SHA256withRSA -digestalg SHA-256 "$GITHUB_WORKSPACE/Gastify.aab" gastei
-            jarsigner -verify "$GITHUB_WORKSPACE/Gastify.aab" | tail -1
+            cp app/build/outputs/bundle/release/app-release.aab "$GITHUB_WORKSPACE/Gastei.aab"
+            jarsigner -keystore ks.jks -storepass "$KS_PASS" -keypass "$KS_PASS" -sigalg SHA256withRSA -digestalg SHA-256 "$GITHUB_WORKSPACE/Gastei.aab" gastei
+            jarsigner -verify "$GITHUB_WORKSPACE/Gastei.aab" | tail -1
           else
-            echo "::warning::O pacote para a Play Store (Gastify.aab) so e gerado com a chave fixa nos segredos."
+            echo "::warning::O pacote para a Play Store (Gastei.aab) so e gerado com a chave fixa nos segredos."
           fi
         env:
           KS_B64: ${{ secrets.GASTEI_KEYSTORE }}
@@ -127,5 +127,5 @@ jobs:
           GH_TOKEN: ${{ github.token }}
         run: |
           gh release delete app --yes --cleanup-tag || true
-          FILES="Gastify.apk"; [ -f Gastify.aab ] && FILES="$FILES Gastify.aab"
-          gh release create app $FILES --title "Gastify para Android" --notes "Gastify.apk: baixe e abra no celular para instalar. Gastify.aab (quando existir): pacote para enviar na Play Store." --latest
+          FILES="Gastei.apk"; [ -f Gastei.aab ] && FILES="$FILES Gastei.aab"
+          gh release create app $FILES --title "Gastei para Android" --notes "Gastei.apk: baixe e abra no celular para instalar. Gastei.aab (quando existir): pacote para enviar na Play Store." --latest
