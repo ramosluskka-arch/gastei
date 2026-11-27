@@ -41,6 +41,7 @@ jobs:
             "plugins": { "SystemBars": { "insetsHandling": "native" } }
           }
           JSON
+          # appId e o endereco interno (https://localhost) nunca podem mudar: e onde ficam os dados do app
           npx cap add android
           npx cap sync android
       - name: Ícones, tela de abertura e impressão em PDF
@@ -94,8 +95,10 @@ jobs:
           PY
           sed -i '0,/^dependencies {/s//dependencies {\n    implementation "com.android.billingclient:billing:8.0.0"/' ../../build.gradle
           grep -n "billingclient" ../../build.gradle
+          # versionCode sempre maior que o anterior (minutos desde 2025): o Android so aceita atualizar para um numero maior
           VC=$(( $(date +%s) / 60 - 29000000 ))
-          sed -i "s/versionCode 1/versionCode $VC/; s/versionName \"1.0\"/versionName \"1.$GITHUB_RUN_NUMBER\"/" ../../build.gradle
+          AV=$(grep -o 'APP_VER="[0-9]*"' "$GITHUB_WORKSPACE/index.html" | grep -o '[0-9]\+')
+          sed -i "s/versionCode 1/versionCode $VC/; s/versionName \"1.0\"/versionName \"$AV.$GITHUB_RUN_NUMBER\"/" ../../build.gradle
       - name: Compilar e assinar
         run: |
           cd build/android
@@ -104,15 +107,17 @@ jobs:
           for t in 1 2 3 4; do ./gradlew assembleRelease bundleRelease --no-daemon -q && break; [ $t = 4 ] && exit 1; echo "Tentando de novo em $((t*45))s"; sleep $((t*45)); done
           BT=$(ls -d $ANDROID_HOME/build-tools/* | sort -V | tail -1)
           $BT/zipalign -f 4 app/build/outputs/apk/release/app-release-unsigned.apk aligned.apk
-          if [ -n "$KS_B64" ]; then
-            echo "$KS_B64" | base64 -d > ks.jks
-          else
-            echo "::warning::Sem o segredo GASTEI_KEYSTORE: usando uma chave temporaria. Atualizar o app vai exigir desinstalar antes."
-            keytool -genkeypair -keystore ks.jks -alias gastei -keyalg RSA -keysize 2048 -validity 10000 -storepass "$KS_PASS" -keypass "$KS_PASS" -dname "CN=Gastei, C=BR"
+          # Sempre a MESMA chave: so assim a versao nova instala por cima da antiga sem apagar os dados.
+          if [ -z "$KS_B64" ] || [ -z "$KS_PASS" ]; then
+            echo "::error::Faltam os segredos GASTEI_KEYSTORE e GASTEI_KEYSTORE_PASS. Sem a chave fixa o APK nao atualiza por cima; nada foi publicado."
+            exit 1
           fi
+          echo "$KS_B64" | base64 -d > ks.jks
           $BT/apksigner sign --ks ks.jks --ks-pass env:KS_PASS --key-pass env:KS_PASS --ks-key-alias gastei --out "$GITHUB_WORKSPACE/Gastei.apk" aligned.apk
-          $BT/apksigner verify "$GITHUB_WORKSPACE/Gastei.apk"
-          if [ -n "$KS_B64" ]; then
+          $BT/apksigner verify --print-certs "$GITHUB_WORKSPACE/Gastei.apk" | tee certs.txt
+          # confere que e a chave oficial do Gastei (impressao digital SHA-256)
+          grep -qi "SHA-256 digest: e593e8680ed408ffc28a31747b945d656f456537c3703b47d9d2ad3c64ba60e8" certs.txt || { echo "::error::O APK nao foi assinado com a chave oficial do Gastei."; exit 1; }
+          if true; then
             cp app/build/outputs/bundle/release/app-release.aab "$GITHUB_WORKSPACE/Gastei.aab"
             jarsigner -keystore ks.jks -storepass "$KS_PASS" -keypass "$KS_PASS" -sigalg SHA256withRSA -digestalg SHA-256 "$GITHUB_WORKSPACE/Gastei.aab" gastei
             jarsigner -verify "$GITHUB_WORKSPACE/Gastei.aab" | tail -1
@@ -121,7 +126,7 @@ jobs:
           fi
         env:
           KS_B64: ${{ secrets.GASTEI_KEYSTORE }}
-          KS_PASS: ${{ secrets.GASTEI_KEYSTORE_PASS || 'gastei-temp' }}
+          KS_PASS: ${{ secrets.GASTEI_KEYSTORE_PASS }}
       - name: Publicar para download
         env:
           GH_TOKEN: ${{ github.token }}

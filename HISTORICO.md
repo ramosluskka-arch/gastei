@@ -2,7 +2,7 @@
 
 Todas as atualizações do app, da mais antiga para a mais nova.
 
-Versão atual: **v41** (26/11/2026).
+Versão atual: **v42** (27/11/2026).
 
 ## 23/11/2026
 
@@ -168,3 +168,11 @@ Versão atual: **v41** (26/11/2026).
 - 4 erros corrigidos: total errado nos Relatórios, saudação sempre “Boa noite”, aviso errado ao excluir receita e consulta dupla ao Google Play.
 - Código escondido que não era usado foi tirado.
 - App 22 KB menor, troca de período 35% mais rápida e programas de PC 3,6 MB menores.
+
+## 27/11/2026
+
+### v42 · Atualizar sem perder nada
+- Toda versão nova instala por cima da antiga, no celular e no PC, e todos os lançamentos continuam.
+- O APK passa a ser sempre assinado com a mesma chave do Gastei (sem ela, nada é publicado).
+- Antes de atualizar, o app guarda uma cópia dos dados e salva o arquivo gastei-antes-da-atualizacao.json em Documentos/Gastei.
+- Se os dados estiverem danificados, o app guarda uma cópia e volta para a última versão boa.

@@ -28,6 +28,10 @@ jobs:
           mkdir -p app
           cp ../index.html ../manifest.webmanifest ../*.png app/
           npm i --no-audit --no-fund -D electron@33.2.0 electron-builder@25.1.8
+          # numero de versao novo a cada build; appId com.gastei.pc e o nome "Gastei" nunca mudam,
+          # assim o instalador atualiza por cima e os dados (pasta %APPDATA%\Gastei) continuam
+          AV=$(grep -o 'APP_VER="[0-9]*"' ../index.html | grep -o '[0-9]\+')
+          npm pkg set version="1.$AV.$GITHUB_RUN_NUMBER"
           npx electron-builder --win --publish never
           ls -la dist
       - name: Publicar para download
