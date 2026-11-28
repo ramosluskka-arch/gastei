@@ -189,3 +189,13 @@ Versão atual: **v44** (28/11/2026).
 - Todos os textos do app foram revisados: botões, avisos, dicas, boas-vindas, Premium e loja de temas.
 - Linguagem mais clara, profissional e consistente, com correções de gramática.
 - Termos de uso e política de privacidade reescritos e atualizados.
+
+### v45 · Meta para guardar e layout novo
+- A meta do mês agora é quanto você quer guardar: o app pega o que entrou, tira esse valor e mostra quanto ainda pode gastar, com aviso quando estiver perto de passar. Em Ajustes dá para voltar ao limite de gastos.
+- Início: as frases ficam logo abaixo do saldo e os Atalhos foram para o fim.
+- Ajustes entrou na barra de baixo; o Histórico abre por Relatórios.
+- A Meta do mês fica no topo de Planejar.
+- Quem não tem Premium vê um exemplo da aba Planejar.
+- Segurar um lançamento repete ele hoje.
+- Bloqueio do app com senha de 4 números.
+- Resumo do mês que passou nos primeiros dias de cada mês.
