@@ -12,6 +12,6 @@ Funciona como app no celular (abra o link e escolha "Adicionar à tela inicial")
 
 ## Novidades
 
-Versão atual: **v47** (28/11/2026): correção de textos espremidos e cortados no Início.
+Versão atual: **v48** (28/11/2026): rendimento nas caixinhas (% do CDI ou % ao ano), somado todo dia.
 
 Todas as atualizações em ordem: [HISTORICO.md](HISTORICO.md) ou a página [Novidades](https://ramosluskka-arch.github.io/gastei/novidades.html).

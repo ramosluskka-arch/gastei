@@ -2,7 +2,7 @@
 
 Todas as atualizações do app, da mais antiga para a mais nova.
 
-Versão atual: **v44** (28/11/2026).
+Versão atual: **v48** (28/11/2026).
 
 ## 23/11/2026
 
@@ -208,3 +208,9 @@ Versão atual: **v44** (28/11/2026).
 - "Nenhum gasto nos últimos 7 dias" não fica mais espremido nem sai do cartão.
 - O botão + não cobre mais o texto de "Últimos lançamentos" quando não há lançamentos.
 - No tema Retrô, o cartão do saldo não passa mais da borda da tela.
+
+### v48 · Rendimento nas caixinhas
+- Nova opção "Esse dinheiro rende" ao criar ou ajustar uma caixinha: % do CDI ou % ao ano.
+- O valor da caixinha cresce sozinho todo dia com o rendimento do dia (CDI conta só em dias úteis, com juros sobre juros).
+- O cartão mostra quanto rendeu hoje e o total rendido. Dias sem abrir o app são somados quando você abre.
+- O CDI usado no cálculo pode ser mudado. É uma estimativa antes do imposto de renda, não ligada ao banco.
