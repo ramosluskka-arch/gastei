@@ -1,8 +1,8 @@
 # Gastei
 
-Controle de gastos pessoal: anote gastos e receitas e veja quanto gastou no dia, na semana, no mês e no ano.
+Controle financeiro pessoal: registre gastos e receitas e acompanhe quanto você gastou no dia, na semana, no mês e no ano.
 
-Funciona como app no celular (abra o link e escolha "Adicionar à tela inicial"), sem internet e sem cadastro. Os dados ficam salvos só no aparelho.
+Funciona como app no celular (abra o link e escolha "Adicionar à tela inicial"), sem internet e sem cadastro. Os dados ficam salvos apenas no aparelho.
 
 ## Baixar
 
@@ -12,6 +12,6 @@ Funciona como app no celular (abra o link e escolha "Adicionar à tela inicial")
 
 ## Novidades
 
-Versão atual: **v41** (26/11/2026), revisão e limpeza: 4 erros corrigidos e app mais leve e mais rápido.
+Versão atual: **v44** (28/11/2026): textos de todo o app revisados, com linguagem mais clara, profissional e consistente.
 
 Todas as atualizações em ordem: [HISTORICO.md](HISTORICO.md) ou a página [Novidades](https://ramosluskka-arch.github.io/gastei/novidades.html).

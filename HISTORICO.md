@@ -2,7 +2,7 @@
 
 Todas as atualizações do app, da mais antiga para a mais nova.
 
-Versão atual: **v43** (28/11/2026).
+Versão atual: **v44** (28/11/2026).
 
 ## 23/11/2026
 
@@ -184,3 +184,8 @@ Versão atual: **v43** (28/11/2026).
 - Cada tema custa R$ 4,99, ou 4 temas à sua escolha por R$ 10. Os temas são comprados à parte e não fazem parte do Premium.
 - Prévia grátis de 15 segundos antes de comprar.
 - Compra pelo Google Play no Android e por código de ativação no PC.
+
+### v44 · Escrita revisada
+- Todos os textos do app foram revisados: botões, avisos, dicas, boas-vindas, Premium e loja de temas.
+- Linguagem mais clara, profissional e consistente, com correções de gramática.
+- Termos de uso e política de privacidade reescritos e atualizados.

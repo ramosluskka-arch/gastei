@@ -1785,7 +1785,7 @@ body.fabx .tabbar .fab .fabl{max-width:90px;margin-left:8px}
 <div class="wrap">
   <div class="ptitle" id="ptitle"><h1 id="ptT">Início</h1><p id="ptS"></p></div>
   <div class="notice" id="banner" data-v="home" hidden>
-    <span><b>Dados de demonstração.</b> Estes gastos são exemplos e somem quando você anotar o seu primeiro gasto.</span>
+    <span><b>Dados de demonstração.</b> Estes lançamentos são apenas exemplos e serão removidos assim que você registrar o seu primeiro gasto.</span>
     <button class="link" id="clearEx">Começar do zero</button>
   </div>
   <div class="mwrap">
@@ -1798,26 +1798,26 @@ body.fabx .tabbar .fab .fabl{max-width:90px;margin-left:8px}
     <div class="malert" id="mAlert" hidden></div>
     <button class="btn mgo" data-add="out"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.8" stroke-linecap="round"><path d="M5 12h14"/></svg>Lançar gasto</button>
     <button class="mlink" data-add="in"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></svg>Adicionar receita</button>
-    <button class="mlink mvoice" data-voice><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="3" width="6" height="11" rx="3"/><path d="M5 11a7 7 0 0 0 14 0M12 18v3"/></svg>Falar um gasto</button>
+    <button class="mlink mvoice" data-voice><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="3" width="6" height="11" rx="3"/><path d="M5 11a7 7 0 0 0 14 0M12 18v3"/></svg>Lançar por voz</button>
   </section>
   <section class="quick" data-v="home" id="quickRow"><div class="qhead"><b>Atalhos</b><span>Arraste para o lado →</span></div><div class="qrow">
     <button type="button" data-add="out" style="--qc:var(--pur2)"><span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="5" width="20" height="14" rx="2"/><path d="M2 10h20M6 15h4"/></svg></span>Novo gasto</button>
     <button type="button" data-add="in" style="--qc:var(--grn)"><span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="6" width="20" height="12" rx="2"/><circle cx="12" cy="12" r="2.5"/><path d="M6 12h.01M18 12h.01"/></svg></span>Nova receita</button>
-    <button type="button" data-voice style="--qc:#FF5C93"><span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="3" width="6" height="11" rx="3"/><path d="M5 11a7 7 0 0 0 14 0M12 18v3"/></svg></span>Falar um gasto</button>
+    <button type="button" data-voice style="--qc:#FF5C93"><span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="3" width="6" height="11" rx="3"/><path d="M5 11a7 7 0 0 0 14 0M12 18v3"/></svg></span>Lançar por voz</button>
     <button type="button" id="qOcr" style="--qc:#2F9BFF"><span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 8V6a2 2 0 0 1 2-2h2M16 4h2a2 2 0 0 1 2 2v2M20 16v2a2 2 0 0 1-2 2h-2M8 20H6a2 2 0 0 1-2-2v-2"/><circle cx="12" cy="12" r="3"/></svg></span>Ler comprovante</button>
     <button type="button" data-open-bk style="--qc:var(--pur2)"><span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l8 3v6c0 5-3.5 8-8 9-4.5-1-8-4-8-9V6z"/><path d="M9 12l2 2 4-4"/></svg></span>Backup</button>
     <button type="button" id="qBox" style="--qc:var(--grn)"><span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 8h16v11a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1z"/><path d="M3 4h18v4H3zM10 12h4"/></svg></span>Nova caixinha</button>
     <button type="button" id="qPrev" style="--qc:#FF9A3D"><span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 17l6-6 4 4 8-8"/><path d="M15 7h6v6"/></svg></span>Previsão do mês</button>
     <button type="button" data-pdf style="--qc:#E0457B"><span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 3H7a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V8z"/><path d="M14 3v5h5M9 13h6M9 17h4"/></svg></span>Relatório PDF</button>
   </div></section>
-  <div class="notice" id="bkNote" data-v="home" hidden><span><b>Proteja seus dados.</b> <span id="bkNoteT">Faça uma cópia de segurança de vez em quando.</span></span><span style="display:flex;gap:12px"><button class="link" id="bkGo">Fazer cópia</button><button class="link" id="bkLater" style="color:var(--muted)">Depois</button></span></div>
+  <div class="notice" id="bkNote" data-v="home" hidden><span><b>Proteja seus dados.</b> <span id="bkNoteT">Faça backups com frequência para não perder nenhuma informação.</span></span><span style="display:flex;gap:12px"><button class="link" id="bkGo">Fazer backup</button><button class="link" id="bkLater" style="color:var(--muted)">Depois</button></span></div>
   <div class="dash" data-v="home">
     <section class="card msay" id="mSay" data-v="home" aria-label="Resumo em frases" hidden></section>
     <section class="card dcard" id="d7Card"><div class="chead"><h2>Últimos 7 dias</h2><span class="sub" id="d7s"></span></div><div class="d7" id="d7"></div></section>
     <section class="card dcard" id="dCatCard"><div class="chead"><h2>Para onde está indo</h2><span class="sub" id="dCatSub"></span></div><div id="dCats"></div></section>
   </div>
   <div class="plantab" data-v="plan" id="planTab">
-    <div class="plock" id="pLock"><div><b>Planejar faz parte do Premium</b><span>Previsão do mês, caixinhas com depósito mensal e alerta de gastos.</span></div><button class="btn sm" data-plans="mais">Ver Premium</button></div>
+    <div class="plock" id="pLock"><div><b>A aba Planejar é exclusiva do Premium</b><span>Previsão de fechamento do mês, caixinhas com depósito mensal e alertas de gastos.</span></div><button class="btn sm" data-plans="mais">Ver Premium</button></div>
     <section class="card pcard" id="pPrev"><div class="chead"><h2><span class="pi" style="--c:var(--pmid)"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 17l6-6 4 4 8-8"/><path d="M15 7h6v6"/></svg></span><span class="pt2">Previsão do mês<small id="ppMon"></small></span></h2><span class="pvchip" id="ppChip" hidden></span></div><div id="ppBody"></div></section>
     <section class="pcard pbox" id="pBox"><div class="bxh"><span class="bxi"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 5c-1.5 0-2.8 1.4-3 2-3.5-1.5-11-.3-11 5 0 1.8 0 3 2 4.5V20h4v-2h3v2h4v-4c1-.5 1.7-1 2-2h2v-4h-2c0-1-.5-1.5-1-2z"/><path d="M2 9v1a2 2 0 0 0 2 2h1M16 11h.01"/></svg></span><div><b>Caixinhas &amp; Porquinho</b><small id="pbTot"></small></div><button class="bxnew" id="pbNew">+ Nova</button></div><div id="pbBody"></div></section>
     <section class="card pcard" id="pAl"><div class="chead"><h2><span class="pi" style="--c:#E0901F"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 8a6 6 0 1 1 12 0c0 7 3 9 3 9H3s3-2 3-9"/><path d="M10.3 21a1.94 1.94 0 0 0 3.4 0"/></svg></span>Alerta de gastos</h2></div><div id="paBody"></div></section>
@@ -1882,7 +1882,7 @@ body.fabx .tabbar .fab .fabl{max-width:90px;margin-left:8px}
             <div class="stat"><b id="stCount">0</b><span>gastos no período</span></div>
           </div>
         </div>
-        <div class="chartcap" id="cap">Clique numa barra para ver o detalhe.</div>
+        <div class="chartcap" id="cap">Clique em uma barra para ver os detalhes.</div>
         <svg class="chart" id="chart" role="img" aria-label="Gráfico de gastos do período"></svg>
         <div class="legend" id="legend"></div>
       </section>
@@ -1890,9 +1890,9 @@ body.fabx .tabbar .fab .fabl{max-width:90px;margin-left:8px}
       <section class="card plock" data-v="hist" id="histLock" hidden>
         <span class="plcrown"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 8l4.5 4L12 5l4.5 7L21 8l-2 11H5z"/></svg></span>
         <h2>Histórico e comparação de meses</h2>
-        <p>Veja tudo o que entrou e saiu em cada mês desde o começo, o saldo acumulado e compare um mês com outro, categoria por categoria.</p>
+        <p>Acompanhe tudo o que entrou e saiu em cada mês desde o início, veja o saldo acumulado e compare meses, categoria por categoria.</p>
         <div class="plfake" aria-hidden="true"><i style="width:82%"></i><i style="width:64%"></i><i style="width:91%"></i><i style="width:55%"></i></div>
-        <button type="button" class="btn" data-plans="hist">Liberar com o Premium</button>
+        <button type="button" class="btn" data-plans="hist">Desbloquear com o Premium</button>
       </section>
 
       <section class="card hist" data-v="hist" id="histCard">
@@ -1904,7 +1904,7 @@ body.fabx .tabbar .fab .fabl{max-width:90px;margin-left:8px}
           <div><span>Média de gastos por mês</span><b class="hv" id="hAvg">R$ 0,00</b></div>
         </div>
         <div class="hyears" id="hYears" role="group" aria-label="Filtrar por ano"></div>
-        <div class="hchart" id="hChart" aria-hidden="true"></div><div class="hlegend"><span><i class="ii"></i>Entrou</span><span><i class="oo"></i>Saiu</span><span class="sub">Toque num mês para comparar</span></div>
+        <div class="hchart" id="hChart" aria-hidden="true"></div><div class="hlegend"><span><i class="ii"></i>Entrou</span><span><i class="oo"></i>Saiu</span><span class="sub">Toque em um mês para comparar</span></div>
         <div class="hlist" id="hList"></div>
       </section>
 
@@ -1915,7 +1915,7 @@ body.fabx .tabbar .fab .fabl{max-width:90px;margin-left:8px}
           <button class="iconbtn" id="cSwap" type="button" aria-label="Trocar os meses" title="Trocar os meses"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 4L3 8l4 4M3 8h14M17 20l4-4-4-4M21 16H7"/></svg></button>
           <label><span class="lbl">Comparar com</span><select class="inp" id="cB" aria-label="Mês para comparar"></select></label>
         </div>
-        <label class="check csame" id="cSameL"><input type="checkbox" id="cSame"> <span>Comparar só até o dia <b id="cDay">1</b> dos dois meses</span></label>
+        <label class="check csame" id="cSameL"><input type="checkbox" id="cSame"> <span>Comparar até o dia <b id="cDay">1</b> dos dois meses</span></label>
         <div class="crows" id="cRows"></div>
         <h3 class="ch3">Gastos por categoria</h3>
         <div class="ccats" id="cCats"></div>
@@ -1938,7 +1938,7 @@ body.fabx .tabbar .fab .fabl{max-width:90px;margin-left:8px}
       </div>
 
       <section class="card" id="repCard" data-v="report" hidden>
-        <div class="chead"><h2>Resumo mês a mês</h2><span class="sub">Clique num mês para abrir</span></div>
+        <div class="chead"><h2>Resumo mês a mês</h2><span class="sub">Clique em um mês para ver os detalhes</span></div>
         <div class="tw"><table class="rep" id="rep"></table></div>
       </section>
 
@@ -1975,26 +1975,26 @@ body.fabx .tabbar .fab .fabl{max-width:90px;margin-left:8px}
           <select class="inp" id="fPay" aria-label="Filtrar por forma de pagamento"></select>
           <div class="tchips" id="tChips"><button type="button" data-ft="" aria-pressed="true">Todos</button><button type="button" data-ft="out" aria-pressed="false">Gastos</button><button type="button" data-ft="in" aria-pressed="false">Receitas</button></div>
         </div></div>
-        <p class="swipehint">Toque num lançamento para editar. Arraste para a esquerda para excluir.</p>
+        <p class="swipehint">Toque em um lançamento para editar ou deslize para a esquerda para excluir.</p>
         <div id="list"></div>
       </section>
 
       <section class="card mmore" data-v="more">
         <div class="chead"><h2>Ajustes</h2></div>
         <div class="mlist">
-          <button data-plans="mais" class="mprem"><span class="mpi"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 8l4.5 4L12 5l4.5 7L21 8l-2 11H5z"/></svg></span><span>Gastei Premium<small id="mPremS">Histórico, PDF, cores e mais</small></span></button>
-          <button data-skins class="mprem mskin"><span class="mpi"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3a9 9 0 1 0 0 18c1.1 0 1.6-.8 1.6-1.6 0-.9-.7-1.3-.7-2.2 0-.9.8-1.6 1.7-1.6H17a4 4 0 0 0 4-4c0-4.6-4-8.6-9-8.6z"/><circle cx="7.5" cy="11" r="1.2"/><circle cx="10.5" cy="7" r="1.2"/><circle cx="15.5" cy="7.5" r="1.2"/></svg></span><span>Temas<small id="mSkinS">10 temas que mudam o app inteiro</small></span></button>
-          <button data-open="perfil"><span>Perfil e meta do mês<small>Seu nome e quanto quer gastar</small></span></button>
+          <button data-plans="mais" class="mprem"><span class="mpi"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 8l4.5 4L12 5l4.5 7L21 8l-2 11H5z"/></svg></span><span>Gastei Premium<small id="mPremS">Histórico, relatórios em PDF, cores e mais</small></span></button>
+          <button data-skins class="mprem mskin"><span class="mpi"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3a9 9 0 1 0 0 18c1.1 0 1.6-.8 1.6-1.6 0-.9-.7-1.3-.7-2.2 0-.9.8-1.6 1.7-1.6H17a4 4 0 0 0 4-4c0-4.6-4-8.6-9-8.6z"/><circle cx="7.5" cy="11" r="1.2"/><circle cx="10.5" cy="7" r="1.2"/><circle cx="15.5" cy="7.5" r="1.2"/></svg></span><span>Temas<small id="mSkinS">10 temas que transformam o visual do app</small></span></button>
+          <button data-open="perfil"><span>Perfil e meta do mês<small>Seu nome e sua meta mensal de gastos</small></span></button>
           <button data-open="cats"><span>Categorias e orçamentos<small>Nomes, cores e limite por categoria</small></span></button>
-          <button data-open="fixos"><span>Gastos e receitas fixos<small>O que entra sozinho todo mês</small></span></button>
-          <button data-install hidden><span>Instalar o app no celular<small>Baixe o app para Android ou coloque na tela inicial</small></span></button>
-          <button data-pdf><span>Relatório em PDF <span class="pro">PRO</span><small>Apresentação completa do período que está aberto</small></span></button>
-          <button data-open="backup"><span>Backup<small>Criar, enviar e restaurar seus dados</small></span></button><button data-open="dados"><span>Planilha e cópia em texto<small>Exportar dados em CSV ou texto</small></span></button>
-          <button data-open="avisos"><span>Notificações e alertas<small>Lembrete diário, meta, contas do dia e resumo da semana</small></span></button>
-          <button data-open="aparencia"><span>Cores e aparência<small>Estilos prontos ou cores do seu jeito</small></span></button>
-          <button data-help hidden><span>Ajuda e suporte<small id="mHelpS">Fale com a gente por e-mail</small></span></button>
-          <button data-link="termos.html"><span>Termos de uso<small>Regras do app e da assinatura Premium</small></span></button>
-          <button data-link="privacidade.html"><span>Política de privacidade<small>Seus dados ficam só no seu aparelho</small></span></button>
+          <button data-open="fixos"><span>Gastos e receitas fixos<small>Lançamentos automáticos todo mês</small></span></button>
+          <button data-install hidden><span>Instalar o app no celular<small>Baixe para Android ou adicione à tela inicial</small></span></button>
+          <button data-pdf><span>Relatório em PDF <span class="pro">PRO</span><small>Relatório completo do período selecionado</small></span></button>
+          <button data-open="backup"><span>Backup<small>Crie, envie e restaure seus dados</small></span></button><button data-open="dados"><span>Planilha e cópia em texto<small>Exporte seus dados em CSV ou texto</small></span></button>
+          <button data-open="avisos"><span>Notificações e alertas<small>Lembrete diário, meta, contas do dia e resumo semanal</small></span></button>
+          <button data-open="aparencia"><span>Cores e aparência<small>Paletas prontas ou cores personalizadas</small></span></button>
+          <button data-help hidden><span>Ajuda e suporte<small id="mHelpS">Fale conosco por e-mail</small></span></button>
+          <button data-link="termos.html"><span>Termos de uso<small>Condições de uso do app e do Premium</small></span></button>
+          <button data-link="privacidade.html"><span>Política de privacidade<small>Seus dados ficam apenas no seu aparelho</small></span></button>
         </div>
       </section>
 
@@ -2020,55 +2020,55 @@ body.fabx .tabbar .fab .fabl{max-width:90px;margin-left:8px}
           <div class="field"><label for="setName">Seu nome</label><input class="inp" id="setName" maxlength="30" placeholder="Como quer ser chamado"></div>
           <div class="field"><label for="setMeta">Meta de gastos do mês (R$)</label><input class="inp mono" id="setMeta" inputmode="decimal" placeholder="3.000,00"></div>
         </div>
-        <p>A meta é o máximo que você quer gastar por mês. Com ela o app calcula o limite de cada dia e a previsão do mês.</p>
+        <p>A meta é o valor máximo que você pretende gastar no mês. Com ela, o app calcula o seu limite diário e a previsão de fechamento.</p>
         <div><button class="btn sm" id="saveProfile">Salvar</button></div>
       </div>
       <div class="set" data-pane="cats" hidden>
-        <p>Mude o nome ou a cor, crie categorias novas e defina um orçamento por mês para cada uma. Quando passar do orçamento, o app avisa. Os gastos de uma categoria removida passam para "Outros".</p>
+        <p>Edite nomes e cores, crie novas categorias e defina um orçamento mensal para cada uma. O app avisa quando um orçamento for ultrapassado. Os gastos de uma categoria removida passam para "Outros".</p>
         <div class="catedit" id="catEdit"></div>
         <div class="row2" style="max-width:420px"><input class="inp" id="newCat" maxlength="20" placeholder="Nova categoria"><button class="btn sm" id="addCat" style="flex:0 0 auto">Adicionar</button></div>
       </div>
       <div class="set" data-pane="fixos" hidden>
-        <p>Gastos e receitas fixos são lançados sozinhos todo mês no mesmo dia, como aluguel, internet ou salário. Para criar um, marque "Repetir todo mês" ao anotar.</p>
+        <p>Gastos e receitas fixos, como aluguel, internet ou salário, são lançados automaticamente todo mês, sempre no mesmo dia. Para criar um, marque "Repetir todo mês" ao registrar o lançamento.</p>
         <div class="reclist" id="recList"></div>
-        <p class="plnote" data-plnote><button type="button" class="link" data-plans="fixos"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="11" width="14" height="10" rx="2"/><path d="M8 11V7a4 4 0 0 1 8 0v4"/></svg> Criar novos fixos é do Premium</button> Os que você já tem continuam funcionando.</p>
+        <p class="plnote" data-plnote><button type="button" class="link" data-plans="fixos"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="11" width="14" height="10" rx="2"/><path d="M8 11V7a4 4 0 0 1 8 0v4"/></svg> A criação de novos fixos é exclusiva do Premium</button> Os fixos que você já tem continuam funcionando normalmente.</p>
       </div>
-      <div class="set" data-pane="backup" hidden><div class="bkhero"><span class="bki"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l8 3v6c0 5-3.5 8-8 9-4.5-1-8-4-8-9V6z"/><path d="M9 12l2 2 4-4"/></svg></span><small>Último backup</small><b id="bkLast">Nenhum ainda</b><span class="bkst" id="bkState">—</span></div><button type="button" class="bkbig" id="bkMake"><span class="bi"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 15v4a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-4"/><path d="M12 3v12M7 8l5-5 5 5"/></svg></span><b>Criar backup</b><small id="bkMakeS">Salva um arquivo com todos os seus dados. Dá para enviar por WhatsApp, Drive ou e-mail.</small></button><button type="button" class="bkbig alt" id="bkLoad"><span class="bi"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 15v4a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-4"/><path d="M12 15V3M7 10l5 5 5-5"/></svg></span><b>Restaurar backup</b><small>Escolha um arquivo de backup do Gastei para trazer seus dados de volta.</small></button><input type="file" id="bkFile" hidden><div class="bkconf" id="bkConf" hidden></div><div class="bkbox"><div class="bh"><i class="tic" style="--ic:var(--org)"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 8a6 6 0 1 1 12 0c0 7 3 9 3 9H3s3-2 3-9"/><path d="M10.3 21a1.94 1.94 0 0 0 3.4 0"/></svg></i><span><b>Lembrete de backup</b><small>O app avisa no Início quando passar desse tempo sem backup.</small></span></div><div class="bkchips" id="bkEvery"><button type="button" data-bke="0">Desligado</button><button type="button" data-bke="7">Toda semana</button><button type="button" data-bke="14">A cada 2 semanas</button><button type="button" data-bke="30">Todo mês</button></div></div><div class="bkbox" id="bkAutoBox" hidden><div class="bh"><i class="tic" style="--ic:var(--grn)"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12a9 9 0 1 1-3-6.7L21 8"/><path d="M21 3v5h-5M12 8v4l3 2"/></svg></i><span><b>Backup automático</b><small id="bkAutoS">Uma vez por dia o app salva uma cópia numa pasta do aparelho.</small></span></div><label class="check"><input type="checkbox" id="bkAuto"> <span>Fazer backup automático todo dia</span></label><p class="bkwhere" id="bkWhere"></p><button type="button" class="btn sm ghost" id="bkOpenDir" hidden><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 7a2 2 0 0 1 2-2h4l2 2h8a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/></svg> Abrir pasta dos backups</button></div></div>
+      <div class="set" data-pane="backup" hidden><div class="bkhero"><span class="bki"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l8 3v6c0 5-3.5 8-8 9-4.5-1-8-4-8-9V6z"/><path d="M9 12l2 2 4-4"/></svg></span><small>Último backup</small><b id="bkLast">Nenhum ainda</b><span class="bkst" id="bkState">—</span></div><button type="button" class="bkbig" id="bkMake"><span class="bi"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 15v4a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-4"/><path d="M12 3v12M7 8l5-5 5 5"/></svg></span><b>Criar backup</b><small id="bkMakeS">Gera um arquivo com todos os seus dados, que pode ser enviado por WhatsApp, Drive ou e-mail.</small></button><button type="button" class="bkbig alt" id="bkLoad"><span class="bi"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 15v4a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-4"/><path d="M12 15V3M7 10l5 5 5-5"/></svg></span><b>Restaurar backup</b><small>Selecione um arquivo de backup do Gastei para recuperar os seus dados.</small></button><input type="file" id="bkFile" hidden><div class="bkconf" id="bkConf" hidden></div><div class="bkbox"><div class="bh"><i class="tic" style="--ic:var(--org)"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 8a6 6 0 1 1 12 0c0 7 3 9 3 9H3s3-2 3-9"/><path d="M10.3 21a1.94 1.94 0 0 0 3.4 0"/></svg></i><span><b>Lembrete de backup</b><small>O app avisa no Início quando esse prazo passar sem um novo backup.</small></span></div><div class="bkchips" id="bkEvery"><button type="button" data-bke="0">Desligado</button><button type="button" data-bke="7">Toda semana</button><button type="button" data-bke="14">A cada 2 semanas</button><button type="button" data-bke="30">Todo mês</button></div></div><div class="bkbox" id="bkAutoBox" hidden><div class="bh"><i class="tic" style="--ic:var(--grn)"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12a9 9 0 1 1-3-6.7L21 8"/><path d="M21 3v5h-5M12 8v4l3 2"/></svg></i><span><b>Backup automático</b><small id="bkAutoS">Uma vez por dia, o app salva uma cópia em uma pasta do aparelho.</small></span></div><label class="check"><input type="checkbox" id="bkAuto"> <span>Fazer backup automático diariamente</span></label><p class="bkwhere" id="bkWhere"></p><button type="button" class="btn sm ghost" id="bkOpenDir" hidden><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 7a2 2 0 0 1 2-2h4l2 2h8a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/></svg> Abrir pasta dos backups</button></div></div>
       <div class="set" data-pane="dados" hidden>
-        <p><b>Relatório em PDF.</b> Gera uma apresentação com capa, resumo, gráfico, categorias, formas de pagamento, mês a mês e todos os lançamentos do período aberto. Na janela que abrir, escolha <b>Salvar como PDF</b>.</p>
+        <p><b>Relatório em PDF.</b> Gera um relatório com capa, resumo, gráfico, categorias, formas de pagamento, evolução mês a mês e todos os lançamentos do período selecionado. Na janela que abrir, escolha <b>Salvar como PDF</b>.</p>
         <div class="tools"><button class="btn sm" data-pdf>Gerar relatório em PDF</button></div>
-        <p><b>Planilha.</b> Baixe todos os gastos em CSV para abrir no Excel ou no Google Planilhas. Se o download não começar, use Copiar CSV e cole num arquivo .csv.</p>
+        <p><b>Planilha.</b> Baixe todos os gastos em CSV para abrir no Excel ou no Google Planilhas. Se o download não começar, toque em Copiar CSV e cole o conteúdo em um arquivo .csv.</p>
         <div class="tools"><button class="btn sm web-only" id="csvBtn">Baixar planilha (CSV)</button><button class="btn sm ghost" id="csvCopy">Copiar CSV</button></div>
-        <p><b>Cópia em texto.</b> Para backup em arquivo, use a aba <b>Backup</b>. Aqui você pode copiar os dados como texto ou colar um texto de cópia e clicar em Recuperar.</p>
-        <textarea class="inp" id="bkTxt" placeholder="A cópia aparece aqui. Para recuperar, cole aqui o texto de uma cópia."></textarea>
+        <p><b>Cópia em texto.</b> Para backup em arquivo, use a aba <b>Backup</b>. Aqui você pode copiar seus dados como texto ou colar uma cópia e tocar em Recuperar cópia.</p>
+        <textarea class="inp" id="bkTxt" placeholder="A cópia aparecerá aqui. Para recuperar, cole neste campo o texto de uma cópia."></textarea>
         <div class="tools"><button class="btn sm" id="bkGen">Gerar e copiar</button><button class="btn sm danger" id="bkRestore" data-armed="false">Recuperar cópia</button><button class="btn sm danger" id="wipeBtn" data-armed="false">Apagar todos os gastos</button></div>
       </div>
       <div class="set" data-pane="avisos" hidden>
         <div class="field"><span class="lbl">Lembrete diário</span>
-          <label class="check"><input type="checkbox" id="remOn"> <span>Me lembrar de anotar os gastos todo dia</span></label>
+          <label class="check"><input type="checkbox" id="remOn"> <span>Receber um lembrete diário para registrar os gastos</span></label>
           <div class="daterow"><input class="inp" type="time" id="remTime" value="20:00" aria-label="Horário do lembrete" style="max-width:140px"></div>
-          <p class="sub" id="remNote">No app Android chega como notificação no horário escolhido. No site e no PC, o lembrete aparece quando você abre o app.</p>
+          <p class="sub" id="remNote">No app Android, o lembrete chega como notificação no horário escolhido. No site e no PC, ele aparece ao abrir o app.</p>
         </div>
         <div class="field" id="ntfBox"><span class="lbl">Notificações no celular</span>
           <div class="nlist">
             <label class="check"><input type="checkbox" data-ntf="meta"> <span>Meta do mês<small>Avisa quando os gastos chegarem a 80% e 100% da meta</small></span></label>
             <label class="check"><input type="checkbox" data-ntf="fix"> <span>Contas fixas do dia<small>No dia de cada gasto fixo, às 9h</small></span></label>
-            <label class="check"><input type="checkbox" data-ntf="week"> <span>Resumo da semana<small>Domingo às 19h, para conferir como foi a semana</small></span></label>
+            <label class="check"><input type="checkbox" data-ntf="week"> <span>Resumo da semana<small>Aos domingos, às 19h, com o balanço da semana</small></span></label>
             <label class="check"><input type="checkbox" data-ntf="box"> <span>Dia de guardar nas caixinhas<small>Todo dia 1, para as caixinhas com depósito mensal</small></span></label>
-            <label class="check"><input type="checkbox" data-ntf="bk"> <span>Lembrete de backup<small>Quando passar o prazo escolhido na aba Backup</small></span></label>
+            <label class="check"><input type="checkbox" data-ntf="bk"> <span>Lembrete de backup<small>Quando o prazo definido na aba Backup terminar</small></span></label>
           </div>
           <p class="sub" id="ntfNote"></p>
           <div class="ntfblock" id="ntfBlock" hidden role="alert"><b>As notificações estão bloqueadas no celular</b><span>Para receber os avisos, permita as notificações do Gastei nas configurações do Android.</span><button type="button" class="btn sm" data-ntfset>Abrir configurações</button></div>
         </div>
         <div class="field"><span class="lbl">Alerta de gastos <span class="pro">PRO</span></span>
-          <label for="alertSel" class="sub">Avisar quando os gastos do mês chegarem a esta parte da receita</label>
+          <label for="alertSel" class="sub">Avisar quando os gastos do mês atingirem este percentual da receita</label>
           <select class="inp" id="alertSel"><option value="0">Desligado</option><option value="50">50% da receita</option><option value="60">60% da receita</option><option value="70">70% da receita</option><option value="75">75% da receita</option><option value="80">80% da receita</option><option value="90">90% da receita</option><option value="100">100% da receita</option></select>
         </div>
       </div>
       <div class="set" data-pane="aparencia" hidden>
         <div class="field"><span class="lbl">Tema completo</span><div class="skcur"><span><b id="skCurName">Nenhum (cores normais)</b><small>Muda cores, fundo, ícones e animações</small></span><button type="button" class="btn" data-skins>Ver temas</button></div></div>
         <div class="field"><span class="lbl">Cores do app</span><div class="palrow" id="palSeg"><button class="pal" data-pal="neon"><i style="background:linear-gradient(135deg,#0A0A0C,#820AD1 55%,#FF7A00)"></i>Noite</button><button class="pal" data-pal="teal"><i style="background:linear-gradient(135deg,#063A44,#0B6E7F 55%,#E89B0C)"></i>Petróleo</button><button class="pal" data-pal="magenta"><i style="background:linear-gradient(135deg,#C2185B,#F0509F 60%,#FFFFFF)"></i>Rosa magenta</button><button class="pal" data-pal="dark"><i style="background:linear-gradient(135deg,#0A0A10,#3F0F48 55%,#FF3D9A)"></i>Dark</button><button class="pal" data-pal="custom"><i style="background:conic-gradient(from 0deg,#FF3B3B,#FFB800,#3DDC84,#00C2FF,#7A5CFF,#FF3BC4,#FF3B3B)"></i>Do seu jeito</button><button class="pal" data-pal="blue"><i style="background:linear-gradient(135deg,#08163D,#1E3FA8 55%,#3478FF)"></i>Pro Blue</button></div></div>
-        <div class="field" id="custBox" hidden><span class="lbl">Suas cores</span><div class="cswat" id="cSwat"><button type="button" data-ck="c1" aria-pressed="true"><i></i><span>Principal</span></button><button type="button" data-ck="c2" aria-pressed="false"><i></i><span>Secundária</span></button><button type="button" data-ck="c3" aria-pressed="false"><i></i><span>Terceira</span></button></div><div class="cwheel"><canvas id="cWheel" width="480" height="480" aria-label="Roda de cores"></canvas><span class="cdot" id="cDot"></span></div><label class="cbri"><span>Brilho</span><input type="range" id="cBri" min="25" max="100" value="100"></label><div class="cprev" id="cPrev"><span class="a">Botão</span><span class="b">Destaque</span><span class="c">+ R$ 120,00</span></div><div class="tools"><button type="button" class="btn sm ghost" id="cReset">Voltar às cores do Noite</button></div><p class="sub">Toque numa das bolinhas e escolha a cor na roda. A principal pinta os destaques roxos, a secundária os botões laranja e a terceira os valores positivos.</p></div>
+        <div class="field" id="custBox" hidden><span class="lbl">Suas cores</span><div class="cswat" id="cSwat"><button type="button" data-ck="c1" aria-pressed="true"><i></i><span>Principal</span></button><button type="button" data-ck="c2" aria-pressed="false"><i></i><span>Secundária</span></button><button type="button" data-ck="c3" aria-pressed="false"><i></i><span>Terceira</span></button></div><div class="cwheel"><canvas id="cWheel" width="480" height="480" aria-label="Roda de cores"></canvas><span class="cdot" id="cDot"></span></div><label class="cbri"><span>Brilho</span><input type="range" id="cBri" min="25" max="100" value="100"></label><div class="cprev" id="cPrev"><span class="a">Botão</span><span class="b">Destaque</span><span class="c">+ R$ 120,00</span></div><div class="tools"><button type="button" class="btn sm ghost" id="cReset">Restaurar as cores do Noite</button></div><p class="sub">Toque em um dos círculos e escolha a cor na roda. A principal define os destaques roxos, a secundária, os botões laranja, e a terceira, os valores positivos.</p></div>
         <div class="field"><span class="lbl">Tema</span><div class="tools" id="themeSeg"><button class="seg" data-th="auto">Automático</button><button class="seg" data-th="light">Claro</button><button class="seg" data-th="dark">Escuro</button></div></div>
         <div class="field"><span class="lbl">A semana começa na</span><div class="tools" id="weekSeg"><button class="seg" data-w="1">Segunda</button><button class="seg" data-w="0">Domingo</button></div></div>
       </div>
@@ -2087,8 +2087,8 @@ body.fabx .tabbar .fab .fabl{max-width:90px;margin-left:8px}
   <div class="sheet plsheet sksheet" role="dialog" aria-modal="true" aria-labelledby="skTitle">
     <button type="button" class="iconbtn plx" id="skClose" aria-label="Fechar"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><path d="M6 6l12 12M18 6L6 18"/></svg></button>
     <div class="sklist" id="skList">
-      <div class="skhead"><h2 id="skTitle">Temas</h2><p>Mude o app inteiro: cores, fundo, ícones e animações. Cada tema é comprado à parte e fica seu para sempre.</p></div>
-      <div class="skpack"><span><b id="skPackT">Pacote com 4 temas</b><small id="skPackS"></small></span><button type="button" id="skPackBtn">Quero o pacote</button></div>
+      <div class="skhead"><h2 id="skTitle">Temas</h2><p>Transforme todo o visual do app: cores, fundo, ícones e animações. Cada tema é vendido separadamente e fica com você para sempre.</p></div>
+      <div class="skpack"><span><b id="skPackT">Pacote com 4 temas</b><small id="skPackS"></small></span><button type="button" id="skPackBtn">Escolher o pacote</button></div>
       <div class="skgrid" id="skGrid"></div>
       <div class="skfoot"><div class="row2"><button type="button" class="ghostb" id="skOff" hidden>Voltar às cores normais</button><button type="button" class="ghostb" id="skHaveCode">Tenho um código</button><button type="button" class="ghostb" id="skRestore" hidden>Restaurar compras</button></div></div>
     </div>
@@ -2109,12 +2109,12 @@ body.fabx .tabbar .fab .fabl{max-width:90px;margin-left:8px}
     <button type="button" class="iconbtn plx" id="plClose" aria-label="Fechar"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><path d="M6 6l12 12M18 6L6 18"/></svg></button>
     <div class="plhero"><span class="plcrown"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 8l4.5 4L12 5l4.5 7L21 8l-2 11H5z"/></svg></span><h2 id="plTitle">Gastei Premium</h2><p id="plWhy">Tenha o controle completo do seu dinheiro.</p></div>
     <div class="plstatus" id="plStatus" hidden></div>
-    <ul class="plben"><li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12l5 5L20 7"/></svg><span><b>Histórico e comparar meses</b><small>Tudo o que entrou e saiu, mês a mês, e um mês contra o outro</small></span></li><li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12l5 5L20 7"/></svg><span><b>Relatório em PDF</b><small>Apresentação pronta para salvar, imprimir ou enviar</small></span></li><li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12l5 5L20 7"/></svg><span><b>Cores do seu jeito</b><small>Estilos prontos ou a roda de cores para escolher as suas</small></span></li><li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12l5 5L20 7"/></svg><span><b>Gastos e receitas fixos</b><small>Aluguel, internet e salário lançados sozinhos todo mês</small></span></li><li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12l5 5L20 7"/></svg><span><b>Orçamento por categoria</b><small>Defina um limite para cada categoria e veja quando passar</small></span></li><li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12l5 5L20 7"/></svg><span><b>Caixinhas</b><small>Separe dinheiro para seus planos, com depósito todo mês ou automático</small></span></li><li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12l5 5L20 7"/></svg><span><b>Aba Planejar</b><small>Previsão do fim do mês, caixinhas e alerta de gastos, mais leitura de comprovante por foto</small></span></li></ul>
-    <p class="plfree">Grátis para sempre: lançar receitas e gastos, ver quanto ainda sobra no mês, painel e lista de lançamentos.</p>
+    <ul class="plben"><li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12l5 5L20 7"/></svg><span><b>Histórico e comparar meses</b><small>Tudo o que entrou e saiu, mês a mês, e um mês contra o outro</small></span></li><li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12l5 5L20 7"/></svg><span><b>Relatório em PDF</b><small>Apresentação pronta para salvar, imprimir ou enviar</small></span></li><li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12l5 5L20 7"/></svg><span><b>Cores do seu jeito</b><small>Paletas prontas ou uma roda de cores para criar a sua</small></span></li><li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12l5 5L20 7"/></svg><span><b>Gastos e receitas fixos</b><small>Aluguel, internet e salário lançados sozinhos todo mês</small></span></li><li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12l5 5L20 7"/></svg><span><b>Orçamento por categoria</b><small>Defina um limite por categoria e saiba quando ultrapassá-lo</small></span></li><li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12l5 5L20 7"/></svg><span><b>Caixinhas</b><small>Reserve dinheiro para seus objetivos, com depósitos mensais ou automáticos</small></span></li><li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12l5 5L20 7"/></svg><span><b>Aba Planejar</b><small>Previsão de fechamento do mês, caixinhas, alertas de gastos e leitura de comprovantes por foto</small></span></li></ul>
+    <p class="plfree">Sempre grátis: registro de receitas e gastos, saldo disponível do mês, painel e lista de lançamentos.</p>
     <div class="plopts" id="plOpts" role="radiogroup" aria-label="Escolha o plano">
-      <button type="button" role="radio" class="plopt" data-plan="anual" aria-checked="true"><span class="pltag">Melhor preço</span><b>Anual</b><span class="plp" id="pAnual">R$ 59,90</span><small id="pAnualS">por ano · sai por R$ 4,99 por mês</small></button>
+      <button type="button" role="radio" class="plopt" data-plan="anual" aria-checked="true"><span class="pltag">Melhor preço</span><b>Anual</b><span class="plp" id="pAnual">R$ 59,90</span><small id="pAnualS">por ano · equivale a R$ 4,99 por mês</small></button>
       <button type="button" role="radio" class="plopt" data-plan="mensal" aria-checked="false"><b>Mensal</b><span class="plp" id="pMensal">R$ 9,90</span><small>por mês · cancele quando quiser</small></button>
-      <button type="button" role="radio" class="plopt" data-plan="vitalicio" aria-checked="false"><b>Vitalício</b><span class="plp" id="pVida">R$ 99,00</span><small>pague uma vez, use para sempre</small></button>
+      <button type="button" role="radio" class="plopt" data-plan="vitalicio" aria-checked="false"><b>Vitalício</b><span class="plp" id="pVida">R$ 99,00</span><small>pagamento único, acesso para sempre</small></button>
     </div>
     <button type="button" class="btn plgo" id="plBuy">Assinar o Premium</button>
     <p class="plerr" id="plErr" role="alert"></p>
@@ -2125,7 +2125,7 @@ body.fabx .tabbar .fab .fabl{max-width:90px;margin-left:8px}
       <button type="button" class="btn sm" id="plCodeGo">Ativar</button>
     </div>
     <p class="plfine" id="plFine"></p>
-    <div class="pllinks pllegal"><button type="button" class="link" id="plRetry" hidden>Tentar de novo</button><button type="button" class="link" id="plManage" hidden>Gerenciar assinatura</button><a class="link" href="https://ramosluskka-arch.github.io/gastei/termos.html" target="_blank" rel="noopener">Termos de uso</a><a class="link" href="https://ramosluskka-arch.github.io/gastei/privacidade.html" target="_blank" rel="noopener">Privacidade</a></div>
+    <div class="pllinks pllegal"><button type="button" class="link" id="plRetry" hidden>Tentar novamente</button><button type="button" class="link" id="plManage" hidden>Gerenciar assinatura</button><a class="link" href="https://ramosluskka-arch.github.io/gastei/termos.html" target="_blank" rel="noopener">Termos de uso</a><a class="link" href="https://ramosluskka-arch.github.io/gastei/privacidade.html" target="_blank" rel="noopener">Privacidade</a></div>
   </div>
 </div>
 
@@ -2134,11 +2134,11 @@ body.fabx .tabbar .fab .fabl{max-width:90px;margin-left:8px}
     <div class="ihead"><h2 id="iTitle">Instalar o Gastei</h2><button type="button" class="iconbtn" id="iClose" aria-label="Fechar"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><path d="M6 6l12 12M18 6L6 18"/></svg></button></div>
     <div class="istep"><b>Android</b>
       <a class="btn ibtn" id="apkLink" href="https://github.com/ramosluskka-arch/gastei/releases/latest/download/Gastei.apk" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 4v11M7 10l5 5 5-5M5 20h14"/></svg>Baixar o app (APK)</a>
-      <p>Abra o arquivo <b>Gastei.apk</b> que baixou. Se o celular pedir, toque em <b>Configurações</b> e ative <b>Permitir desta fonte</b>, depois volte e toque em <b>Instalar</b>.</p>
-      <button class="btn ghost ibtn" id="pwaInstall" hidden>Ou instalar direto pelo Chrome</button>
+      <p>Abra o arquivo <b>Gastei.apk</b> baixado. Se o celular solicitar, toque em <b>Configurações</b> e ative <b>Permitir desta fonte</b>, depois volte e toque em <b>Instalar</b>.</p>
+      <button class="btn ghost ibtn" id="pwaInstall" hidden>Ou instale direto pelo Chrome</button>
     </div>
     <div class="istep"><b>iPhone</b><p>Abra este site no <b>Safari</b>, toque em <b>Compartilhar</b> e depois em <b>Adicionar à Tela de Início</b>.</p></div>
-    <p class="inote">Seus dados ficam guardados só no aparelho. O app do Android e o site guardam dados separados: use Mais › Planilha e cópia de segurança para levar seus lançamentos de um para o outro.</p>
+    <p class="inote">Seus dados ficam armazenados apenas no aparelho. O app Android e o site guardam os dados separadamente: use Ajustes › Backup para transferir seus lançamentos de um para o outro.</p>
   </div>
 </div>
 <div class="overlay" id="welcome" hidden>
@@ -2147,27 +2147,27 @@ body.fabx .tabbar .fab .fabl{max-width:90px;margin-left:8px}
     <section class="wstep" data-ws="0">
       <div class="wlogo"><svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.4"><path d="M4 16.5l4.7-4.7 3.8 3.8 5.2-5.6" stroke="#fff"/><path d="M15.4 7.4h4.2v4.2" stroke="#FF9A1F"/></svg></div>
       <h2 id="wTitle">Seu dinheiro,<br><span class="wgrad">sob controle.</span></h2>
-      <p class="wlead">Anote o que entra e o que sai em segundos e saiba quanto ainda pode gastar no mês.</p>
+      <p class="wlead">Registre o que entra e o que sai em segundos e saiba exatamente quanto ainda pode gastar no mês.</p>
       <div class="wfeat">
         <div><i class="tic" style="--ic:var(--pur2)"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="5"/><circle cx="12" cy="12" r="1"/></svg></i><span><b>Meta do mês</b><small>O app calcula quanto você pode gastar por dia</small></span></div>
         <div><i class="tic" style="--ic:var(--grn)"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 8a6 6 0 1 1 12 0c0 7 3 9 3 9H3s3-2 3-9"/><path d="M10.3 21a1.94 1.94 0 0 0 3.4 0"/></svg></i><span><b>Avisos no celular</b><small>Lembrete diário, contas do dia e alerta de gastos</small></span></div>
-        <div><i class="tic" style="--ic:var(--org)"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12A9 9 0 1 1 12 3v9z"/><path d="M15 3.5A9 9 0 0 1 20.5 9H15z"/></svg></i><span><b>Relatórios e caixinhas</b><small>Veja para onde vai o dinheiro e guarde para seus planos</small></span></div>
-        <div><i class="tic" style="--ic:#4DA3FF"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l8 3v6c0 5-3.5 8-8 9-4.5-1-8-4-8-9V6z"/><path d="M9 12l2 2 4-4"/></svg></i><span><b>Privado</b><small>Sem cadastro. Seus dados ficam no seu aparelho</small></span></div>
+        <div><i class="tic" style="--ic:var(--org)"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12A9 9 0 1 1 12 3v9z"/><path d="M15 3.5A9 9 0 0 1 20.5 9H15z"/></svg></i><span><b>Relatórios e caixinhas</b><small>Veja para onde vai o dinheiro e reserve para seus objetivos</small></span></div>
+        <div><i class="tic" style="--ic:#4DA3FF"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l8 3v6c0 5-3.5 8-8 9-4.5-1-8-4-8-9V6z"/><path d="M9 12l2 2 4-4"/></svg></i><span><b>Privado</b><small>Sem cadastro. Seus dados ficam apenas no seu aparelho</small></span></div>
       </div>
     </section>
     <section class="wstep" data-ws="1" hidden>
       <div class="wavt" id="wAvt">?</div>
-      <h2>Como podemos te chamar?</h2>
+      <h2>Como podemos chamar você?</h2>
       <p class="wlead">Seu nome aparece na saudação do Início.</p>
       <input class="inp wbig" id="wName" maxlength="30" placeholder="Seu nome" autocomplete="given-name" enterkeyhint="next">
     </section>
     <section class="wstep" data-ws="2" hidden>
       <div class="wlogo sm"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="5"/><circle cx="12" cy="12" r="1"/></svg></div>
       <h2>Quanto quer gastar por mês?</h2>
-      <p class="wlead">Essa é a sua meta. O Gastei avisa quando você estiver chegando perto. Dá para mudar depois.</p>
+      <p class="wlead">Essa será a sua meta mensal. O Gastei avisa quando você estiver perto de atingi-la, e você pode alterá-la quando quiser.</p>
       <div class="wmoney"><span>R$</span><input class="inp mono wbig" id="wMeta" inputmode="decimal" placeholder="3.000,00" enterkeyhint="done"></div>
       <div class="wchips" id="wChips"><button type="button" data-wm="150000">R$ 1.500</button><button type="button" data-wm="200000">R$ 2.000</button><button type="button" data-wm="300000">R$ 3.000</button><button type="button" data-wm="500000">R$ 5.000</button></div>
-      <label class="wnot" id="wNotRow" hidden><input type="checkbox" id="wNotif" checked><span><b>Ligar notificações</b><small>Lembrete às 20h para anotar os gastos, contas do dia e alerta da meta</small></span></label>
+      <label class="wnot" id="wNotRow" hidden><input type="checkbox" id="wNotif" checked><span><b>Ligar notificações</b><small>Lembrete às 20h para registrar os gastos, contas do dia e alerta de meta</small></span></label>
     </section>
     <div class="wfoot"><button type="submit" class="btn wgo" id="wStart">Começar</button></div>
   </form>
@@ -2193,7 +2193,7 @@ var APP_NAME="Gastei";
 var KEY="gastei.v1";
 /* Versão do app e do formato dos dados. A cada versão nova: aumente APP_VER.
    Mudou o formato dos dados? aumente DATA_VER e escreva a conversão em migrate(). Nunca apague dados antigos. */
-var APP_VER="43",DATA_VER=2,UPD=null;
+var APP_VER="44",DATA_VER=2,UPD=null;
 var DEFAULT_CATS=[
   {k:"alimentacao",n:"Alimentação",c:"#E8792B"},{k:"mercado",n:"Mercado",c:"#1F9D62"},{k:"transporte",n:"Transporte",c:"#2F7FE0"},
   {k:"casa",n:"Casa",c:"#8B5CF6"},{k:"contas",n:"Contas",c:"#C99A06"},{k:"saude",n:"Saúde",c:"#E0457B"},
@@ -2393,7 +2393,7 @@ $("#form").addEventListener("submit",function(e){
     if(n>1)msg=n+" parcelas de <b>"+esc(brl(base))+"</b> lançadas, uma por mês";
     if(rec)msg+=" · repete todo dia "+d0.getDate();
     if(after>before&&after>1)msg+=" · "+after+" dias seguidos";
-    if(had)msg="Exemplos removidos e seu primeiro lançamento salvo";
+    if(had)msg="Exemplos removidos. Seu primeiro lançamento foi salvo";
     var cm=range("mes",today());if(!inc&&d0>=cm[0]&&d0<=cm[1]){var lf=sumRange(cm[0],cm[1],"in").t-sumRange(cm[0],cm[1]).t;if(sumRange(cm[0],cm[1],"in").t)msg+=" · "+(lf>=0?"disponível <b>"+esc(brl(lf))+"</b>":"<b>"+esc(brl(-lf))+"</b> acima da receita")}
     toast(msg,null,true);
     var r=range(mode,anchor);if(d0<r[0]||d0>r[1])anchor=d0;
@@ -2473,7 +2473,7 @@ function drawBalance(r,outT){
   $("#balIn").textContent=brl(inc);$("#balOut").textContent=brl(outT);
   $("#balNet").textContent=(net<0?"- ":"")+brl(Math.abs(net));$("#balNet").className=net<0?"neg":"pos";
   $("#balRate").textContent=inc?Math.round(net/inc*100)+"%":"—";$("#balRate").className=inc&&net<0?"neg":inc?"pos":"";
-  $("#balSub").textContent=inc?"":"Anote suas receitas para ver o saldo";
+  $("#balSub").textContent=inc?"":"Registre suas receitas para ver o saldo";
 }
 function drawPays(items,total){
   var by={};items.forEach(function(x){var k=x.p&&PAY(x.p)?x.p:"_";by[k]=(by[k]||0)+x.v});
@@ -2524,7 +2524,7 @@ function drawChart(r){
   var ry=T+ph-ph*ref/max;h+='<line class="ml" x1="'+L+'" x2="'+W+'" y1="'+ry+'" y2="'+ry+'"/>';
   svg.setAttribute("viewBox","0 0 "+W+" "+H);svg.innerHTML=h;animBars=false;
   $("#legend").innerHTML='<span><i></i>'+(mode==="ano"?"Meta do mês: ":"Limite por dia pela meta: ")+brl(ref)+'</span>';
-  $("#cap").textContent=(mobile()?"Toque":"Clique")+(mode==="ano"?" num mês para abrir.":" num dia para abrir.");
+  $("#cap").textContent=(mobile()?"Toque":"Clique")+(mode==="ano"?" em um mês para ver os detalhes.":" em um dia para ver os detalhes.");
 }
 function capFor(i){var b=bars[i];if(b)$("#cap").innerHTML=esc(b.cap.charAt(0).toUpperCase()+b.cap.slice(1))+": <b>"+brl(b.v)+"</b>"}
 var chartEl=$("#chart");
@@ -2547,7 +2547,7 @@ function drawGoal(){
   $("#mLimit").textContent=brl(limit);
   $("#mFill").style.width=(limit?Math.min(100,todayS/limit*100):(todayS?100:0))+"%";$("#mBar").classList.toggle("over",todayS>limit);
   var ms=$("#mState");
-  if(!limit){ms.className="mstate bad";ms.textContent="A meta do mês já foi usada. Evite novos gastos."}
+  if(!limit){ms.className="mstate bad";ms.textContent="Você já atingiu a meta do mês. Evite novos gastos."}
   else if(todayS>limit){ms.className="mstate bad";ms.textContent="Hoje você passou "+brl(todayS-limit)+" do limite."}
   else{ms.className="mstate";ms.textContent="Gasto hoje "+brl(todayS)+" · ainda pode "+brl(limit-todayS)}
 }
@@ -2583,7 +2583,7 @@ function drawFilters(){
 function drawList(items){
   if(fMon==="all")items=S.items.slice();else if(fMon){var fa=mFrom(fMon);items=inRange(fa,new Date(fa.getFullYear(),fa.getMonth()+1,0))}
   var q=query.toLowerCase(),l=items.filter(function(x){return(!q||(x.n+" "+catOf(x).n).toLowerCase().indexOf(q)>-1)&&(!fType||(x.t||"out")===fType)&&(!fCat||x.c===fCat)&&(!fPay||x.p===fPay)}).sort(function(a,b){return a.d<b.d?1:a.d>b.d?-1:0});
-  if(!l.length){var flt=q||fType||fCat||fPay;$("#list").innerHTML=flt?'<div class="emptyx"><span class="ei"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="7"/><path d="M20 20l-3.5-3.5"/></svg></span><b>Nada encontrado</b><small>Nenhum lançamento combina com essa busca ou filtro.</small><button type="button" class="btn sm ghost" data-clrf>Limpar filtros</button></div>':'<div class="emptyx"><span class="ei"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 6h11M9 12h11M9 18h11"/><path d="M4 6h.01M4 12h.01M4 18h.01"/></svg></span><b>Nada lançado neste mês</b><small>Seus gastos e receitas aparecem aqui, separados por dia.</small><button type="button" class="btn sm" data-addx="out">Lançar gasto</button></div>';return}
+  if(!l.length){var flt=q||fType||fCat||fPay;$("#list").innerHTML=flt?'<div class="emptyx"><span class="ei"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="7"/><path d="M20 20l-3.5-3.5"/></svg></span><b>Nada encontrado</b><small>Nenhum lançamento corresponde à busca ou aos filtros.</small><button type="button" class="btn sm ghost" data-clrf>Limpar filtros</button></div>':'<div class="emptyx"><span class="ei"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 6h11M9 12h11M9 18h11"/><path d="M4 6h.01M4 12h.01M4 18h.01"/></svg></span><b>Nenhum lançamento neste mês</b><small>Seus gastos e receitas aparecerão aqui, organizados por dia.</small><button type="button" class="btn sm" data-addx="out">Lançar gasto</button></div>';return}
   var dayTot={};l.forEach(function(x){if(isOut(x))dayTot[x.d]=(dayTot[x.d]||0)+x.v});
   var h="",last="";
   l.slice(0,listLimit).forEach(function(x){
@@ -2606,7 +2606,7 @@ function drawRecs(){
   var el=$("#recList");if(!S.recs.length){el.innerHTML='<div class="empty">Nenhum lançamento fixo ainda.</div>';return}
   el.innerHTML=S.recs.map(function(r,i){var c=r.t==="in"?ICAT(r.c):CAT(r.c);return'<div class="r"><div><b>'+esc(r.n)+'</b><span>'+(r.t==="in"?"Receita":"Gasto")+" · "+esc(c.n)+" · todo dia "+r.day+'</span></div><span class="mono">'+brl(r.v)+'</span><button class="ib" data-rr="'+i+'" aria-label="Parar de repetir '+esc(r.n)+'" title="Parar de repetir">'+ICON_D+'</button></div>'}).join("");
 }
-$("#recList").addEventListener("click",function(e){var b=e.target.closest("[data-rr]");if(!b)return;var r=S.recs.splice(+b.dataset.rr,1)[0];save();drawRecs();render();toast(r.n+" não será mais lançado sozinho. Os lançamentos antigos continuam.")});
+$("#recList").addEventListener("click",function(e){var b=e.target.closest("[data-rr]");if(!b)return;var r=S.recs.splice(+b.dataset.rr,1)[0];save();drawRecs();render();toast(r.n+" não será mais lançado automaticamente. Os lançamentos anteriores foram mantidos.")});
 function closeSettings(){$("#settings").hidden=true;if(lastFocus&&lastFocus.focus)lastFocus.focus()}
 function showTab(t){$$(".tabs [data-tab]").forEach(function(b){b.setAttribute("aria-selected",b.dataset.tab===t)});$$("[data-pane]").forEach(function(p){p.hidden=p.dataset.pane!==t})}
 $("#openSettings").addEventListener("click",function(){if(mobile()){setTab(document.body.dataset.tab==="more"?"home":"more");return}openSettings()});
@@ -2614,7 +2614,7 @@ $("#closeSettings").addEventListener("click",closeSettings);
 $("#settings").addEventListener("click",function(e){if(e.target===this)closeSettings()});
 document.addEventListener("keydown",function(e){if(e.key==="Escape"&&!$("#settings").hidden)closeSettings()});
 $$(".tabs [data-tab]").forEach(function(b){b.addEventListener("click",function(){showTab(b.dataset.tab)})});
-$("#saveProfile").addEventListener("click",function(){var m=parseMoney($("#setMeta").value);if(!m){toast("Digite uma meta maior que zero");return}S.name=$("#setName").value.trim();S.meta=m;save();render();toast("Perfil salvo")});
+$("#saveProfile").addEventListener("click",function(){var m=parseMoney($("#setMeta").value);if(!m){toast("Informe uma meta maior que zero");return}S.name=$("#setName").value.trim();S.meta=m;save();render();toast("Perfil salvo")});
 function drawCatEdit(){
   $("#catEdit").innerHTML=S.cats.map(function(c,i){return'<div class="r"><input type="color" value="'+esc(c.c)+'" data-ci="'+i+'" aria-label="Cor de '+esc(c.n)+'"><input class="inp" value="'+esc(c.n)+'" maxlength="20" data-ni="'+i+'" aria-label="Nome da categoria"><input class="inp mono" inputmode="decimal" value="'+(c.b?fmtNum.format(c.b/100):"")+'" placeholder="Orçamento/mês" data-bi="'+i+'" aria-label="Orçamento mensal de '+esc(c.n)+'"><button class="ib" data-ri="'+i+'" aria-label="Remover '+esc(c.n)+'">'+ICON_D+'</button></div>'}).join("");
 }
@@ -2665,7 +2665,7 @@ var pwT=0;function pushWidgetSoon(){clearTimeout(pwT);pwT=setTimeout(function(){
   cv.addEventListener("pointerup",function(){if(down){down=false;save();buzz(4)}});cv.addEventListener("pointercancel",function(){down=false});
   $("#cBri").addEventListener("input",function(){if(!isPrem()&&needPrem("cores"))return;var c=custCols(),hv=hx2hsv(c[cKey]);S.cust=c;S.cust[cKey]=hsv2hx(hv.h,hv.s,+this.value/100);applyCust(true);drawWheel();placeDot();$$("#cSwat [data-ck]").forEach(function(b){b.querySelector("i").style.background=S.cust[b.dataset.ck]});pushWidgetSoon()});
   $("#cSwat").addEventListener("click",function(e){var b=e.target.closest("[data-ck]");if(!b)return;cKey=b.dataset.ck;drawWheelUI();buzz(4)});
-  $("#cReset").addEventListener("click",function(){S.cust={c1:CDEF.c1,c2:CDEF.c2,c3:CDEF.c3};applyCust(true);drawWheelUI();save();postLook();drawIcons();toast("Cores do Noite de volta")});
+  $("#cReset").addEventListener("click",function(){S.cust={c1:CDEF.c1,c2:CDEF.c2,c3:CDEF.c3};applyCust(true);drawWheelUI();save();postLook();drawIcons();toast("Cores do Noite restauradas")});
   window.addEventListener("resize",function(){if(!$("#custBox").hidden)placeDot()})})();
 $("#palSeg").addEventListener("click",function(e){var b=e.target.closest("[data-pal]");if(!b)return;if(b.dataset.pal!=="teal"&&b.dataset.pal!=="neon"&&needPrem("cores"))return;S.pal=b.dataset.pal;applyTheme();save();buzz(6)});
 $("#themeSeg").addEventListener("click",function(e){var b=e.target.closest("[data-th]");if(!b)return;S.theme=b.dataset.th;applyTheme();save();syncSegs()});
@@ -2677,10 +2677,10 @@ function csv(){
 }
 function copyText(txt,ok){function fb(){$("#bkTxt").value=txt;$("#bkTxt").select();toast("Texto selecionado. Use Ctrl+C para copiar")}try{navigator.clipboard.writeText(txt).then(function(){toast(ok)},fb)}catch(e){fb()}}
 $("#csvBtn").addEventListener("click",function(){
-  var c=csv();if(c.split("\n").length<2){toast("Ainda não há gastos seus para exportar");return}
-  try{var a=document.createElement("a");a.href=URL.createObjectURL(new Blob(["\ufeff"+c],{type:"text/csv;charset=utf-8"}));a.download="gastos-"+iso(today())+".csv";document.body.appendChild(a);a.click();setTimeout(function(){URL.revokeObjectURL(a.href);a.remove()},500);toast("Planilha gerada. Se não baixou, use Copiar CSV.")}catch(e){copyText(c,"CSV copiado")}
+  var c=csv();if(c.split("\n").length<2){toast("Ainda não há gastos para exportar");return}
+  try{var a=document.createElement("a");a.href=URL.createObjectURL(new Blob(["\ufeff"+c],{type:"text/csv;charset=utf-8"}));a.download="gastos-"+iso(today())+".csv";document.body.appendChild(a);a.click();setTimeout(function(){URL.revokeObjectURL(a.href);a.remove()},500);toast("Planilha gerada. Se o download não começou, use Copiar CSV.")}catch(e){copyText(c,"CSV copiado")}
 });
-$("#csvCopy").addEventListener("click",function(){copyText(csv(),"CSV copiado. Cole num arquivo .csv")});
+$("#csvCopy").addEventListener("click",function(){copyText(csv(),"CSV copiado. Cole em um arquivo .csv")});
 /* ---------- relatório em PDF (impressão do navegador, funciona offline) ---------- */
 function rpM(v){return(v<0?"- ":"")+brl(Math.abs(v))}
 function rpD(d){var x=parse(d);return pad(x.getDate())+"/"+pad(x.getMonth()+1)+"/"+x.getFullYear()}
@@ -2741,8 +2741,8 @@ function buildReport(r,all){
   if(prevOut&&tOut){var pc=Math.round((tOut-prevOut)/prevOut*100);ins2.push(pc===0?'Você gastou o mesmo que no '+PREVNAME[mode]+' (<span class="n">'+brl(prevOut)+'</span>).':'Você gastou <b class="'+(pc>0?"neg2":"pos2")+'">'+Math.abs(pc)+'% '+(pc>0?"a mais":"a menos")+'</b> que no '+PREVNAME[mode]+' (<span class="n">'+brl(prevOut)+'</span>).')}
   if(mode!=="dia"&&tOut)ins2.push('Média de <b class="n">'+brl(Math.round(tOut/days))+'</b> por dia'+(isNow?" até hoje":"")+', em '+days+' dias.');
   if(outs.length){var big=outs.reduce(function(a,b){return b.v>a.v?b:a});ins2.push('Maior gasto: <b>'+esc(big.n||catOf(big).n)+'</b>, <b class="n">'+brl(big.v)+'</b> em '+rpD(big.d)+'.')}
-  if(tIn)ins2.push(net>=0?'Sobrou <b class="n pos2">'+brl(net)+'</b>, ou seja '+rate+'% de tudo que entrou.':'Os gastos passaram as receitas em <b class="n neg2">'+brl(-net)+'</b>.');
-  else ins2.push('Nenhuma receita anotada neste período, então o saldo considera só os gastos.');
+  if(tIn)ins2.push(net>=0?'Sobrou <b class="n pos2">'+brl(net)+'</b>, ou seja '+rate+'% de tudo que entrou.':'Os gastos superaram as receitas em <b class="n neg2">'+brl(-net)+'</b>.');
+  else ins2.push('Nenhuma receita registrada neste período; o saldo considera apenas os gastos.');
   var goal="";
   if(mode==="mes"){var pc2=tOut/S.meta,col=pc2>1?"#C2362B":pc2>.85?"#E89B0C":"#127A4B";
     goal='<div class="rp-sec rp-box"><h3>Meta do mês</h3><div style="display:flex;justify-content:space-between"><span>Usado <b class="n">'+brl(tOut)+'</b> de <b class="n">'+brl(S.meta)+'</b></span><b style="color:'+col+'">'+Math.round(pc2*100)+'%</b></div><div class="rp-pbar"><div style="width:'+Math.min(100,pc2*100)+'%;background:'+col+'"></div></div><span class="rp-muted">'+(pc2>1?'Passou da meta em <span class="n">'+brl(tOut-S.meta)+'</span>.':'Ainda cabem <span class="n">'+brl(S.meta-tOut)+'</span> na meta.')+'</span></div>'}
@@ -2794,7 +2794,7 @@ $("#pwaInstall").addEventListener("click",function(){if(!deferredInstall)return;
 function exportPDF(){
   if(needPrem("pdf"))return;
   var r=range(mode,anchor),all=inRange(r[0],r[1]);
-  if(!all.length){toast("Não há lançamentos neste período para o relatório");return}
+  if(!all.length){toast("Não há lançamentos neste período para gerar o relatório");return}
   $("#report").innerHTML=buildReport(r,all);
   var old=document.title;document.title=APP_NAME+" - Relatório - "+periodLabel().replace(/[\/\\:·]/g,"-");
   function back(){document.title=old;window.removeEventListener("afterprint",back)}
@@ -2954,11 +2954,11 @@ document.addEventListener("click",function(e){var b=e.target.closest("[data-addx
   var qi=$("#search");if(qi){qi.value="";qi.dispatchEvent(new Event("input",{bubbles:true}))}["#fCat","#fPay","#fType"].forEach(function(id){var el=$(id);if(el&&el.value){el.value="";el.dispatchEvent(new Event("change",{bubbles:true}))}});
   var tc=$('#tChips [data-ft=""]');if(tc)tc.click();buzz(6)});
 var TIPS={
-  home:["Dica rápida","Arraste a tela para o lado para trocar de aba. O botão laranja lança um gasto em segundos. Toque nos blocos, nos dias e nas categorias para ver os detalhes.",'<path d="M5 12h14M13 6l6 6-6 6"/>'],
-  list:["Seus lançamentos","Toque num lançamento para editar. Arraste para a esquerda ou toque na lixeira para excluir, e você pode desfazer logo em seguida.",'<path d="M9 6h11M9 12h11M9 18h11M4 6h.01M4 12h.01M4 18h.01"/>'],
-  plan:["Planeje o mês","Veja se o mês vai fechar no azul, separe dinheiro em caixinhas e escolha quando quer ser avisado dos gastos.",'<circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="5"/><circle cx="12" cy="12" r="1"/>'],
-  report:["Relatórios","Use as setas para trocar o período e toque num dia do gráfico para ver o que gastou nele. O botão PDF gera um relatório para salvar ou enviar.",'<path d="M4 20V10M10 20V4M16 20v-7M22 20H2"/>'],
-  hist:["Histórico","Cada mês com o que entrou e saiu. Escolha dois meses em Comparar meses para ver a diferença lado a lado.",'<path d="M3 12a9 9 0 1 0 3-6.7L3 8"/><path d="M3 3v5h5M12 7v5l3 2"/>']};
+  home:["Dica rápida","Deslize a tela para o lado para trocar de aba. O botão laranja registra um gasto em segundos. Toque nos cartões, nos dias e nas categorias para ver os detalhes.",'<path d="M5 12h14M13 6l6 6-6 6"/>'],
+  list:["Seus lançamentos","Toque em um lançamento para editá-lo. Para excluir, deslize para a esquerda ou toque na lixeira; você poderá desfazer logo em seguida.",'<path d="M9 6h11M9 12h11M9 18h11M4 6h.01M4 12h.01M4 18h.01"/>'],
+  plan:["Planeje o mês","Veja se o mês vai fechar no azul, reserve dinheiro em caixinhas e defina quando deseja receber alertas de gastos.",'<circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="5"/><circle cx="12" cy="12" r="1"/>'],
+  report:["Relatórios","Use as setas para mudar o período e toque em um dia do gráfico para ver o que foi gasto. O botão PDF gera um relatório para salvar ou compartilhar.",'<path d="M4 20V10M10 20V4M16 20v-7M22 20H2"/>'],
+  hist:["Histórico","Veja o que entrou e saiu em cada mês. Em Comparar meses, escolha dois meses para ver as diferenças lado a lado.",'<path d="M3 12a9 9 0 1 0 3-6.7L3 8"/><path d="M3 3v5h5M12 7v5l3 2"/>']};
 function drawTip(){var old=$("#ftip");if(old)old.remove();if(!S.onboarded||!mobile())return;var t=document.body.dataset.tab||"home",d=TIPS[t];if(!d||(S.tips&&S.tips[t]))return;
   var first=$$('[data-v="'+t+'"]').filter(function(e){return e.offsetParent!==null})[0];if(!first)return;
   var el=document.createElement("div");el.className="ftip";el.id="ftip";el.setAttribute("role","note");
@@ -2979,10 +2979,10 @@ function drawMonth(){
   var nb=$("#mNet");nb.textContent=sgn(net);nb.className="mono"+(net<0?" neg":"");
   $("#mIn").textContent=brl(inc);$("#mOut").textContent=brl(out);
   var sub;
-  if(!inc&&!out)sub=fut?"Este mês ainda não começou":"Comece adicionando a sua receita do mês";
+  if(!inc&&!out)sub=fut?"Este mês ainda não começou":"Comece adicionando sua receita do mês";
   else if(!inc)sub="Adicione sua receita para ver quanto ainda tem";
   else if(net>=0)sub=Math.round(net/inc*100)+"% do que entrou "+(past?"ficou guardado":"ainda está com você");
-  else sub="Os gastos passaram a receita em "+brl(-net);
+  else sub="Os gastos superaram a receita em "+brl(-net);
   $("#mNetSub").textContent=sub;
   var pc=inc?out/inc:out?1.01:0,f=$("#mBarFill");f.style.width=Math.min(100,pc*100)+"%";f.className=pc>1?"over":"";
   /* contas fixas que ainda vão entrar ou sair neste mês */
@@ -3005,12 +3005,12 @@ function drawMonth(){
       /* 1ª frase: quanto dá para gastar por dia */
       if(!inc)sh+='<p data-addx="in">'+si("#B26BFF",'<path d="M12 5v14M5 12h14"/>')+'<span>Adicione o que você recebe no mês para ver <b>quanto pode gastar por dia</b>.</span></p>';
       else if(dia>0)sh+='<p data-go="plan">'+si("#B26BFF",'<path d="M12 20a8 8 0 1 1 8-8"/><path d="M12 12l4-4"/>')+'<span>Para fechar o mês no azul, gaste até <b class="ok">'+brl(dia)+' por dia</b>.</span></p>';
-      else sh+='<p data-go="plan">'+si("#FF5C93",'<path d="M12 9v4M12 17h.01"/><path d="M10.3 3.9 1.8 18a2 2 0 0 0 1.7 3h17a2 2 0 0 0 1.7-3L13.7 3.9a2 2 0 0 0-3.4 0z"/>')+'<span>Os gastos já passaram do que entrou. <b class="al">Segure até a próxima receita</b>.</span></p>';
+      else sh+='<p data-go="plan">'+si("#FF5C93",'<path d="M12 9v4M12 17h.01"/><path d="M10.3 3.9 1.8 18a2 2 0 0 0 1.7 3h17a2 2 0 0 0 1.7-3L13.7 3.9a2 2 0 0 0-3.4 0z"/>')+'<span>Os gastos já superaram o que entrou. <b class="al">Evite novos gastos até a próxima receita</b>.</span></p>';
       /* 2ª frase: como está o dia de hoje (ou o mês, se ainda não gastou hoje) */
       if(ts.t&&inc)sh+='<p data-go="list">'+si("#FF9A3D",'<circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/>')+'<span>Hoje você gastou <b>'+brl(ts.t)+'</b>'+(rst>=0?' e ainda tem <b class="ok">'+brl(rst)+'</b> livres no dia.':', <b class="al">'+brl(-rst)+' além</b> do ideal de hoje.')+'</span></p>';
       else if(cmpTxt)sh+='<p data-go="mes">'+si("#2F9BFF",'<path d="M4 20V10M10 20V4M16 20v-7M22 20H2"/>')+'<span>Neste mês você gastou '+cmpTxt+'.</span></p>';
       else if(ts.t)sh+='<p data-go="list">'+si("#FF9A3D",'<circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/>')+'<span>Hoje você gastou <b>'+brl(ts.t)+'</b>.</span></p>';
-      else sh+='<p data-addx="out">'+si("#FF9A3D",'<circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/>')+'<span>Nenhum gasto anotado hoje. Gastou algo? <b>Lance em segundos</b>.</span></p>';
+      else sh+='<p data-addx="out">'+si("#FF9A3D",'<circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/>')+'<span>Nenhum gasto registrado hoje. Gastou algo? <b>Registre em segundos</b>.</span></p>';
     }
     sy.innerHTML=sh;sy.hidden=!sh}
   /* 7 dias */
@@ -3056,7 +3056,7 @@ function drawBkNote(){
   var mine=S.items.filter(function(i){return !i.ex}).length,now=Date.now(),n=$("#bkNote");
   var ev=S.bkEvery==null?14:S.bkEvery,due=ev>0&&mine>=10&&now-Math.max(S.lastBk||0,S.autoBk||0)>ev*864e5&&now-(S.bkSnooze||0)>3*864e5;
   n.hidden=!due;
-  if(due)$("#bkNoteT").textContent=S.lastBk?"Seu último backup tem mais de "+(S.bkEvery||14)+" dias.":"Você ainda não fez nenhuma cópia de segurança. Se o app for desinstalado, os dados se perdem.";
+  if(due)$("#bkNoteT").textContent=S.lastBk?"Seu último backup tem mais de "+(S.bkEvery||14)+" dias.":"Você ainda não fez nenhum backup. Se o app for desinstalado, seus dados serão perdidos.";
 }
 $("#bkGo").addEventListener("click",function(){openSettings("backup")});
 $("#bkLater").addEventListener("click",function(){S.bkSnooze=Date.now();save();drawBkNote()});
@@ -3076,7 +3076,7 @@ function makeBackup(){var txt=backup(),name=bkName();buzz(8);
   if(PCN){try{var f=pcWrite(name,txt);markBk();toast("Backup salvo em Documentos\\Gastei");try{PCN("electron").shell.showItemInFolder(f)}catch(e){}}catch(e){toast("Não foi possível salvar o backup")}return}
   if(NATIVE){natWrite(name,txt).catch(function(){return nat("Filesystem","writeFile",{path:name,data:txt,directory:"CACHE",encoding:"utf8"},8000)}).then(function(r){markBk();
       return nat("Share","share",{title:"Backup do Gastei",text:"Backup do Gastei",url:r.uri,dialogTitle:"Enviar backup"}).then(function(){},function(e){if(!/cancel/i.test(String(e&&e.message||e)))toast("Backup salvo em Documentos/Gastei")})})
-    .catch(function(){copyText(txt,"Não deu para salvar o arquivo. O backup foi copiado como texto")});return}
+    .catch(function(){copyText(txt,"Não foi possível salvar o arquivo. O backup foi copiado como texto")});return}
   var file;try{file=new File([txt],name,{type:"application/json"})}catch(e){}
   var touch=window.matchMedia&&matchMedia("(pointer:coarse)").matches;
   if(file&&touch&&navigator.canShare&&navigator.canShare({files:[file]})){navigator.share({files:[file],title:"Backup do Gastei"}).then(markBk,function(e){if(e&&e.name!=="AbortError")dl()});return}
@@ -3094,7 +3094,7 @@ function drawBackup(){if(!$("#bkLast"))return;var last=Math.max(S.lastBk||0,S.au
   $("#bkLast").textContent=last?relTime(last):"Nenhum backup ainda";
   var st=$("#bkState");st.textContent=late?"Faça um backup":"Em dia";st.className="bkst"+(late?" late":"");
   var mine=S.items.filter(function(i){return !i.ex}).length,g=(S.goals||[]).length;
-  $("#bkMakeS").textContent=(PCN?"Salva na pasta Documentos\\Gastei do PC.":NATIVE?"Salva em Documentos/Gastei e abre para enviar por WhatsApp, Drive ou e-mail.":"Baixa um arquivo com seus dados. No celular, dá para enviar por WhatsApp, Drive ou e-mail.")+" "+mine+(mine===1?" lançamento":" lançamentos")+(g?" e "+g+(g===1?" caixinha":" caixinhas"):"")+".";
+  $("#bkMakeS").textContent=(PCN?"Salva na pasta Documentos\\Gastei do PC.":NATIVE?"Salva em Documentos/Gastei e abre as opções de envio por WhatsApp, Drive ou e-mail.":"Baixa um arquivo com seus dados. No celular, você pode enviá-lo por WhatsApp, Drive ou e-mail.")+" "+mine+(mine===1?" lançamento":" lançamentos")+(g?" e "+g+(g===1?" caixinha":" caixinhas"):"")+".";
   $$("#bkEvery [data-bke]").forEach(function(b){b.setAttribute("aria-pressed",String(+b.dataset.bke===ev))});
   var ab=$("#bkAutoBox");ab.hidden=!(PCN||NATIVE);$("#bkAuto").checked=!!S.bkAuto;
   $("#bkWhere").innerHTML=S.bkAuto?(S.autoBk?"Último automático: <b>"+relTime(S.autoBk)+"</b>. ":"")+"Arquivo <b>gastei-backup-automatico.json</b> em <b>"+(PCN?"Documentos\\Gastei":"Documentos/Gastei")+"</b>"+(NATIVE?". Esse arquivo continua no celular mesmo se o app for desinstalado.":"."):"";
@@ -3231,7 +3231,7 @@ function trialLeft(){return S.trial?Math.max(0,S.trial+TRIAL_DAYS*864e5-Date.now
 function codeOk(){return !!(S.premCode&&(!S.premCode.exp||S.premCode.exp>Date.now()))}
 function isPrem(){return !!S.premPlay||codeOk()||trialLeft()>0}
 function paidPrem(){return !!S.premPlay||codeOk()}
-var WHY={pdf:"O relatório em PDF faz parte do Premium.",hist:"O histórico completo e a comparação de meses fazem parte do Premium.",cores:"Os estilos de cor fazem parte do Premium.",fixos:"Gastos e receitas fixos fazem parte do Premium.",orc:"O orçamento por categoria faz parte do Premium.",mais:"Tenha o controle completo do seu dinheiro.",fim:"Seu teste grátis acabou. Continue com tudo liberado."};
+var WHY={pdf:"O relatório em PDF faz parte do Premium.",hist:"O histórico completo e a comparação de meses fazem parte do Premium.",cores:"Os estilos de cor fazem parte do Premium.",fixos:"Gastos e receitas fixos fazem parte do Premium.",orc:"O orçamento por categoria faz parte do Premium.",mais:"Tenha o controle completo do seu dinheiro.",fim:"Seu período de teste terminou. Escolha um plano para continuar com todos os recursos."};
 function needPrem(f){if(isPrem())return false;openPlans(f);return true}
 function premLabel(){
   if(S.premPlay)return S.premPlay.life?"Premium vitalício ativo":"Assinatura Premium ativa pelo Google Play";
@@ -3242,13 +3242,13 @@ function premLabel(){
 function applyPrem(){
   var on=isPrem();document.body.classList.toggle("prem",on);
   var hl=$("#histLock");if(hl){hl.hidden=on;$("#histCard").hidden=!on;$("#cmpCard").hidden=!on}
-  var ms=$("#mPremS");if(ms)ms.textContent=premLabel()||"Histórico, PDF, cores e mais";
+  var ms=$("#mPremS");if(ms)ms.textContent=premLabel()||"Histórico, relatórios em PDF, cores e mais";
   $$("#catEdit [data-bi]").forEach(function(i){i.readOnly=!on});
 }
 function priceFor(k){var p=billing.plans[k];return p&&p.price?p.price:PRICES[k]}
 function drawPlans(){
   $("#plWhy").textContent=WHY[plWhy]||WHY.mais;
-  var st=$("#plStatus"),lb=premLabel();st.hidden=!lb;st.innerHTML=lb?"<b>"+esc(lb)+"</b>"+(paidPrem()?" · obrigado por apoiar o Gastei!":trialLeft()?" · depois disso, escolha um plano para continuar com tudo.":""):"";
+  var st=$("#plStatus"),lb=premLabel();st.hidden=!lb;st.innerHTML=lb?"<b>"+esc(lb)+"</b>"+(paidPrem()?" · obrigado por apoiar o Gastei!":trialLeft()?" · depois, escolha um plano para manter todos os recursos.":""):"";
   $("#pMensal").textContent=priceFor("mensal");$("#pAnual").textContent=priceFor("anual");$("#pVida").textContent=priceFor("vitalicio");
   $$("#plOpts .plopt").forEach(function(b){b.setAttribute("aria-checked",b.dataset.plan===plPlan)});
   var nat=NATIVE&&billing.ok,buy=$("#plBuy");
@@ -3260,7 +3260,7 @@ function drawPlans(){
   $("#plCodeBtn").hidden=nat||fromPlay||!!S.premPlay;
   $("#plManage").hidden=!(NATIVE&&S.premPlay&&S.premPlay.sub);
   $("#plRetry").hidden=!(NATIVE&&billing.checked&&!billing.ok&&!paidPrem());
-  $("#plFine").textContent=nat?(plPlan==="vitalicio"?"Pagamento único pelo Google Play. O Premium fica liberado para sempre nesta conta do Google.":(tr?"Nada é cobrado nos 7 primeiros dias. Depois, "+priceFor(plPlan)+(plPlan==="anual"?" por ano":" por mês")+". ":"")+"A assinatura renova sozinha pelo Google Play até você cancelar. Cancele quando quiser em Play Store › Pagamentos e assinaturas."):(NATIVE&&billing.checked&&!billing.ok&&!paidPrem())?"Não foi possível carregar os planos do Google Play. Confira a internet e tente de novo.":(NATIVE&&!billing.checked)?"Carregando os planos do Google Play…":(!BUY_URL&&!paidPrem()?"Para comprar o Premium no site ou no PC, fale com quem te passou o app e receba seu código de ativação.":"");
+  $("#plFine").textContent=nat?(plPlan==="vitalicio"?"Pagamento único pelo Google Play. O Premium fica liberado para sempre nesta conta do Google.":(tr?"Nada é cobrado nos 7 primeiros dias. Depois, "+priceFor(plPlan)+(plPlan==="anual"?" por ano":" por mês")+". ":"")+"A assinatura renova sozinha pelo Google Play até você cancelar. Cancele quando quiser em Play Store › Pagamentos e assinaturas."):(NATIVE&&billing.checked&&!billing.ok&&!paidPrem())?"Não foi possível carregar os planos do Google Play. Verifique sua conexão e tente novamente.":(NATIVE&&!billing.checked)?"Carregando os planos do Google Play…":(!BUY_URL&&!paidPrem()?"Para adquirir o Premium no site ou no PC, solicite um código de ativação a quem forneceu o app.":"");
   $("#plErr").textContent="";
 }
 function openPlans(why){plWhy=why||"mais";drawPlans();$("#plansDlg").hidden=false;buzz(8);if(NATIVE&&!billing.checked)billingInit(true)}
@@ -3275,12 +3275,12 @@ function b64u(t){t=t.replace(/-/g,"+").replace(/_/g,"/");while(t.length%4)t+="="
 function checkCode(raw){
   var t=String(raw||"").replace(/\s+/g,"").replace(/^G1-/i,"");
   if(!t)return Promise.reject("Cole o código de ativação.");
-  var bytes;try{bytes=b64u(t)}catch(e){return Promise.reject("Código inválido. Confira se copiou tudo.")}
-  if(bytes.length!==72)return Promise.reject("Código incompleto. Confira se copiou tudo.");
-  if(!(window.crypto&&crypto.subtle))return Promise.reject("Este navegador não consegue conferir o código.");
+  var bytes;try{bytes=b64u(t)}catch(e){return Promise.reject("Código inválido. Verifique se ele foi copiado por completo.")}
+  if(bytes.length!==72)return Promise.reject("Código incompleto. Verifique se ele foi copiado por completo.");
+  if(!(window.crypto&&crypto.subtle))return Promise.reject("Este navegador não consegue validar o código.");
   var data=bytes.slice(0,8),sig=bytes.slice(8);
   return crypto.subtle.importKey("jwk",CODE_KEY,{name:"ECDSA",namedCurve:"P-256"},false,["verify"]).then(function(k){return crypto.subtle.verify({name:"ECDSA",hash:"SHA-256"},k,sig,data)}).then(function(ok){
-    if(!ok||(data[0]!==1&&data[0]!==2))throw"Código inválido. Confira se copiou tudo.";
+    if(!ok||(data[0]!==1&&data[0]!==2))throw"Código inválido. Verifique se ele foi copiado por completo.";
     var dur=data[2]<<8|data[3],id=Array.prototype.map.call(data.slice(4),function(x){return(x<16?"0":"")+x.toString(16)}).join("");
     return{t:data[0],plan:data[1],dur:dur,id:id};
   });
@@ -3288,7 +3288,7 @@ function checkCode(raw){
 $("#plCodeGo").addEventListener("click",function(){
   var btn=this;btn.disabled=true;$("#plErr").textContent="";
   checkCode($("#plCodeIn").value).then(function(c){
-    if(c.t!==1)throw"Este é um código de tema. Use em Mais › Temas.";
+    if(c.t!==1)throw"Este é um código de tema. Use em Ajustes › Temas.";
     var used=S.usedCodes.indexOf(c.id)>-1;
     if(used&&!(S.premCode&&S.premCode.id===c.id))throw"Este código já foi usado neste aparelho.";
     if(S.premCode&&S.premCode.id===c.id&&!codeOk())throw"Este código já venceu.";
@@ -3297,7 +3297,7 @@ $("#plCodeGo").addEventListener("click",function(){
     S.premCode={id:c.id,plan:c.plan,exp:c.dur?base+c.dur*864e5:0,at:Date.now()};
     save();applyPrem();applyTheme();render();drawPlans();$("#plCodeIn").value="";$("#plCode").hidden=true;
     toast(c.dur?"Premium ativado até "+new Date(S.premCode.exp).toLocaleDateString("pt-BR"):"Premium vitalício ativado");buzz([10,40,10]);
-  }).catch(function(m){$("#plErr").textContent=typeof m==="string"?m:"Não foi possível conferir o código."}).then(function(){btn.disabled=false});
+  }).catch(function(m){$("#plErr").textContent=typeof m==="string"?m:"Não foi possível validar o código."}).then(function(){btn.disabled=false});
 });
 /* ---- Google Play Billing (app Android) ---- */
 function bcall(m,o,ms){var C=window.Capacitor;var pr;try{pr=C.Plugins&&C.Plugins.GasteiBilling&&C.Plugins.GasteiBilling[m]?C.Plugins.GasteiBilling[m](o||{}):C.nativePromise("GasteiBilling",m,o||{})}catch(e){return Promise.reject(e)}
@@ -3319,10 +3319,10 @@ function billingInit(redraw){
 }
 $("#plBuy").addEventListener("click",function(){
   if(!(NATIVE&&billing.ok)){if(BUY_URL)window.open(BUY_URL+(BUY_URL.indexOf("?")>-1?"&":"?")+"plano="+plPlan,"_blank","noopener");return}
-  var p=billing.plans[plPlan];if(!p){$("#plErr").textContent="Planos ainda não disponíveis. Tente de novo em instantes.";billingInit(true);return}
+  var p=billing.plans[plPlan];if(!p){$("#plErr").textContent="Planos ainda não disponíveis. Tente novamente em instantes.";billingInit(true);return}
   var btn=this;btn.disabled=true;$("#plErr").textContent="";
   bcall("buy",{id:p.id,token:p.token||""}).then(function(r){takePurchases(r.purchases,false);render();drawPlans();if(paidPrem()){toast("Premium ativado. Obrigado!");buzz([10,40,10])}})
-  .catch(function(e){var m=e&&e.message||String(e);if(!/cancel/i.test(m))$("#plErr").textContent="A compra não foi concluída. Tente de novo."}).then(function(){btn.disabled=false});
+  .catch(function(e){var m=e&&e.message||String(e);if(!/cancel/i.test(m))$("#plErr").textContent="A compra não foi concluída. Tente novamente."}).then(function(){btn.disabled=false});
 });
 $("#plRetry").addEventListener("click",function(){billing.checked=false;drawPlans();billingInit(true)});
 $("#plManage").addEventListener("click",function(){window.open("https://play.google.com/store/account/subscriptions?sku="+PROD_SUB+"&package=com.gastei.app","_blank","noopener")});
@@ -3360,8 +3360,8 @@ var ntfState="";
 function ntfPerm(ask){if(!NATIVE)return Promise.resolve("granted");var L="LocalNotifications";
   var p=ask?nat(L,"checkPermissions",{},4000).then(function(r){return r&&r.display==="granted"?r:nat(L,"requestPermissions",{},90000)}):nat(L,"checkPermissions",{},4000);
   return p.then(function(r){ntfState=r&&r.display==="granted"?"granted":"denied";drawNtfBlock();
-    if(ntfState==="granted"&&ask&&!S.ntfOk){S.ntfOk=1;save();setTimeout(function(){notifyNow(1009,"Notificações ligadas","Pronto! O Gastei vai te avisar por aqui.")},600)}
-    if(ntfState!=="granted"&&ask)toast("As notificações estão bloqueadas. Toque em Abrir configurações e ative.");
+    if(ntfState==="granted"&&ask&&!S.ntfOk){S.ntfOk=1;save();setTimeout(function(){notifyNow(1009,"Notificações ligadas","Pronto! O Gastei vai avisar você por aqui.")},600)}
+    if(ntfState!=="granted"&&ask)toast("As notificações estão bloqueadas. Toque em Abrir configurações e ative-as.");
     return ntfState}).catch(function(){return ntfState||"unknown"})}
 function wantsNtf(){var n=S.ntf||{};return !!(S.rem&&S.rem.on)||!!(n.meta||n.fix||n.week||n.box||n.bk)}
 function drawNtfBlock(){var b=$("#ntfBlock");if(!b)return;b.hidden=!(NATIVE&&ntfState==="denied"&&wantsNtf())}
@@ -3378,7 +3378,7 @@ function syncAvisos(){
   $$("[data-ntf]").forEach(function(c){c.checked=!!(S.ntf||{})[c.dataset.ntf]});
   if(NATIVE)ntfPerm(false);
   $("#ntfNote").textContent=NATIVE?"As notificações chegam mesmo com o app fechado.":"As notificações funcionam no app Android. No PC e no site, os avisos aparecem quando você abre o app.";
-  $("#remNote").textContent=NATIVE?"Chega como notificação no horário escolhido, todos os dias.":"No app Android chega como notificação no horário escolhido. No site e no PC, o lembrete aparece quando você abre o app depois desse horário.";
+  $("#remNote").textContent=NATIVE?"Chega como notificação no horário escolhido, todos os dias.":"No app Android, o lembrete chega como notificação no horário escolhido. No site e no PC, ele aparece ao abrir o app depois desse horário.";
 }
 function scheduleReminder(ask){
   if(!NATIVE)return Promise.resolve();
@@ -3387,7 +3387,7 @@ function scheduleReminder(ask){
     if(!S.rem.on)return;
     return ntfPerm(ask).then(function(st){
       if(st==="denied")return;
-      return nat(L,"schedule",{notifications:[{id:1001,title:"Já anotou seus gastos de hoje?",body:"Leva 5 segundos e mantém o seu saldo certinho.",schedule:{on:{hour:S.rem.h,minute:S.rem.m},allowWhileIdle:true}}]},6000);
+      return nat(L,"schedule",{notifications:[{id:1001,title:"Já anotou seus gastos de hoje?",body:"Leva só 5 segundos e mantém seu saldo sempre em dia.",schedule:{on:{hour:S.rem.h,minute:S.rem.m},allowWhileIdle:true}}]},6000);
     });
   }).catch(function(){});
 }
@@ -3424,7 +3424,7 @@ function scheduleNotifs(ask){if(!NATIVE)return Promise.resolve();var Lc="LocalNo
     ntfSig=sig;return nat(Lc,"cancel",{notifications:ids},4000).catch(function(){}).then(function(){if(list.length)return nat(Lc,"schedule",{notifications:list},6000)})}).catch(function(){})}
 function checkMetaNotif(){var n=S.ntf||{};if(!n.meta||!S.meta||hasEx())return;var m=monthNow(),pc=m.out/S.meta*100,lv=pc>=100?100:pc>=80?80:0;
   S.metaDone=S.metaDone||{};if(!lv||(S.metaDone[m.ym]||0)>=lv)return;S.metaDone[m.ym]=lv;save();
-  notifyNow(1005,lv>=100?"Meta do mês atingida":"Você já usou 80% da meta",lv>=100?"Os gastos de "+MOL[m.a.getMonth()]+" chegaram a "+brl(m.out)+", acima da meta de "+brl(S.meta)+".":"Já foram "+brl(m.out)+" de "+brl(S.meta)+". Ainda dá para gastar "+brl(Math.max(0,S.meta-m.out))+" até o fim do mês.")}
+  notifyNow(1005,lv>=100?"Meta do mês atingida":"Você já usou 80% da meta",lv>=100?"Os gastos de "+MOL[m.a.getMonth()]+" chegaram a "+brl(m.out)+", acima da meta de "+brl(S.meta)+".":"Já foram "+brl(m.out)+" de "+brl(S.meta)+". Você ainda pode gastar "+brl(Math.max(0,S.meta-m.out))+" até o fim do mês.")}
 function afterRenderNtf(){clearTimeout(ntfT);ntfT=setTimeout(function(){checkMetaNotif();scheduleNotifs(false)},800)}
 $$("[data-ntf]").forEach(function(c){c.addEventListener("change",function(){S.ntf=S.ntf||{};S.ntf[c.dataset.ntf]=c.checked?1:0;save();
   if(c.checked&&!NATIVE&&window.Notification&&Notification.permission==="default"){try{Notification.requestPermission()}catch(e){}}
@@ -3450,7 +3450,7 @@ function checkAlert(){
 var lastWidget="";
 function pushWidget(){
   if(!NATIVE)return;var m=monthNow(),net=m.inc-m.out,day=m.inc?Math.max(0,Math.floor(net/m.left)):0;
-  var hide=S.priv,w={label:"Disponível em "+MOL[m.a.getMonth()],value:hide?"R$ ••••":(net<0?"- ":"")+brl(Math.abs(net)),sub:m.inc?(hide?"":brl(day)+"/dia"):"Lance sua receita",inc:hide?"R$ ••••":brl(m.inc),out:hide?"R$ ••••":brl(m.out),pct:m.inc?Math.min(100,Math.round(m.out/m.inc*100)):(m.out?100:0)};
+  var hide=S.priv,w={label:"Disponível em "+MOL[m.a.getMonth()],value:hide?"R$ ••••":(net<0?"- ":"")+brl(Math.abs(net)),sub:m.inc?(hide?"":brl(day)+"/dia"):"Registre sua receita",inc:hide?"R$ ••••":brl(m.inc),out:hide?"R$ ••••":brl(m.out),pct:m.inc?Math.min(100,Math.round(m.out/m.inc*100)):(m.out?100:0)};
   var k=JSON.stringify(w);if(k===lastWidget)return;lastWidget=k;nat("GasteiNative","widget",w,5000).catch(function(){});
 }
 function checkLaunch(){if(!NATIVE)return;nat("GasteiNative","action",{},4000).then(function(r){if(r&&(r.action==="add"||r.action==="add_in")){var ab=$('[data-add="'+(r.action==="add_in"?"in":"out")+'"]');if(ab)ab.click();else{resetForm();ftype="out";drawCats();showForm()}}else if(r&&r.action==="voice")startVoice()}).catch(function(){})}
@@ -3497,11 +3497,11 @@ function fillForm(r,src){
 function startVoice(){
   buzz(8);
   if(NATIVE){nat("GasteiNative","listen",{}).then(function(r){if(r&&r.text)fillForm(parseVoice(r.text),"Ouvi “"+r.text+"”")}).catch(function(e){var m=String(e&&e.message||e);if(!/cancel/i.test(m))toast("O reconhecimento de voz não está disponível neste celular")});return}
-  if(!SR){toast("Lançar por voz funciona no app Android e no Google Chrome");return}
+  if(!SR){toast("O lançamento por voz funciona no app Android e no Google Chrome");return}
   var rec=new SR();rec.lang="pt-BR";rec.interimResults=false;rec.maxAlternatives=1;
   toast("Pode falar… ex.: “mercado 45 reais no pix”");
   rec.onresult=function(e){var t=e.results[0][0].transcript;fillForm(parseVoice(t),"Ouvi “"+t+"”")};
-  rec.onerror=function(e){toast(e.error==="not-allowed"?"Permita o uso do microfone para lançar por voz":"Não entendi. Tente de novo falando o valor e o que foi.")};
+  rec.onerror=function(e){toast(e.error==="not-allowed"?"Permita o uso do microfone para lançar por voz":"Não entendi. Tente novamente dizendo o valor e a descrição.")};
   try{rec.start()}catch(e){toast("Não foi possível usar o microfone")}
 }
 document.addEventListener("click",function(e){if(e.target.closest("[data-voice]")){e.preventDefault();startVoice()}});
@@ -3539,8 +3539,8 @@ $("#camIn").addEventListener("change",function(){
   Promise.all([shrink(f),loadOCR()]).then(function(q){
     return Tesseract.recognize(q[0],"por",{workerPath:OCR_CDN+"tesseract.js@7.0.0/dist/worker.min.js",corePath:OCR_CDN+"tesseract.js-core@7.0.0",langPath:OCR_CDN+"@tesseract.js-data/por@1.0.0/4.0.0_best_int",
       logger:function(m){if(m.status==="recognizing text")ocrBar("Lendo o comprovante… "+Math.round(m.progress*100)+"%");else if(/load/.test(m.status))ocrBar("Preparando a leitura…")}});
-  }).then(function(res){ocrBar("");var r=parseReceipt(res.data.text||"");if(!r.v){toast("Não achei o valor na foto. Tente uma foto mais de perto e com boa luz.");return}fillForm(r,"Li o comprovante")})
-  .catch(function(e){ocrBar("");toast(e==="rede"?"A leitura de comprovante precisa de internet na primeira vez.":"Não foi possível ler a foto. Tente de novo.")});
+  }).then(function(res){ocrBar("");var r=parseReceipt(res.data.text||"");if(!r.v){toast("Não foi possível identificar o valor. Tente uma foto mais próxima e bem iluminada.");return}fillForm(r,"Li o comprovante")})
+  .catch(function(e){ocrBar("");toast(e==="rede"?"A leitura de comprovante precisa de internet na primeira vez.":"Não foi possível ler a foto. Tente novamente.")});
 });
 
 function dm(d){return pad2(d.getDate())+"/"+pad2(d.getMonth()+1)}
@@ -3561,7 +3561,7 @@ function goalRate(g){if(g.mon>0)return g.mon;var t=today(),tot=0;for(var k=1;k<=
 function goalEta(g){var left=g.target-goalSaved(g);if(left<=0)return null;var r=goalRate(g);if(!(r>0))return null;var n=Math.ceil(left/r),t=today();return new Date(t.getFullYear(),t.getMonth()+n,1)}
 function drawGoalSheet(box){var t=today(),ymNow=iso(t).slice(0,7),mName=MOL[t.getMonth()];
   var tot=0;S.goals.forEach(function(g){tot+=goalSaved(g)});
-  var pt=$("#pbTot");if(pt)pt.textContent=S.goals.length?"Total guardado: "+brl(tot):"Separe dinheiro para seus planos";
+  var pt=$("#pbTot");if(pt)pt.textContent=S.goals.length?"Total guardado: "+brl(tot):"Reserve dinheiro para seus objetivos";
   var h=S.goals.map(function(g,i){var sv=goalSaved(g),pc=g.target?Math.min(100,sv/g.target*100):0,done=sv>=g.target,mo=goalMonth(g,ymNow),plan=g.mon||goalNeed(g),c=BOXC[i%BOXC.length],eta=goalEta(g),op=boxOpen[g.id]||"";
     var sub=plan?'+'+brl(plan)+'/mês'+'':(g.due?'Meta até '+MO[+g.due.slice(5,7)-1]+'/'+g.due.slice(0,4):'Sem depósito mensal');
     var x='<article class="cx" style="--bc:'+c+'"><div class="cxh"><span class="cxi">'+boxIcon(g.n)+'</span><div class="cxn"><b>'+esc(g.n)+'</b><small>'+sub+'</small></div>'+(done?'<span class="pvchip">Meta batida</span>':'<button class="cxg" data-gpan="'+i+':add">+ Guardar</button>')+'</div>';
@@ -3573,9 +3573,9 @@ function drawGoalSheet(box){var t=today(),ymNow=iso(t).slice(0,7),mName=MOL[t.ge
     if(op==="more"){var hist=(g.h||[]).slice(-6).reverse().map(function(y){return'<div><span>'+dm(parse(y.d))+(y.a?" · automático":"")+'</span><b class="'+(y.v<0?"neg":"pos")+'">'+(y.v<0?"− ":"+ ")+brl(Math.abs(y.v))+'</b></div>'}).join("");
       x+='<div class="bpanel more"><button class="btn sm ghost" data-gpan="'+i+':out">Resgatar dinheiro</button><label class="gauto"><input type="checkbox" data-gauto="'+i+'"'+(g.auto?" checked":"")+'> Depositar '+(g.mon?brl(g.mon)+" ":"")+'sozinho todo dia 1</label>'+(hist?'<b class="bh">Últimas movimentações</b><div class="dlines">'+hist+'</div>':'')+'<button class="btn sm ghost bdel" data-gdel="'+i+'">Apagar caixinha</button></div>'}
     return x+'</article>'}).join("");
-  if(!S.goals.length)h+='<div class="dtip">Crie caixinhas para separar dinheiro: viagem, reserva de emergência, um celular novo. Defina a meta e quanto vai guardar por mês. O app lembra você ou deposita sozinho todo mês.</div>';
+  if(!S.goals.length)h+='<div class="dtip">Crie caixinhas para reservar dinheiro para seus objetivos: uma viagem, a reserva de emergência, um celular novo. Defina a meta e o valor mensal; o app lembra você ou faz o depósito automaticamente.</div>';
   h+='<form class="dform cx" id="goalForm"><b>Nova caixinha</b><input class="inp" id="gfN" maxlength="30" placeholder="Nome (ex.: Viagem)" required><div class="row3" style="grid-template-columns:1fr 1fr"><label>Meta (R$)<input class="inp" id="gfT" inputmode="decimal" placeholder="5.000,00" required></label><label>Até quando<input class="inp" id="gfD" type="month"></label></div>'+
-    '<label>Depósito por mês (R$)<input class="inp" id="gfM" inputmode="decimal" placeholder="Opcional, ex.: 300,00"></label><label class="gauto"><input type="checkbox" id="gfA"> Depositar sozinho todo mês</label><button class="btn sm">Criar caixinha</button></form>';
+    '<label>Depósito por mês (R$)<input class="inp" id="gfM" inputmode="decimal" placeholder="Opcional, ex.: 300,00"></label><label class="gauto"><input type="checkbox" id="gfA"> Depositar automaticamente todo mês</label><button class="btn sm">Criar caixinha</button></form>';
   box.innerHTML=h;
 }
 /* ---------- previsão do fim do mês (Premium) ---------- */
@@ -3590,13 +3590,13 @@ function drawPrevSheet(){var f=forecast();
   $("#dBody").innerHTML='<div class="dbig"><span>Se continuar nesse ritmo, no fim de '+MOL[today().getMonth()]+'</span><b style="color:'+(f.net<0?"var(--bad)":"var(--good)")+'">'+(f.net<0?"faltam ":"sobram ")+brl(Math.abs(f.net))+'</b><small>Previsão feita com o que você gastou até hoje</small></div>'+
     '<div class="dlines"><div><span>Gasto até agora</span><b>'+brl(f.out)+'</b></div><div><span>Ritmo dos gastos do dia a dia</span><b>'+brl(Math.round(f.pace))+'/dia</b></div><div><span>Dias que faltam</span><b>'+f.left+'</b></div>'+
     (f.pOut?'<div><span>Contas fixas ainda por vir</span><b>'+brl(f.pOut)+'</b></div>':'')+'<div><span>Gastos previstos no mês</span><b>'+brl(f.projOut)+'</b></div><div><span>Receita esperada</span><b>'+brl(f.projIn)+'</b></div></div>'+
-    (f.left?'<div class="dtip">'+(f.room>0?'Para terminar o mês sem ficar no vermelho, gaste até <b>'+brl(f.room)+' por dia</b>.':'Os gastos já passaram da receita do mês. Segure o que puder até o mês virar.')+'</div>':'');
+    (f.left?'<div class="dtip">'+(f.room>0?'Para terminar o mês sem ficar no vermelho, gaste até <b>'+brl(f.room)+' por dia</b>.':'Os gastos já superaram a receita do mês. Economize o máximo possível até o início do próximo mês.')+'</div>':'');
 }
 /* ---------- aba Planejar ---------- */
 function drawPlanPrev(){var f=forecast(),t=today(),dim=new Date(t.getFullYear(),t.getMonth()+1,0).getDate();
   $("#ppMon").textContent=MO[t.getMonth()]+" • faltam "+f.left+(f.left===1?" dia":" dias");
   var chip=$("#ppChip");
-  if(!f.projIn&&!f.out){chip.hidden=true;$("#ppBody").innerHTML='<div class="dtip">Lance sua receita e seus gastos do mês para ver a previsão.</div>';return}
+  if(!f.projIn&&!f.out){chip.hidden=true;$("#ppBody").innerHTML='<div class="dtip">Registre sua receita e seus gastos do mês para ver a previsão.</div>';return}
   chip.hidden=!f.projIn;chip.textContent=f.net<0?"Fechamento no vermelho":"Fechamento no azul";chip.className="pvchip"+(f.net<0?" neg":"");
   var w=f.projIn?Math.min(100,f.projOut/f.projIn*100):100;
   var h='<div class="pvbox"><div><span>Gasto projetado (dia '+dim+'):</span><b>'+brl(f.projOut)+'</b></div><div><span>'+(f.net<0?"Previsão de falta no fim do mês:":"Previsão de sobra no fim do mês:")+'</span><b class="'+(f.net<0?"neg":"pos")+'">'+brl(Math.abs(f.net))+'</b></div><div class="gbar"><i style="width:'+w+'%"></i></div></div>';
@@ -3606,7 +3606,7 @@ var boxFormOpen=false;
 function drawPlanBoxes(){drawGoalSheet($("#pbBody"));var f=$("#goalForm",$("#pbBody"));if(f)f.hidden=!(boxFormOpen||!S.goals.length)}
 var ACH=[0,50,60,70,75,80,90,100];
 function drawPlanAlert(){var m=monthNow(),pc=m.inc?Math.round(m.out/m.inc*100):0,a=S.alertPct||0;
-  var h='<div class="phero"><span>'+(m.inc?'Você já gastou':'Lance sua receita para acompanhar')+'</span>'+(m.inc?'<b class="'+(a&&pc>=a?"neg":"pos")+'">'+pc+'% <small style="font-size:.9rem">do que entrou</small></b>':'')+
+  var h='<div class="phero"><span>'+(m.inc?'Você já gastou':'Registre sua receita para acompanhar')+'</span>'+(m.inc?'<b class="'+(a&&pc>=a?"neg":"pos")+'">'+pc+'% <small style="font-size:.9rem">do que entrou</small></b>':'')+
     '<div class="pbar"><i class="nw" style="width:'+Math.min(100,pc)+'%;background:'+(a&&pc>=a?"var(--bad)":"var(--primary)")+'"></i>'+(a?'<span class="mk" style="left:calc('+a+'% - 1.5px)"></span>':'')+'</div>'+
     '<small>'+(a?'Seu alerta está em '+a+'%. '+(m.inc?(pc>=a?'Você já passou desse ponto.':'Faltam '+brl(Math.max(0,Math.round(m.inc*a/100)-m.out))+' para chegar lá.'):''):'Escolha abaixo quando quer ser avisado.')+'</small></div>'+
     '<div class="achips">'+ACH.map(function(v){return'<button type="button" data-ach="'+v+'" aria-pressed="'+(v===a)+'">'+(v?v+"%":"Desligado")+'</button>'}).join("")+'</div>';
@@ -3628,11 +3628,11 @@ $("#planTab").addEventListener("click",function(e){
   onBoxClick(e)});
 $("#planTab").addEventListener("change",function(e){var c=e.target;if(c.dataset.gauto==null)return;var g=S.goals[+c.dataset.gauto];if(!g)return;
   if(c.checked&&!(g.mon>0)){g.mon=goalNeed(g);if(!g.mon){var v=parseMoney(($('[data-gv="'+c.dataset.gauto+'"]')||{}).value||"");if(v)g.mon=v}}
-  if(c.checked&&!(g.mon>0)){c.checked=false;toast("Digite o valor do mês no campo Valor e marque de novo");return}
+  if(c.checked&&!(g.mon>0)){c.checked=false;toast("Informe o valor mensal no campo Valor e marque novamente");return}
   g.auto=c.checked;if(g.auto)g.lastAuto=goalMonth(g,iso(today()).slice(0,7))?iso(today()).slice(0,7):"";applyAutoBoxes();save();render();toast(g.auto?"Todo dia 1 a caixinha recebe "+brl(g.mon):"Depósito automático desligado")});
 $("#planTab").addEventListener("submit",function(e){e.preventDefault();var f=e.target;if(f.id!=="goalForm")return;if(needPrem("goals"))return;
   var gn=$("#gfN").value.trim(),gt=parseMoney($("#gfT").value);if(!gn||!gt){toast("Preencha o nome e a meta");return}
-  var ng={id:"g"+uid(),n:gn,target:gt,due:$("#gfD").value||"",h:[],mon:parseMoney($("#gfM").value)||0,auto:$("#gfA").checked};if(!ng.mon)ng.mon=goalNeed(ng);if(ng.auto&&!ng.mon){toast("Digite o depósito por mês para depositar sozinho");return}
+  var ng={id:"g"+uid(),n:gn,target:gt,due:$("#gfD").value||"",h:[],mon:parseMoney($("#gfM").value)||0,auto:$("#gfA").checked};if(!ng.mon)ng.mon=goalNeed(ng);if(ng.auto&&!ng.mon){toast("Informe o depósito mensal para ativar o depósito automático");return}
   if(ng.auto)ng.lastAuto="";S.goals.push(ng);boxFormOpen=false;applyAutoBoxes();save();render();toast("Caixinha criada")});
 
 
@@ -3808,8 +3808,8 @@ var SK=[
  {k:"ouro",n:"Ouro",c:"#090806",t:"Preto e dourado com brilho metálico. Visual de cartão premium.",it:["Preto profundo e dourado metálico","Listras finas e brilho de ouro","Ícones em moedas com borda dourada","Reflexo de luz passando no cartão"],fx:["🪙","✨","💰"]},
  {k:"oceano",n:"Oceano",c:"#021627",t:"Azul do fundo do mar com ondas e um toque de coral.",it:["Azul profundo, água-marinha e coral","Ondas no fundo e no cartão","Ícones arredondados como bolhas","As ondas se mexem e peixinhos aparecem ao guardar"],fx:["💧","🐠","🐟"]},
  {k:"galaxia",n:"Galáxia",c:"#05031A",t:"Espaço sideral com estrelas, nebulosas roxas e um planeta.",it:["Roxo, rosa e azul de nebulosa","Céu cheio de estrelas","Ícones como planetinhas brilhando","Estrelas piscando e chuva de estrelas"],fx:["⭐","✨","🌟","🪐"]},
- {k:"vulcao",n:"Vulcão",c:"#0C0303",t:"Lava, fogo e preto. O tema mais quente e forte de todos.",it:["Vermelho, laranja e amarelo lava","Brilho de lava subindo de baixo","Ícones em pedras de magma","Faíscas ao lançar e cartão pulsando"],fx:["🔥","✨"]},
- {k:"doce",n:"Doce",c:"#FFF7E6",t:"Tema claro com cara de doceria: colorido e divertido.",it:["Rosa, roxo, azul e amarelo bala","Confeitos coloridos no fundo","Ícones de balinha com contorno","Botões que pulam como gelatina e chuva de doces"],fx:["🍬","🍭","🧁"]},
+ {k:"vulcao",n:"Vulcão",c:"#0C0303",t:"Lava, fogo e preto. O tema mais intenso de todos.",it:["Vermelho, laranja e amarelo lava","Brilho de lava subindo de baixo","Ícones em pedras de magma","Faíscas ao lançar e cartão pulsando"],fx:["🔥","✨"]},
+ {k:"doce",n:"Doce",c:"#FFF7E6",t:"Tema claro inspirado em uma doceria: colorido e divertido.",it:["Rosa, roxo, azul e amarelo bala","Confeitos coloridos no fundo","Ícones de balinha com contorno","Botões que pulam como gelatina e chuva de doces"],fx:["🍬","🍭","🧁"]},
  {k:"cafe",n:"Café",c:"#140B06",t:"Marrom, caramelo e dourado. Aconchegante como uma cafeteria.",it:["Café, caramelo e laranja quente","Grãos de café no fundo","Ícones em forma de grão","Vapor subindo do cartão"],fx:["☕","🍪","✨"]}
 ];
 var SKI={};SK.forEach(function(s,i){SKI[s.k]=i});
@@ -3823,14 +3823,14 @@ function applySkin(){if(!SK)return;var r=document.documentElement,k=skActive();
     var m=document.querySelector('meta[name="theme-color"]');if(m)m.setAttribute("content",SK[SKI[k]].c);
     $$("#palSeg [data-pal]").forEach(function(b){b.setAttribute("aria-pressed","false")})}
   else r.removeAttribute("data-skin");
-  var ms=$("#mSkinS");if(ms)ms.textContent=k&&!skPrev?"Usando: "+SK[SKI[k]].n:"10 temas que mudam o app inteiro";
+  var ms=$("#mSkinS");if(ms)ms.textContent=k&&!skPrev?"Usando: "+SK[SKI[k]].n:"10 temas que transformam o visual do app";
   var cur=$("#skCurName");if(cur)cur.textContent=S.skin&&skOwned(S.skin)?SK[SKI[S.skin]].n:"Nenhum (cores normais)";
 }
 function applyTheme(){applyTheme0();applySkin()}
 function skPriceOf(id,def){var p=billing.skins&&billing.skins[id];return p&&p.price?p.price:def}
 function skDrawList(){skInit();var cr=skCredits(),act=S.skin&&skOwned(S.skin)?S.skin:"";
   $("#skPackT").textContent=cr?"Você ainda pode escolher "+cr+(cr===1?" tema":" temas")+" do pacote":"Pacote com 4 temas";
-  $("#skPackS").textContent=cr?"Toque num tema e use o pacote":"4 temas à sua escolha por "+skPriceOf(SKPACK,SK_PACK_PRICE)+". Sozinho, cada um custa "+skPriceOf(SKP+"cyber",SK_PRICE)+".";
+  $("#skPackS").textContent=cr?"Toque em um tema para usar o pacote":"4 temas à sua escolha por "+skPriceOf(SKPACK,SK_PACK_PRICE)+". Sozinho, cada um custa "+skPriceOf(SKP+"cyber",SK_PRICE)+".";
   $("#skPackBtn").hidden=!!cr;
   $("#skGrid").innerHTML=SK.map(function(s){var own=skOwned(s.k),on=act===s.k;
     return '<button type="button" class="skc" data-sk="'+s.k+'" aria-current="'+on+'"><img src="'+SKIMG[s.k]+'" alt="" loading="lazy"><b>'+s.n+'</b><span class="st'+(on?" on":own?" own":"")+'">'+(on?"Em uso":own?"Seu":skPriceOf(SKP+s.k,SK_PRICE))+'</span></button>'}).join("");
@@ -3856,25 +3856,25 @@ function skStop(silent){if(!skPrev)return;clearInterval(skPrevT);var k=skPrev;sk
 /* compra */
 function skBuy(id,btn){skErr("");
   if(!NATIVE){skErr("A compra de temas é feita pelo app Android (Google Play). No computador, use um código de ativação.");$("#skCode").hidden=false;return}
-  var p=billing.skins&&billing.skins[id];if(!p){skErr("Os temas ainda não apareceram no Google Play. Tente de novo em instantes.");billing.checked=false;billingInit(false);return}
+  var p=billing.skins&&billing.skins[id];if(!p){skErr("Os temas ainda não estão disponíveis no Google Play. Tente novamente em instantes.");billing.checked=false;billingInit(false);return}
   btn.disabled=true;
   bcall("buy",{id:p.id,token:""}).then(function(r){takePurchases(r.purchases,false);
     if(id===SKPACK){toast("Pacote liberado! Escolha seus 4 temas");if(skCur&&!skOwned(skCur))skShow(skCur);else{skDrawList();$("#skDet").hidden=true;$("#skList").hidden=false}}
     else{var k=id.slice(SKP.length);if(skOwned(k)){skSet(k);skShow(k)}}
     buzz([10,40,10])})
-  .catch(function(e){var m=e&&e.message||String(e);if(!/cancel/i.test(m))skErr("A compra não foi concluída. Tente de novo.")}).then(function(){btn.disabled=false})}
+  .catch(function(e){var m=e&&e.message||String(e);if(!/cancel/i.test(m))skErr("A compra não foi concluída. Tente novamente.")}).then(function(){btn.disabled=false})}
 /* códigos de ativação de tema (para quem compra fora do Google Play) */
 function skCode(){var b=$("#skCodeGo");b.disabled=true;skErr("");
   checkCode($("#skCodeIn").value).then(function(c){
-    if(c.t!==2)throw"Este é um código do Premium. Use em Mais › Gastei Premium.";
+    if(c.t!==2)throw"Este é um código do Premium. Use em Ajustes › Gastei Premium.";
     skInit();if(S.usedCodes.indexOf(c.id)>-1)throw"Este código já foi usado neste aparelho.";
     var msg;
     if(c.plan===99){SK.forEach(function(s){if(S.skinOwn.indexOf(s.k)<0)S.skinOwn.push(s.k)});msg="Todos os temas liberados"}
     else if(c.plan===20){S.skinCodePack++;msg="Pacote liberado! Escolha 4 temas"}
     else if(SK[c.plan-1]){var k=SK[c.plan-1].k;if(S.skinOwn.indexOf(k)<0)S.skinOwn.push(k);S.skin=k;msg="Tema "+SK[c.plan-1].n+" liberado"}
-    else throw"Código inválido. Confira se copiou tudo.";
+    else throw"Código inválido. Verifique se ele foi copiado por completo.";
     S.usedCodes.push(c.id);save();applyTheme();render();skDrawList();$("#skCodeIn").value="";$("#skCode").hidden=true;$("#skDet").hidden=true;$("#skList").hidden=false;toast(msg);buzz([10,40,10]);
-  }).catch(function(m){skErr(typeof m==="string"?m:"Não foi possível conferir o código.")}).then(function(){b.disabled=false})}
+  }).catch(function(m){skErr(typeof m==="string"?m:"Não foi possível validar o código.")}).then(function(){b.disabled=false})}
 $("#skGrid").addEventListener("click",function(e){var b=e.target.closest("[data-sk]");if(b)skShow(b.dataset.sk)});
 $("#skBack").addEventListener("click",function(){skDrawList();$("#skDet").hidden=true;$("#skList").hidden=false;skErr("")});
 $("#skClose").addEventListener("click",closeSkins);
