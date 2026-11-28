@@ -2,7 +2,7 @@
 
 Todas as atualizações do app, da mais antiga para a mais nova.
 
-Versão atual: **v48** (28/11/2026).
+Versão atual: **v49** (28/11/2026).
 
 ## 23/11/2026
 
@@ -214,3 +214,7 @@ Versão atual: **v48** (28/11/2026).
 - O valor da caixinha cresce sozinho todo dia com o rendimento do dia (CDI conta só em dias úteis, com juros sobre juros).
 - O cartão mostra quanto rendeu hoje e o total rendido. Dias sem abrir o app são somados quando você abre.
 - O CDI usado no cálculo pode ser mudado. É uma estimativa antes do imposto de renda, não ligada ao banco.
+
+### v49 · Detalhes da caixinha
+- Rendimento com duas opções claras: "% do CDI" pede só a porcentagem do CDI, e "Prefixado" pede só a taxa ao ano.
+- Tocar numa caixinha abre uma janela com valor total, valor investido, rendimento total, % de lucro, ROE ao ano, quanto rendeu hoje e no mês, taxa e quanto terá em 12 meses.

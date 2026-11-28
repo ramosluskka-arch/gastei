@@ -12,6 +12,6 @@ Funciona como app no celular (abra o link e escolha "Adicionar à tela inicial")
 
 ## Novidades
 
-Versão atual: **v48** (28/11/2026): rendimento nas caixinhas (% do CDI ou % ao ano), somado todo dia.
+Versão atual: **v49** (28/11/2026): detalhes da caixinha (lucro, ROE, rendimento) e rendimento por CDI ou prefixado.
 
 Todas as atualizações em ordem: [HISTORICO.md](HISTORICO.md) ou a página [Novidades](https://ramosluskka-arch.github.io/gastei/novidades.html).
