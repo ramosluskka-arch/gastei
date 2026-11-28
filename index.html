@@ -718,7 +718,7 @@ body.priv .dbig b,body.priv .dlines b{filter:blur(7px)}
 .plock b{display:block;font-size:.98rem}.plock span{font-size:.82rem;opacity:.85}
 .plock .btn{background:#fff;color:var(--primary);flex:none}
 body.prem .plock{display:none}
-body:not(.prem) .pcard>:not(.chead):not(.bxh){filter:blur(5px);pointer-events:none;user-select:none}
+body:not(.prem) .pcard>:not(.chead):not(.bxh){pointer-events:none;user-select:none}body:not(.prem) #planTab .pcard{position:relative;outline:1.5px dashed color-mix(in srgb,var(--org,var(--primary)) 55%,transparent);outline-offset:-1.5px}body:not(.prem) #planTab .pcard::after{content:"Exemplo";position:absolute;right:12px;bottom:10px;font-size:.66rem;font-weight:800;letter-spacing:.04em;text-transform:uppercase;color:#2B1B00;background:var(--amber,#F5B400);border-radius:999px;padding:2px 9px;pointer-events:none}body:not(.prem) #pbNew,body:not(.prem) .pvmore{visibility:hidden}
 .phero{border-radius:18px;padding:16px;background:var(--sunken);display:grid;gap:4px}
 .phero span{font-size:.82rem;color:var(--muted);font-weight:600}
 .phero b{font-family:var(--f-num);font-weight:500;font-size:1.9rem;letter-spacing:-.02em}
@@ -1316,7 +1316,7 @@ html,body{overflow-x:clip}
 .ntfblock[hidden]{display:none}.ntfblock b{color:var(--ink)}.ntfblock span{color:var(--muted)}.ntfblock .btn{justify-self:start;margin-top:4px;width:auto;padding:10px 16px}
 /* ===== v37: app mais interativo e dinâmico ===== */
 /* nova ordem do Início: o que você usa mais fica em cima */
-#monthCard{order:1}#quickRow{order:2}#mSay{order:3}#bkNote{order:5;margin:0}#d7Card{order:6}#dCatCard{order:7}#monthList{order:8}
+#monthCard{order:1}#mSay{order:2}#bkNote{order:3;margin:0}#d7Card{order:4}#dCatCard{order:5}#monthList{order:6}#quickRow{order:7}
 .msay{display:grid;padding:4px 18px!important;background:linear-gradient(160deg,color-mix(in srgb,var(--pur,var(--primary)) 22%,var(--surface)),var(--surface) 62%)!important;border-color:color-mix(in srgb,var(--pur2,var(--primary)) 28%,transparent)!important}
 .msay[hidden]{display:none}
 .msay p{margin:0;padding:13px 0;border-top:1px solid var(--line);font-size:.98rem;line-height:1.45;color:var(--ink);display:grid;grid-template-columns:42px minmax(0,1fr);gap:14px;align-items:center}
@@ -1374,6 +1374,34 @@ body.fabx .tabbar .fab .fabl{max-width:90px;margin-left:8px}
 .tabbar button[data-tab][aria-current="page"]{font-weight:700!important}
 @media (max-width:370px){.tabbar button[data-tab]{font-size:.66rem!important;min-width:50px}.tabbar button[data-tab] svg{padding:4px 12px!important}}
 @media (prefers-reduced-motion:reduce){.rip,.tabbar .tind,.mcard .shine{display:none}body.fabx .tabbar .fab .fabl{transition:none}}
+/* ---------- v45: layout revisado ---------- */
+#openSettings{display:none!important}
+#planTab #pLock{order:-2}#planTab #goalCard{order:-1}
+.hgo{display:grid!important;grid-template-columns:42px minmax(0,1fr) auto;gap:12px;align-items:center;text-align:left;width:100%;cursor:pointer;color:var(--ink);font:inherit;padding:14px 16px!important}
+.hgo .hgi{width:42px;height:42px;border-radius:14px;display:grid;place-items:center;background:color-mix(in srgb,var(--pur2,var(--primary)) 20%,var(--surface));color:var(--pur2,var(--primary))}.hgo .hgi svg{width:21px;height:21px}
+.hgo b{display:block;font-size:.98rem}.hgo small{display:block;color:var(--muted);font-size:.8rem;margin-top:2px}.hgo .hgc{font-size:1.6rem;color:var(--muted);line-height:1}
+body.prem .hgo .pro{display:none}
+.hback{background:none;border:0;color:var(--org,var(--primary));font:inherit;font-weight:700;font-size:.9rem;padding:4px 2px 10px;justify-self:start;cursor:pointer;text-align:left}
+#qHint[hidden]{display:none}
+.lock{position:fixed;inset:0;z-index:9999;display:grid;place-items:center;background:var(--bg,#0A0A0C);padding:24px}
+.lock[hidden]{display:none}
+.lock .lk{width:min(320px,100%);display:grid;gap:18px;justify-items:center;text-align:center}
+.lock .lklogo{width:64px;height:64px;border-radius:20px;display:grid;place-items:center;background:linear-gradient(135deg,#860AD6,#4A0A8A);color:#fff}.lock .lklogo svg{width:30px;height:30px}
+.lock h2{margin:0;font-size:1.2rem;color:var(--ink)}.lock p{margin:0;color:var(--muted);font-size:.9rem;min-height:1.3em;max-width:30ch}.lock p.bad{color:#FF6B6B}
+.lock .dots{display:flex;gap:14px}.lock .dots i{width:14px;height:14px;border-radius:50%;border:2px solid var(--muted)}.lock .dots i.on{background:var(--org,var(--primary));border-color:var(--org,var(--primary))}
+.lock .dots.shake{animation:lkshake .35s}@keyframes lkshake{25%{transform:translateX(-8px)}75%{transform:translateX(8px)}}
+.lock .lkeys{display:grid;grid-template-columns:repeat(3,72px);gap:14px}
+.lock .lkeys button{height:72px;border-radius:50%;border:1px solid var(--line);background:var(--surface);color:var(--ink);font:inherit;font-size:1.5rem;font-weight:700;cursor:pointer}
+.lock .lkeys button:active{transform:scale(.94)}.lock .lkeys .lkx{background:none;border:0;font-size:.9rem;color:var(--muted)}
+.lock .lkalt{background:none;border:0;color:var(--muted);font:inherit;font-size:.85rem;text-decoration:underline;cursor:pointer}
+.msum{display:grid;gap:14px}
+.msum .mshero{border-radius:18px;padding:18px;background:linear-gradient(135deg,#6A0DB8,#C2410C);color:#fff}
+.msum .mshero span{font-size:.85rem;opacity:.9}.msum .mshero b{display:block;font-size:1.9rem;letter-spacing:-.02em;margin-top:2px}.msum .mshero small{font-size:.85rem;opacity:.9}
+.msum .msrow{display:grid;grid-template-columns:1fr 1fr;gap:10px}.msum .msrow div{border:1px solid var(--line);border-radius:14px;padding:12px}
+.msum .msrow span{display:block;font-size:.78rem;color:var(--muted)}.msum .msrow b{font-size:1.05rem}
+.msum h3{margin:4px 0 0;font-size:.95rem}.msum .mscat{display:grid;grid-template-columns:12px 1fr auto;gap:10px;align-items:center;font-size:.92rem}.msum .mscat i{width:10px;height:10px;border-radius:50%;background:var(--c)}
+.msum .mstip{font-size:.92rem;line-height:1.45;border-radius:14px;padding:12px 14px;background:color-mix(in srgb,var(--grn,#00C875) 14%,var(--surface))}
+.msum .btn{width:100%}
 </style>
 <style id="skinCss">/* temas pagos: fontes embutidas (funcionam sem internet) */
 @font-face{font-family:"Orbitron";font-style:normal;font-weight:800;font-display:swap;src:url(data:font/woff2;base64,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) format("woff2")}
@@ -1800,16 +1828,15 @@ body.fabx .tabbar .fab .fabl{max-width:90px;margin-left:8px}
     <button class="mlink" data-add="in"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></svg>Adicionar receita</button>
     <button class="mlink mvoice" data-voice><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="3" width="6" height="11" rx="3"/><path d="M5 11a7 7 0 0 0 14 0M12 18v3"/></svg>Lançar por voz</button>
   </section>
-  <section class="quick" data-v="home" id="quickRow"><div class="qhead"><b>Atalhos</b><span>Arraste para o lado →</span></div><div class="qrow">
-    <button type="button" data-add="out" style="--qc:var(--pur2)"><span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="5" width="20" height="14" rx="2"/><path d="M2 10h20M6 15h4"/></svg></span>Novo gasto</button>
-    <button type="button" data-add="in" style="--qc:var(--grn)"><span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="6" width="20" height="12" rx="2"/><circle cx="12" cy="12" r="2.5"/><path d="M6 12h.01M18 12h.01"/></svg></span>Nova receita</button>
+  <section class="quick" data-v="home" id="quickRow"><div class="qhead"><b>Atalhos</b><span id="qHint">Arraste para o lado →</span></div><div class="qrow">
     <button type="button" data-voice style="--qc:#FF5C93"><span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="3" width="6" height="11" rx="3"/><path d="M5 11a7 7 0 0 0 14 0M12 18v3"/></svg></span>Lançar por voz</button>
     <button type="button" id="qOcr" style="--qc:#2F9BFF"><span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 8V6a2 2 0 0 1 2-2h2M16 4h2a2 2 0 0 1 2 2v2M20 16v2a2 2 0 0 1-2 2h-2M8 20H6a2 2 0 0 1-2-2v-2"/><circle cx="12" cy="12" r="3"/></svg></span>Ler comprovante</button>
-    <button type="button" data-open-bk style="--qc:var(--pur2)"><span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l8 3v6c0 5-3.5 8-8 9-4.5-1-8-4-8-9V6z"/><path d="M9 12l2 2 4-4"/></svg></span>Backup</button>
     <button type="button" id="qBox" style="--qc:var(--grn)"><span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 8h16v11a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1z"/><path d="M3 4h18v4H3zM10 12h4"/></svg></span>Nova caixinha</button>
     <button type="button" id="qPrev" style="--qc:#FF9A3D"><span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 17l6-6 4 4 8-8"/><path d="M15 7h6v6"/></svg></span>Previsão do mês</button>
     <button type="button" data-pdf style="--qc:#E0457B"><span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 3H7a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V8z"/><path d="M14 3v5h5M9 13h6M9 17h4"/></svg></span>Relatório PDF</button>
-  </div></section>
+    <button type="button" data-add="out" style="--qc:var(--pur2)"><span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="5" width="20" height="14" rx="2"/><path d="M2 10h20M6 15h4"/></svg></span>Novo gasto</button>
+    <button type="button" data-add="in" style="--qc:var(--grn)"><span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="6" width="20" height="12" rx="2"/><circle cx="12" cy="12" r="2.5"/><path d="M6 12h.01M18 12h.01"/></svg></span>Nova receita</button>
+</div></section>
   <div class="notice" id="bkNote" data-v="home" hidden><span><b>Proteja seus dados.</b> <span id="bkNoteT">Faça backups com frequência para não perder nenhuma informação.</span></span><span style="display:flex;gap:12px"><button class="link" id="bkGo">Fazer backup</button><button class="link" id="bkLater" style="color:var(--muted)">Depois</button></span></div>
   <div class="dash" data-v="home">
     <section class="card msay" id="mSay" data-v="home" aria-label="Resumo em frases" hidden></section>
@@ -1817,7 +1844,24 @@ body.fabx .tabbar .fab .fabl{max-width:90px;margin-left:8px}
     <section class="card dcard" id="dCatCard"><div class="chead"><h2>Para onde está indo</h2><span class="sub" id="dCatSub"></span></div><div id="dCats"></div></section>
   </div>
   <div class="plantab" data-v="plan" id="planTab">
-    <div class="plock" id="pLock"><div><b>A aba Planejar é exclusiva do Premium</b><span>Previsão de fechamento do mês, caixinhas com depósito mensal e alertas de gastos.</span></div><button class="btn sm" data-plans="mais">Ver Premium</button></div>
+        <section class="card" data-v="plan" id="goalCard">
+          <div class="chead"><h2>Meta do mês</h2><button class="link" id="editMeta">Alterar meta</button></div>
+          <div class="goal">
+            <svg class="ring" id="ring" viewBox="0 0 120 120" aria-hidden="true"><circle class="tr" cx="60" cy="60" r="50" fill="none" stroke-width="12"/><circle class="pg" id="ringPg" cx="60" cy="60" r="50" fill="none" stroke-width="12" stroke-linecap="round" stroke-dasharray="314.16" stroke-dashoffset="314.16" transform="rotate(-90 60 60)"/><text id="ringT" x="60" y="62" text-anchor="middle">0%</text><text class="rs" x="60" y="80" text-anchor="middle">DA META</text></svg>
+            <div class="gl2">
+              <div><span>Meta</span><b id="gMeta">R$ 0,00</b></div>
+              <div><span>Gasto</span><b id="gUsed">R$ 0,00</b></div>
+              <div><span id="gLeftL">Disponível</span><b id="gLeft">R$ 0,00</b></div>
+              <div><span>Previsão do mês</span><b id="gFore">R$ 0,00</b></div>
+            </div>
+          </div>
+          <div class="mission">
+            <div class="t"><b>Limite de hoje</b><span class="mono" id="mLimit">R$ 0,00</span></div>
+            <div class="pbar" id="mBar"><div id="mFill"></div></div>
+            <div class="mstate" id="mState">—</div>
+          </div>
+        </section>
+    <div class="plock" id="pLock"><div><b>Veja como fica com o Premium</b><span>Abaixo está um exemplo da previsão do mês, das caixinhas e do alerta de gastos.</span></div><button class="btn sm" data-plans="mais">Conhecer o Premium</button></div>
     <section class="card pcard" id="pPrev"><div class="chead"><h2><span class="pi" style="--c:var(--pmid)"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 17l6-6 4 4 8-8"/><path d="M15 7h6v6"/></svg></span><span class="pt2">Previsão do mês<small id="ppMon"></small></span></h2><span class="pvchip" id="ppChip" hidden></span></div><div id="ppBody"></div></section>
     <section class="pcard pbox" id="pBox"><div class="bxh"><span class="bxi"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 5c-1.5 0-2.8 1.4-3 2-3.5-1.5-11-.3-11 5 0 1.8 0 3 2 4.5V20h4v-2h3v2h4v-4c1-.5 1.7-1 2-2h2v-4h-2c0-1-.5-1.5-1-2z"/><path d="M2 9v1a2 2 0 0 0 2 2h1M16 11h.01"/></svg></span><div><b>Caixinhas &amp; Porquinho</b><small id="pbTot"></small></div><button class="bxnew" id="pbNew">+ Nova</button></div><div id="pbBody"></div></section>
     <section class="card pcard" id="pAl"><div class="chead"><h2><span class="pi" style="--c:#E0901F"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 8a6 6 0 1 1 12 0c0 7 3 9 3 9H3s3-2 3-9"/><path d="M10.3 21a1.94 1.94 0 0 0 3.4 0"/></svg></span>Alerta de gastos</h2></div><div id="paBody"></div></section>
@@ -1887,6 +1931,8 @@ body.fabx .tabbar .fab .fabl{max-width:90px;margin-left:8px}
         <div class="legend" id="legend"></div>
       </section>
 
+      <button type="button" class="card hgo" data-v="report" id="hGo"><span class="hgi"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 12a9 9 0 1 0 3-6.7L3 8"/><path d="M3 3v5h5"/><path d="M12 7v5l3 2"/></svg></span><span class="hgt"><b>Histórico de todos os meses <span class="pro">PRO</span></b><small>Veja os meses anteriores e compare um mês com outro</small></span><span class="hgc" aria-hidden="true">›</span></button>
+      <button type="button" class="hback" data-v="hist" id="hBack">‹ Voltar para Relatórios</button>
       <section class="card plock" data-v="hist" id="histLock" hidden>
         <span class="plcrown"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 8l4.5 4L12 5l4.5 7L21 8l-2 11H5z"/></svg></span>
         <h2>Histórico e comparação de meses</h2>
@@ -1943,23 +1989,7 @@ body.fabx .tabbar .fab .fabl{max-width:90px;margin-left:8px}
       </section>
 
       <div class="three">
-        <section class="card" data-v="report" id="goalCard">
-          <div class="chead"><h2>Meta do mês</h2><button class="link" id="editMeta">Alterar meta</button></div>
-          <div class="goal">
-            <svg class="ring" id="ring" viewBox="0 0 120 120" aria-hidden="true"><circle class="tr" cx="60" cy="60" r="50" fill="none" stroke-width="12"/><circle class="pg" id="ringPg" cx="60" cy="60" r="50" fill="none" stroke-width="12" stroke-linecap="round" stroke-dasharray="314.16" stroke-dashoffset="314.16" transform="rotate(-90 60 60)"/><text id="ringT" x="60" y="62" text-anchor="middle">0%</text><text class="rs" x="60" y="80" text-anchor="middle">DA META</text></svg>
-            <div class="gl2">
-              <div><span>Meta</span><b id="gMeta">R$ 0,00</b></div>
-              <div><span>Gasto</span><b id="gUsed">R$ 0,00</b></div>
-              <div><span id="gLeftL">Disponível</span><b id="gLeft">R$ 0,00</b></div>
-              <div><span>Previsão do mês</span><b id="gFore">R$ 0,00</b></div>
-            </div>
-          </div>
-          <div class="mission">
-            <div class="t"><b>Limite de hoje</b><span class="mono" id="mLimit">R$ 0,00</span></div>
-            <div class="pbar" id="mBar"><div id="mFill"></div></div>
-            <div class="mstate" id="mState">—</div>
-          </div>
-        </section>
+
         <section class="card" data-v="report" id="catCard">
           <div class="chead"><h2>Por categoria</h2><span class="sub" id="catSub"></span></div>
           <div id="catlist"></div>
@@ -1989,7 +2019,7 @@ body.fabx .tabbar .fab .fabl{max-width:90px;margin-left:8px}
           <button data-open="fixos"><span>Gastos e receitas fixos<small>Lançamentos automáticos todo mês</small></span></button>
           <button data-install hidden><span>Instalar o app no celular<small>Baixe para Android ou adicione à tela inicial</small></span></button>
           <button data-pdf><span>Relatório em PDF <span class="pro">PRO</span><small>Relatório completo do período selecionado</small></span></button>
-          <button data-open="backup"><span>Backup<small>Crie, envie e restaure seus dados</small></span></button><button data-open="dados"><span>Planilha e cópia em texto<small>Exporte seus dados em CSV ou texto</small></span></button>
+          <button data-open="backup"><span>Backup<small>Crie, envie e restaure seus dados</small></span></button><button data-lock><span>Bloqueio com senha<small id="lkS">Peça uma senha de 4 números ao abrir o app</small></span></button><button data-open="dados"><span>Planilha e cópia em texto<small>Exporte seus dados em CSV ou texto</small></span></button>
           <button data-open="avisos"><span>Notificações e alertas<small>Lembrete diário, meta, contas do dia e resumo semanal</small></span></button>
           <button data-open="aparencia"><span>Cores e aparência<small>Paletas prontas ou cores personalizadas</small></span></button>
           <button data-help hidden><span>Ajuda e suporte<small id="mHelpS">Fale conosco por e-mail</small></span></button>
@@ -2181,7 +2211,7 @@ body.fabx .tabbar .fab .fabl{max-width:90px;margin-left:8px}
   <button data-tab="plan"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="8"/><circle cx="12" cy="12" r="4"/><circle cx="12" cy="12" r="1" fill="currentColor"/></svg>Planejar</button>
   <button class="fab" id="fab" aria-label="Novo lançamento"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></svg><span class="fabl">Lançar</span></button>
   <button data-tab="report"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M4 20V10M10 20V4M16 20v-7M22 20H2"/></svg>Relatórios</button>
-  <button data-tab="hist"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 12a9 9 0 1 0 3-6.7L3 8"/><path d="M3 3v5h5"/><path d="M12 7v5l3 2"/></svg>Histórico</button>
+  <button data-tab="more"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 6h10M18 6h2M4 12h4M12 12h8M4 18h12"/><circle cx="16" cy="6" r="2"/><circle cx="10" cy="12" r="2"/><circle cx="18" cy="18" r="2"/></svg>Ajustes</button>
 </nav>
 <div class="toast" id="toast" role="status" aria-live="polite"><span id="toastMsg"></span><button id="toastBtn" hidden>Desfazer</button></div>
 
@@ -2193,7 +2223,7 @@ var APP_NAME="Gastei";
 var KEY="gastei.v1";
 /* Versão do app e do formato dos dados. A cada versão nova: aumente APP_VER.
    Mudou o formato dos dados? aumente DATA_VER e escreva a conversão em migrate(). Nunca apague dados antigos. */
-var APP_VER="44",DATA_VER=2,UPD=null;
+var APP_VER="45",DATA_VER=2,UPD=null;
 var DEFAULT_CATS=[
   {k:"alimentacao",n:"Alimentação",c:"#E8792B"},{k:"mercado",n:"Mercado",c:"#1F9D62"},{k:"transporte",n:"Transporte",c:"#2F7FE0"},
   {k:"casa",n:"Casa",c:"#8B5CF6"},{k:"contas",n:"Contas",c:"#C99A06"},{k:"saude",n:"Saúde",c:"#E0457B"},
@@ -2857,8 +2887,8 @@ var MQ={matches:true};
 function mobile(){return MQ.matches}
 function buzz(ms){try{if(navigator.vibrate)navigator.vibrate(ms)}catch(e){}}
 function setTab(t){
-  document.body.dataset.tab=t;
-  $$(".tabbar [data-tab]").forEach(function(b){if(b.dataset.tab===t)b.setAttribute("aria-current","page");else b.removeAttribute("aria-current")});
+  document.body.dataset.tab=t;var tt=t==="hist"?"report":t;
+  $$(".tabbar [data-tab]").forEach(function(b){if(b.dataset.tab===tt)b.setAttribute("aria-current","page");else b.removeAttribute("aria-current")});
   if(!mobile())return;
   window.scrollTo(0,0);
   if(t==="report"){animBars=true;drawChart(range(mode,anchor))}
@@ -2925,11 +2955,11 @@ MQ.addEventListener&&MQ.addEventListener("change",function(){closeSheet();drawCh
       if(lock==="x"){lx=mx<0?-8:8;els=targets();els.forEach(function(el){stopAnims(el);el.style.transition="none";el.style.willChange="transform,opacity"})}}
     if(lock!=="x")return;if(e.cancelable)e.preventDefault();
     samp.push({x:cx,t:now});while(samp.length>2&&now-samp[0].t>90)samp.shift();
-    var i=ORDER.indexOf(cur()),edge=(mx<0&&i>=ORDER.length-1)||(mx>0&&i<=0);dx=mx;
+    var i=ORDER.indexOf(cur()==="hist"?"report":cur()),edge=(mx<0&&i>=ORDER.length-1)||(mx>0&&i<=0);dx=mx;
     var vx=Math.abs(mx)>8?mx-lx:0;setX(edge?vx/(1+Math.abs(vx)/90)*.6:vx)},{passive:false});
   function end(){if(!on)return;on=false;if(lock!=="x")return;
     if(raf){cancelAnimationFrame(raf);raf=0}if(pend!==null)paint();
-    var i=ORDER.indexOf(cur()),v=vel(),w=W(),dir=dx<0?-1:1,n=dx<0?i+1:i-1,old=els;els=[];
+    var i=ORDER.indexOf(cur()==="hist"?"report":cur()),v=vel(),w=W(),dir=dx<0?-1:1,n=dx<0?i+1:i-1,old=els;els=[];
     var flick=Math.abs(v)>.3&&Math.abs(dx)>20&&(v<0)===(dx<0),go=(Math.abs(dx)>w*.3||flick)&&n>=0&&n<ORDER.length;
     var from=old.length?old[0].style.transform||"none":"none",fo=old.length?+(old[0].style.opacity||1):1;
     if(REDUCED){clear(old);if(go){setTab(ORDER[n]);buzz(6)}return}
@@ -3603,9 +3633,10 @@ function drawPlanPrev(){var f=forecast(),t=today(),dim=new Date(t.getFullYear(),
   h+='<button type="button" class="pvmore">Ver detalhes da previsão ›</button>';
   $("#ppBody").innerHTML=h}
 var boxFormOpen=false;
-function drawPlanBoxes(){drawGoalSheet($("#pbBody"));var f=$("#goalForm",$("#pbBody"));if(f)f.hidden=!(boxFormOpen||!S.goals.length)}
+var EXBOX=function(){var t=today(),m=function(k){return iso(addMonths(t,k,10))};return[{id:"ex1",n:"Viagem de férias",target:600000,due:m(8),h:[{d:m(-3),v:120000},{d:m(-2),v:60000},{d:m(-1),v:60000}],mon:60000,auto:true,lastAuto:iso(t).slice(0,7)},{id:"ex2",n:"Reserva de emergência",target:1000000,due:"",h:[{d:m(-4),v:250000},{d:m(-1),v:170000}],mon:50000,auto:false}]};
+function drawPlanBoxes(){if(!isPrem()){var keep=S.goals;S.goals=EXBOX();try{drawGoalSheet($("#pbBody"))}finally{S.goals=keep}var ff=$("#goalForm",$("#pbBody"));if(ff)ff.hidden=true;return}drawGoalSheet($("#pbBody"));var f=$("#goalForm",$("#pbBody"));if(f)f.hidden=!(boxFormOpen||!S.goals.length)}
 var ACH=[0,50,60,70,75,80,90,100];
-function drawPlanAlert(){var m=monthNow(),pc=m.inc?Math.round(m.out/m.inc*100):0,a=S.alertPct||0;
+function drawPlanAlert(){var m=monthNow(),pc=m.inc?Math.round(m.out/m.inc*100):0,a=isPrem()?S.alertPct||0:80;
   var h='<div class="phero"><span>'+(m.inc?'Você já gastou':'Registre sua receita para acompanhar')+'</span>'+(m.inc?'<b class="'+(a&&pc>=a?"neg":"pos")+'">'+pc+'% <small style="font-size:.9rem">do que entrou</small></b>':'')+
     '<div class="pbar"><i class="nw" style="width:'+Math.min(100,pc)+'%;background:'+(a&&pc>=a?"var(--bad)":"var(--primary)")+'"></i>'+(a?'<span class="mk" style="left:calc('+a+'% - 1.5px)"></span>':'')+'</div>'+
     '<small>'+(a?'Seu alerta está em '+a+'%. '+(m.inc?(pc>=a?'Você já passou desse ponto.':'Faltam '+brl(Math.max(0,Math.round(m.inc*a/100)-m.out))+' para chegar lá.'):''):'Escolha abaixo quando quer ser avisado.')+'</small></div>'+
@@ -3895,6 +3926,82 @@ $("#skBarEnd").addEventListener("click",function(){clearInterval(skPrevT);skPrev
 $$("[data-skins]").forEach(function(b){b.addEventListener("click",function(){openSkins()})});
 $("#palSeg").addEventListener("click",function(e){if(e.target.closest("[data-pal]")&&S.skin){S.skin="";save();applySkin()}},true);
 document.addEventListener("keydown",function(e){if(e.key==="Escape"&&!$("#skDlg").hidden)closeSkins()});
+/* ---------- v45: layout revisado ---------- */
+/* atalhos: a dica "Arraste para o lado" aparece só até a primeira vez que a pessoa arrasta */
+(function(){var q=$("#quickRow .qrow"),h=$("#qHint");if(!q||!h)return;
+  q.addEventListener("scroll",function(){if(h.hidden)return;h.hidden=true;S.tips=S.tips||{};if(!S.tips.qswipe){S.tips.qswipe=1;save()}},{passive:true})})();
+function drawQHint(){var h=$("#qHint");if(h)h.hidden=!!(S.tips&&S.tips.qswipe)}
+/* Histórico agora fica dentro de Relatórios */
+$("#hGo").addEventListener("click",function(){setTab("hist");buzz(5)});
+$("#hBack").addEventListener("click",function(){setTab("report");buzz(5)});
+/* segurar um lançamento repete ele hoje */
+(function(){var L=$("#list"),tm=0,x0=0,y0=0,fired=false;if(!L)return;
+  function stop(){clearTimeout(tm);tm=0}
+  L.addEventListener("touchstart",function(e){fired=false;var it=e.target.closest(".item");if(!it||e.target.closest("button"))return;x0=e.touches[0].clientX;y0=e.touches[0].clientY;stop();
+    tm=setTimeout(function(){tm=0;var r=it.querySelector("[data-r]");if(!r)return;fired=true;buzz(18);dup(r.dataset.r)},550)},{passive:true});
+  L.addEventListener("touchmove",function(e){if(tm&&(Math.abs(e.touches[0].clientX-x0)>10||Math.abs(e.touches[0].clientY-y0)>10))stop()},{passive:true});
+  L.addEventListener("touchend",stop,{passive:true});L.addEventListener("touchcancel",stop,{passive:true});
+  L.addEventListener("contextmenu",function(e){if(e.target.closest(".item"))e.preventDefault()});
+  L.addEventListener("click",function(e){if(fired){fired=false;e.stopPropagation();e.preventDefault()}},true)})();
+if(typeof TIPS!=="undefined"&&TIPS.list)TIPS.list[1]="Toque em um lançamento para editá-lo. Segure o dedo sobre ele para repetir o mesmo lançamento hoje. Para excluir, deslize para a esquerda; você poderá desfazer logo em seguida.";
+(function(){var sh=$(".swipehint");if(sh)sh.textContent="Toque para editar, segure para repetir hoje ou deslize para a esquerda para excluir."})();
+
+/* ---------- bloqueio com senha de 4 dígitos ---------- */
+var LK={mode:"",buf:"",first:"",away:0};
+function pinHash(pin,salt){var str="gastei|"+salt+"|"+pin;
+  if(window.crypto&&crypto.subtle&&window.TextEncoder)return crypto.subtle.digest("SHA-256",new TextEncoder().encode(str)).then(function(b){return Array.prototype.map.call(new Uint8Array(b),function(x){return("0"+x.toString(16)).slice(-2)}).join("")});
+  var h1=0x811c9dc5,h2=0x1b873593;for(var i=0;i<str.length;i++){h1=Math.imul(h1^str.charCodeAt(i),16777619);h2=Math.imul(h2^str.charCodeAt(i),2246822507)}
+  return Promise.resolve("f"+(h1>>>0).toString(16)+(h2>>>0).toString(16))}
+var LOGO='<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="11" width="14" height="10" rx="2"/><path d="M8 11V8a4 4 0 0 1 8 0v3"/></svg>';
+var lockEl=document.createElement("div");lockEl.className="lock";lockEl.id="lockScr";lockEl.hidden=true;lockEl.setAttribute("role","dialog");lockEl.setAttribute("aria-modal","true");
+lockEl.innerHTML='<div class="lk"><span class="lklogo">'+LOGO+'</span><h2 id="lkT">Digite sua senha</h2><p id="lkM"></p><div class="dots" id="lkD"><i></i><i></i><i></i><i></i></div><div class="lkeys" id="lkK">'+
+  [1,2,3,4,5,6,7,8,9].map(function(n){return'<button type="button" data-n="'+n+'">'+n+'</button>'}).join("")+'<button type="button" class="lkx" data-x="cancel">Cancelar</button><button type="button" data-n="0">0</button><button type="button" class="lkx" data-x="back" aria-label="Apagar">⌫</button></div><button type="button" class="lkalt" id="lkF">Esqueci a senha</button></div>';
+document.body.appendChild(lockEl);
+function lkDraw(msg,bad){$$("#lkD i").forEach(function(d,i){d.classList.toggle("on",i<LK.buf.length)});var m=$("#lkM");m.textContent=msg||"";m.className=bad?"bad":"";
+  $("#lkT").textContent={open:"Digite sua senha",set:"Crie uma senha de 4 números",confirm:"Digite a senha de novo",off:"Digite a senha atual"}[LK.mode]||"";
+  $('#lkK [data-x="cancel"]').style.visibility=LK.mode==="open"?"hidden":"visible";$("#lkF").hidden=LK.mode!=="open"}
+function lockShow(mode,msg){LK.mode=mode;LK.buf="";lockEl.hidden=false;lkDraw(msg);try{document.activeElement&&document.activeElement.blur()}catch(e){}}
+function lockHide(){lockEl.hidden=true;LK.mode="";LK.buf=""}
+function lkBad(msg){var d=$("#lkD");d.classList.remove("shake");void d.offsetWidth;d.classList.add("shake");buzz(40);LK.buf="";lkDraw(msg,true)}
+function lkDone(){var pin=LK.buf;
+  if(LK.mode==="set"){LK.first=pin;LK.mode="confirm";LK.buf="";lkDraw("");return}
+  if(LK.mode==="confirm"){if(pin!==LK.first){LK.mode="set";lkBad("As senhas não são iguais. Tente novamente.");return}
+    var salt=uid();pinHash(pin,salt).then(function(h){S.pin={h:h,s:salt};save();lockHide();drawLockRow();toast("Senha ativada. Ela será pedida sempre que você abrir o app")});return}
+  if(!S.pin){lockHide();return}
+  pinHash(pin,S.pin.s).then(function(h){if(h!==S.pin.h){lkBad("Senha incorreta");return}
+    if(LK.mode==="off"){delete S.pin;save();lockHide();drawLockRow();toast("Senha desativada");return}
+    lockHide()})}
+$("#lkK").addEventListener("click",function(e){var b=e.target.closest("button");if(!b)return;
+  if(b.dataset.x==="cancel"){if(LK.mode!=="open")lockHide();return}
+  if(b.dataset.x==="back"){LK.buf=LK.buf.slice(0,-1);lkDraw();return}
+  if(b.dataset.n!=null&&LK.buf.length<4){LK.buf+=b.dataset.n;buzz(5);lkDraw();if(LK.buf.length===4)setTimeout(lkDone,120)}});
+$("#lkF").addEventListener("click",function(){lkDraw("Por segurança, a senha não pode ser recuperada. Para voltar a usar o app, reinstale o Gastei e restaure o seu último backup em Ajustes › Backup.",false)});
+document.addEventListener("keydown",function(e){if(lockEl.hidden)return;if(/^[0-9]$/.test(e.key)){var b=$('#lkK [data-n="'+e.key+'"]');b&&b.click()}else if(e.key==="Backspace"){$('#lkK [data-x="back"]').click()}});
+document.addEventListener("visibilitychange",function(){if(!S.pin)return;if(document.visibilityState==="hidden")LK.away=Date.now();else if(LK.away&&Date.now()-LK.away>30000&&lockEl.hidden)lockShow("open")});
+function drawLockRow(){var s=$("#lkS");if(s)s.textContent=S.pin?"Ativado: a senha é pedida ao abrir o app":"Peça uma senha de 4 números ao abrir o app"}
+$$("[data-lock]").forEach(function(b){b.addEventListener("click",function(){if(S.pin)lockShow("off");else lockShow("set","Se você esquecer a senha, só poderá voltar a usar o app reinstalando e restaurando um backup.")})});
+function lockBoot(){drawLockRow();drawQHint();if(S.pin&&S.pin.h)lockShow("open")}
+
+/* ---------- resumo do mês que passou (aparece uma vez, nos primeiros dias do mês) ---------- */
+function monthSum(force){var t=today(),a=new Date(t.getFullYear(),t.getMonth()-1,1),b=new Date(t.getFullYear(),t.getMonth(),0),a0=new Date(t.getFullYear(),t.getMonth()-2,1),b0=new Date(t.getFullYear(),t.getMonth()-1,0);
+  var ai=iso(a),bi=iso(b),mine=S.items.filter(function(x){return x.d>=ai&&x.d<=bi&&(force||!x.ex)});
+  if(!force&&mine.length<3)return false;
+  var out=0,inc=0,cats={};mine.forEach(function(x){if(isOut(x)){out+=x.v;cats[x.c]=(cats[x.c]||0)+x.v}else inc+=x.v});
+  var prevOut=sumRange(a0,b0).t,net=inc-out,top=Object.keys(cats).sort(function(p,q){return cats[q]-cats[p]}).slice(0,3);
+  var cmp=prevOut?Math.round((out-prevOut)/prevOut*100):null,mn=MOL[a.getMonth()];
+  var h='<div class="msum"><div class="mshero"><span>Em '+mn+' sobrou</span><b class="mono">'+(net<0?"- ":"")+brl(Math.abs(net))+'</b><small>'+(inc?(net>=0?"Você guardou "+Math.round(net/inc*100)+"% do que entrou":"Os gastos passaram do que entrou"):"Nenhuma receita registrada no mês")+'</small></div>'+
+    '<div class="msrow"><div><span>Entrou</span><b class="mono pos">'+brl(inc)+'</b></div><div><span>Saiu</span><b class="mono neg">'+brl(out)+'</b></div></div>';
+  if(top.length)h+='<h3>Onde você mais gastou</h3>'+top.map(function(k){var c=CAT(k);return'<div class="mscat" style="--c:'+esc(c.c)+'"><i></i><span>'+esc(c.n)+'</span><b class="mono">'+brl(cats[k])+'</b></div>'}).join("");
+  var tip=cmp===null?"Continue registrando seus gastos para comparar um mês com o outro.":cmp<=0?"Você gastou "+Math.abs(cmp)+"% a menos do que no mês anterior. Muito bem!":"Você gastou "+cmp+"% a mais do que no mês anterior. Veja em Relatórios onde dá para economizar.";
+  h+='<div class="mstip">'+tip+'</div><button type="button" class="btn" id="msGo">Ver relatório de '+mn+'</button></div>';
+  $("#dTitle").textContent="Resumo de "+mn;$("#dBody").innerHTML=h;$("#dSheet").hidden=false;
+  $("#msGo").addEventListener("click",function(){$("#dSheet").hidden=true;mode="mes";anchor=a;listLimit=30;setTab("report");render()});
+  return true}
+function monthSumBoot(){var t=today(),ym=iso(t).slice(0,7);if(S.sumSeen===ym)return;
+  if(t.getDate()>10){S.sumSeen=ym;save();return}
+  setTimeout(function(){if(!lockEl.hidden||!$("#welcome").hidden||anyModal()){var w=setInterval(function(){if(lockEl.hidden&&$("#welcome").hidden&&!anyModal()){clearInterval(w);if(monthSum()){S.sumSeen=ym;save()}}},1500);return}
+    if(monthSum()){S.sumSeen=ym;save()}},1400)}
+window.__v45={monthSum:monthSum,lockShow:lockShow};
 document.body.dataset.tab="home";
 var had=load();if(!S.rem)S.rem={on:false,h:20,m:0};if(!S.alertDone)S.alertDone={};if(!S.cards)S.cards=[];if(!S.goals)S.goals=[];if(!S.ntf)S.ntf={meta:1,fix:1,week:1,box:1,bk:1};if(!S.metaDone)S.metaDone={};if(S.alertPct==null)S.alertPct=0;if(!S.lookV2){S.lookV2=1;S.pal="neon";save()}if(!S.trial){S.trial=Date.now();save()}applyAutoBoxes();applyRecurring();applyTheme();setTimeout(function(){scheduleReminder(false);checkLaunch()},600);
 /* depois de instalar uma versão nova por cima: salva um arquivo de segurança e avisa que está tudo aqui */
@@ -3905,6 +4012,7 @@ if(!had&&!S.items.length)S.items=demo();
 drawCats();resetForm();render();
 if(S.trial&&!isPrem()&&!S.trialEndSeen&&S.onboarded){S.trialEndSeen=1;save();setTimeout(function(){openPlans("fim")},900)}
 if(!S.onboarded){$("#welcome").hidden=false;wGo(0)}
+lockBoot();monthSumBoot();
 })();
 </script>
 
