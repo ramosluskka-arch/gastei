@@ -29,11 +29,17 @@ import java.util.Map;
  * Produtos que precisam existir no Play Console:
  *   - assinatura "gastei_premium" com os planos básicos "mensal" e "anual"
  *   - produto único "gastei_vitalicio"
+ *   - temas (produto único cada): gastei_tema_cyber, gastei_tema_natureza, gastei_tema_rosa,
+ *     gastei_tema_retro, gastei_tema_ouro, gastei_tema_oceano, gastei_tema_galaxia,
+ *     gastei_tema_vulcao, gastei_tema_doce, gastei_tema_cafe
+ *   - pacote de 4 temas (produto único): gastei_temas_pacote4
  */
 @CapacitorPlugin(name = "GasteiBilling")
 public class GasteiBillingPlugin extends Plugin implements PurchasesUpdatedListener {
   static final String SUB = "gastei_premium";
   static final String LIFE = "gastei_vitalicio";
+  static final String[] THEMES = {"cyber", "natureza", "rosa", "retro", "ouro", "oceano", "galaxia", "vulcao", "doce", "cafe"};
+  static final String PACK = "gastei_temas_pacote4";
   private BillingClient client;
   private PluginCall pendingBuy;
   private final Map<String, ProductDetails> details = new HashMap<>();
@@ -69,11 +75,21 @@ public class GasteiBillingPlugin extends Plugin implements PurchasesUpdatedListe
     return QueryProductDetailsParams.newBuilder().setProductList(list).build();
   }
 
+  private QueryProductDetailsParams inappParams() {
+    List<QueryProductDetailsParams.Product> list = new ArrayList<>();
+    list.add(QueryProductDetailsParams.Product.newBuilder().setProductId(LIFE).setProductType(BillingClient.ProductType.INAPP).build());
+    list.add(QueryProductDetailsParams.Product.newBuilder().setProductId(PACK).setProductType(BillingClient.ProductType.INAPP).build());
+    for (String t : THEMES) {
+      list.add(QueryProductDetailsParams.Product.newBuilder().setProductId("gastei_tema_" + t).setProductType(BillingClient.ProductType.INAPP).build());
+    }
+    return QueryProductDetailsParams.newBuilder().setProductList(list).build();
+  }
+
   @PluginMethod
   public void products(final PluginCall call) {
     ready(call, () -> client.queryProductDetailsAsync(params(SUB, BillingClient.ProductType.SUBS), (r1, res1) -> {
       final List<ProductDetails> subs = res1.getProductDetailsList();
-      client.queryProductDetailsAsync(params(LIFE, BillingClient.ProductType.INAPP), (r2, res2) -> {
+      client.queryProductDetailsAsync(inappParams(), (r2, res2) -> {
         JSArray plans = new JSArray();
         for (ProductDetails pd : subs) {
           details.put(pd.getProductId(), pd);
@@ -98,7 +114,7 @@ public class GasteiBillingPlugin extends Plugin implements PurchasesUpdatedListe
           if (o == null) continue;
           JSObject p = new JSObject();
           p.put("id", pd.getProductId());
-          p.put("plan", "vitalicio");
+          p.put("plan", LIFE.equals(pd.getProductId()) ? "vitalicio" : "tema");
           p.put("token", "");
           p.put("price", o.getFormattedPrice());
           plans.put(p);

@@ -2,7 +2,7 @@
 
 Todas as atualizações do app, da mais antiga para a mais nova.
 
-Versão atual: **v42** (27/11/2026).
+Versão atual: **v43** (28/11/2026).
 
 ## 23/11/2026
 
@@ -176,3 +176,11 @@ Versão atual: **v42** (27/11/2026).
 - O APK passa a ser sempre assinado com a mesma chave do Gastei (sem ela, nada é publicado).
 - Antes de atualizar, o app guarda uma cópia dos dados e salva o arquivo gastei-antes-da-atualizacao.json em Documentos/Gastei.
 - Se os dados estiverem danificados, o app guarda uma cópia e volta para a última versão boa.
+
+## 28/11/2026
+
+### v43 · Temas
+- Loja de temas em Mais › Temas: 10 temas que mudam o app inteiro (cores, fundo, ícones e animações): Cyber Neon, Floresta, Rosa Choque, Retrô 80, Ouro, Oceano, Galáxia, Vulcão, Doce e Café.
+- Cada tema custa R$ 4,99, ou 4 temas à sua escolha por R$ 10. Os temas são comprados à parte e não fazem parte do Premium.
+- Prévia grátis de 15 segundos antes de comprar.
+- Compra pelo Google Play no Android e por código de ativação no PC.
