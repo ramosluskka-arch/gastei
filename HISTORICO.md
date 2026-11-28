@@ -203,3 +203,8 @@ Versão atual: **v44** (28/11/2026).
 ### v46 · Caixinhas mais organizadas
 - O formulário de nova caixinha só aparece quando você toca em "+ Nova" ou em "Criar minha primeira caixinha".
 - Visual novo: tela vazia com ícone e texto curto, formulário em cartão com botão de fechar e Cancelar.
+
+### v47 · Textos no lugar
+- "Nenhum gasto nos últimos 7 dias" não fica mais espremido nem sai do cartão.
+- O botão + não cobre mais o texto de "Últimos lançamentos" quando não há lançamentos.
+- No tema Retrô, o cartão do saldo não passa mais da borda da tela.

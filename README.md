@@ -12,6 +12,6 @@ Funciona como app no celular (abra o link e escolha "Adicionar à tela inicial")
 
 ## Novidades
 
-Versão atual: **v46** (28/11/2026): caixinhas com visual novo; o formulário de nova caixinha só aparece quando você toca em "+ Nova".
+Versão atual: **v47** (28/11/2026): correção de textos espremidos e cortados no Início.
 
 Todas as atualizações em ordem: [HISTORICO.md](HISTORICO.md) ou a página [Novidades](https://ramosluskka-arch.github.io/gastei/novidades.html).
