@@ -199,3 +199,7 @@ Versão atual: **v44** (28/11/2026).
 - Segurar um lançamento repete ele hoje.
 - Bloqueio do app com senha de 4 números.
 - Resumo do mês que passou nos primeiros dias de cada mês.
+
+### v46 · Caixinhas mais organizadas
+- O formulário de nova caixinha só aparece quando você toca em "+ Nova" ou em "Criar minha primeira caixinha".
+- Visual novo: tela vazia com ícone e texto curto, formulário em cartão com botão de fechar e Cancelar.
